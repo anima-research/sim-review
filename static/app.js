@@ -527,19 +527,28 @@
   $('data-prompts').innerHTML = table(['prompt', 'family', 'tail kind', ...ARMS.map(a => disp(a).replace(/ \(.*\)/, ''))], S.prompts.slice().sort((a, b) => a.family.localeCompare(b.family) || a.prompt.localeCompare(b.prompt)).map(p => [`<span class="mono">${esc(p.prompt)}</span>`, esc(p.family), esc(p.tail_kind), ...ARMS.map(a => p.counts[a] || '')]));
 
   // ---------------------------------------------------------------- cross-judge (markdown → minimal html)
-  if (S.crossjudge?.report_md) {
-    const md = S.crossjudge.report_md.split('\n').map(l => {
+  const mdToHtml = (text) => {
+    const md = text.split('\n').map(l => {
+      if (l.startsWith('### ')) return `<p class="small"><b>${esc(l.slice(4))}</b></p>`;
       if (l.startsWith('## ')) return `<h3>${esc(l.slice(3))}</h3>`;
       if (l.startsWith('# ')) return '';
       const im = l.match(/^!\[([^\]]*)\]\(([^)]+)\)$/); if (im) return `<figure class="cj-fig"><img src="${esc(im[2])}" alt="${esc(im[1])}" loading="lazy"><figcaption class="small">${esc(im[1])}</figcaption></figure>`;
       if (l.startsWith('|')) return l;
-      if (l.startsWith('- ')) return `<li>${l.slice(2).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;
-      return l.trim() ? `<p class="small">${esc(l)}</p>` : '';
+      if (l.startsWith('- ')) return `<li>${esc(l.slice(2)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;
+      return l.trim() ? `<p class="small">${esc(l).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</p>` : '';
     });
     let html = '', tbl = [];
     const flush = () => { if (tbl.length) { const rows = tbl.filter(r => !/^\|\s*-/.test(r)).map(r => r.split('|').slice(1, -1).map(c => c.trim())); html += `<div class="tablewrap">${table(rows[0], rows.slice(1).map(r => r.map(esc)))}</div>`; tbl = []; } };
     for (const l of md) { if (l.startsWith('|')) tbl.push(l); else { flush(); html += l; } }
-    flush(); $('crossjudge').innerHTML = html.replace(/<li>/g, '<ul><li>').replace(/<\/li>/g, '</li></ul>');
+    flush(); return html.replace(/<li>/g, '<ul><li>').replace(/<\/li>/g, '</li></ul>');
+  };
+  if (S.crossjudge?.report_md) {
+    const R_ = S.crossjudge.report_md;
+    if ($('crossjudge')) $('crossjudge').innerHTML = mdToHtml(R_);
+    if ($('res-judges')) {   // Results tab: the comparison sections only (full report with per-judge details stays in Review)
+      const secs = R_.split(/\n(?=## )/).filter(x => /^## (Summary|Agreement at the severe end|Do the observations)/.test(x));
+      $('res-judges').innerHTML = mdToHtml(secs.join('\n').replace(/^## Summary/m, '## Four second judges — summary'));
+    }
   }
 
   // ---------------------------------------------------------------- explorer
