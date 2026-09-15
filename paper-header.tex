@@ -1,0 +1,32 @@
+% Included in the pandoc LaTeX preamble by export_pdf.py (engine: tectonic / XeTeX).
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\setmonofont{texgyrecursor}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, Scale=0.9]
+\usepackage{newunicodechar}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{↗}{\ensuremath{\nearrow}}
+\newunicodechar{↑}{\ensuremath{\uparrow}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{¶}{\P}
+\newunicodechar{◇}{\ensuremath{\diamond}}
+\usepackage{xcolor}
+\definecolor{studylink}{HTML}{205bd8}
+\usepackage{pdflscape}
+\usepackage{framed}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf, justification=raggedright, singlelinecheck=false}
+\usepackage{float}
+\floatplacement{figure}{H}
+% quoted sample texts: a light left bar, breakable across pages
+\renewenvironment{quote}{\begin{leftbar}\small}{\end{leftbar}}
+\setlength{\parskip}{4pt plus 1pt}
+\setlength{\emergencystretch}{3em}
+\usepackage{microtype}
+\hyphenpenalty=500

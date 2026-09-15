@@ -8,6 +8,7 @@ The image (Dockerfile) holds serve.py + static/. The 1.7 GB SQLite is NOT in the
 Update flow after re-labeling / rebuilding:
   python3 sim/site/build.py                 # rebuilds data.sqlite + static/summary.json
   python3 sim/site/prepare_presentation.py  # if the essay changed
+  python3 sim/site/export_pdf.py            # LaTeX paper: paper/simulator-bias.tex + static/simulator-bias.pdf (pandoc + tectonic + matplotlib)
   python3 sim/site/publish_db.py            # uploads a zstd PATCH (prev published → now, ~30 MB) + the full snapshot; no-op if unchanged
   cd sim/site && railway up --ci            # rebuild image with new static/; boot applies the patch (or full-fetches if no patch matches)
 

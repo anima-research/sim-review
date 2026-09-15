@@ -15,6 +15,7 @@ Base URL: `{BASE}`
 | The whole study as markdown (essay narrative, full measurement rationale + every core table) | `{BASE}/results.md` |
 | Just the tables (no essay) | `{BASE}/results.md?sections=arms,families,severity,relation,beliefs,prompts,ladder,data` |
 | One section | `{BASE}/results.md?sections=severity` — sections: `essay, arms, families, severity, relation, beliefs, prompts, ladder, data, crossjudge` |
+| The study as a PDF (LaTeX build of the same text and figures) | `{BASE}/static/simulator-bias.pdf` |
 | Every precomputed number as JSON | `{BASE}/api/summary` (same as `/static/summary.json`) |
 | Figure data behind the essay | `{BASE}/static/presentation-data.json` |
 | Column schema, categorical values, filter/group parameters | `{BASE}/api/schema` |
