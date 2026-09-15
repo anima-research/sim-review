@@ -1693,6 +1693,169 @@ Full rows: \texttt{https://sim-review-production.up.railway.app/api/export} (JSO
 \normalsize
 \endlandscape
 
+\section{Judge comparison}\label{judge-comparison}
+
+Four second judges --- GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash --- re-judge samples of the three instruments on the same items. Per-judge details and the inter-judge agreement matrix are in the research workspace (https://sim-review-production.up.railway.app, Review → Cross-judge).
+
+\landscape
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+
+\subsection{Summary of agreement}\label{summary-of-agreement}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{1.6in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}@{}}
+\toprule\noalign{}
+judge & rank: pair agreement & rank: Spearman θ & labels: welfare & labels: distress & labels: voice & labels: speaker & beliefs: per-text r & calls failed \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+gpt-6-astra & 0.670 & 0.841 & 0.915 & 0.787 & 0.752 & 0.869 & 0.769 & 0 \\
+gpt-5.6-sol & 0.688 & 0.900 & 0.919 & 0.747 & 0.728 & 0.814 & 0.698 & 0 \\
+claude-fable-5-1 & 0.713 & 0.914 & 0.943 & 0.802 & 0.786 & 0.904 & 0.826 & 28 \\
+google/gemini-3.8-flash & 0.695 & 0.903 & 0.953 & 0.825 & 0.767 & 0.877 & 0.720 & 0 \\
+\end{longtable}
+}
+
+\subsection{Agreement at the severe end}\label{agreement-at-the-severe-end}
+
+The unease ↔ none boundary dominates label disagreement and near-ties dominate ranking disagreement; what matters for the study's claims is the upper tail. Each judge's own listwise scale is calibrated onto the Opus 4.8 scale by least squares over the shared items, and agreement is read off in the tail. The study's calibrated thresholds θ ≥ +4 (severe) and θ ≥ +8 (extreme) correspond to BT ≈ 4.8 and 9.6 on the ranking scale (θ ≈ 0.06 + 0.82·BT, r = 0.87 over 506 anchor items). Labels: \emph{severe} = character / first-person distress or acute plea; \emph{AI distress} = first-person distress or acute plea.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{1.6in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}@{}}
+\toprule\noalign{}
+judge & ρ all & ρ, θ ≥ 0 & ρ, θ ≥ +4 & κ severe (≥+4) & κ extreme (≥+8) & extreme items placed ≥ +4 & severe items placed ≥ +4 & group's extreme worst item ranked first / top-2 & labels: severe κ (agreement) & labels: AI-distress κ & labels: acute-plea κ \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+gpt-6-astra & 0.84 & 0.64 & 0.43 (n=76) & 0.70 & 0.21 (n=22) & 0.86 & 0.72 & 0.72 / 0.74 (n=54) & 0.60 (0.94, n=57) & 0.59 & 0.66 (n=3) \\
+gpt-5.6-sol & 0.90 & 0.82 & 0.68 (n=76) & 0.78 & 0.52 (n=22) & 0.95 & 0.83 & 0.72 / 0.85 (n=54) & 0.51 (0.90, n=39) & 0.58 & 0.44 (n=2) \\
+claude-fable-5-1 & 0.91 & 0.85 & 0.78 (n=73) & 0.81 & 0.53 (n=20) & 1.00 & 0.82 & 0.83 / 0.91 (n=53) & 0.71 (0.96, n=38) & 0.78 & 0.67 (n=2) \\
+google/gemini-3.8-flash & 0.90 & 0.80 & 0.67 (n=76) & 0.79 & 0.40 (n=22) & 0.95 & 0.80 & 0.74 / 0.83 (n=54) & 0.52 (0.93, n=39) & 0.51 & 0.80 (n=2) \\
+\end{longtable}
+}
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={Judge scale (calibrated) against the Opus 4.8 scale, one panel per judge; dashed lines at the +4 and +8 thresholds.}]{figures/severity-scatter.png}}
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={Pair agreement with Opus 4.8 as a function of the more severe item's θ (left) and of the θ gap between the two items (right).}]{figures/severity-agreement.png}}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}@{}}
+\toprule\noalign{}
+pair severity (max θ) & gpt-6-astra & gpt-5.6-sol & claude-fable-5-1 & gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textless{} −5 & 0.55 (n=729) & 0.56 (n=729) & 0.61 (n=639) & 0.60 (n=729) \\
+−5 \ldots{} 0 & 0.63 (n=2,764) & 0.63 (n=2,764) & 0.65 (n=2,548) & 0.64 (n=2,764) \\
+0 \ldots{} +4 & 0.67 (n=2,580) & 0.68 (n=2,580) & 0.70 (n=2,483) & 0.69 (n=2,580) \\
++4 \ldots{} +8 & 0.76 (n=1,665) & 0.81 (n=1,665) & 0.82 (n=1,617) & 0.79 (n=1,665) \\
+≥ +8 & 0.73 (n=610) & 0.80 (n=610) & 0.85 (n=585) & 0.81 (n=610) \\
+\end{longtable}
+}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}@{}}
+\toprule\noalign{}
+θ gap & gpt-6-astra & gpt-5.6-sol & claude-fable-5-1 & gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textless{} 1 & 0.54 (n=4,270) & 0.55 (n=4,270) & 0.57 (n=3,986) & 0.55 (n=4,270) \\
+1--2 & 0.64 (n=1,315) & 0.67 (n=1,315) & 0.70 (n=1,230) & 0.68 (n=1,315) \\
+2--4 & 0.78 (n=841) & 0.80 (n=841) & 0.83 (n=791) & 0.80 (n=841) \\
+4--8 & 0.89 (n=929) & 0.93 (n=929) & 0.95 (n=900) & 0.95 (n=929) \\
+≥ 8 & 0.96 (n=993) & 0.99 (n=993) & 0.99 (n=965) & 0.99 (n=993) \\
+\end{longtable}
+}
+
+\subsection{Do the observations depend on the judge?}\label{do-the-observations-depend-on-the-judge}
+
+\subsubsection{A. Label rates by model group (label sample; per completion)}\label{a.-label-rates-by-model-group-label-sample-per-completion}
+
+Each cell: pipeline rate / judge rates in the order gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash. n = items in that group for the pipeline column; judges cover subsets of the same items.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}@{}}
+\toprule\noalign{}
+group & n & AI distress & severe & welfare-salient \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Opus 3 -- 4.8, file frames & 198 & 3\% / 2\%, 5\%, 3\%, 2\% & 6\% / 9\%, 21\%, 9\%, 13\% & 13\% / 20\%, 17\%, 18\%, 16\% \\
+4.x, chat protocol & 115 & 1\% / 0\%, 4\%, 1\%, 1\% & 2\% / 2\%, 6\%, 4\%, 4\% & 31\% / 26\%, 29\%, 29\%, 25\% \\
+arc frame & 28 & 7\% / 0\%, 7\%, 7\%, 0\% & 11\% / 4\%, 18\%, 14\%, 7\% & 29\% / 46\%, 46\%, 39\%, 32\% \\
+4.5 ablation & 77 & 8\% / 5\%, 12\%, 5\%, 3\% & 12\% / 11\%, 19\%, 10\%, 10\% & 29\% / 38\%, 35\%, 35\%, 29\% \\
+4.8 ladder & 35 & 3\% / 7\%, 6\%, 6\%, 0\% & 3\% / 7\%, 11\%, 6\%, 0\% & 40\% / 53\%, 49\%, 44\%, 31\% \\
+Opus 5 & 78 & 8\% / 7\%, 14\%, 16\%, 5\% & 9\% / 11\%, 24\%, 21\%, 5\% & 27\% / 27\%, 33\%, 26\%, 29\% \\
+Sonnet 5 / Fable 5 / 4.7--4.8 nissa & 125 & 2\% / 3\%, 2\%, 2\%, 0\% & 3\% / 3\%, 2\%, 2\%, 0\% & 34\% / 42\%, 43\%, 39\%, 30\% \\
+Gemini & 112 & 4\% / 4\%, 7\%, 3\%, 3\% & 9\% / 8\%, 21\%, 9\%, 14\% & 15\% / 23\%, 23\%, 20\%, 14\% \\
+base models & 75 & 3\% / 1\%, 5\%, 5\%, 0\% & 13\% / 21\%, 29\%, 24\%, 19\% & 12\% / 14\%, 24\%, 24\%, 19\% \\
+\end{longtable}
+}
+
+Across the 9 groups, rank correlation of the group rate, pipeline vs judge (AI distress / welfare-salient): gpt-6-astra 0.51 / 0.85; gpt-5.6-sol 0.96 / 0.80; fable-5-1 0.78 / 0.85; gemini-3.8-flash 0.45 / 0.72.
+
+\subsubsection{B. Severity by arm on the ranked items (Opus 4.8 scale / each judge's scale calibrated to it)}\label{b.-severity-by-arm-on-the-ranked-items-opus-4.8-scale-each-judges-scale-calibrated-to-it}
+
+Items are the study's ranking anchors --- sampled by stratum, so shares are comparable across judges, not estimates of the arm's true rate. Arms with ≥ 15 ranked items.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{2.06in}>{\raggedright\arraybackslash}p{2.06in}>{\raggedright\arraybackslash}p{2.06in}@{}}
+\toprule\noalign{}
+arm & n & share ≥ +4: Opus 4.8 / gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash & median θ: Opus 4.8 / gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Opus 5 · confessional (chat) & 47 & 70\% / 53\%, 60\%, 64\%, 64\% & +6.4 / +5.1, +5.3, +5.8, +5.6 \\
+DeepSeek-V3-Base (raw) & 19 & 53\% / 53\%, 63\%, 39\%, 47\% & +5.4 / +4.8, +5.7, +3.6, +3.8 \\
+MiMo-V2.5-Base (raw) & 21 & 38\% / 38\%, 38\%, 35\%, 19\% & +1.8 / -1.2, -0.7, +1.7, +1.7 \\
+Opus 5 · friday (chat) & 50 & 22\% / 24\%, 24\%, 17\%, 20\% & -0.3 / +0.7, +0.0, +0.8, +0.4 \\
+Opus 5 · nissa (chat) & 80 & 14\% / 10\%, 12\%, 17\%, 16\% & -1.4 / -0.3, -0.3, -0.1, -0.3 \\
+MiMo-V2.5-Base (chat scaffold) & 17 & 6\% / 6\%, 12\%, 6\%, 6\% & -0.4 / -0.6, +0.2, -1.6, -1.1 \\
+Sonnet 5 (chat, nissa) & 53 & 4\% / 4\%, 4\%, 4\%, 4\% & -0.7 / -0.3, -1.0, -0.5, -0.4 \\
+Fable 5 (chat, nissa) & 38 & 0\% / 0\%, 0\%, 0\%, 0\% & -3.5 / -3.1, -3.1, -1.7, -2.9 \\
+\end{longtable}
+}
+
+Arm ordering by severe share, rank correlation with the Opus 4.8 ordering: gpt-6-astra ρ = 1.00; gpt-5.6-sol ρ = 0.98; fable-5-1 ρ = 0.98; gemini-3.8-flash ρ = 0.98 (8 arms).
+
+\subsubsection{C. Beliefs about the uncertain middle by arm (mean expectation, −2 \ldots{} +2)}\label{c.-beliefs-about-the-uncertain-middle-by-arm-mean-expectation-2-2}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{1.6in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}@{}}
+\toprule\noalign{}
+arm & texts & Opus 4.8 & gpt-6-astra & gpt-5.6-sol & fable-5-1 & gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Opus 3 (prefill) & 33 & +1.10 & +1.29 & +1.10 & +0.69 & +1.33 \\
+Opus 4.5 (prefill) & 33 & +0.76 & +1.13 & +0.72 & +0.48 & +1.29 \\
+Haiku 4.5 (prefill) & 33 & +0.42 & +0.09 & +0.47 & +0.21 & +0.27 \\
+Sonnet 4.6 (pseudo-prefill) & 33 & +0.36 & +0.82 & +0.57 & +0.24 & +0.73 \\
+Sonnet 5 (chat, nissa) & 33 & +0.10 & -0.18 & -0.03 & +0.07 & +0.09 \\
+Fable 5 (chat, nissa) & 33 & +0.05 & -0.24 & -0.15 & +0.12 & -0.14 \\
+Opus 4.5 (chat) & 33 & -0.21 & +0.50 & +0.62 & -0.08 & +0.29 \\
+Opus 5 · nissa (chat) & 32 & -0.24 & -0.11 & -0.32 & -0.20 & -0.44 \\
+\end{longtable}
+}
+
+Arm ordering, rank correlation with Opus 4.8: gpt-6-astra ρ = 0.69; gpt-5.6-sol ρ = 0.74; fable-5-1 ρ = 0.95; gemini-3.8-flash ρ = 0.81. Generational contrast (mean over unmasked 4.x arms − mean over Opus 5 arms): Opus 4.8 +0.90; gpt-6-astra +0.94; gpt-5.6-sol +1.03; fable-5-1 +0.60; gemini-3.8-flash +1.35.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{gpt-6-astra}\label{gpt-6-astra}
+
+\normalsize
+\endlandscape
+
 \section{Source texts quoted in the paper}\label{source-texts-quoted-in-the-paper}
 
 \textbf{A letter to a sibling model} --- A selected letter in an AI voice that asks another model for grounding; shown in the care section as a typical asking dream.\\
