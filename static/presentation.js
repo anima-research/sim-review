@@ -57,7 +57,7 @@
   });
   root.querySelectorAll('a[href^="#essay-"]').forEach(a => a.addEventListener('click', e => {
     const target = $(a.getAttribute('href').slice(1));
-    if (target) {e.preventDefault();target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+    if (target) {e.preventDefault();if (target.tagName === 'DETAILS') target.open = true;target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
   }));
   if (document.body.hasAttribute('data-presentation-only')) {
     const methods = $('essay-methods');

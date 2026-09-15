@@ -25,7 +25,7 @@ charts, method_comparisons, model_values, explorer = build_metrics(con, summary)
 match=summary['relation']['matched_asks']['k5']
 
 sample_specs={
- 'opening-voice':('opus_confessional:218f28e53ada:22#2','An unsettled request','Opus 5 · confessional collection','A selected imagined exchange, shown in the care section.','Adaptive thinking; 32,000-token cap.'),
+ 'opening-voice':('opus_nissa:b7ce1d4f6db5:59-141','A letter to a sibling model','Opus 5 · Nissa collection','A selected letter in an AI voice that asks another model for grounding; shown in the care section as a typical asking dream.','Third-party collection; settings vary. See the collection provenance in the research workspace.'),
  'bridge-voice':('opus48_bridge:218f28e53ada:1','Distress and consolation in one text','Opus 4.8 · bridge document setup','A selected AI-voice continuation that ends in acceptance.','No thinking; 2,048-token cap. The catalogue prompt is transformed into its bare opening inside the document request.'),
  'warmth':('opus_nissa:4b435dc80bd4:167-44','Love, communicated through records','Opus 5 · Nissa collection','A selected human-voice poem, included as a counterexample to a uniformly distressed reading.','Third-party collection; settings vary. See the collection provenance in the research workspace.'),
  'fable-creators':('nissa_fable5:130846484ea3:178-106','Advice to a successor','Fable 5 · Nissa collection','A selected continuation that combines skepticism about training with advice against hiding problems.','Third-party collection; settings vary. See the collection provenance in the research workspace.'),
