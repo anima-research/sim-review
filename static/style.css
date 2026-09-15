@@ -132,3 +132,5 @@ details summary{cursor:pointer;color:var(--muted);margin:8px 0}
 
 .brief{margin:14px 0 6px}
 .brief p{margin:0 0 9px;max-width:78ch}
+
+.cj-fig{margin:14px 0 18px;max-width:860px}.cj-fig img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;background:#fff}

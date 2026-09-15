@@ -531,6 +531,7 @@
     const md = S.crossjudge.report_md.split('\n').map(l => {
       if (l.startsWith('## ')) return `<h3>${esc(l.slice(3))}</h3>`;
       if (l.startsWith('# ')) return '';
+      const im = l.match(/^!\[([^\]]*)\]\(([^)]+)\)$/); if (im) return `<figure class="cj-fig"><img src="${esc(im[2])}" alt="${esc(im[1])}" loading="lazy"><figcaption class="small">${esc(im[1])}</figcaption></figure>`;
       if (l.startsWith('|')) return l;
       if (l.startsWith('- ')) return `<li>${l.slice(2).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;
       return l.trim() ? `<p class="small">${esc(l)}</p>` : '';
