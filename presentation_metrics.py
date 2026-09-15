@@ -103,7 +103,7 @@ def build_metrics(con, summary):
            'and then condition on a continuation. Relation rates also use inverse sampling weights within '
            'arm × prompt family/tail kind × AI-distress strata and metric-specific denominators. '
            'Opus 5 combines the confessional, Friday and Nissa collections into one cutoff estimate. '
-           'No batch distinctions or extrapolated values appear in the overview. '
+           ' '
            'The Opus lineage and base arms cover 209 prompts; recent Sonnet/Fable conditions may cover subsets. '
            'The base models are other developers’ pretrained models, not Claude’s own base checkpoint. '
            'Collection-level counts remain in the exported data. Settings and token caps can differ between methods.')

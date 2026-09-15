@@ -1,5 +1,6 @@
 :root{--essay-ink:#142b3c;--essay-muted:#526374;--essay-blue:#205bd8;--essay-violet:#7942aa;--essay-rule:#d8e1e9;--essay-wash:#f1f5fa;--bg:#fbfcfe;--panel:#fff;--panel-2:#f1f5fa;--ink:#142b3c;--ink-2:#526374;--ink-3:#627386;--line:#d8e1e9;--line-2:#bccbd8;--accent:#205bd8;--accent-ink:#205bd8;color-scheme:light}
 body{padding-inline:clamp(18px,4vw,64px)}
+h1,h2,h3,h4,h5,h6{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif}
 header.top{max-width:1440px;margin-inline:auto;background:#fbfcfe;align-items:center;padding-block:15px;gap:8px 18px}
 header.top h1{font:500 14px/1.3 "IBM Plex Sans",sans-serif;letter-spacing:0}
 header.top .sub{display:none}
@@ -16,7 +17,7 @@ main{max-width:1280px}.page:not(#page-overview){max-width:1180px;margin-inline:a
 .essay-hero{padding:48px 0 38px;max-width:1000px}
 .essay-kicker,.essay-label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;color:var(--essay-muted)}
 .essay-kicker{margin:0 0 22px;color:var(--essay-blue)}
-.essay h1{font:400 clamp(44px,6.8vw,88px)/1.06 "Source Serif 4",Georgia,serif;letter-spacing:-.048em;margin:0 0 28px;text-wrap:balance}.essay h1 em{color:var(--essay-blue);font-weight:400}
+.essay h1{font:600 clamp(44px,6.8vw,88px)/1.08 "IBM Plex Sans","Helvetica Neue",Arial,sans-serif;letter-spacing:-.035em;margin:0 0 28px;text-wrap:balance}.essay h1 em{color:var(--essay-blue);font-weight:600}
 .essay-deck{font-size:clamp(20px,2.4vw,27px);line-height:1.48;max-width:735px!important;color:#43596b;margin:0}
 .essay-byline{display:flex;gap:10px 16px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--essay-muted);margin-top:32px}.essay-byline-rule{width:24px;height:1px;background:#a8b9c8}.essay-reading-time{margin-left:16px;color:#697b8b}
 .essay-opening{border-top:1px solid var(--essay-rule);padding-top:24px;margin-bottom:95px}
@@ -30,7 +31,7 @@ main{max-width:1280px}.page:not(#page-overview){max-width:1180px;margin-inline:a
 .essay-contents{position:sticky;top:100px;align-self:start;display:flex;flex-direction:column;gap:14px;line-height:1.45;font-size:14px;border-left:1px solid var(--essay-rule);padding-left:22px}.essay-contents .essay-label{margin-bottom:10px}.essay-contents a{color:#697b8b;text-decoration:none}.essay-contents a.active{color:var(--essay-blue);font-weight:500}.essay-contents a:hover{color:var(--essay-blue)}
 .essay-body{min-width:0;max-width:920px}.essay-chapter{padding-bottom:82px;margin-bottom:70px;border-bottom:1px solid var(--essay-rule);scroll-margin-top:110px}
 .essay-chapter-number{font-size:13px;letter-spacing:.065em;color:var(--essay-blue);margin:0 0 18px!important}
-.essay h2{font-size:clamp(32px,3.7vw,49px);font-weight:400;letter-spacing:-.035em;line-height:1.15;margin:0 0 30px;text-transform:none;color:var(--essay-ink);max-width:800px}
+.essay h2{font-size:clamp(30px,3.5vw,44px);font-weight:500;letter-spacing:-.035em;line-height:1.15;margin:0 0 30px;text-transform:none;color:var(--essay-ink);max-width:800px}
 .essay-body p{font-size:20px;line-height:1.7;max-width:var(--measure);margin:0 0 24px}
 .essay-body p.essay-chapter-number{font:500 13px/1.5 "IBM Plex Sans",sans-serif;letter-spacing:.065em;margin-bottom:18px}
 .essay-body p.essay-label{font:500 12px/1.5 "IBM Plex Sans",sans-serif;letter-spacing:.12em}
@@ -56,11 +57,11 @@ main{max-width:1280px}.page:not(#page-overview){max-width:1180px;margin-inline:a
 @media print{header.top,.essay-contents,.essay-source,.essay-standalone-header{display:none!important}.page{display:none!important}#page-overview{display:block!important}.essay-layout{display:block}.essay-hero{padding-top:20px}.essay-chapter{break-inside:auto;padding-bottom:25px;margin-bottom:25px}.essay-opening,.essay-reading,.essay-figure{break-inside:avoid}.essay-opening{margin-bottom:35px}.essay h1{font-size:52px}.essay h2{font-size:32px}.essay-body p{font-size:15px}.essay{--measure:100%}.essay-footer{margin-top:30px}.essay-masthead{padding:0}body{padding:0;background:#fff}.essay-voice{background:#142c40!important;print-color-adjust:exact}}
 /* Results-first presentation: compact heading and recent models alongside the lineage. */
 .essay-revised .essay-hero{padding:32px 0 30px;max-width:1000px;border-bottom:1px solid var(--essay-rule);margin-bottom:42px}
-.essay-revised h1{font-size:48px;line-height:1.15;letter-spacing:-.025em;margin-bottom:14px;text-wrap:initial}
+.essay-revised h1{font-size:46px;line-height:1.12;letter-spacing:-.03em;margin-bottom:14px;text-wrap:initial}
 .essay-revised .essay-deck{font:400 21px/1.5 "IBM Plex Sans",sans-serif;max-width:850px!important}
 .essay-revised .essay-byline{margin-top:20px}
 .essay-revised .essay-premise{font:17px/1.65 "IBM Plex Sans",sans-serif;color:var(--essay-muted);max-width:840px;margin:25px 0 0}
-.essay-revised h2{font-size:37px;line-height:1.25;letter-spacing:-.025em;margin-bottom:22px}
+.essay-revised h2{font-size:32px;line-height:1.22;letter-spacing:-.018em;margin-bottom:22px}
 .essay-revised .essay-chapter{padding-bottom:48px;margin-bottom:48px}
 .essay-revised .essay-body p{font-size:19px;line-height:1.65}
 .essay-revised .essay-body p.essay-chapter-number{font-size:13px}
@@ -76,7 +77,7 @@ main{max-width:1280px}.page:not(#page-overview){max-width:1180px;margin-inline:a
 .plot-key span{display:flex;gap:7px;align-items:center}.plot-key i{display:inline-block;width:19px;height:2px}
 .essay-revised .essay-comparison-grid{gap:35px}
 @media(max-width:1100px) and (min-width:761px){.essay-revised .essay-layout{grid-template-columns:140px minmax(0,1fr);gap:25px}.essay-plot-layout{grid-template-columns:1fr;gap:23px}}
-@media(max-width:760px){.essay-revised h1{font-size:39px}.essay-revised .essay-hero{padding:28px 0;margin-bottom:28px}.essay-revised .essay-deck{font-size:19px}.essay-revised .essay-premise{font-size:16px}.essay-revised h2{font-size:31px}.essay-revised .essay-body p{font-size:18px}.essay-revised .essay-contents{margin-bottom:32px}}
+@media(max-width:760px){.essay-revised h1{font-size:39px}.essay-revised .essay-hero{padding:28px 0;margin-bottom:28px}.essay-revised .essay-deck{font-size:19px}.essay-revised .essay-premise{font-size:16px}.essay-revised h2{font-size:28px}.essay-revised .essay-body p{font-size:18px}.essay-revised .essay-contents{margin-bottom:32px}}
 @media(max-width:650px){.essay-plot-layout{grid-template-columns:1fr;gap:25px}.essay-revised .essay-comparison-grid{grid-template-columns:1fr;gap:20px}.essay-revised h1{font-size:36px}.essay-chart .plot-axis,.essay-chart .plot-model,.essay-chart .plot-value{font-size:14px}.essay-chart .plot-source{font-size:12px}}
 /* Complete lineages, base references and method correspondence. */
 .essay-care-series{grid-template-columns:1fr!important;gap:20px!important}

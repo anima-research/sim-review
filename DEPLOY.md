@@ -27,3 +27,14 @@ if that becomes the bottleneck, upload it less often (the patch chain only needs
 - `/api` index, `/api/schema` (cached after first call, ~6 s), `/api/aggregate` (group-by rates/means/θ quantiles;
   json|md|csv), `/api/export` (streaming JSONL/CSV of matching rows, own read-only connection), `/api/db` → R2 snapshot.
 - Static-only change → `railway up --ci`. serve.py changes → same.
+
+## GitHub (anima-research/sim-review)
+
+`sim/site` is its own git repo (nested inside the private wfe checkout, which ignores it). `main` = code + generated
+assets (no DB); the standing PR #1 "Review: essay and results" holds `ESSAY.md`/`RESULTS.md` on branch `review` for
+line comments. After a regeneration:
+  git add -A && git commit -m "…" && git push                       # main: new summary/presentation/static
+  python3 export_md.py && git checkout review && git merge -q main && git add ESSAY.md RESULTS.md \
+    && git commit -m "Review text: regenerate" && git push && git checkout main   # PR updates; threads survive
+Never merge PR #1; comments are the point. R2 credentials for publish_db.py: env R2_ENDPOINT/R2_ACCESS_KEY/R2_SECRET_KEY
+(falls back to ../../scripts/upload_images_r2.py inside the wfe checkout).
