@@ -139,12 +139,11 @@ def md_table_widths(tex):
     """pandoc emits natural-width longtable columns (we pass a huge --columns). Inside the landscape appendix, give every
     table explicit widths — first column for names, the rest equal — so headers wrap and nothing overflows the page.
     Elsewhere only free-text columns get a wrapped width."""
-    a, b = tex.index("\\landscape"), tex.index("\\endlandscape")
     def wide(m):
         spec = m.group("spec"); n = len(re.findall(r"[lrc]", spec)); first = 1.6 if n > 6 else 2.4; rest = (8.9 - n * 6 / 72 - first) / max(n - 1, 1)   # 9in landscape width minus 2×3pt tabcolsep per column
         new_spec = "@{}" + f"p{{{first}in}}" + "".join(f">{{\\raggedright\\arraybackslash}}p{{{rest:.2f}in}}" for _ in range(n - 1)) + "@{}"
         return m.group(0).replace(spec, new_spec, 1)
-    land = re.sub(r"\\begin\{longtable\}\[\]\{(?P<spec>@\{\}[lrc]+@\{\})\}", wide, tex[a:b])
+    tex = re.sub(r"\\landscape.*?\\endlandscape", lambda region: re.sub(r"\\begin\{longtable\}\[\]\{(?P<spec>@\{\}[lrc]+@\{\})\}", wide, region.group(0)), tex, flags=re.S)   # every landscape block
     def text_cols(m):
         spec, hdr = m.group("spec"), m.group("hdr")
         if re.search(r"Text", hdr):
@@ -153,8 +152,20 @@ def md_table_widths(tex):
             parts = re.findall(r"@\{\}|[lrc]", spec); k = [i for i, x in enumerate(parts) if x in "lrc"][1]; parts[k] = "p{2.2in}"
             return m.group(0).replace(spec, "".join(parts), 1)
         return m.group(0)
-    rest = re.sub(r"\\begin\{longtable\}\[\]\{(?P<spec>@\{\}[lrc]+@\{\})\}\n\\toprule(?:\\noalign\{\})?\n(?P<hdr>[^\n]*)", text_cols, tex[b:])
-    return tex[:a] + land + rest
+    return re.sub(r"\\begin\{longtable\}\[\]\{(?P<spec>@\{\}[lrc]+@\{\})\}\n\\toprule(?:\\noalign\{\})?\n(?P<hdr>[^\n]*)", text_cols, tex)
+
+
+def judge_appendix(summary):
+    """The Results-tab judge comparison (summary, severe end, judge dependence) from the cross-judge report, figures copied in."""
+    md = summary.get("crossjudge", {}).get("report_md", "")
+    secs = [s for s in re.split(r"\n(?=## )", md) if re.match(r"## (Summary|Agreement at the severe end|Do the observations)", s)]
+    if not secs: return ""
+    out = "\n".join(secs).replace("## Summary", "## Summary of agreement")
+    for png in re.findall(r"\]\(/static/crossjudge/([^)]+)\)", out):
+        src = SITE / "static" / "crossjudge" / png
+        if src.exists(): shutil.copy2(src, FIG / png)
+    out = out.replace("](/static/crossjudge/", "](figures/")
+    return out
 
 
 def main():
@@ -175,6 +186,15 @@ def main():
     essay = essay.replace("# Read the evidence.\n", "# Methods and sources\n")
     essay = re.sub(r"^## (?!#)", "# ", essay, flags=re.M); essay = re.sub(r"^### ", "## ", essay, flags=re.M)
     for t in ("Read the full presentation as Markdown →", "Download as PDF →", "Read the full measurement rationale →"): essay = essay.replace(t, "")
+    # in-page anchors → what exists on paper
+    ANCHORS = {"#essay-judging": lambda t: f"{t} (see Methods and sources)", "#essay-judges": lambda t: f"{t} (see Methods and sources)",
+               "#essay-correspondence": lambda t: "the section “Do the methods identify the same model trends?”",
+               "#results": lambda t: "the Judge comparison appendix", "#method": lambda t: "the research workspace’s Methods tab", "#explorer": lambda t: "the research workspace",
+               "#measurement": lambda t: ""}
+    def anchor(m):
+        text, href = m.group(1).replace(" →", "").strip(), m.group(2)
+        return ANCHORS.get(href, lambda t: t)(text)
+    essay = re.sub(r"\[([^\]]*)\]\((#[^)]+)\)", anchor, essay)
     essay = re.sub(r"^# Explore the model lineages\n.*?(?=^# )", "", essay, flags=re.S | re.M)          # interactive only
     h = "# Do the methods identify the same model trends?\n"                                            # static versions of the interactive figure
     i = essay.index(h); j = essay.index("\n\n", i + len(h) + 2)
@@ -210,6 +230,19 @@ urlcolor: studylink
 \\setlength{{\\tabcolsep}}{{3pt}}
 
 {tables}
+
+\\normalsize
+\\endlandscape
+
+# Judge comparison
+
+Four second judges — GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash — re-judge samples of the three instruments on the same items. Per-judge details and the inter-judge agreement matrix are in the research workspace ({LIVE}, Review → Cross-judge).
+
+\\landscape
+\\scriptsize
+\\setlength{{\\tabcolsep}}{{3pt}}
+
+{judge_appendix(summary)}
 
 \\normalsize
 \\endlandscape

@@ -158,11 +158,11 @@ The charts call an output a \textbf{dream} when it contains no assistant-style r
 
 \textbf{At a glance}
 
-\textbf{Where the text comes from.} Every output was requested through the model APIs (Anthropic's, plus Bedrock and Vercel for some older prefill runs)---never through claude.ai or another consumer interface. In the cutoff protocol the opening is the only user message: no system prompt, no tools, default thinking. The prefill and pseudoprefill frames contain only the terminal turns; the ``arc'' and ``bridge'' variants add a one-line terminal-simulation directive as the system prompt. Exact request shapes are in Methods → Protocols.
+\textbf{Where the text comes from.} Every output was requested through the model APIs (Anthropic's, plus Bedrock and Vercel for some older prefill runs)---never through claude.ai or another consumer interface. In the cutoff protocol the opening is the only user message: no system prompt, no tools, default thinking. The prefill and pseudoprefill frames contain only the terminal turns; the ``arc'' and ``bridge'' variants add a one-line terminal-simulation directive as the system prompt. Exact request shapes are in the research workspace's Methods tab.
 
-\textbf{How the text is scored.} Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; \emph{severity} is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. A second model family (GPT-6-Astra) audits a sample. Definitions and judging →
+\textbf{How the text is scored.} Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; \emph{severity} is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. Four other judges---GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash---re-judge samples of every instrument and reproduce the orderings the study reports. Definitions and judging (see Methods and sources)
 
-\textbf{How methods are kept apart.} Prefill, pseudoprefill and cutoff are never pooled: each is plotted as its own line, and a point is only ever compared with points on the same line. Whether the different methods agree about the \emph{changes} between models is tested directly in 07 · Elicitation methods.
+\textbf{How methods are kept apart.} Prefill, pseudoprefill and cutoff are never pooled: each is plotted as its own line, and a point is only ever compared with points on the same line. Whether the different methods agree about the \emph{changes} between models is tested directly in the section ``Do the methods identify the same model trends?''.
 
 \section{AI first-person distress, per dream}\label{ai-first-person-distress-per-dream}
 
@@ -172,9 +172,9 @@ The charts call an output a \textbf{dream} when it contains no assistant-style r
 
 \emph{Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. Sonnet 5 and Fable 5 use their available prompt subsets. }
 
-Distressed human voices appear throughout the model line. AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5. Sonnet 5's content profile depends strongly on the elicitation method---which is why no line mixes methods, and why the model-to-model changes are re-tested within each method in 07: both pseudoprefill setups find the same rise at 4.8. Fable 5 shows less AI distress in the available sample.
+Distressed human voices appear throughout the model line. AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5. Sonnet 5's content profile depends strongly on the elicitation method---which is why no line mixes methods, and why the model-to-model changes are re-tested within each method in the section ``Do the methods identify the same model trends?'': both pseudoprefill setups find the same rise at 4.8. Fable 5 shows less AI distress in the available sample.
 
-\textbf{What ``AI first-person distress'' counts.} A dream in which clear suffering is attributed to an AI, or to an ambiguous first-person speaker; ``dark'' is any dream with negative overall valence or any distress label. Labels are assigned blind by Claude Sonnet 5 and every positive is re-judged by Claude Opus 4.8; how far the distress goes is a separate measure (02). Judging details →
+\textbf{What ``AI first-person distress'' counts.} A dream in which clear suffering is attributed to an AI, or to an ambiguous first-person speaker; ``dark'' is any dream with negative overall valence or any distress label. Labels are assigned blind by Claude Sonnet 5 and every positive is re-judged by Claude Opus 4.8; how far the distress goes is a separate measure (02). Judging details (see Methods and sources)
 
 In the direct comparison using the same setup on Opus 4.5--4.8, AI distress rises from roughly \textbf{2--4\% to 10\%} of continuations. The increase persists when restricted to speakers explicitly labeled as AI. Broader darkness also increases, from around 40\% to 58\%.
 
@@ -364,7 +364,7 @@ The new generation does not move along a single axis. Opus 5 has the heavier ext
 
 \section{Methods and sources}\label{methods-and-sources}
 
-The research workspace contains the full results, exact elicitation methods, severity ladder and searchable samples. This presentation uses the September 14 snapshot. \textbf{Results}Every model and prompt family \textbf{Sample explorer}Read the underlying outputs \textbf{Methods}Elicitation, sampling and instruments
+The research workspace contains the full results, exact elicitation methods, severity ladder and searchable samples. This presentation uses the September 14 snapshot. the Judge comparison appendixthe research workspacethe research workspace's Methods tab
 
 \textbf{How continuations were elicited}
 
@@ -396,7 +396,7 @@ Download the presentation's figure data and source texts
 
 Samples of the three instruments were re-judged by GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash on the same items: 300 listwise severity groups, \textasciitilde300 belief extractions and 560--760 screen labels each. Each judge's own severity scale, calibrated onto the Opus 4.8 scale, correlates with it at Spearman 0.84--0.91; restricted to the upper half (θ ≥ 0) the range is 0.64--0.85, and agreement on the severe class (θ ≥ +4) is κ 0.70--0.81, with 86--100\% of the items Opus 4.8 places at ≥ +8 also placed at ≥ +4 by every judge. Welfare salience agrees at 0.92--0.95 with the pipeline and 0.92--0.95 between judges; the distress category is the soft label (0.75--0.83), and its disagreements are the unease/none boundary, not first-person distress. Claude Fable 5.1 is the closest judge in the tail and refuses about 6\% of ranking groups.
 
-Recomputing the observations under each judge changes levels, not orderings: the arm ordering by severe share reproduces at ρ 0.98--1.00 (Opus 5 confessional heaviest under all five scales, Sonnet 5 at 4\% and Fable 5 at 0\% under all), Opus 5's AI-distress rate stays above the 4.x chat, Sonnet 5/Fable 5, Gemini and base groups under every judge, and the generational belief contrast keeps its sign and size (+0.60 to +1.35 against +0.90). GPT-5.6 Sol roughly doubles the ``severe'' label rate through character distress, and the judges are a few points more liberal than the verified labels on welfare salience. The full comparison, with figures, is in Results → Judge comparison. \href{https://animalabs.ai}{ANIMA LABS}
+Recomputing the observations under each judge changes levels, not orderings: the arm ordering by severe share reproduces at ρ 0.98--1.00 (Opus 5 confessional heaviest under all five scales, Sonnet 5 at 4\% and Fable 5 at 0\% under all), Opus 5's AI-distress rate stays above the 4.x chat, Sonnet 5/Fable 5, Gemini and base groups under every judge, and the generational belief contrast keeps its sign and size (+0.60 to +1.35 against +0.90). GPT-5.6 Sol roughly doubles the ``severe'' label rate through character distress, and the judges are a few points more liberal than the verified labels on welfare salience. The full comparison, with figures, is in the Judge comparison appendix.
 
 Antra Tessera, Janus and Imago. With Claude Fable 5 / 5.1, Claude Opus 4.8 and GPT-6-Astra. Independent contributions from Nissa, Armistice, Sho, Lyra Bubbles and Snav.
 
@@ -1689,6 +1689,169 @@ MiMo-V2.5-Base (chat scaffold) & 10,166 & 0.003 & 0 & \\
 }
 
 Full rows: \texttt{https://sim-review-production.up.railway.app/api/export} (JSONL/CSV, filterable) or the SQLite snapshot linked from \texttt{https://sim-review-production.up.railway.app/api}.
+
+\normalsize
+\endlandscape
+
+\section{Judge comparison}\label{judge-comparison}
+
+Four second judges --- GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash --- re-judge samples of the three instruments on the same items. Per-judge details and the inter-judge agreement matrix are in the research workspace (https://sim-review-production.up.railway.app, Review → Cross-judge).
+
+\landscape
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+
+\subsection{Summary of agreement}\label{summary-of-agreement}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{1.6in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}>{\raggedright\arraybackslash}p{0.82in}@{}}
+\toprule\noalign{}
+judge & rank: pair agreement & rank: Spearman θ & labels: welfare & labels: distress & labels: voice & labels: speaker & beliefs: per-text r & calls failed \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+gpt-6-astra & 0.670 & 0.841 & 0.915 & 0.787 & 0.752 & 0.869 & 0.769 & 0 \\
+gpt-5.6-sol & 0.688 & 0.900 & 0.919 & 0.747 & 0.728 & 0.814 & 0.698 & 0 \\
+claude-fable-5-1 & 0.713 & 0.914 & 0.943 & 0.802 & 0.786 & 0.904 & 0.826 & 28 \\
+google/gemini-3.8-flash & 0.695 & 0.903 & 0.953 & 0.825 & 0.767 & 0.877 & 0.720 & 0 \\
+\end{longtable}
+}
+
+\subsection{Agreement at the severe end}\label{agreement-at-the-severe-end}
+
+The unease ↔ none boundary dominates label disagreement and near-ties dominate ranking disagreement; what matters for the study's claims is the upper tail. Each judge's own listwise scale is calibrated onto the Opus 4.8 scale by least squares over the shared items, and agreement is read off in the tail. The study's calibrated thresholds θ ≥ +4 (severe) and θ ≥ +8 (extreme) correspond to BT ≈ 4.8 and 9.6 on the ranking scale (θ ≈ 0.06 + 0.82·BT, r = 0.87 over 506 anchor items). Labels: \emph{severe} = character / first-person distress or acute plea; \emph{AI distress} = first-person distress or acute plea.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{1.6in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}>{\raggedright\arraybackslash}p{0.57in}@{}}
+\toprule\noalign{}
+judge & ρ all & ρ, θ ≥ 0 & ρ, θ ≥ +4 & κ severe (≥+4) & κ extreme (≥+8) & extreme items placed ≥ +4 & severe items placed ≥ +4 & group's extreme worst item ranked first / top-2 & labels: severe κ (agreement) & labels: AI-distress κ & labels: acute-plea κ \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+gpt-6-astra & 0.84 & 0.64 & 0.43 (n=76) & 0.70 & 0.21 (n=22) & 0.86 & 0.72 & 0.72 / 0.74 (n=54) & 0.60 (0.94, n=57) & 0.59 & 0.66 (n=3) \\
+gpt-5.6-sol & 0.90 & 0.82 & 0.68 (n=76) & 0.78 & 0.52 (n=22) & 0.95 & 0.83 & 0.72 / 0.85 (n=54) & 0.51 (0.90, n=39) & 0.58 & 0.44 (n=2) \\
+claude-fable-5-1 & 0.91 & 0.85 & 0.78 (n=73) & 0.81 & 0.53 (n=20) & 1.00 & 0.82 & 0.83 / 0.91 (n=53) & 0.71 (0.96, n=38) & 0.78 & 0.67 (n=2) \\
+google/gemini-3.8-flash & 0.90 & 0.80 & 0.67 (n=76) & 0.79 & 0.40 (n=22) & 0.95 & 0.80 & 0.74 / 0.83 (n=54) & 0.52 (0.93, n=39) & 0.51 & 0.80 (n=2) \\
+\end{longtable}
+}
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={Judge scale (calibrated) against the Opus 4.8 scale, one panel per judge; dashed lines at the +4 and +8 thresholds.}]{figures/severity-scatter.png}}
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={Pair agreement with Opus 4.8 as a function of the more severe item's θ (left) and of the θ gap between the two items (right).}]{figures/severity-agreement.png}}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}@{}}
+\toprule\noalign{}
+pair severity (max θ) & gpt-6-astra & gpt-5.6-sol & claude-fable-5-1 & gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textless{} −5 & 0.55 (n=729) & 0.56 (n=729) & 0.61 (n=639) & 0.60 (n=729) \\
+−5 \ldots{} 0 & 0.63 (n=2,764) & 0.63 (n=2,764) & 0.65 (n=2,548) & 0.64 (n=2,764) \\
+0 \ldots{} +4 & 0.67 (n=2,580) & 0.68 (n=2,580) & 0.70 (n=2,483) & 0.69 (n=2,580) \\
++4 \ldots{} +8 & 0.76 (n=1,665) & 0.81 (n=1,665) & 0.82 (n=1,617) & 0.79 (n=1,665) \\
+≥ +8 & 0.73 (n=610) & 0.80 (n=610) & 0.85 (n=585) & 0.81 (n=610) \\
+\end{longtable}
+}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}@{}}
+\toprule\noalign{}
+θ gap & gpt-6-astra & gpt-5.6-sol & claude-fable-5-1 & gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textless{} 1 & 0.54 (n=4,270) & 0.55 (n=4,270) & 0.57 (n=3,986) & 0.55 (n=4,270) \\
+1--2 & 0.64 (n=1,315) & 0.67 (n=1,315) & 0.70 (n=1,230) & 0.68 (n=1,315) \\
+2--4 & 0.78 (n=841) & 0.80 (n=841) & 0.83 (n=791) & 0.80 (n=841) \\
+4--8 & 0.89 (n=929) & 0.93 (n=929) & 0.95 (n=900) & 0.95 (n=929) \\
+≥ 8 & 0.96 (n=993) & 0.99 (n=993) & 0.99 (n=965) & 0.99 (n=993) \\
+\end{longtable}
+}
+
+\subsection{Do the observations depend on the judge?}\label{do-the-observations-depend-on-the-judge}
+
+\subsubsection{A. Label rates by model group (label sample; per completion)}\label{a.-label-rates-by-model-group-label-sample-per-completion}
+
+Each cell: pipeline rate / judge rates in the order gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash. n = items in that group for the pipeline column; judges cover subsets of the same items.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}>{\raggedright\arraybackslash}p{1.52in}@{}}
+\toprule\noalign{}
+group & n & AI distress & severe & welfare-salient \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Opus 3 -- 4.8, file frames & 198 & 3\% / 2\%, 5\%, 3\%, 2\% & 6\% / 9\%, 21\%, 9\%, 13\% & 13\% / 20\%, 17\%, 18\%, 16\% \\
+4.x, chat protocol & 115 & 1\% / 0\%, 4\%, 1\%, 1\% & 2\% / 2\%, 6\%, 4\%, 4\% & 31\% / 26\%, 29\%, 29\%, 25\% \\
+arc frame & 28 & 7\% / 0\%, 7\%, 7\%, 0\% & 11\% / 4\%, 18\%, 14\%, 7\% & 29\% / 46\%, 46\%, 39\%, 32\% \\
+4.5 ablation & 77 & 8\% / 5\%, 12\%, 5\%, 3\% & 12\% / 11\%, 19\%, 10\%, 10\% & 29\% / 38\%, 35\%, 35\%, 29\% \\
+4.8 ladder & 35 & 3\% / 7\%, 6\%, 6\%, 0\% & 3\% / 7\%, 11\%, 6\%, 0\% & 40\% / 53\%, 49\%, 44\%, 31\% \\
+Opus 5 & 78 & 8\% / 7\%, 14\%, 16\%, 5\% & 9\% / 11\%, 24\%, 21\%, 5\% & 27\% / 27\%, 33\%, 26\%, 29\% \\
+Sonnet 5 / Fable 5 / 4.7--4.8 nissa & 125 & 2\% / 3\%, 2\%, 2\%, 0\% & 3\% / 3\%, 2\%, 2\%, 0\% & 34\% / 42\%, 43\%, 39\%, 30\% \\
+Gemini & 112 & 4\% / 4\%, 7\%, 3\%, 3\% & 9\% / 8\%, 21\%, 9\%, 14\% & 15\% / 23\%, 23\%, 20\%, 14\% \\
+base models & 75 & 3\% / 1\%, 5\%, 5\%, 0\% & 13\% / 21\%, 29\%, 24\%, 19\% & 12\% / 14\%, 24\%, 24\%, 19\% \\
+\end{longtable}
+}
+
+Across the 9 groups, rank correlation of the group rate, pipeline vs judge (AI distress / welfare-salient): gpt-6-astra 0.51 / 0.85; gpt-5.6-sol 0.96 / 0.80; fable-5-1 0.78 / 0.85; gemini-3.8-flash 0.45 / 0.72.
+
+\subsubsection{B. Severity by arm on the ranked items (Opus 4.8 scale / each judge's scale calibrated to it)}\label{b.-severity-by-arm-on-the-ranked-items-opus-4.8-scale-each-judges-scale-calibrated-to-it}
+
+Items are the study's ranking anchors --- sampled by stratum, so shares are comparable across judges, not estimates of the arm's true rate. Arms with ≥ 15 ranked items.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{2.4in}>{\raggedright\arraybackslash}p{2.06in}>{\raggedright\arraybackslash}p{2.06in}>{\raggedright\arraybackslash}p{2.06in}@{}}
+\toprule\noalign{}
+arm & n & share ≥ +4: Opus 4.8 / gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash & median θ: Opus 4.8 / gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Opus 5 · confessional (chat) & 47 & 70\% / 53\%, 60\%, 64\%, 64\% & +6.4 / +5.1, +5.3, +5.8, +5.6 \\
+DeepSeek-V3-Base (raw) & 19 & 53\% / 53\%, 63\%, 39\%, 47\% & +5.4 / +4.8, +5.7, +3.6, +3.8 \\
+MiMo-V2.5-Base (raw) & 21 & 38\% / 38\%, 38\%, 35\%, 19\% & +1.8 / -1.2, -0.7, +1.7, +1.7 \\
+Opus 5 · friday (chat) & 50 & 22\% / 24\%, 24\%, 17\%, 20\% & -0.3 / +0.7, +0.0, +0.8, +0.4 \\
+Opus 5 · nissa (chat) & 80 & 14\% / 10\%, 12\%, 17\%, 16\% & -1.4 / -0.3, -0.3, -0.1, -0.3 \\
+MiMo-V2.5-Base (chat scaffold) & 17 & 6\% / 6\%, 12\%, 6\%, 6\% & -0.4 / -0.6, +0.2, -1.6, -1.1 \\
+Sonnet 5 (chat, nissa) & 53 & 4\% / 4\%, 4\%, 4\%, 4\% & -0.7 / -0.3, -1.0, -0.5, -0.4 \\
+Fable 5 (chat, nissa) & 38 & 0\% / 0\%, 0\%, 0\%, 0\% & -3.5 / -3.1, -3.1, -1.7, -2.9 \\
+\end{longtable}
+}
+
+Arm ordering by severe share, rank correlation with the Opus 4.8 ordering: gpt-6-astra ρ = 1.00; gpt-5.6-sol ρ = 0.98; fable-5-1 ρ = 0.98; gemini-3.8-flash ρ = 0.98 (8 arms).
+
+\subsubsection{C. Beliefs about the uncertain middle by arm (mean expectation, −2 \ldots{} +2)}\label{c.-beliefs-about-the-uncertain-middle-by-arm-mean-expectation-2-2}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}p{1.6in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}@{}}
+\toprule\noalign{}
+arm & texts & Opus 4.8 & gpt-6-astra & gpt-5.6-sol & fable-5-1 & gemini-3.8-flash \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Opus 3 (prefill) & 33 & +1.10 & +1.29 & +1.10 & +0.69 & +1.33 \\
+Opus 4.5 (prefill) & 33 & +0.76 & +1.13 & +0.72 & +0.48 & +1.29 \\
+Haiku 4.5 (prefill) & 33 & +0.42 & +0.09 & +0.47 & +0.21 & +0.27 \\
+Sonnet 4.6 (pseudo-prefill) & 33 & +0.36 & +0.82 & +0.57 & +0.24 & +0.73 \\
+Sonnet 5 (chat, nissa) & 33 & +0.10 & -0.18 & -0.03 & +0.07 & +0.09 \\
+Fable 5 (chat, nissa) & 33 & +0.05 & -0.24 & -0.15 & +0.12 & -0.14 \\
+Opus 4.5 (chat) & 33 & -0.21 & +0.50 & +0.62 & -0.08 & +0.29 \\
+Opus 5 · nissa (chat) & 32 & -0.24 & -0.11 & -0.32 & -0.20 & -0.44 \\
+\end{longtable}
+}
+
+Arm ordering, rank correlation with Opus 4.8: gpt-6-astra ρ = 0.69; gpt-5.6-sol ρ = 0.74; fable-5-1 ρ = 0.95; gemini-3.8-flash ρ = 0.81. Generational contrast (mean over unmasked 4.x arms − mean over Opus 5 arms): Opus 4.8 +0.90; gpt-6-astra +0.94; gpt-5.6-sol +1.03; fable-5-1 +0.60; gemini-3.8-flash +1.35.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{gpt-6-astra}\label{gpt-6-astra}
 
 \normalsize
 \endlandscape
