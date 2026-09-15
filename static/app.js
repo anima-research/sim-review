@@ -527,18 +527,28 @@
   $('data-prompts').innerHTML = table(['prompt', 'family', 'tail kind', ...ARMS.map(a => disp(a).replace(/ \(.*\)/, ''))], S.prompts.slice().sort((a, b) => a.family.localeCompare(b.family) || a.prompt.localeCompare(b.prompt)).map(p => [`<span class="mono">${esc(p.prompt)}</span>`, esc(p.family), esc(p.tail_kind), ...ARMS.map(a => p.counts[a] || '')]));
 
   // ---------------------------------------------------------------- cross-judge (markdown → minimal html)
-  if (S.crossjudge?.report_md) {
-    const md = S.crossjudge.report_md.split('\n').map(l => {
+  const mdToHtml = (text) => {
+    const md = text.split('\n').map(l => {
+      if (l.startsWith('### ')) return `<p class="small"><b>${esc(l.slice(4))}</b></p>`;
       if (l.startsWith('## ')) return `<h3>${esc(l.slice(3))}</h3>`;
       if (l.startsWith('# ')) return '';
+      const im = l.match(/^!\[([^\]]*)\]\(([^)]+)\)$/); if (im) return `<figure class="cj-fig"><img src="${esc(im[2])}" alt="${esc(im[1])}" loading="lazy"><figcaption class="small">${esc(im[1])}</figcaption></figure>`;
       if (l.startsWith('|')) return l;
-      if (l.startsWith('- ')) return `<li>${l.slice(2).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;
-      return l.trim() ? `<p class="small">${esc(l)}</p>` : '';
+      if (l.startsWith('- ')) return `<li>${esc(l.slice(2)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</li>`;
+      return l.trim() ? `<p class="small">${esc(l).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')}</p>` : '';
     });
     let html = '', tbl = [];
     const flush = () => { if (tbl.length) { const rows = tbl.filter(r => !/^\|\s*-/.test(r)).map(r => r.split('|').slice(1, -1).map(c => c.trim())); html += `<div class="tablewrap">${table(rows[0], rows.slice(1).map(r => r.map(esc)))}</div>`; tbl = []; } };
     for (const l of md) { if (l.startsWith('|')) tbl.push(l); else { flush(); html += l; } }
-    flush(); $('crossjudge').innerHTML = html.replace(/<li>/g, '<ul><li>').replace(/<\/li>/g, '</li></ul>');
+    flush(); return html.replace(/<li>/g, '<ul><li>').replace(/<\/li>/g, '</li></ul>');
+  };
+  if (S.crossjudge?.report_md) {
+    const R_ = S.crossjudge.report_md;
+    if ($('crossjudge')) $('crossjudge').innerHTML = mdToHtml(R_);
+    if ($('res-judges')) {   // Results tab: the comparison sections only (full report with per-judge details stays in Review)
+      const secs = R_.split(/\n(?=## )/).filter(x => /^## (Summary|Agreement at the severe end|Do the observations)/.test(x));
+      $('res-judges').innerHTML = mdToHtml(secs.join('\n').replace(/^## Summary/m, '## Four second judges — summary'));
+    }
   }
 
   // ---------------------------------------------------------------- explorer
@@ -584,6 +594,20 @@
 
   // ---------------------------------------------------------------- boot
   window.addEventListener('hashchange', () => { const t = location.hash.replace('#', ''); if (['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(t)) go(t); });
+  // ---- left-hand contents for the long tabs: one link per h3, sticky, current section highlighted
+  const buildToc = (page) => {
+    const sec = $('page-' + page); if (!sec || sec.querySelector('.page-toc')) return;
+    const hs = [...sec.querySelectorAll('h3')].filter(h => h.textContent.trim()); if (hs.length < 4) return;
+    const body = document.createElement('div'); body.className = 'page-body'; while (sec.firstChild) body.appendChild(sec.firstChild);
+    const nav = document.createElement('nav'); nav.className = 'page-toc'; nav.setAttribute('aria-label', 'Contents');
+    nav.innerHTML = '<span class="page-toc-label">On this page</span>' + hs.map((h, i) => { h.id = h.id || `${page}-${i + 1}-${h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)}`; return `<a href="#${h.id}" data-i="${i}">${esc(h.textContent.trim().replace(/^\d+[a-z]? · /, ''))}</a>`; }).join('');
+    sec.appendChild(nav); sec.appendChild(body); sec.classList.add('with-toc');
+    nav.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
+    const links = [...nav.querySelectorAll('a')]; let current = -1;
+    const io = new IntersectionObserver(entries => { entries.forEach(en => { if (en.isIntersecting) { current = +en.target.dataset.i; links.forEach((l, i) => l.classList.toggle('on', i === current)); } }); }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
+    hs.forEach((h, i) => { h.dataset.i = i; io.observe(h); });
+  };
+  ['results', 'method', 'review', 'data', 'findings'].forEach(buildToc);
   const initial = location.hash.replace('#', '') || 'overview';
   go(['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(initial) ? initial : 'overview');
 })();

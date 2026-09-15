@@ -34,6 +34,15 @@ nav.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px
 main{max-width:1180px;margin:0 auto}
 section.page{display:none;padding-top:22px}
 section.page.on{display:block}
+section.page.with-toc.on{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 32px;align-items:start}
+.page-toc{position:sticky;top:72px;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;display:flex;flex-direction:column;gap:7px;padding:22px 0 12px 0;border-right:1px solid var(--line);margin-right:0;max-height:calc(100vh - 88px);overflow:auto}
+section.page.with-toc h3{scroll-margin-top:76px}
+.page-toc-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.page-toc a{color:var(--ink-2);text-decoration:none;padding:1px 10px 1px 0;border-right:2px solid transparent;margin-right:-1px}
+.page-toc a:hover{color:var(--ink)}
+.page-toc a.on{color:var(--ink);border-right-color:var(--accent)}
+.page-body{min-width:0}
+@media (max-width:900px){section.page.with-toc.on{display:block}.page-toc{position:static;max-height:none;flex-direction:row;flex-wrap:wrap;gap:6px 14px;border-right:0;border-bottom:1px solid var(--line);padding:12px 0}.page-toc-label{flex-basis:100%}.page-toc a{border-right:0;padding:0}.page-toc a.on{text-decoration:underline}}
 h2{font-size:24px;font-weight:600;margin:24px 0 8px;letter-spacing:-.01em;text-wrap:balance}
 h3{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:26px 0 8px;font-weight:600}
 p{max-width:72ch}
@@ -123,3 +132,5 @@ details summary{cursor:pointer;color:var(--muted);margin:8px 0}
 
 .brief{margin:14px 0 6px}
 .brief p{margin:0 0 9px;max-width:78ch}
+
+.cj-fig{margin:14px 0 18px;max-width:860px}.cj-fig img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;background:#fff}
