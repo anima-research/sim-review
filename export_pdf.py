@@ -166,8 +166,11 @@ def main():
     print(f"{len(figures)} chart figures, {len(method_figs)} method figures")
     mh = (SITE / "measurement.html").read_text() if (SITE / "measurement.html").exists() else ""
     essay = results_md.essay_md(essay_html, pdata, measurement_html=mh, figures=figures, mode="pdf")
-    lines = essay.split("\n"); title = lines[0].lstrip("# ").strip(); deck = lines[2].strip(); byline = lines[3].strip()
-    essay = "\n".join(lines[4:]).lstrip("\n")
+    # front matter from the hero block (by class), then drop everything before the first chapter heading
+    pick = lambda pat: re.sub(r"<[^>]+>", "", re.search(pat, essay_html, re.S).group(1)).strip() if re.search(pat, essay_html, re.S) else ""
+    title = pick(r'<h1 id="essay-title">(.*?)</h1>'); subtitle = pick(r'<p class="essay-subtitle">(.*?)</p>'); deck = pick(r'<p class="essay-deck">(.*?)</p>')
+    byline = " · ".join(t for t in re.findall(r"<span>(.*?)</span>", re.search(r'<div class="essay-byline">(.*?)</div>', essay_html, re.S).group(1)) if t.strip())
+    essay = essay[essay.index("\n## "):].lstrip("\n")
     essay = re.sub(r"^Introduction\n", "", essay); essay = re.sub(r"^\d\d / [^\n]+\n", "", essay, flags=re.M); essay = re.sub(r"^(A note on measurement|\*\*Methods and sources\*\*|Methods and sources)\n", "", essay, flags=re.M)
     essay = essay.replace("# Read the evidence.\n", "# Methods and sources\n")
     essay = re.sub(r"^## (?!#)", "# ", essay, flags=re.M); essay = re.sub(r"^### ", "## ", essay, flags=re.M)
@@ -186,6 +189,7 @@ def main():
     date = pdata.get("meta", {}).get("date", "")
     md = f"""---
 title: "{title}"
+subtitle: "{subtitle}"
 author: "{byline}"
 date: "Preprint · data snapshot {date} · {LIVE}"
 abstract: "{abstract}"

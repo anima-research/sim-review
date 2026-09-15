@@ -58,6 +58,7 @@ main{max-width:1280px}.page:not(#page-overview){max-width:1180px;margin-inline:a
 /* Results-first presentation: compact heading and recent models alongside the lineage. */
 .essay-revised .essay-hero{padding:32px 0 30px;max-width:1000px;border-bottom:1px solid var(--essay-rule);margin-bottom:42px}
 .essay-revised h1{font-size:46px;line-height:1.12;letter-spacing:-.03em;margin-bottom:14px;text-wrap:initial}
+.essay-revised .essay-subtitle{font:500 17px/1.45 "IBM Plex Sans",sans-serif;color:#205bd8;max-width:850px;margin:6px 0 18px}
 .essay-revised .essay-deck{font:400 21px/1.5 "IBM Plex Sans",sans-serif;max-width:850px!important}
 .essay-revised .essay-byline{margin-top:20px}
 .essay-revised .essay-premise{font:17px/1.65 "IBM Plex Sans",sans-serif;color:var(--essay-muted);max-width:840px;margin:25px 0 0}

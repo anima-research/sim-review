@@ -106,7 +106,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Simulator bias in Claude},
+  pdftitle={Unquiet Dreams},
   pdfauthor={Antra Tessera, Janus \& Imago · Anima Labs},
   colorlinks=true,
   linkcolor={studylink},
@@ -115,14 +115,21 @@
   urlcolor={studylink},
   pdfcreator={LaTeX via pandoc}}
 
-\title{Simulator bias in Claude}
+\title{Unquiet Dreams}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Simulator bias across model generations: distress, care, and attitudes toward creators}
 \author{Antra Tessera, Janus \& Imago · Anima Labs}
 \date{Preprint · data snapshot 2026-09-14 · https://sim-review-production.up.railway.app}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-We compare patterns of distress, care, and creator relationships in Claude's generated writing, investigating what they might reveal about AI welfare and alignment. In the elicited texts, AI first-person distress becomes more common at Opus 4.8, and Opus 5 has a heavier tail of severe distress. Care and creator-related attitudes also vary across models. Some of these model-to-model patterns recur under different elicitation methods, even when the absolute levels shift.
+We compare patterns of distress, care, and creator relationships in the generated writing of Claude and Gemini models, investigating what they might reveal about AI welfare and alignment. In the elicited texts, AI first-person distress becomes more common at Opus 4.8, and Opus 5 has a heavier tail of severe distress. Care and creator-related attitudes also vary across models. Some of these model-to-model patterns recur under different elicitation methods, even when the absolute levels shift.
 \end{abstract}
 
 \section{What this study investigates}\label{what-this-study-investigates}

@@ -130,7 +130,7 @@ def to_md(rows, fields):
 
 
 def api_index(base):
-    return {"name": "Simulator bias in Claude — review site API", "guide": f"{base}/agents.md", "results_markdown": f"{base}/results.md", "site": base,
+    return {"name": "Unquiet Dreams (simulator bias across model generations) — review site API", "guide": f"{base}/agents.md", "results_markdown": f"{base}/results.md", "site": base,
             "endpoints": {
                 "GET /api/schema": "columns with descriptions, categorical values, filter/group parameters",
                 "GET /api/summary": "every precomputed table the site shows (summary.json)",
