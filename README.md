@@ -26,6 +26,7 @@ When the text is regenerated, the branch is updated and the PR keeps every threa
 | `static/` | Site assets: `index.html` (workspace), `app.js`, `presentation*.js/css`, `summary.json` (all precomputed tables), `presentation-data.json` (figure data) |
 | `serve.py` | Stdlib HTTP server: static + `/api/*` + `/results.md` + `/agents.md` |
 | `results_md.py`, `export_md.py` | Markdown rendering of the study (live route, and the review files) |
+| `export_pdf.py`, `paper-header.tex`, `neurips_2025.sty` | LaTeX/PDF build (NeurIPS preprint layout): matplotlib figures from `presentation-data.json`, pandoc → `paper/simulator-bias.tex`, tectonic → `static/simulator-bias.pdf`. The `.tex` is generated; edit the sources, not the LaTeX. |
 | `build.py`, `prepare_presentation.py`, `presentation_*.py` | Build pipeline: labels/severity/beliefs → `data.sqlite` + `summary.json` → presentation export (needs the private data checkout) |
 | `Dockerfile`, `entrypoint.sh`, `publish_db.py`, `DEPLOY.md` | Railway deployment and the incremental DB publish |
 | `AGENTS.md` | Guide for agents using the API |
@@ -36,4 +37,5 @@ When the text is regenerated, the branch is updated and the PR keeps every threa
 python3 build.py                  # data.sqlite + static/summary.json          (private data)
 python3 prepare_presentation.py   # essay values, presentation-data.json, index.html
 python3 export_md.py              # ESSAY.md + RESULTS.md for the review branch
+python3 export_pdf.py             # paper/simulator-bias.tex + static/simulator-bias.pdf (pandoc, tectonic, matplotlib)
 ```
