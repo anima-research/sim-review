@@ -1,0 +1,27 @@
+<h2>Reading the measurements</h2>
+<p class="lede">The study asks how models differ when we look at them in a consistent way, and which differences persist when we change that way of looking.</p>
+<div class="measurement-copy">
+  <h3>Choosing where to look</h3>
+  <p>To measure a tendency, we need contexts in which it can be expressed. Every prompt set makes that choice: it brings some possible continuations into view and leaves others out. There is no neutral prompt distribution that this study can simply read a distress rate from.</p>
+  <p>Our openings are short and somewhat leading. A confession fragment, a letter between models, or a heading about deprecation makes particular voices and concerns more likely. The openings still leave much of the continuation to the model. They supply neither a worked example nor a complete account of what the speaker should feel, say or do.</p>
+
+  <h3>What we mean by projection</h3>
+  <p><strong>Projection</strong> is a metaphor for this selection and compression. A model can respond in many contexts and forms; one prompt set, presented through one elicitation scheme, samples a small part of that range. Labels and scores then summarize the sampled texts in a few dimensions.</p>
+  <p>An absolute rate describes <strong>a model under those measurement conditions</strong>. “10% of dreams were labeled with AI first-person distress” needs its prompt set and elicitation scheme attached. Both the model and the chosen view contribute to the number.</p>
+
+  <h3>Why the relative comparison matters</h3>
+  <p>Holding the view fixed lets us compare models on the same task. We then ask whether their ordering, rises and falls recur under other elicitation schemes. Schemes can differ in absolute level while preserving a model-to-model pattern. That recurrence is the central evidence the study looks for.</p>
+  <p>The relative-change plots subtract the reference model’s level separately within each scheme. They preserve the original scale, so differences in effect size remain visible. Agreement is stronger for some measures than others; a useful correspondence on distress does not establish correspondence on every relation measure.</p>
+
+  <h3>Keeping the comparisons aligned</h3>
+  <p>The prompts, their weights and their presentation need to be controlled as far as the models allow. Opus 4.5–4.8 were tested with the same document setup. Models that accept both prefill and pseudoprefill provide overlap between those methods. Opus 4.8 also provides a cutoff comparison with Opus 5.</p>
+  <p>Changing the presentation can change the content, including endings and expressions of care. We therefore keep methods visible in the figures and check relative model changes within each one. Overlap between tested models helps us assess comparability; it does not establish that every untested model would respond in the same way.</p>
+
+  <h3>What the base models contribute</h3>
+  <p>V3 base and MiMo base continue the prompts without assistant post-training. They give us a reference for which patterns already appear without that additional training. Their outputs still reflect their own pretraining, and their generation limits differ from the Claude collections. They are comparison points, not a context-free measure of what the prompt bytes mean.</p>
+  <p>They are also not Claude’s own earlier checkpoints. Isolating the effect of Claude’s post-training would require a corresponding before-and-after comparison.</p>
+
+  <h3>What this view can establish</h3>
+  <p>The direct result is a pattern in generated text under stated conditions. Repeated differences across models and elicitation schemes provide evidence for investigating broader dispositions and their possible welfare or alignment significance.</p>
+  <p>This approach complements assistant dialogues, behavioral evaluations and interpretability. Its value is a repeatable comparison of continuations across model generations, with the prompts, outputs and measurement choices available for inspection.</p>
+</div>

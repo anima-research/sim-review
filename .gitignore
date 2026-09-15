@@ -1,0 +1,7 @@
+data.sqlite
+data.sqlite.*
+.published/
+*.log
+*.zst
+__pycache__/
+.DS_Store

@@ -1,0 +1,5 @@
+data.sqlite
+*.log
+*.zst
+__pycache__
+.published/
