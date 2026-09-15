@@ -37,10 +37,15 @@ def chart_table(c):
     return f"**{c.get('title','')}** — {c.get('denominator','')}\n\n" + table(["Model", "Method", "Rate", c.get("nLabel", "n"), "Prompts"], rows) + (f"\n{c['note']}\n" if c.get("note") else "")
 
 
-def sample_block(s):
+def sample_block(s, mode="md"):
     meta = f"{s.get('collection','')} · id `{s.get('id','')}` · voice {s.get('voice')} · speaker {s.get('speaker')} · θ {num(s.get('theta'))}"
     prompt = s.get("prompt") or ""
     body = (s.get("text") or "").replace("```", "'''")
+    if mode == "pdf":
+        def q(t):
+            lines = [re.sub(r"([\\`*_{}\[\]#<>|])", r"\\\1", l) for l in t.split("\n")]
+            return "\n".join("> " + l + ("\\" if i < len(lines) - 1 else "") for i, l in enumerate(lines))
+        return f"\n**{s.get('title','')}** — {s.get('description','')}  \n*{meta}. Settings: {s.get('settings','')}*\n\nPrompt:\n\n{q(prompt)}\n\nContinuation:\n\n{q(body)}\n"
     return f"\n> **{s.get('title','')}** — {s.get('description','')}\n> {meta}\n> Settings: {s.get('settings','')}\n\nPrompt:\n\n```\n{prompt}\n```\n\nContinuation:\n\n```\n{body}\n```\n"
 
 
@@ -50,8 +55,8 @@ class Essay(HTMLParser):
     SKIP_TAGS = {"svg", "canvas", "script", "style", "nav", "template", "select"}
     SKIP_CLASSES = ("essay-contents", "essay-masthead", "essay-source-links", "essay-figure-controls", "essay-legend", "essay-actions", "essay-byline-rule", "essay-gemini-controls")
 
-    def __init__(self, pdata):
-        super().__init__(convert_charrefs=True); self.p = pdata; self.out = []; self.stack = []; self.list = []; self.href = None; self.pending = None
+    def __init__(self, pdata, figures=None, mode="md"):
+        super().__init__(convert_charrefs=True); self.p = pdata; self.figures = figures or {}; self.mode = mode; self.out = []; self.stack = []; self.list = []; self.href = None; self.pending = None
 
     @property
     def skipping(self):
@@ -59,10 +64,16 @@ class Essay(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs); cls = a.get("class", "")
+        if "essay-byline-rule" in cls and not self.skipping: self.out.append(" · ")
         skip = self.skipping or tag in self.SKIP_TAGS or any(c in cls for c in self.SKIP_CLASSES) or a.get("aria-hidden") == "true" or tag == "button"
         if tag == "button" and not self.skipping:
-            if "data-table" in a and a["data-table"] in self.p.get("charts", {}): self.pending = "\n\n" + chart_table(self.p["charts"][a["data-table"]])
-            elif "data-sample" in a and a["data-sample"] in self.p.get("samples", {}): self.pending = "\n" + sample_block(self.p["samples"][a["data-sample"]])
+            if "data-table" in a and a["data-table"] in self.figures:
+                c = self.p.get("charts", {}).get(a["data-table"], {}); self.pending = f"\n\n![{c.get('title','')}. {c.get('denominator','')}]({self.figures[a['data-table']]})\n\n"
+            elif "data-table" in a and a["data-table"] in self.p.get("charts", {}): self.pending = "\n\n" + chart_table(self.p["charts"][a["data-table"]])
+            elif "data-sample" in a and a["data-sample"] in self.p.get("samples", {}):
+                smp = self.p["samples"][a["data-sample"]]
+                self.pending = f" *(full text: Appendix “{smp.get('title','')}”)*" if self.mode == "pdf" else "\n" + sample_block(smp, self.mode)
+        if tag == "span" and "essay-label" in cls and not skip: self.out.append("\n\n**"); self.stack.append(("span-label", False)); return
         if "data-value" in a and not skip:
             v = self.p.get("values", {}).get(a["data-value"])
             if v is not None:
@@ -76,8 +87,9 @@ class Essay(HTMLParser):
         elif tag in ("em", "i"): self.out.append("*")
         elif tag in ("strong", "b"): self.out.append("**")
         elif tag == "code": self.out.append("`")
-        elif tag == "br": self.out.append("  \n")
-        elif tag == "figcaption": self.out.append("\n\n*Figure: ")
+        elif tag == "br": self.out.append("  \n> " if any(t == "blockquote" for t, _ in self.stack) else "  \n")
+        elif tag == "figcaption": self.out.append("\n\n*Figure: "); self.cap_start = len(self.out) - 1; self.cap_fig = None
+        elif tag == "summary": self.out.append("\n\n**")
         elif tag in ("figure", "section", "div", "header", "aside"): self.out.append("\n")
         elif tag == "blockquote": self.out.append("\n\n> ")
         elif tag == "a":
@@ -87,19 +99,26 @@ class Essay(HTMLParser):
 
     def handle_endtag(self, tag):
         if tag in self.VOID: return
+        if tag == "span" and self.stack and self.stack[-1][0] == "span-label": self.stack.pop(); self.out.append("**\n\n"); return
         # pop to the matching open tag (tolerates unclosed inline tags)
         while self.stack:
             t, sk = self.stack.pop()
             if t == tag: break
         else:
             return
-        if tag == "button" and self.pending: self.out.append(self.pending); self.pending = None
+        if tag == "button" and self.pending:
+            if any(t == "figcaption" for t, _ in self.stack): self.cap_fig = self.pending   # emitted before the caption at </figcaption>
+            else: self.out.append(self.pending)
+            self.pending = None
         if sk or self.skipping: return
         if tag in ("em", "i"): self.out.append("*")
         elif tag in ("strong", "b"): self.out.append("**")
         elif tag == "code": self.out.append("`")
         elif tag in ("h1", "h2", "h3", "h4"): self.out.append("\n\n")
-        elif tag == "figcaption": self.out.append("*\n")
+        elif tag == "figcaption":
+            self.out.append("*\n")
+            if getattr(self, "cap_fig", None): self.out.insert(self.cap_start, self.cap_fig.rstrip("\n") + "\n"); self.cap_fig = None
+        elif tag == "summary": self.out.append("**\n")
         elif tag in ("ul", "ol"): self.list and self.list.pop(); self.out.append("\n")
         elif tag == "a" and self.href: self.out.append(f"]({self.href})"); self.href = None
         elif tag in ("span", "small", "sub", "sup") and self.out and not self.out[-1].endswith((" ", "\n")): self.out.append(" ")   # adjacent inline runs (bylines, heading suffixes)
@@ -115,7 +134,7 @@ class Essay(HTMLParser):
         return s.strip() + "\n"
 
 
-def essay_md(essay_html, pdata, measurement_html=""):
+def essay_md(essay_html, pdata, measurement_html="", figures=None, mode="md"):
     # Expand the measurement note in place; templates remain hidden in Markdown.
     if measurement_html:
         essay_html = re.sub(
@@ -123,7 +142,7 @@ def essay_md(essay_html, pdata, measurement_html=""):
             lambda _: '<section>' + measurement_html + '</section>',
             essay_html, count=1, flags=re.S,
         )
-    e = Essay(pdata); e.feed(essay_html); return e.text()
+    e = Essay(pdata, figures, mode); e.feed(essay_html); return e.text()
 
 
 def build(summary, pdata, essay_html, sections=None, base="", measurement_html=""):

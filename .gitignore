@@ -5,3 +5,7 @@ data.sqlite.*
 *.zst
 __pycache__/
 .DS_Store
+paper/simulator-bias.md
+paper/simulator-bias.pdf
+paper/*.log
+paper/*.xdv
