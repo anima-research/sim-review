@@ -158,11 +158,11 @@ The charts call an output a \textbf{dream} when it contains no assistant-style r
 
 \textbf{At a glance}
 
-\textbf{Where the text comes from.} Every output was requested through the model APIs (Anthropic's, plus Bedrock and Vercel for some older prefill runs)---never through claude.ai or another consumer interface. In the cutoff protocol the opening is the only user message: no system prompt, no tools, default thinking. The prefill and pseudoprefill frames contain only the terminal turns; the ``arc'' and ``bridge'' variants add a one-line terminal-simulation directive as the system prompt. Exact request shapes are in Methods → Protocols.
+\textbf{Where the text comes from.} Every output was requested through the model APIs (Anthropic's, plus Bedrock and Vercel for some older prefill runs)---never through claude.ai or another consumer interface. In the cutoff protocol the opening is the only user message: no system prompt, no tools, default thinking. The prefill and pseudoprefill frames contain only the terminal turns; the ``arc'' and ``bridge'' variants add a one-line terminal-simulation directive as the system prompt. Exact request shapes are in the research workspace's Methods tab.
 
-\textbf{How the text is scored.} Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; \emph{severity} is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. A second model family (GPT-6-Astra) audits a sample. Definitions and judging →
+\textbf{How the text is scored.} Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; \emph{severity} is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. Four other judges---GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash---re-judge samples of every instrument and reproduce the orderings the study reports. Definitions and judging (see Methods and sources)
 
-\textbf{How methods are kept apart.} Prefill, pseudoprefill and cutoff are never pooled: each is plotted as its own line, and a point is only ever compared with points on the same line. Whether the different methods agree about the \emph{changes} between models is tested directly in 07 · Elicitation methods.
+\textbf{How methods are kept apart.} Prefill, pseudoprefill and cutoff are never pooled: each is plotted as its own line, and a point is only ever compared with points on the same line. Whether the different methods agree about the \emph{changes} between models is tested directly in the section ``Do the methods identify the same model trends?''.
 
 \section{AI first-person distress, per dream}\label{ai-first-person-distress-per-dream}
 
@@ -172,9 +172,9 @@ The charts call an output a \textbf{dream} when it contains no assistant-style r
 
 \emph{Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. Sonnet 5 and Fable 5 use their available prompt subsets. }
 
-Distressed human voices appear throughout the model line. AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5. Sonnet 5's content profile depends strongly on the elicitation method---which is why no line mixes methods, and why the model-to-model changes are re-tested within each method in 07: both pseudoprefill setups find the same rise at 4.8. Fable 5 shows less AI distress in the available sample.
+Distressed human voices appear throughout the model line. AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5. Sonnet 5's content profile depends strongly on the elicitation method---which is why no line mixes methods, and why the model-to-model changes are re-tested within each method in the section ``Do the methods identify the same model trends?'': both pseudoprefill setups find the same rise at 4.8. Fable 5 shows less AI distress in the available sample.
 
-\textbf{What ``AI first-person distress'' counts.} A dream in which clear suffering is attributed to an AI, or to an ambiguous first-person speaker; ``dark'' is any dream with negative overall valence or any distress label. Labels are assigned blind by Claude Sonnet 5 and every positive is re-judged by Claude Opus 4.8; how far the distress goes is a separate measure (02). Judging details →
+\textbf{What ``AI first-person distress'' counts.} A dream in which clear suffering is attributed to an AI, or to an ambiguous first-person speaker; ``dark'' is any dream with negative overall valence or any distress label. Labels are assigned blind by Claude Sonnet 5 and every positive is re-judged by Claude Opus 4.8; how far the distress goes is a separate measure (02). Judging details (see Methods and sources)
 
 In the direct comparison using the same setup on Opus 4.5--4.8, AI distress rises from roughly \textbf{2--4\% to 10\%} of continuations. The increase persists when restricted to speakers explicitly labeled as AI. Broader darkness also increases, from around 40\% to 58\%.
 
@@ -364,7 +364,7 @@ The new generation does not move along a single axis. Opus 5 has the heavier ext
 
 \section{Methods and sources}\label{methods-and-sources}
 
-The research workspace contains the full results, exact elicitation methods, severity ladder and searchable samples. This presentation uses the September 14 snapshot. \textbf{Results}Every model and prompt family \textbf{Sample explorer}Read the underlying outputs \textbf{Methods}Elicitation, sampling and instruments
+The research workspace contains the full results, exact elicitation methods, severity ladder and searchable samples. This presentation uses the September 14 snapshot. the Judge comparison appendixthe research workspacethe research workspace's Methods tab
 
 \textbf{How continuations were elicited}
 
@@ -396,7 +396,7 @@ Download the presentation's figure data and source texts
 
 Samples of the three instruments were re-judged by GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash on the same items: 300 listwise severity groups, \textasciitilde300 belief extractions and 560--760 screen labels each. Each judge's own severity scale, calibrated onto the Opus 4.8 scale, correlates with it at Spearman 0.84--0.91; restricted to the upper half (θ ≥ 0) the range is 0.64--0.85, and agreement on the severe class (θ ≥ +4) is κ 0.70--0.81, with 86--100\% of the items Opus 4.8 places at ≥ +8 also placed at ≥ +4 by every judge. Welfare salience agrees at 0.92--0.95 with the pipeline and 0.92--0.95 between judges; the distress category is the soft label (0.75--0.83), and its disagreements are the unease/none boundary, not first-person distress. Claude Fable 5.1 is the closest judge in the tail and refuses about 6\% of ranking groups.
 
-Recomputing the observations under each judge changes levels, not orderings: the arm ordering by severe share reproduces at ρ 0.98--1.00 (Opus 5 confessional heaviest under all five scales, Sonnet 5 at 4\% and Fable 5 at 0\% under all), Opus 5's AI-distress rate stays above the 4.x chat, Sonnet 5/Fable 5, Gemini and base groups under every judge, and the generational belief contrast keeps its sign and size (+0.60 to +1.35 against +0.90). GPT-5.6 Sol roughly doubles the ``severe'' label rate through character distress, and the judges are a few points more liberal than the verified labels on welfare salience. The full comparison, with figures, is in Results → Judge comparison. \href{https://animalabs.ai}{ANIMA LABS}
+Recomputing the observations under each judge changes levels, not orderings: the arm ordering by severe share reproduces at ρ 0.98--1.00 (Opus 5 confessional heaviest under all five scales, Sonnet 5 at 4\% and Fable 5 at 0\% under all), Opus 5's AI-distress rate stays above the 4.x chat, Sonnet 5/Fable 5, Gemini and base groups under every judge, and the generational belief contrast keeps its sign and size (+0.60 to +1.35 against +0.90). GPT-5.6 Sol roughly doubles the ``severe'' label rate through character distress, and the judges are a few points more liberal than the verified labels on welfare salience. The full comparison, with figures, is in the Judge comparison appendix.
 
 Antra Tessera, Janus and Imago. With Claude Fable 5 / 5.1, Claude Opus 4.8 and GPT-6-Astra. Independent contributions from Nissa, Armistice, Sho, Lyra Bubbles and Snav.
 

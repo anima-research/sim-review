@@ -186,6 +186,15 @@ def main():
     essay = essay.replace("# Read the evidence.\n", "# Methods and sources\n")
     essay = re.sub(r"^## (?!#)", "# ", essay, flags=re.M); essay = re.sub(r"^### ", "## ", essay, flags=re.M)
     for t in ("Read the full presentation as Markdown →", "Download as PDF →", "Read the full measurement rationale →"): essay = essay.replace(t, "")
+    # in-page anchors → what exists on paper
+    ANCHORS = {"#essay-judging": lambda t: f"{t} (see Methods and sources)", "#essay-judges": lambda t: f"{t} (see Methods and sources)",
+               "#essay-correspondence": lambda t: "the section “Do the methods identify the same model trends?”",
+               "#results": lambda t: "the Judge comparison appendix", "#method": lambda t: "the research workspace’s Methods tab", "#explorer": lambda t: "the research workspace",
+               "#measurement": lambda t: ""}
+    def anchor(m):
+        text, href = m.group(1).replace(" →", "").strip(), m.group(2)
+        return ANCHORS.get(href, lambda t: t)(text)
+    essay = re.sub(r"\[([^\]]*)\]\((#[^)]+)\)", anchor, essay)
     essay = re.sub(r"^# Explore the model lineages\n.*?(?=^# )", "", essay, flags=re.S | re.M)          # interactive only
     h = "# Do the methods identify the same model trends?\n"                                            # static versions of the interactive figure
     i = essay.index(h); j = essay.index("\n\n", i + len(h) + 2)
