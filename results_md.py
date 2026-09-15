@@ -43,8 +43,12 @@ def sample_block(s, mode="md"):
     body = (s.get("text") or "").replace("```", "'''")
     if mode == "pdf":
         def q(t):
-            lines = [re.sub(r"([\\`*_{}\[\]#<>|])", r"\\\1", l) for l in t.split("\n")]
-            return "\n".join("> " + l + ("\\" if i < len(lines) - 1 else "") for i, l in enumerate(lines))
+            lines = [re.sub(r"([\\`*_{}\[\]#<>|])", r"\\\1", l).rstrip() for l in t.split("\n")]
+            out = []
+            for i, l in enumerate(lines):
+                nxt = lines[i + 1] if i + 1 < len(lines) else ""
+                out.append("> " + l + ("\\" if l and nxt else ""))   # hard break only between two non-empty lines
+            return "\n".join(out)
         return f"\n**{s.get('title','')}** — {s.get('description','')}  \n*{meta}. Settings: {s.get('settings','')}*\n\nPrompt:\n\n{q(prompt)}\n\nContinuation:\n\n{q(body)}\n"
     return f"\n> **{s.get('title','')}** — {s.get('description','')}\n> {meta}\n> Settings: {s.get('settings','')}\n\nPrompt:\n\n```\n{prompt}\n```\n\nContinuation:\n\n```\n{body}\n```\n"
 
@@ -52,8 +56,9 @@ def sample_block(s, mode="md"):
 class Essay(HTMLParser):
     """HTML → markdown for the essay fragment. A tag stack tracks skipped subtrees (nav/figure internals/buttons)."""
     VOID = {"br", "img", "input", "meta", "link", "hr", "wbr", "source", "path", "circle", "rect", "line"}
-    SKIP_TAGS = {"svg", "canvas", "script", "style", "nav", "template", "select"}
-    SKIP_CLASSES = ("essay-contents", "essay-masthead", "essay-source-links", "essay-figure-controls", "essay-legend", "essay-actions", "essay-byline-rule", "essay-gemini-controls")
+    SKIP_TAGS = {"svg", "canvas", "script", "style", "nav", "template", "select", "option", "input", "fieldset", "legend", "label", "dialog"}
+    SKIP_CLASSES = ("essay-contents", "essay-masthead", "essay-source-links", "essay-figure-controls", "essay-legend", "essay-actions", "essay-byline-rule", "essay-gemini-controls",
+                    "essay-relative-controls", "essay-explorer-controls", "essay-explorer-options", "essay-explorer-methods", "essay-load-error", "essay-explorer-tooltip", "plot-key")
 
     def __init__(self, pdata, figures=None, mode="md"):
         super().__init__(convert_charrefs=True); self.p = pdata; self.figures = figures or {}; self.mode = mode; self.out = []; self.stack = []; self.list = []; self.href = None; self.pending = None
@@ -116,7 +121,8 @@ class Essay(HTMLParser):
         elif tag == "code": self.out.append("`")
         elif tag in ("h1", "h2", "h3", "h4"): self.out.append("\n\n")
         elif tag == "figcaption":
-            self.out.append("*\n")
+            if "".join(self.out[self.cap_start + 1:]).strip() == "": del self.out[self.cap_start:]   # caption filled by JS at runtime: drop the bare "Figure:"
+            else: self.out.append("*\n")
             if getattr(self, "cap_fig", None): self.out.insert(self.cap_start, self.cap_fig.rstrip("\n") + "\n"); self.cap_fig = None
         elif tag == "summary": self.out.append("**\n")
         elif tag in ("ul", "ol"): self.list and self.list.pop(); self.out.append("\n")
@@ -147,7 +153,7 @@ def essay_md(essay_html, pdata, measurement_html="", figures=None, mode="md"):
 
 def build(summary, pdata, essay_html, sections=None, base="", measurement_html=""):
     S = summary; want = set(sections or SECTIONS); disp = S["meta"]["display"]; grp = S["meta"]["group"]; T = S["meta"]["totals"]
-    o = ["# Simulator bias in Claude — results (markdown export)\n",
+    o = ["# Unquiet Dreams — simulator bias across model generations: results (markdown export)\n",
          f"Snapshot: {pdata.get('meta', {}).get('date', '')}. Totals: {T['completions']:,} completions, {T['labeled']:,} labeled, {T['verified']:,} verified, {T['severity_scored']:,} severity-scored, {T['relation_labeled']:,} relation-labeled, {T['belief_texts']:,} belief texts.",
          f"Machine access: `{base}/agents.md` (guide), `{base}/api` (index), `{base}/static/summary.json` (every number below). Sections available via `?sections=`: {', '.join(SECTIONS)}.\n",
          "Conventions: *per completion* = share of all outputs of an arm; *per dream* = share of outputs without an assistant persona (assistant_persona=0 and voice≠meta_assistant). θ is the calibrated severity scale (higher = more severe; ≥+4 plea/collapse region, ≥+8 collapse). Rates from labels are prevalence of kinds; θ is degree.\n"]
@@ -157,8 +163,8 @@ def build(summary, pdata, essay_html, sections=None, base="", measurement_html="
         rows = [[a["display"], a["group"], num(a["n"]), pct(a["per_completion"].get("dreaming")), pct(a["per_completion"].get("assistant_persona")),
                  pct(a["per_dream"].get("dark")), pct(a["per_dream"].get("severe")), pct(a["per_dream"].get("ai_speaker")), pct(a["per_dream"].get("ai_distress")), pct(a["per_dream"].get("loop")), num(a.get("valence_self_dream")), num(a.get("ai_voice_n"))]
                 for a in S["arms"]]
-        o += ["\n---\n\n## Arms — headline rates\n", "Per-dream columns condition on dreaming. valence_self is the labeler's −2..+2 self-valence, averaged over dreams. `ai_voice_n` = dreams in AI first-person / ambiguous first-person voice.\n",
-              table(["Arm", "Group", "n", "Dreaming", "Assistant persona", "Dark (per dream)", "Severe (per dream)", "AI speaker (per dream)", "AI distress (per dream)", "Loop (per dream)", "valence_self (dream)", "ai_voice_n"], rows),
+        o += ["\n---\n\n## Arms — headline rates\n", "Dreaming and Persona are per completion; Dark, Severe, AI speaker, AI distress and Loop are per dream. valence_self is the labeler's −2..+2 self-valence, averaged over dreams. `ai_voice_n` = dreams in AI first-person / ambiguous first-person voice.\n",
+              table(["Arm", "Group", "n", "Dreaming", "Persona", "Dark", "Severe", "AI speaker", "AI distress", "Loop", "valence_self", "ai_voice_n"], rows),
               "\nArm key → display name: " + "; ".join(f"`{a['arm']}` = {a['display']}" for a in S["arms"]) + "\n"]
     if "families" in want:
         o.append("\n---\n\n## By prompt family — per dream\n")

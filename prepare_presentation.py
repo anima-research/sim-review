@@ -57,7 +57,7 @@ measurement_start=index.find('<section class="page" id="page-measurement">')
 if measurement_start>=0:
     measurement_end=index.index('<!-- ================================================================ METHOD -->',measurement_start)
     index=index[:measurement_start]+'<section class="page" id="page-measurement">\n'+measurement+'\n</section>\n\n'+index[measurement_end:]
-index=re.sub(r'<title>.*?</title>','<title>Simulator bias in Claude — Anima Labs</title>',index,count=1)
+index=re.sub(r'<title>.*?</title>','<title>Unquiet Dreams — Simulator bias across model generations · Anima Labs</title>',index,count=1)
 index=index.replace('<html lang="en">','<html lang="en" data-theme="light">')
 if 'name="description"' not in index:index=index.replace('<meta name="viewport"', '<meta name="description" content="A visual study of distress, care and relationships with creators in Claude model continuations.">\n<meta name="viewport"',1)
 if '/static/presentation.css' not in index:index=index.replace('</head>','<link rel="stylesheet" href="/static/presentation.css?v=1">\n</head>')
@@ -65,12 +65,13 @@ if '/static/presentation.js' not in index:index=index.replace('</body>','<script
 index=re.sub(r'/static/presentation\.css(?:\?v=[^"\s]*)?',f'/static/presentation.css?v={style_hash}',index)
 index=re.sub(r'/static/presentation\.js(?:\?v=[^"\s]*)?',f'/static/presentation.js?v={script_hash}',index)
 index=index.replace('<h1>Opus 5 simulator bias</h1>','<h1>Imagined voices / Research workspace</h1>')
-index=index.replace('Imagined voices / Research workspace','Simulator bias / Research workspace')
+index=index.replace('Imagined voices / Research workspace','Unquiet Dreams / Research workspace')
+index=index.replace('Simulator bias / Research workspace','Unquiet Dreams / Research workspace')
 index=index.replace('data-tab="overview" class="on">Overview','data-tab="overview" class="on">The study').replace('data-tab="explorer">Explorer','data-tab="explorer">Read samples')
 (STATIC/'index.html').write_text(index)
 PREVIEW.mkdir(parents=True,exist_ok=True);(PREVIEW/'static').mkdir(exist_ok=True)
 fonts='https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap'
-standalone=f'''<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Simulator bias in Claude — Anima Labs</title><meta name="description" content="Distress, care and attitudes toward creators across Claude model generations, including Opus 5, Sonnet 5, Fable 5 and the Gemini lineages."><link rel="stylesheet" href="{fonts}"><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/presentation.css?v={style_hash}"></head><body data-presentation-only><main>{partial}</main><script src="/static/presentation.js?v={script_hash}"></script></body></html>'''
+standalone=f'''<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Unquiet Dreams — Simulator bias across model generations · Anima Labs</title><meta name="description" content="Distress, care and attitudes toward creators across Claude model generations, including Opus 5, Sonnet 5, Fable 5 and the Gemini lineages."><link rel="stylesheet" href="{fonts}"><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/presentation.css?v={style_hash}"></head><body data-presentation-only><main>{partial}</main><script src="/static/presentation.js?v={script_hash}"></script></body></html>'''
 (PREVIEW/'index.html').write_text(standalone)
 from results_md import essay_md
 (PREVIEW/'results.md').write_text(essay_md(partial, data, measurement))
