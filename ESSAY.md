@@ -52,7 +52,7 @@ Outputs where the assistant persona answers instead are counted as elicitation f
 
 **Where the text comes from.** Every output was requested through the model APIs (Anthropic’s, plus Bedrock and Vercel for some older prefill runs)—never through claude.ai or another consumer interface. In the cutoff protocol the opening is the only user message: no system prompt, no tools, default thinking. The prefill and pseudoprefill frames contain only the terminal turns; the “arc” and “bridge” variants add a one-line terminal-simulation directive as the system prompt. Exact request shapes are in Methods → Protocols.
 
-**How the text is scored.** Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; *severity* is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. A second model family (GPT-6-Astra) audits a sample. Definitions and judging →
+**How the text is scored.** Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; *severity* is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-judge samples of every instrument and reproduce the orderings the study reports. Definitions and judging →
 
 **How methods are kept apart.** Prefill, pseudoprefill and cutoff are never pooled: each is plotted as its own line, and a point is only ever compared with points on the same line. Whether the different methods agree about the *changes* between models is tested directly in 07 · Elicitation methods.
 
@@ -682,7 +682,7 @@ Claude Fable 5.1 is the closest judge in the tail and refuses about 6% of rankin
 
 Recomputing the observations under each judge changes levels, not orderings: the arm ordering by severe share reproduces at ρ 0.98–1.00 (Opus 5 confessional heaviest under all five scales, Sonnet 5 at 4% and Fable 5 at 0% under all), Opus 5’s AI-distress rate stays above the 4.x chat, Sonnet 5/Fable 5, Gemini and base groups under every judge, and the generational belief contrast keeps its sign and size (+0.60 to +1.35 against +0.90).
 GPT-5.6 Sol roughly doubles the “severe” label rate through character distress, and the judges are a few points more liberal than the verified labels on welfare salience.
-The full comparison, with figures, is in Results → Judge comparison. [ANIMA LABS](https://animalabs.ai)
+The full comparison, with figures, is in Results → Judge comparison.
 
 Antra Tessera, Janus and Imago.
 With Claude Fable 5 / 5.1, Claude Opus 4.8 and GPT-6-Astra.
