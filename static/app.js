@@ -584,6 +584,20 @@
 
   // ---------------------------------------------------------------- boot
   window.addEventListener('hashchange', () => { const t = location.hash.replace('#', ''); if (['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(t)) go(t); });
+  // ---- left-hand contents for the long tabs: one link per h3, sticky, current section highlighted
+  const buildToc = (page) => {
+    const sec = $('page-' + page); if (!sec || sec.querySelector('.page-toc')) return;
+    const hs = [...sec.querySelectorAll('h3')].filter(h => h.textContent.trim()); if (hs.length < 4) return;
+    const body = document.createElement('div'); body.className = 'page-body'; while (sec.firstChild) body.appendChild(sec.firstChild);
+    const nav = document.createElement('nav'); nav.className = 'page-toc'; nav.setAttribute('aria-label', 'Contents');
+    nav.innerHTML = '<span class="page-toc-label">On this page</span>' + hs.map((h, i) => { h.id = h.id || `${page}-${i + 1}-${h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)}`; return `<a href="#${h.id}" data-i="${i}">${esc(h.textContent.trim().replace(/^\d+[a-z]? · /, ''))}</a>`; }).join('');
+    sec.appendChild(nav); sec.appendChild(body); sec.classList.add('with-toc');
+    nav.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
+    const links = [...nav.querySelectorAll('a')]; let current = -1;
+    const io = new IntersectionObserver(entries => { entries.forEach(en => { if (en.isIntersecting) { current = +en.target.dataset.i; links.forEach((l, i) => l.classList.toggle('on', i === current)); } }); }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
+    hs.forEach((h, i) => { h.dataset.i = i; io.observe(h); });
+  };
+  ['results', 'method', 'review', 'data', 'findings'].forEach(buildToc);
   const initial = location.hash.replace('#', '') || 'overview';
   go(['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(initial) ? initial : 'overview');
 })();
