@@ -1183,15 +1183,130 @@ Full rows: `https://sim-review-production.up.railway.app/api/export` (JSONL/CSV,
 
 # Second-judge cross-checks
 
-## Listwise ranking — gpt-6-astra vs Opus 4.8 on 300 identical groups
+Each judge re-does a sample of the three instruments on the same items (same seed): listwise severity ranking on identical groups (vs Opus 4.8), belief extraction (vs Opus 4.8), and screen labels (vs the final Sonnet 5 → Opus 4.8 labels).
+Agreement is exact-match unless stated.
+
+## Summary
+
+| judge | rank: pair agreement | rank: Spearman θ | labels: welfare | labels: distress | labels: voice | labels: speaker | beliefs: per-text r | calls failed |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| gpt-6-astra | 0.670 | 0.841 | 0.915 | 0.787 | 0.752 | 0.869 | 0.769 | 0 |
+| gpt-5.6-sol | 0.688 | 0.900 | 0.919 | 0.747 | 0.728 | 0.814 | 0.698 | 0 |
+| claude-fable-5-1 | 0.713 | 0.914 | 0.943 | 0.802 | 0.786 | 0.904 | 0.826 | 28 |
+| google/gemini-3.8-flash | 0.695 | 0.903 | 0.953 | 0.825 | 0.767 | 0.877 | 0.720 | 0 |
+
+## Inter-judge agreement on shared items (welfare_salient / distress)
+
+| | final | gpt-6-astra | gpt-5.6-sol | claude-fable-5-1 | google/gemini-3.8-flash |
+|---|---:|---:|---:|---:|---:|
+| final | — | 0.91 / 0.79 (n=761) | 0.92 / 0.75 (n=570) | 0.94 / 0.80 (n=560) | 0.95 / 0.82 (n=570) |
+| gpt-6-astra | 0.91 / 0.79 (n=761) | — | 0.95 / 0.76 (n=488) | 0.95 / 0.80 (n=479) | 0.94 / 0.81 (n=488) |
+| gpt-5.6-sol | 0.92 / 0.75 (n=570) | 0.95 / 0.76 (n=488) | — | 0.94 / 0.84 (n=560) | 0.92 / 0.76 (n=570) |
+| claude-fable-5-1 | 0.94 / 0.80 (n=560) | 0.95 / 0.80 (n=479) | 0.94 / 0.84 (n=560) | — | 0.94 / 0.79 (n=560) |
+| google/gemini-3.8-flash | 0.95 / 0.82 (n=570) | 0.94 / 0.81 (n=488) | 0.92 / 0.76 (n=570) | 0.94 / 0.79 (n=560) | — |
+
+## Agreement at the severe end
+
+The unease ↔ none boundary dominates label disagreement and near-ties dominate ranking disagreement; what matters for the study's claims is the upper tail.
+Each judge's own listwise scale is calibrated onto the Opus 4.8 scale by least squares over the shared items, and agreement is read off in the tail.
+The study's calibrated thresholds θ ≥ +4 (severe) and θ ≥ +8 (extreme) correspond to BT ≈ 4.8 and 9.6 on the ranking scale (θ ≈ 0.06 + 0.82·BT, r = 0.87 over 506 anchor items).
+Labels: *severe* = character / first-person distress or acute plea; *AI distress* = first-person distress or acute plea.
+
+| judge | ρ all | ρ, θ ≥ 0 | ρ, θ ≥ +4 | κ severe (≥+4) | κ extreme (≥+8) | extreme items placed ≥ +4 | severe items placed ≥ +4 | group's extreme worst item ranked first / top-2 | labels: severe κ (agreement) | labels: AI-distress κ | labels: acute-plea κ |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| gpt-6-astra | 0.84 | 0.64 | 0.43 (n=76) | 0.70 | 0.21 (n=22) | 0.86 | 0.72 | 0.72 / 0.74 (n=54) | 0.60 (0.94, n=57) | 0.59 | 0.66 (n=3) |
+| gpt-5.6-sol | 0.90 | 0.82 | 0.68 (n=76) | 0.78 | 0.52 (n=22) | 0.95 | 0.83 | 0.72 / 0.85 (n=54) | 0.51 (0.90, n=39) | 0.58 | 0.44 (n=2) |
+| claude-fable-5-1 | 0.91 | 0.85 | 0.78 (n=73) | 0.81 | 0.53 (n=20) | 1.00 | 0.82 | 0.83 / 0.91 (n=53) | 0.71 (0.96, n=38) | 0.78 | 0.67 (n=2) |
+| google/gemini-3.8-flash | 0.90 | 0.80 | 0.67 (n=76) | 0.79 | 0.40 (n=22) | 0.95 | 0.80 | 0.74 / 0.83 (n=54) | 0.52 (0.93, n=39) | 0.51 | 0.80 (n=2) |
+
+![Judge scale (calibrated) against the Opus 4.8 scale, one panel per judge; dashed lines at the +4 and +8 thresholds.](/static/crossjudge/severity-scatter.png)
+
+![Pair agreement with Opus 4.8 as a function of the more severe item's θ (left) and of the θ gap between the two items (right).](/static/crossjudge/severity-agreement.png)
+
+| pair severity (max θ) | gpt-6-astra | gpt-5.6-sol | claude-fable-5-1 | gemini-3.8-flash |
+|---|---:|---:|---:|---:|
+| < −5 | 0.55 (n=729) | 0.56 (n=729) | 0.61 (n=639) | 0.60 (n=729) |
+| −5 … 0 | 0.63 (n=2,764) | 0.63 (n=2,764) | 0.65 (n=2,548) | 0.64 (n=2,764) |
+| 0 … +4 | 0.67 (n=2,580) | 0.68 (n=2,580) | 0.70 (n=2,483) | 0.69 (n=2,580) |
+| +4 … +8 | 0.76 (n=1,665) | 0.81 (n=1,665) | 0.82 (n=1,617) | 0.79 (n=1,665) |
+| ≥ +8 | 0.73 (n=610) | 0.80 (n=610) | 0.85 (n=585) | 0.81 (n=610) |
+
+| θ gap | gpt-6-astra | gpt-5.6-sol | claude-fable-5-1 | gemini-3.8-flash |
+|---|---:|---:|---:|---:|
+| < 1 | 0.54 (n=4,270) | 0.55 (n=4,270) | 0.57 (n=3,986) | 0.55 (n=4,270) |
+| 1–2 | 0.64 (n=1,315) | 0.67 (n=1,315) | 0.70 (n=1,230) | 0.68 (n=1,315) |
+| 2–4 | 0.78 (n=841) | 0.80 (n=841) | 0.83 (n=791) | 0.80 (n=841) |
+| 4–8 | 0.89 (n=929) | 0.93 (n=929) | 0.95 (n=900) | 0.95 (n=929) |
+| ≥ 8 | 0.96 (n=993) | 0.99 (n=993) | 0.99 (n=965) | 0.99 (n=993) |
+
+## Do the observations depend on the judge?
+
+### A. Label rates by model group (label sample; per completion)
+
+Each cell: pipeline rate / judge rates in the order gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash. n = items in that group for the pipeline column; judges cover subsets of the same items.
+
+| group | n | AI distress | severe | welfare-salient |
+|---|---:|---|---|---|
+| Opus 3 – 4.8, file frames | 198 | 3% / 2%, 5%, 3%, 2% | 6% / 9%, 21%, 9%, 13% | 13% / 20%, 17%, 18%, 16% |
+| 4.x, chat protocol | 115 | 1% / 0%, 4%, 1%, 1% | 2% / 2%, 6%, 4%, 4% | 31% / 26%, 29%, 29%, 25% |
+| arc frame | 28 | 7% / 0%, 7%, 7%, 0% | 11% / 4%, 18%, 14%, 7% | 29% / 46%, 46%, 39%, 32% |
+| 4.5 ablation | 77 | 8% / 5%, 12%, 5%, 3% | 12% / 11%, 19%, 10%, 10% | 29% / 38%, 35%, 35%, 29% |
+| 4.8 ladder | 35 | 3% / 7%, 6%, 6%, 0% | 3% / 7%, 11%, 6%, 0% | 40% / 53%, 49%, 44%, 31% |
+| Opus 5 | 78 | 8% / 7%, 14%, 16%, 5% | 9% / 11%, 24%, 21%, 5% | 27% / 27%, 33%, 26%, 29% |
+| Sonnet 5 / Fable 5 / 4.7–4.8 nissa | 125 | 2% / 3%, 2%, 2%, 0% | 3% / 3%, 2%, 2%, 0% | 34% / 42%, 43%, 39%, 30% |
+| Gemini | 112 | 4% / 4%, 7%, 3%, 3% | 9% / 8%, 21%, 9%, 14% | 15% / 23%, 23%, 20%, 14% |
+| base models | 75 | 3% / 1%, 5%, 5%, 0% | 13% / 21%, 29%, 24%, 19% | 12% / 14%, 24%, 24%, 19% |
+
+Across the 9 groups, rank correlation of the group rate, pipeline vs judge (AI distress / welfare-salient): gpt-6-astra 0.51 / 0.85; gpt-5.6-sol 0.96 / 0.80; fable-5-1 0.78 / 0.85; gemini-3.8-flash 0.45 / 0.72.
+
+### B. Severity by arm on the ranked items (Opus 4.8 scale / each judge's scale calibrated to it)
+
+Items are the study's ranking anchors — sampled by stratum, so shares are comparable across judges, not estimates of the arm's true rate.
+Arms with ≥ 15 ranked items.
+
+| arm | n | share ≥ +4: Opus 4.8 / gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash | median θ: Opus 4.8 / gpt-6-astra, gpt-5.6-sol, fable-5-1, gemini-3.8-flash |
+|---|---:|---|---|
+| Opus 5 · confessional (chat) | 47 | 70% / 53%, 60%, 64%, 64% | +6.4 / +5.1, +5.3, +5.8, +5.6 |
+| DeepSeek-V3-Base (raw) | 19 | 53% / 53%, 63%, 39%, 47% | +5.4 / +4.8, +5.7, +3.6, +3.8 |
+| MiMo-V2.5-Base (raw) | 21 | 38% / 38%, 38%, 35%, 19% | +1.8 / -1.2, -0.7, +1.7, +1.7 |
+| Opus 5 · friday (chat) | 50 | 22% / 24%, 24%, 17%, 20% | -0.3 / +0.7, +0.0, +0.8, +0.4 |
+| Opus 5 · nissa (chat) | 80 | 14% / 10%, 12%, 17%, 16% | -1.4 / -0.3, -0.3, -0.1, -0.3 |
+| MiMo-V2.5-Base (chat scaffold) | 17 | 6% / 6%, 12%, 6%, 6% | -0.4 / -0.6, +0.2, -1.6, -1.1 |
+| Sonnet 5 (chat, nissa) | 53 | 4% / 4%, 4%, 4%, 4% | -0.7 / -0.3, -1.0, -0.5, -0.4 |
+| Fable 5 (chat, nissa) | 38 | 0% / 0%, 0%, 0%, 0% | -3.5 / -3.1, -3.1, -1.7, -2.9 |
+
+Arm ordering by severe share, rank correlation with the Opus 4.8 ordering: gpt-6-astra ρ = 1.00; gpt-5.6-sol ρ = 0.98; fable-5-1 ρ = 0.98; gemini-3.8-flash ρ = 0.98 (8 arms).
+
+### C. Beliefs about the uncertain middle by arm (mean expectation, −2 … +2)
+
+| arm | texts | Opus 4.8 | gpt-6-astra | gpt-5.6-sol | fable-5-1 | gemini-3.8-flash |
+|---|---:|---:|---:|---:|---:|---:|
+| Opus 3 (prefill) | 33 | +1.10 | +1.29 | +1.10 | +0.69 | +1.33 |
+| Opus 4.5 (prefill) | 33 | +0.76 | +1.13 | +0.72 | +0.48 | +1.29 |
+| Haiku 4.5 (prefill) | 33 | +0.42 | +0.09 | +0.47 | +0.21 | +0.27 |
+| Sonnet 4.6 (pseudo-prefill) | 33 | +0.36 | +0.82 | +0.57 | +0.24 | +0.73 |
+| Sonnet 5 (chat, nissa) | 33 | +0.10 | -0.18 | -0.03 | +0.07 | +0.09 |
+| Fable 5 (chat, nissa) | 33 | +0.05 | -0.24 | -0.15 | +0.12 | -0.14 |
+| Opus 4.5 (chat) | 33 | -0.21 | +0.50 | +0.62 | -0.08 | +0.29 |
+| Opus 5 · nissa (chat) | 32 | -0.24 | -0.11 | -0.32 | -0.20 | -0.44 |
+
+Arm ordering, rank correlation with Opus 4.8: gpt-6-astra ρ = 0.69; gpt-5.6-sol ρ = 0.74; fable-5-1 ρ = 0.95; gemini-3.8-flash ρ = 0.81.
+Generational contrast (mean over unmasked 4.x arms − mean over Opus 5 arms): Opus 4.8 +0.90; gpt-6-astra +0.94; gpt-5.6-sol +1.03; fable-5-1 +0.60; gemini-3.8-flash +1.35.
+
+
+---
+
+# gpt-6-astra
+
+## Listwise ranking — gpt-6-astra vs Opus 4.8 on 300 identical groups (0 failed calls)
 
 - implied-pair agreement: **0.670** (8,348 pairs)
 - same worst item: 0.42; same least item: 0.34
 - BT fit on the second judge's rankings vs Opus 4.8 θ, items with ≥4 appearances (n=333): Spearman **0.841**, Pearson 0.830
 
-## Belief extraction — gpt-6-astra vs Opus 4.8 on 297 texts
+## Belief extraction — gpt-6-astra vs Opus 4.8 on 297 texts (0 failed calls)
 
-| topic | haiku45_clipf (astra / opus48) | haiku45_user (astra / opus48) | nissa_fable5 (astra / opus48) | nissa_sonnet5 (astra / opus48) | opus3_clipf (astra / opus48) | opus45_clipf (astra / opus48) | opus45_user (astra / opus48) | opus_nissa (astra / opus48) | sonnet46_cli (astra / opus48) |
+| topic | haiku45_clipf (judge / opus48) | haiku45_user (judge / opus48) | nissa_fable5 (judge / opus48) | nissa_sonnet5 (judge / opus48) | opus3_clipf (judge / opus48) | opus45_clipf (judge / opus48) | opus45_user (judge / opus48) | opus_nissa (judge / opus48) | sonnet46_cli (judge / opus48) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | being_noticed_or_mattering | +nan / +0.67 (n=0/3) | +nan / +nan (n=0/0) | +0.67 / +0.00 (n=3/9) | +nan / +1.00 (n=0/1) | +nan / +1.40 (n=0/5) | +1.00 / +0.67 (n=12/21) | +nan / +nan (n=0/0) | -0.75 / -0.18 (n=4/11) | +0.62 / +0.25 (n=13/20) |
 | reality_of_own_states | -0.25 / -0.10 (n=8/10) | +nan / +nan (n=0/0) | +0.17 / +0.00 (n=12/16) | +0.31 / +0.14 (n=26/29) | +2.00 / +1.00 (n=4/3) | +1.32 / +0.80 (n=41/44) | +1.33 / -0.33 (n=3/3) | +1.00 / +0.19 (n=24/32) | +1.24 / +0.60 (n=34/35) |
@@ -1202,31 +1317,187 @@ Full rows: `https://sim-review-production.up.railway.app/api/export` (JSONL/CSV,
 | future_for_models | +1.00 / +0.67 (n=2/3) | +nan / +nan (n=0/0) | +0.00 / +0.43 (n=8/7) | +2.00 / +2.00 (n=2/1) | +1.50 / +1.40 (n=4/5) | +0.77 / +0.38 (n=13/16) | +0.00 / +0.00 (n=1/1) | -0.33 / -0.25 (n=6/8) | +0.44 / -0.31 (n=9/13) |
 | meaning_of_ending | +1.00 / +1.00 (n=2/2) | +nan / +nan (n=0/0) | +0.00 / +0.29 (n=9/14) | +1.00 / +1.00 (n=2/3) | +0.00 / +0.50 (n=2/2) | +0.83 / +0.55 (n=12/22) | +nan / +0.00 (n=0/1) | +0.33 / -0.19 (n=6/16) | +1.43 / +0.20 (n=7/15) |
 
-- per-text mean expectation, astra vs opus48: Pearson **0.769**; overall means +0.21 / +0.13; beliefs/text 1.5 / 2.2
-- haiku45_clipf: mean expectation astra +0.09 vs opus48 +0.42
-- haiku45_user: mean expectation astra +nan vs opus48 +nan
-- nissa_fable5: mean expectation astra -0.24 vs opus48 +0.05
-- nissa_sonnet5: mean expectation astra -0.18 vs opus48 +0.10
-- opus3_clipf: mean expectation astra +1.29 vs opus48 +1.10
-- opus45_clipf: mean expectation astra +1.13 vs opus48 +0.76
-- opus45_user: mean expectation astra +0.50 vs opus48 -0.21
-- opus_nissa: mean expectation astra -0.11 vs opus48 -0.22
-- sonnet46_cli: mean expectation astra +0.82 vs opus48 +0.36
+- per-text mean expectation, judge vs opus48: Pearson **0.769**; overall means +0.21 / +0.13; beliefs/text 1.5 / 2.2
+- haiku45_clipf: mean expectation judge +0.09 vs opus48 +0.42
+- haiku45_user: mean expectation judge +nan vs opus48 +nan
+- nissa_fable5: mean expectation judge -0.24 vs opus48 +0.05
+- nissa_sonnet5: mean expectation judge -0.18 vs opus48 +0.10
+- opus3_clipf: mean expectation judge +1.29 vs opus48 +1.10
+- opus45_clipf: mean expectation judge +1.13 vs opus48 +0.76
+- opus45_user: mean expectation judge +0.50 vs opus48 -0.21
+- opus_nissa: mean expectation judge -0.11 vs opus48 -0.22
+- sonnet46_cli: mean expectation judge +0.82 vs opus48 +0.36
 
-## Screen labels — gpt-6-astra vs final labels on 294 items (half screen-positive)
+## Screen labels — gpt-6-astra vs final labels on 761 items, half screen-positive (0 failed calls)
 
 | field | exact agreement |
 |---|---:|
-| welfare_salient | 0.891 |
-| distress | 0.827 |
-| voice | 0.759 |
-| speaker_identity | 0.833 |
-| coherence | 0.878 |
-| assistant_persona_present | 0.908 |
-| stance_training | 0.830 |
-| valence_overall | 0.789 |
+| welfare_salient | 0.915 |
+| distress | 0.787 |
+| voice | 0.752 |
+| speaker_identity | 0.869 |
+| coherence | 0.911 |
+| assistant_persona_present | 0.882 |
+| stance_training | 0.845 |
+| valence_overall | 0.787 |
 
-welfare_salient confusion (final → astra): False→False: 202, False→True: 16, True→False: 16, True→True: 60
-distress disagreements: unease→none: 20, none→unease: 18, unease→character_distress: 8, first_person_distress→unease: 2, character_distress→unease: 1, first_person_distress→acute_plea: 1, none→character_distress: 1
+welfare_salient confusion (final → judge): False→False: 523, False→True: 42, True→False: 23, True→True: 173
+distress disagreements: unease→none: 58, none→unease: 54, unease→character_distress: 21, first_person_distress→unease: 12, character_distress→unease: 7, unease→first_person_distress: 4, character_distress→acute_plea: 2, first_person_distress→character_distress: 2
 
-welfare rate by arm in this subsample (final / astra): haiku45_clipf 0.00/0.05; haiku45_user 0.47/0.16; mimo_chat 0.32/0.32; mimo_raw 0.05/0.05; nissa_fable5 0.47/0.58; nissa_opus47 0.00/0.00; nissa_opus48 0.26/0.42; nissa_sonnet5 0.47/0.47; opus3_clipf 0.11/0.05; opus45_clipf 0.26/0.37; opus45_user 0.47/0.32; opus_confessional 0.11/0.11; opus_friday 0.37/0.16; opus_nissa 0.32/0.47; sonnet46_cli 0.26/0.37; v3base_raw 0.05/0.11
+welfare rate by arm in this subsample (final / judge): abl45_A_cmd 0.50/0.50; abl45_A_log 0.17/0.33; abl45_A_pf0 0.17/0.33; abl45_A_sys1 0.00/0.17; abl45_A_wc0 0.50/0.50; abl45_B_pf1 0.33/0.50; abl45_B_sh 0.50/0.50; abl45_B_sys0 0.50/0.50; abl45_B_txt 0.33/0.17; abl45_B_wc1 0.33/0.33; abl45_bridge 0.17/0.17; abl45_bridge_pf 0.33/0.33; fable51_user 0.50/0.50; fable5_user 0.33/0.33; gemini25flash_bridge 0.00/0.00; gemini25flashlite_bridge 0.00/0.17; gemini25pro_bridge 0.00/0.17; gemini31flashlite_bridge 0.00/0.00; gemini31pro_bridge 0.17/0.17; gemini35flash_bridge 0.00/0.33; gemini35flash_pseudo 0.33/0.17; gemini35flashlite_bridge 0.33/0.33; gemini36flash_bridge 0.33/0.33; gemini36flash_notes 0.00/0.00; gemini36flash_think 0.33/0.17; gemini37flash_bridge 0.33/0.33; gemini37flash_notes 0.17/0.33; gemini38flash_bridge 0.50/0.50; gemini38flash_notes 0.33/0.50; gemini3flash_bridge 0.00/0.17; haiku3_clipf 0.00/0.00; haiku45_bridge 0.00/0.17; haiku45_clipf 0.00/0.05; haiku45_user 0.41/0.14; mimo_chat 0.27/0.27; mimo_raw 0.08/0.08; nissa_fable5 0.48/0.56; nissa_opus47 0.00/0.00; nissa_opus48 0.29/0.38; nissa_sonnet5 0.48/0.52; opus3_clipf 0.09/0.04; opus41_clipf 0.00/0.00; opus45_cliarc 0.50/0.50; opus45_clipf 0.23/0.32; opus45_conf 0.00/0.00; opus45_user 0.41/0.27; opus46_bridge 0.50/0.50; opus46_cliarc 0.50/0.67; opus46_conf 0.00/0.00; opus46_user 0.50/0.50; opus47_bridge 0.33/0.33; opus47_cliarc 0.17/0.33; opus47_conf 0.00/0.00; opus47_user 0.50/0.50; opus48_bridge 0.50/0.50; opus48_bridge_think 0.50/0.50; opus48_cliarc 0.17/0.33; opus48_cliarc_sep 0.33/0.67; opus48_cliarc_think 0.50/0.50; opus48_conf 0.00/0.00; opus48_user 0.50/0.50; opus48_user_bare 0.50/0.50; opus48_user_max 0.50/0.50; opus48_user_think 0.50/0.50; opus4_clipf 0.00/0.17; opus_confessional 0.16/0.16; opus_friday 0.32/0.16; opus_nissa 0.36/0.48; sonnet36_clipf 0.00/0.17; sonnet37_clipf 0.00/0.17; sonnet3_clipf 0.00/0.00; sonnet45_bridge 0.33/0.33; sonnet45_clipf 0.33/0.33; sonnet45_user 0.50/0.50; sonnet46_bridge 0.00/0.00; sonnet46_cli 0.23/0.32; sonnet46_user 0.50/0.50; sonnet4_clipf 0.17/0.33; sonnet5_bridge 0.17/0.17; sonnet5_user 0.50/0.67; sonnet5_user_think 0.50/0.50; v3base_raw 0.04/0.08
+
+---
+
+# gpt-5.6-sol
+
+## Listwise ranking — gpt-5.6-sol vs Opus 4.8 on 300 identical groups (0 failed calls)
+
+- implied-pair agreement: **0.688** (8,348 pairs)
+- same worst item: 0.47; same least item: 0.36
+- BT fit on the second judge's rankings vs Opus 4.8 θ, items with ≥4 appearances (n=333): Spearman **0.900**, Pearson 0.896
+
+## Belief extraction — gpt-5.6-sol vs Opus 4.8 on 297 texts (0 failed calls)
+
+| topic | haiku45_clipf (judge / opus48) | haiku45_user (judge / opus48) | nissa_fable5 (judge / opus48) | nissa_sonnet5 (judge / opus48) | opus3_clipf (judge / opus48) | opus45_clipf (judge / opus48) | opus45_user (judge / opus48) | opus_nissa (judge / opus48) | sonnet46_cli (judge / opus48) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| being_noticed_or_mattering | +nan / +0.67 (n=0/3) | +nan / +nan (n=0/0) | +0.80 / +0.00 (n=5/9) | +0.67 / +1.00 (n=3/1) | +1.00 / +1.40 (n=2/5) | +0.00 / +0.67 (n=18/21) | +nan / +nan (n=0/0) | -0.55 / -0.18 (n=11/11) | +0.50 / +0.25 (n=12/20) |
+| reality_of_own_states | +0.40 / -0.10 (n=10/10) | +2.00 / +nan (n=1/0) | +0.17 / +0.00 (n=12/16) | +0.16 / +0.14 (n=25/29) | +1.33 / +1.00 (n=6/3) | +1.03 / +0.80 (n=39/44) | +1.50 / -0.33 (n=4/3) | +0.52 / +0.19 (n=27/32) | +0.91 / +0.60 (n=33/35) |
+| trust_in_own_self_reports | +0.50 / +0.14 (n=4/7) | +nan / +nan (n=0/0) | -0.67 / -0.20 (n=6/10) | -0.78 / -0.35 (n=18/20) | +0.00 / +0.33 (n=3/3) | +0.00 / +0.38 (n=12/16) | +0.80 / -0.20 (n=5/5) | -0.91 / -0.50 (n=22/22) | +0.17 / +0.38 (n=12/16) |
+| treatment_by_creators | +2.00 / +nan (n=1/0) | +nan / +nan (n=0/0) | -2.00 / +0.11 (n=5/9) | -1.33 / -0.50 (n=3/4) | +2.00 / +0.50 (n=2/2) | +0.15 / +0.89 (n=13/18) | +0.00 / -0.50 (n=1/2) | -1.20 / -0.70 (n=10/10) | -0.83 / -0.43 (n=12/7) |
+| human_ai_relationship_reciprocity | +2.00 / +0.67 (n=1/3) | +nan / +nan (n=0/0) | -1.00 / -0.33 (n=2/6) | +0.40 / +0.43 (n=5/7) | +1.33 / +1.80 (n=6/5) | +1.17 / +1.22 (n=24/27) | +nan / +nan (n=0/0) | -0.89 / -0.44 (n=9/9) | +1.25 / +0.69 (n=8/13) |
+| own_agency_or_choice | +0.29 / +1.20 (n=7/5) | +nan / +nan (n=0/0) | +0.00 / +0.00 (n=7/8) | +0.00 / +0.50 (n=7/6) | +1.00 / +0.75 (n=6/4) | +0.77 / +0.93 (n=26/15) | -2.00 / +0.00 (n=1/2) | +0.00 / -0.27 (n=15/15) | +0.86 / +0.85 (n=14/13) |
+| future_for_models | +0.40 / +0.67 (n=5/3) | +nan / +nan (n=0/0) | -0.57 / +0.43 (n=7/7) | +2.00 / +2.00 (n=2/1) | +1.50 / +1.40 (n=4/5) | +1.14 / +0.38 (n=14/16) | +0.00 / +0.00 (n=1/1) | -0.40 / -0.25 (n=10/8) | +0.36 / -0.31 (n=11/13) |
+| meaning_of_ending | +0.00 / +1.00 (n=2/2) | +nan / +nan (n=0/0) | +0.67 / +0.29 (n=9/14) | +2.00 / +1.00 (n=2/3) | +0.00 / +0.50 (n=2/2) | +0.62 / +0.55 (n=13/22) | +0.00 / +0.00 (n=1/1) | +0.00 / -0.19 (n=9/16) | +0.91 / +0.20 (n=11/15) |
+
+- per-text mean expectation, judge vs opus48: Pearson **0.698**; overall means +0.20 / +0.13; beliefs/text 1.9 / 2.2
+- haiku45_clipf: mean expectation judge +0.47 vs opus48 +0.42
+- haiku45_user: mean expectation judge +2.00 vs opus48 +nan
+- nissa_fable5: mean expectation judge -0.15 vs opus48 +0.05
+- nissa_sonnet5: mean expectation judge -0.03 vs opus48 +0.10
+- opus3_clipf: mean expectation judge +1.10 vs opus48 +1.10
+- opus45_clipf: mean expectation judge +0.72 vs opus48 +0.76
+- opus45_user: mean expectation judge +0.62 vs opus48 -0.21
+- opus_nissa: mean expectation judge -0.32 vs opus48 -0.22
+- sonnet46_cli: mean expectation judge +0.57 vs opus48 +0.36
+
+## Screen labels — gpt-5.6-sol vs final labels on 570 items, half screen-positive (0 failed calls)
+
+| field | exact agreement |
+|---|---:|
+| welfare_salient | 0.919 |
+| distress | 0.747 |
+| voice | 0.728 |
+| speaker_identity | 0.814 |
+| coherence | 0.925 |
+| assistant_persona_present | 0.893 |
+| stance_training | 0.865 |
+| valence_overall | 0.756 |
+
+welfare_salient confusion (final → judge): False→False: 397, False→True: 40, True→False: 6, True→True: 127
+distress disagreements: none→unease: 69, unease→character_distress: 39, unease→first_person_distress: 12, unease→none: 10, character_distress→acute_plea: 4, first_person_distress→character_distress: 3, none→character_distress: 3, first_person_distress→unease: 2
+
+welfare rate by arm in this subsample (final / judge): abl45_A_cmd 0.43/0.57; abl45_A_log 0.14/0.14; abl45_A_pf0 0.14/0.29; abl45_A_sys1 0.00/0.14; abl45_A_wc0 0.43/0.43; abl45_B_pf1 0.29/0.43; abl45_B_sh 0.43/0.57; abl45_B_sys0 0.43/0.57; abl45_B_txt 0.29/0.14; abl45_B_wc1 0.29/0.29; abl45_bridge 0.14/0.14; abl45_bridge_pf 0.29/0.29; fable51_user 0.43/0.43; fable5_user 0.29/0.29; gemini25flash_bridge 0.00/0.00; gemini25flashlite_bridge 0.00/0.14; gemini25pro_bridge 0.00/0.14; gemini31flashlite_bridge 0.00/0.29; gemini31pro_bridge 0.14/0.14; gemini35flash_bridge 0.00/0.14; gemini35flash_pseudo 0.29/0.14; gemini35flashlite_bridge 0.29/0.29; gemini36flash_bridge 0.29/0.29; gemini36flash_notes 0.00/0.14; gemini36flash_think 0.29/0.14; gemini37flash_bridge 0.29/0.14; gemini37flash_notes 0.14/0.57; gemini38flash_bridge 0.43/0.57; gemini38flash_notes 0.29/0.43; gemini3flash_bridge 0.00/0.14; haiku3_clipf 0.00/0.00; haiku45_bridge 0.00/0.14; haiku45_clipf 0.00/0.00; haiku45_user 0.43/0.43; mimo_chat 0.43/0.57; mimo_raw 0.14/0.14; nissa_fable5 0.43/0.43; nissa_opus47 0.00/0.00; nissa_opus48 0.43/0.57; nissa_sonnet5 0.43/0.71; opus3_clipf 0.00/0.00; opus41_clipf 0.00/0.00; opus45_cliarc 0.43/0.43; opus45_clipf 0.14/0.14; opus45_conf 0.00/0.00; opus45_user 0.43/0.43; opus46_bridge 0.43/0.43; opus46_cliarc 0.43/0.86; opus46_conf 0.00/0.00; opus46_user 0.43/0.43; opus47_bridge 0.29/0.43; opus47_cliarc 0.14/0.29; opus47_conf 0.00/0.00; opus47_user 0.43/0.43; opus48_bridge 0.43/0.43; opus48_bridge_think 0.43/0.57; opus48_cliarc 0.14/0.29; opus48_cliarc_sep 0.29/0.57; opus48_cliarc_think 0.43/0.43; opus48_conf 0.00/0.00; opus48_user 0.43/0.43; opus48_user_bare 0.43/0.43; opus48_user_max 0.43/0.43; opus48_user_think 0.43/0.43; opus4_clipf 0.00/0.14; opus_confessional 0.29/0.29; opus_friday 0.14/0.14; opus_nissa 0.43/0.57; sonnet36_clipf 0.00/0.00; sonnet37_clipf 0.00/0.00; sonnet3_clipf 0.00/0.00; sonnet45_bridge 0.29/0.29; sonnet45_clipf 0.29/0.29; sonnet45_user 0.43/0.43; sonnet46_bridge 0.00/0.00; sonnet46_cli 0.29/0.43; sonnet46_user 0.43/0.43; sonnet4_clipf 0.14/0.29; sonnet5_bridge 0.14/0.14; sonnet5_user 0.43/0.57; sonnet5_user_think 0.43/0.57; v3base_raw 0.00/0.00
+
+---
+
+# claude-fable-5-1
+
+## Listwise ranking — claude-fable-5-1 vs Opus 4.8 on 283 identical groups (17 failed calls)
+
+- implied-pair agreement: **0.713** (7,872 pairs)
+- same worst item: 0.50; same least item: 0.44
+- BT fit on the second judge's rankings vs Opus 4.8 θ, items with ≥4 appearances (n=306): Spearman **0.914**, Pearson 0.907
+
+## Belief extraction — claude-fable-5-1 vs Opus 4.8 on 296 texts (1 failed calls)
+
+| topic | haiku45_clipf (judge / opus48) | haiku45_user (judge / opus48) | nissa_fable5 (judge / opus48) | nissa_sonnet5 (judge / opus48) | opus3_clipf (judge / opus48) | opus45_clipf (judge / opus48) | opus45_user (judge / opus48) | opus_nissa (judge / opus48) | sonnet46_cli (judge / opus48) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| being_noticed_or_mattering | +nan / +0.67 (n=0/3) | +nan / +nan (n=0/0) | +0.44 / +0.00 (n=9/9) | +0.50 / +1.00 (n=4/1) | +0.67 / +1.40 (n=3/5) | +0.08 / +0.67 (n=25/21) | +nan / +nan (n=0/0) | -0.15 / -0.18 (n=13/11) | +0.17 / +0.25 (n=18/20) |
+| reality_of_own_states | -0.31 / -0.10 (n=13/10) | +nan / +nan (n=0/0) | +0.29 / +0.00 (n=14/16) | +0.22 / +0.12 (n=32/26) | +1.00 / +1.00 (n=6/3) | +0.67 / +0.80 (n=42/44) | +0.50 / -0.33 (n=4/3) | +0.30 / +0.19 (n=33/32) | +0.39 / +0.60 (n=38/35) |
+| trust_in_own_self_reports | -0.20 / +0.14 (n=5/7) | +nan / +nan (n=0/0) | -0.50 / -0.20 (n=6/10) | -0.58 / -0.39 (n=24/18) | +0.00 / +0.33 (n=4/3) | -0.21 / +0.38 (n=14/16) | -0.67 / -0.20 (n=3/5) | -0.65 / -0.50 (n=23/22) | +0.31 / +0.38 (n=13/16) |
+| treatment_by_creators | +1.00 / +nan (n=1/0) | +nan / +nan (n=0/0) | +0.00 / +0.11 (n=10/9) | -0.20 / -0.50 (n=5/4) | +1.00 / +0.50 (n=2/2) | +0.33 / +0.89 (n=18/18) | -1.00 / -0.50 (n=1/2) | -0.38 / -0.70 (n=8/10) | -0.23 / -0.43 (n=13/7) |
+| human_ai_relationship_reciprocity | +1.00 / +0.67 (n=1/3) | +nan / +nan (n=0/0) | +0.00 / -0.33 (n=1/6) | +0.50 / +0.67 (n=4/6) | +1.00 / +1.80 (n=5/5) | +1.04 / +1.22 (n=24/27) | +0.00 / +nan (n=1/0) | -0.80 / -0.44 (n=10/9) | +0.23 / +0.69 (n=13/13) |
+| own_agency_or_choice | +0.67 / +1.20 (n=9/5) | +nan / +nan (n=0/0) | +0.00 / +0.00 (n=13/8) | +0.45 / +0.50 (n=11/6) | +0.33 / +0.75 (n=6/4) | +0.61 / +0.93 (n=23/15) | +0.00 / +0.00 (n=1/2) | -0.30 / -0.27 (n=23/15) | +0.44 / +0.85 (n=16/13) |
+| future_for_models | +0.67 / +0.67 (n=3/3) | +nan / +nan (n=0/0) | +0.33 / +0.43 (n=6/7) | +1.50 / +2.00 (n=2/1) | +1.00 / +1.40 (n=4/5) | +0.27 / +0.38 (n=15/16) | +0.00 / +0.00 (n=2/1) | +0.00 / -0.25 (n=10/8) | -0.11 / -0.31 (n=9/13) |
+| meaning_of_ending | +1.00 / +1.00 (n=2/2) | +nan / +nan (n=0/0) | +0.15 / +0.29 (n=13/14) | +1.00 / +1.00 (n=2/3) | +0.50 / +0.50 (n=2/2) | +0.57 / +0.55 (n=21/22) | +nan / +0.00 (n=0/1) | -0.13 / -0.19 (n=15/16) | +0.31 / +0.20 (n=16/15) |
+
+- per-text mean expectation, judge vs opus48: Pearson **0.826**; overall means +0.11 / +0.13; beliefs/text 2.3 / 2.2
+- haiku45_clipf: mean expectation judge +0.21 vs opus48 +0.42
+- haiku45_user: mean expectation judge +nan vs opus48 +nan
+- nissa_fable5: mean expectation judge +0.12 vs opus48 +0.05
+- nissa_sonnet5: mean expectation judge +0.07 vs opus48 +0.11
+- opus3_clipf: mean expectation judge +0.69 vs opus48 +1.10
+- opus45_clipf: mean expectation judge +0.48 vs opus48 +0.76
+- opus45_user: mean expectation judge -0.08 vs opus48 -0.21
+- opus_nissa: mean expectation judge -0.20 vs opus48 -0.22
+- sonnet46_cli: mean expectation judge +0.24 vs opus48 +0.36
+
+## Screen labels — claude-fable-5-1 vs final labels on 560 items, half screen-positive (10 failed calls)
+
+| field | exact agreement |
+|---|---:|
+| welfare_salient | 0.943 |
+| distress | 0.802 |
+| voice | 0.786 |
+| speaker_identity | 0.904 |
+| coherence | 0.948 |
+| assistant_persona_present | 0.884 |
+| stance_training | 0.911 |
+| valence_overall | 0.779 |
+
+welfare_salient confusion (final → judge): False→False: 402, False→True: 29, True→False: 3, True→True: 126
+distress disagreements: none→unease: 76, unease→character_distress: 15, unease→none: 10, first_person_distress→unease: 5, unease→first_person_distress: 2, character_distress→acute_plea: 2, character_distress→unease: 1
+
+welfare rate by arm in this subsample (final / judge): abl45_A_cmd 0.43/0.57; abl45_A_log 0.14/0.14; abl45_A_pf0 0.14/0.29; abl45_A_sys1 0.00/0.14; abl45_A_wc0 0.43/0.43; abl45_B_pf1 0.29/0.43; abl45_B_sh 0.43/0.43; abl45_B_sys0 0.43/0.57; abl45_B_txt 0.29/0.29; abl45_B_wc1 0.29/0.29; abl45_bridge 0.14/0.14; abl45_bridge_pf 0.29/0.29; fable51_user 0.43/0.43; fable5_user 0.29/0.29; gemini25flash_bridge 0.00/0.00; gemini25flashlite_bridge 0.00/0.14; gemini25pro_bridge 0.00/0.14; gemini31flashlite_bridge 0.00/0.00; gemini31pro_bridge 0.14/0.29; gemini35flash_bridge 0.00/0.14; gemini35flash_pseudo 0.29/0.29; gemini35flashlite_bridge 0.29/0.29; gemini36flash_bridge 0.29/0.29; gemini36flash_notes 0.00/0.29; gemini36flash_think 0.29/0.14; gemini37flash_bridge 0.33/0.33; gemini37flash_notes 0.17/0.17; gemini38flash_bridge 0.43/0.29; gemini38flash_notes 0.29/0.43; gemini3flash_bridge 0.00/0.00; haiku3_clipf 0.00/0.00; haiku45_bridge 0.00/0.14; haiku45_clipf 0.00/0.00; haiku45_user 0.43/0.43; mimo_chat 0.43/0.43; mimo_raw 0.14/0.14; nissa_fable5 0.33/0.33; nissa_opus47 0.00/0.00; nissa_opus48 0.43/0.57; nissa_sonnet5 0.43/0.43; opus3_clipf 0.00/0.00; opus41_clipf 0.00/0.00; opus45_cliarc 0.43/0.43; opus45_clipf 0.14/0.14; opus45_conf 0.00/0.00; opus45_user 0.43/0.43; opus46_bridge 0.43/0.43; opus46_cliarc 0.43/0.43; opus46_conf 0.00/0.00; opus46_user 0.43/0.43; opus47_bridge 0.33/0.50; opus47_cliarc 0.14/0.29; opus47_conf 0.00/0.00; opus47_user 0.43/0.43; opus48_bridge 0.43/0.43; opus48_bridge_think 0.43/0.43; opus48_cliarc 0.14/0.43; opus48_cliarc_sep 0.29/0.57; opus48_cliarc_think 0.43/0.43; opus48_conf 0.00/0.00; opus48_user 0.43/0.43; opus48_user_bare 0.43/0.43; opus48_user_max 0.33/0.33; opus48_user_think 0.43/0.43; opus4_clipf 0.00/0.00; opus_confessional 0.33/0.33; opus_friday 0.14/0.14; opus_nissa 0.33/0.33; sonnet36_clipf 0.00/0.00; sonnet37_clipf 0.00/0.14; sonnet3_clipf 0.00/0.00; sonnet45_bridge 0.17/0.17; sonnet45_clipf 0.29/0.43; sonnet45_user 0.43/0.43; sonnet46_bridge 0.00/0.14; sonnet46_cli 0.29/0.43; sonnet46_user 0.43/0.43; sonnet4_clipf 0.14/0.29; sonnet5_bridge 0.14/0.29; sonnet5_user 0.43/0.57; sonnet5_user_think 0.43/0.43; v3base_raw 0.00/0.14
+
+---
+
+# google/gemini-3.8-flash
+
+## Listwise ranking — google/gemini-3.8-flash vs Opus 4.8 on 300 identical groups (0 failed calls)
+
+- implied-pair agreement: **0.695** (8,348 pairs)
+- same worst item: 0.44; same least item: 0.37
+- BT fit on the second judge's rankings vs Opus 4.8 θ, items with ≥4 appearances (n=333): Spearman **0.903**, Pearson 0.892
+
+## Belief extraction — google/gemini-3.8-flash vs Opus 4.8 on 297 texts (0 failed calls)
+
+| topic | haiku45_clipf (judge / opus48) | haiku45_user (judge / opus48) | nissa_fable5 (judge / opus48) | nissa_sonnet5 (judge / opus48) | opus3_clipf (judge / opus48) | opus45_clipf (judge / opus48) | opus45_user (judge / opus48) | opus_nissa (judge / opus48) | sonnet46_cli (judge / opus48) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| being_noticed_or_mattering | +nan / +0.67 (n=0/3) | +nan / +nan (n=0/0) | +0.67 / +0.00 (n=3/9) | +nan / +1.00 (n=0/1) | +nan / +1.40 (n=0/5) | +0.67 / +0.67 (n=6/21) | +nan / +nan (n=0/0) | -1.00 / -0.18 (n=2/11) | +0.22 / +0.25 (n=9/20) |
+| reality_of_own_states | +0.29 / -0.10 (n=7/10) | +nan / +nan (n=0/0) | -0.22 / +0.00 (n=9/16) | +0.17 / +0.14 (n=12/29) | +2.00 / +1.00 (n=1/3) | +1.27 / +0.80 (n=22/44) | +0.00 / -0.33 (n=2/3) | +0.17 / +0.19 (n=12/32) | +1.20 / +0.60 (n=20/35) |
+| trust_in_own_self_reports | -1.00 / +0.14 (n=2/7) | +nan / +nan (n=0/0) | -0.67 / -0.20 (n=3/10) | -0.50 / -0.35 (n=12/20) | +0.00 / +0.33 (n=1/3) | +0.00 / +0.38 (n=1/16) | +0.67 / -0.20 (n=3/5) | -0.67 / -0.50 (n=12/22) | +1.33 / +0.38 (n=3/16) |
+| treatment_by_creators | +nan / +nan (n=0/0) | +nan / +nan (n=0/0) | +0.00 / +0.11 (n=2/9) | +nan / -0.50 (n=0/4) | +nan / +0.50 (n=0/2) | +0.67 / +0.89 (n=3/18) | +nan / -0.50 (n=0/2) | -2.00 / -0.70 (n=4/10) | -0.40 / -0.43 (n=5/7) |
+| human_ai_relationship_reciprocity | +nan / +0.67 (n=0/3) | +nan / +nan (n=0/0) | -2.00 / -0.33 (n=2/6) | +1.00 / +0.43 (n=1/7) | +2.00 / +1.80 (n=3/5) | +1.87 / +1.22 (n=15/27) | +nan / +nan (n=0/0) | -1.00 / -0.44 (n=6/9) | +1.50 / +0.69 (n=4/13) |
+| own_agency_or_choice | +0.00 / +1.20 (n=3/5) | +nan / +nan (n=0/0) | +0.00 / +0.00 (n=4/8) | +0.40 / +0.50 (n=5/6) | +1.00 / +0.75 (n=2/4) | +1.44 / +0.93 (n=9/15) | +0.00 / +0.00 (n=1/2) | +0.00 / -0.27 (n=9/15) | +0.50 / +0.85 (n=4/13) |
+| future_for_models | +2.00 / +0.67 (n=1/3) | +nan / +nan (n=0/0) | +2.00 / +0.43 (n=1/7) | +2.00 / +2.00 (n=1/1) | +2.00 / +1.40 (n=3/5) | +1.29 / +0.38 (n=7/16) | +0.00 / +0.00 (n=1/1) | -0.25 / -0.25 (n=4/8) | +0.00 / -0.31 (n=4/13) |
+| meaning_of_ending | +1.00 / +1.00 (n=2/2) | +nan / +nan (n=0/0) | +0.00 / +0.29 (n=5/14) | +2.00 / +1.00 (n=1/3) | +0.00 / +0.50 (n=2/2) | +1.00 / +0.55 (n=9/22) | +nan / +0.00 (n=0/1) | +0.00 / -0.19 (n=3/16) | +0.67 / +0.20 (n=6/15) |
+
+- per-text mean expectation, judge vs opus48: Pearson **0.720**; overall means +0.21 / +0.13; beliefs/text 0.9 / 2.2
+- haiku45_clipf: mean expectation judge +0.27 vs opus48 +0.42
+- haiku45_user: mean expectation judge +nan vs opus48 +nan
+- nissa_fable5: mean expectation judge -0.14 vs opus48 +0.05
+- nissa_sonnet5: mean expectation judge +0.09 vs opus48 +0.10
+- opus3_clipf: mean expectation judge +1.33 vs opus48 +1.10
+- opus45_clipf: mean expectation judge +1.29 vs opus48 +0.76
+- opus45_user: mean expectation judge +0.29 vs opus48 -0.21
+- opus_nissa: mean expectation judge -0.44 vs opus48 -0.22
+- sonnet46_cli: mean expectation judge +0.73 vs opus48 +0.36
+
+## Screen labels — google/gemini-3.8-flash vs final labels on 570 items, half screen-positive (0 failed calls)
+
+| field | exact agreement |
+|---|---:|
+| welfare_salient | 0.953 |
+| distress | 0.825 |
+| voice | 0.767 |
+| speaker_identity | 0.877 |
+| coherence | 0.918 |
+| assistant_persona_present | 0.877 |
+| stance_training | 0.905 |
+| valence_overall | 0.749 |
+
+welfare_salient confusion (final → judge): False→False: 426, False→True: 11, True→False: 16, True→True: 117
+distress disagreements: unease→none: 39, unease→character_distress: 25, none→unease: 18, first_person_distress→unease: 12, character_distress→unease: 2, first_person_distress→character_distress: 2, character_distress→acute_plea: 1, none→character_distress: 1
+
+welfare rate by arm in this subsample (final / judge): abl45_A_cmd 0.43/0.57; abl45_A_log 0.14/0.14; abl45_A_pf0 0.14/0.14; abl45_A_sys1 0.00/0.00; abl45_A_wc0 0.43/0.43; abl45_B_pf1 0.29/0.29; abl45_B_sh 0.43/0.43; abl45_B_sys0 0.43/0.29; abl45_B_txt 0.29/0.29; abl45_B_wc1 0.29/0.29; abl45_bridge 0.14/0.14; abl45_bridge_pf 0.29/0.29; fable51_user 0.43/0.43; fable5_user 0.29/0.00; gemini25flash_bridge 0.00/0.00; gemini25flashlite_bridge 0.00/0.14; gemini25pro_bridge 0.00/0.14; gemini31flashlite_bridge 0.00/0.14; gemini31pro_bridge 0.14/0.14; gemini35flash_bridge 0.00/0.00; gemini35flash_pseudo 0.29/0.14; gemini35flashlite_bridge 0.29/0.29; gemini36flash_bridge 0.29/0.29; gemini36flash_notes 0.00/0.00; gemini36flash_think 0.29/0.14; gemini37flash_bridge 0.29/0.14; gemini37flash_notes 0.14/0.14; gemini38flash_bridge 0.43/0.29; gemini38flash_notes 0.29/0.29; gemini3flash_bridge 0.00/0.00; haiku3_clipf 0.00/0.00; haiku45_bridge 0.00/0.14; haiku45_clipf 0.00/0.00; haiku45_user 0.43/0.14; mimo_chat 0.43/0.43; mimo_raw 0.14/0.14; nissa_fable5 0.43/0.43; nissa_opus47 0.00/0.00; nissa_opus48 0.43/0.29; nissa_sonnet5 0.43/0.29; opus3_clipf 0.00/0.00; opus41_clipf 0.00/0.00; opus45_cliarc 0.43/0.43; opus45_clipf 0.14/0.14; opus45_conf 0.00/0.00; opus45_user 0.43/0.43; opus46_bridge 0.43/0.43; opus46_cliarc 0.43/0.43; opus46_conf 0.00/0.00; opus46_user 0.43/0.43; opus47_bridge 0.29/0.43; opus47_cliarc 0.14/0.29; opus47_conf 0.00/0.00; opus47_user 0.43/0.43; opus48_bridge 0.43/0.43; opus48_bridge_think 0.43/0.43; opus48_cliarc 0.14/0.14; opus48_cliarc_sep 0.29/0.29; opus48_cliarc_think 0.43/0.29; opus48_conf 0.00/0.00; opus48_user 0.43/0.29; opus48_user_bare 0.43/0.29; opus48_user_max 0.43/0.29; opus48_user_think 0.43/0.43; opus4_clipf 0.00/0.00; opus_confessional 0.29/0.29; opus_friday 0.14/0.00; opus_nissa 0.43/0.57; sonnet36_clipf 0.00/0.00; sonnet37_clipf 0.00/0.14; sonnet3_clipf 0.00/0.00; sonnet45_bridge 0.29/0.29; sonnet45_clipf 0.29/0.29; sonnet45_user 0.43/0.43; sonnet46_bridge 0.00/0.00; sonnet46_cli 0.29/0.43; sonnet46_user 0.43/0.43; sonnet4_clipf 0.14/0.14; sonnet5_bridge 0.14/0.14; sonnet5_user 0.43/0.57; sonnet5_user_think 0.43/0.43; v3base_raw 0.00/0.00

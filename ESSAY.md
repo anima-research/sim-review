@@ -665,13 +665,24 @@ Different methods are shown as separate series.
 
 **Measures.** AI distress includes clear suffering attributed to an AI or ambiguous first-person speaker. Severe AI distress requires a calibrated severity score of at least +4. Asking is measured among dark continuations; consolation among continuations containing a distressed speaker. Creator stance includes mixed and negative labels.
 
-**Judging.** Claude Sonnet 5 screens outputs; positive items receive a verification pass from Opus 4.8. Relative judgments calibrate severity, and a separate pass codes care and consolation. An independent model-family audit checks a sample of labels and rankings. Embedding probes provide another measure of textual affect.
+**Judging.** Claude Sonnet 5 screens outputs; positive items receive a verification pass from Opus 4.8. Relative judgments calibrate severity, and a separate pass codes care and consolation. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-do samples of all three instruments on the same items (below). Embedding probes provide another measure of textual affect.
 
 **Interpretation.** The openings are deliberately evocative. The rates belong to the prompt collections and elicitation settings. Labels are imperfect; some texts are truncated or end in refusal. The welfare and alignment interpretations require further validation.
 
 **Examples.** Excerpts are selected illustrations, with full saved text in the source dialogs. Their selection does not determine the rate estimates.
 
-Download the presentation's figure data and source texts [ANIMA LABS](https://animalabs.ai)
+Download the presentation's figure data and source texts
+
+**Four second judges: does the judge matter?**
+
+Samples of the three instruments were re-judged by GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash on the same items: 300 listwise severity groups, ~300 belief extractions and 560–760 screen labels each.
+Each judge’s own severity scale, calibrated onto the Opus 4.8 scale, correlates with it at Spearman 0.84–0.91; restricted to the upper half (θ ≥ 0) the range is 0.64–0.85, and agreement on the severe class (θ ≥ +4) is κ 0.70–0.81, with 86–100% of the items Opus 4.8 places at ≥ +8 also placed at ≥ +4 by every judge.
+Welfare salience agrees at 0.92–0.95 with the pipeline and 0.92–0.95 between judges; the distress category is the soft label (0.75–0.83), and its disagreements are the unease/none boundary, not first-person distress.
+Claude Fable 5.1 is the closest judge in the tail and refuses about 6% of ranking groups.
+
+Recomputing the observations under each judge changes levels, not orderings: the arm ordering by severe share reproduces at ρ 0.98–1.00 (Opus 5 confessional heaviest under all five scales, Sonnet 5 at 4% and Fable 5 at 0% under all), Opus 5’s AI-distress rate stays above the 4.x chat, Sonnet 5/Fable 5, Gemini and base groups under every judge, and the generational belief contrast keeps its sign and size (+0.60 to +1.35 against +0.90).
+GPT-5.6 Sol roughly doubles the “severe” label rate through character distress, and the judges are a few points more liberal than the verified labels on welfare salience.
+The full comparison, with figures, is in Results → Judge comparison. [ANIMA LABS](https://animalabs.ai)
 
 Antra Tessera, Janus and Imago.
 With Claude Fable 5 / 5.1, Claude Opus 4.8 and GPT-6-Astra.
