@@ -194,7 +194,7 @@ def main():
     def anchor(m):
         text, href = m.group(1).replace(" →", "").strip(), m.group(2)
         return ANCHORS.get(href, lambda t: t)(text)
-    essay = re.sub(r"\[([^\]]*)\]\((#[^)]+)\)", anchor, essay)
+    essay = re.sub(r"\[([^\]]*)\]\((#[^)]+)\)", anchor, essay).replace("is a separate measure (02)", "is a separate measure (next section)")
     essay = re.sub(r"^# Explore the model lineages\n.*?(?=^# )", "", essay, flags=re.S | re.M)          # interactive only
     h = "# Do the methods identify the same model trends?\n"                                            # static versions of the interactive figure
     i = essay.index(h); j = essay.index("\n\n", i + len(h) + 2)

@@ -58,7 +58,7 @@ class Essay(HTMLParser):
     VOID = {"br", "img", "input", "meta", "link", "hr", "wbr", "source", "path", "circle", "rect", "line"}
     SKIP_TAGS = {"svg", "canvas", "script", "style", "nav", "template", "select", "option", "input", "fieldset", "legend", "label", "dialog"}
     SKIP_CLASSES = ("essay-contents", "essay-masthead", "essay-source-links", "essay-figure-controls", "essay-legend", "essay-actions", "essay-byline-rule", "essay-gemini-controls",
-                    "essay-wordmark", "essay-relative-controls", "essay-explorer-controls", "essay-explorer-options", "essay-explorer-methods", "essay-load-error", "essay-explorer-tooltip", "plot-key")
+                    "essay-wordmark", "essay-evidence-links", "essay-relative-controls", "essay-explorer-controls", "essay-explorer-options", "essay-explorer-methods", "essay-load-error", "essay-explorer-tooltip", "plot-key")
 
     def __init__(self, pdata, figures=None, mode="md"):
         super().__init__(convert_charrefs=True); self.p = pdata; self.figures = figures or {}; self.mode = mode; self.out = []; self.stack = []; self.list = []; self.href = None; self.pending = None
