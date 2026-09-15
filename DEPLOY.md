@@ -34,7 +34,8 @@ if that becomes the bottleneck, upload it less often (the patch chain only needs
 assets (no DB); the standing PR #1 "Review: essay and results" holds `ESSAY.md`/`RESULTS.md` on branch `review` for
 line comments. After a regeneration:
   git add -A && git commit -m "…" && git push                       # main: new summary/presentation/static
-  python3 export_md.py && git checkout review && git merge -q main && git add ESSAY.md RESULTS.md \
+  git checkout review && git merge -q main && python3 export_md.py && git add ESSAY.md RESULTS.md \
     && git commit -m "Review text: regenerate" && git push && git checkout main   # PR updates; threads survive
+  (run export_md.py on the review branch: ESSAY.md/RESULTS.md are tracked there only, and untracked copies on main block checkout)
 Never merge PR #1; comments are the point. R2 credentials for publish_db.py: env R2_ENDPOINT/R2_ACCESS_KEY/R2_SECRET_KEY
 (falls back to ../../scripts/upload_images_r2.py inside the wfe checkout).
