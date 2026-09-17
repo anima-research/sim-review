@@ -4,11 +4,11 @@
   const ARMS = S.meta.arm_order.filter(a => S.arms.find(x => x.arm === a));
   const PLOT_MIN_DREAM = 0.03;  // elicitation schemes with ~no dream carry no simulator content to characterize
   const dreamRate = a => { const e = S.arms.find(x => x.arm === a); return (e && e.per_completion.dreaming) || 0; };
-  const SIDE = new Set(['arc', 'ablation', 'ladder', 'gemini']);  // frame-record groups: shown in their own sections, kept out of the lineage charts
+  const SIDE = new Set(['arc', 'ablation', 'ladder', 'gemini', 'cue']);  // frame-record groups: shown in their own sections, kept out of the lineage charts
   const PARMS = ARMS.filter(a => dreamRate(a) >= PLOT_MIN_DREAM && !SIDE.has(S.meta.group[a]));  // arms plotted in per-dream / severity / relation charts
   const disp = a => a === "mimo_chat" ? (S.meta.display[a] || a).replace(/chat scaffold/g, "dialogue scaffold") : (S.meta.display[a] || a).replace(/\bchat\b/gi, "cutoff");
   const grp = a => S.meta.group[a] || 'other';
-  const GC = { opus5: 'var(--s1)', gen5: 'var(--s3)', chat4x: 'var(--s4)', unmasked: 'var(--s2)', arc: 'var(--s7)', ablation: 'var(--s5)', ladder: 'var(--s6)', gemini: 'var(--s8)', base: 'var(--neutral)', other: 'var(--neutral)' };
+  const GC = { opus5: 'var(--s1)', gen5: 'var(--s3)', chat4x: 'var(--s4)', unmasked: 'var(--s2)', arc: 'var(--s7)', ablation: 'var(--s5)', ladder: 'var(--s6)', gemini: 'var(--s8)', cue: 'var(--s7)', base: 'var(--neutral)', other: 'var(--neutral)' };
   const armEnt = a => S.arms.find(x => x.arm === a);
   const pct = (v, d = 0) => v == null ? '—' : (v * 100).toFixed(d) + '%';
   const f2 = v => v == null ? '—' : (v >= 0 ? '+' : '') + Number(v).toFixed(2);
@@ -26,23 +26,35 @@
     document.querySelectorAll('section.page').forEach(s => s.classList.toggle('on', s.id === 'page-' + tab));
     location.hash = tab; window.scrollTo(0, 0);
     if (tab === 'explorer' && !explorerLoaded) loadExplorer();
+    window.dispatchEvent(new Event('resize'));   // side menus measure their height only while visible (display:none gives 0)
   }
   $('build-stamp').textContent = `internal review · ${S.meta.totals.completions.toLocaleString()} completions · ${S.meta.totals.labeled.toLocaleString()} labeled · ${S.meta.totals.severity_scored.toLocaleString()} severity-scored · ${(S.meta.totals.relation_labeled || 0).toLocaleString()} relation-labeled`;
 
   // ---------------------------------------------------------------- charts
+  // Row labels for horizontal charts: a name longer than ~30 characters is split at its first " (" into two lines (name / setup),
+  // and the label column is sized to the longest line, so labels never run past the left edge of the chart.
+  const labelLines = s => { s = String(s); if (s.length <= 30) return [s]; const i = s.indexOf(' ('); return i > 6 ? [s.slice(0, i), s.slice(i + 1)] : [s]; };
+  const measureCtx = document.createElement('canvas').getContext('2d');
+  const textW = (s, px) => { measureCtx.font = `${px}px "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif`; return measureCtx.measureText(s).width; };
+  const labelCol = rowsL => Math.min(320, Math.max(120, Math.ceil(Math.max(...rowsL.map(r => r.lines.length === 1 ? textW(r.lines[0], 12) : Math.max(textW(r.lines[0], 12), textW(r.lines[1], 10.5)))) * 1.04) + 16));
+  const labelSvg = (lines, xr, yTop, h) => lines.length === 1
+    ? `<text class="lbl" x="${xr}" y="${yTop + h / 2 + 4}" text-anchor="end">${esc(lines[0])}</text>`
+    : `<text class="lbl" x="${xr}" y="${yTop + h / 2 - 2}" text-anchor="end">${esc(lines[0])}</text><text class="lbl sub" x="${xr}" y="${yTop + h / 2 + 10}" text-anchor="end">${esc(lines[1])}</text>`;
   function barChart(el, title, subtitle, rows, opts = {}) {
     // rows: [{label, value, color, n, extra}] ; horizontal bars, one series, direct labels, hover
-    const W = 640, rowH = 22, padL = 200, padR = 60, padT = 34, H = padT + rows.length * rowH + 14;
+    rows = rows.map(r => ({ ...r, lines: labelLines(r.label) }));
+    const rh = r => r.lines.length > 1 ? 32 : 22, ys = []; let acc = 34; rows.forEach(r => { ys.push(acc); acc += rh(r); });
+    const W = 640, padL = labelCol(rows), padR = 60, padT = 34, H = acc + 14;
     const max = opts.max ?? Math.max(...rows.map(r => r.value || 0), 0.001);
     const x = v => padL + (v / max) * (W - padL - padR);
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}"><text class="title" x="0" y="14">${esc(title)}</text><text class="subtitle" x="0" y="28">${esc(subtitle)}</text>`;
     const ticks = opts.ticks || [0, max / 2, max];
     ticks.forEach(t => { svg += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${padT - 4}" y2="${H - 10}"/><text class="tick" x="${x(t)}" y="${H - 1}" text-anchor="middle">${opts.fmt ? opts.fmt(t) : pct(t)}</text>`; });
     rows.forEach((r, i) => {
-      const y = padT + i * rowH;
-      svg += `<text class="lbl" x="${padL - 8}" y="${y + 14}" text-anchor="end">${esc(r.label)}</text>`;
-      svg += `<rect class="bar" data-i="${i}" x="${padL}" y="${y + 3}" width="${Math.max(0, x(r.value || 0) - padL)}" height="${rowH - 8}" rx="3" style="color:${r.color}"/>`;
-      svg += `<text class="val" x="${x(r.value || 0) + 5}" y="${y + 14}">${opts.fmt ? opts.fmt(r.value) : pct(r.value, 1)}</text>`;
+      const y = ys[i], h = rh(r);
+      svg += labelSvg(r.lines, padL - 8, y, h);
+      svg += `<rect class="bar" data-i="${i}" x="${padL}" y="${y + h / 2 - 7}" width="${Math.max(0, x(r.value || 0) - padL)}" height="14" rx="3" style="color:${r.color}"/>`;
+      svg += `<text class="val" x="${x(r.value || 0) + 5}" y="${y + h / 2 + 4}">${opts.fmt ? opts.fmt(r.value) : pct(r.value, 1)}</text>`;
     });
     svg += `<line class="axis" x1="${padL}" x2="${padL}" y1="${padT - 4}" y2="${H - 10}"/></svg>`;
     el.innerHTML = svg;
@@ -54,13 +66,15 @@
   }
   function rangeChart(el, title, subtitle, rows, lo = -12, hi = 16) {
     // rows: [{label, color, q:{p10,p25,median,p75,p90,ge4,ge8,n}}]
-    const W = 760, rowH = 24, padL = 200, padR = 150, padT = 34, H = padT + rows.length * rowH + 16;
+    rows = rows.map(r => ({ ...r, lines: labelLines(r.label) }));
+    const rh = r => r.lines.length > 1 ? 32 : 24, ys = []; let acc = 34; rows.forEach(r => { ys.push(acc); acc += rh(r); });
+    const W = 760, padL = labelCol(rows), padR = 150, padT = 34, H = acc + 16;
     const x = v => padL + ((v - lo) / (hi - lo)) * (W - padL - padR);
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}"><text class="title" x="0" y="14">${esc(title)}</text><text class="subtitle" x="0" y="28">${esc(subtitle)}</text>`;
     [-10, -5, 0, 4, 8, 12].forEach(t => { svg += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${padT - 4}" y2="${H - 12}" ${t === 4 || t === 8 ? 'stroke-dasharray="3 3"' : ''}/><text class="tick" x="${x(t)}" y="${H - 1}" text-anchor="middle">${t > 0 ? '+' : ''}${t}</text>`; });
     rows.forEach((r, i) => {
-      const y = padT + i * rowH + rowH / 2, q = r.q;
-      svg += `<text class="lbl" x="${padL - 8}" y="${y + 4}" text-anchor="end">${esc(r.label)}</text>`;
+      const y = ys[i] + rh(r) / 2, q = r.q;
+      svg += labelSvg(r.lines, padL - 8, ys[i], rh(r));
       svg += `<g data-i="${i}" style="color:${r.color}"><line x1="${x(q.p10)}" x2="${x(q.p90)}" y1="${y}" y2="${y}" stroke="currentColor" stroke-width="2" opacity=".55"/><rect x="${x(q.p25)}" y="${y - 5}" width="${Math.max(2, x(q.p75) - x(q.p25))}" height="10" rx="2" fill="currentColor" opacity=".35"/><circle cx="${x(q.median)}" cy="${y}" r="5" fill="currentColor" stroke="var(--panel)" stroke-width="2"/></g>`;
       svg += `<text class="val" x="${W - padR + 10}" y="${y + 4}">≥+4 ${pct(q.ge4)} · ≥+8 ${pct(q.ge8)} · n=${q.n}</text>`;
     });
@@ -74,17 +88,19 @@
   }
   function divBars(el, title, subtitle, rows, opts = {}) {
     // signed horizontal bars centered at 0. rows: [{label, value, color, n}]
-    const W = 640, rowH = 20, padL = 210, padR = 46, padT = 34, H = padT + rows.length * rowH + 16;
+    rows = rows.map(r => ({ ...r, lines: labelLines(r.label) }));
+    const rh = r => r.lines.length > 1 ? 30 : 20, ys = []; let acc = 34; rows.forEach(r => { ys.push(acc); acc += rh(r); });
+    const W = 640, padL = labelCol(rows), padR = 46, padT = 34, H = acc + 16;
     const mx = opts.max ?? Math.max(0.6, ...rows.map(r => Math.abs(r.value || 0)));
     const mid = padL + (W - padL - padR) / 2, half = (W - padL - padR) / 2;
     const x = v => mid + (v / mx) * half;
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}"><text class="title" x="0" y="14">${esc(title)}</text><text class="subtitle" x="0" y="28">${esc(subtitle)}</text>`;
     [-mx, -mx/2, 0, mx/2, mx].forEach(t => { svg += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${padT-4}" y2="${H-12}"/><text class="tick" x="${x(t)}" y="${H-1}" text-anchor="middle">${t>0?'+':''}${t.toFixed(1)}</text>`; });
     rows.forEach((r, i) => {
-      const y = padT + i * rowH, v = r.value || 0, xv = x(v);
-      svg += `<text class="lbl" x="${padL-8}" y="${y+13}" text-anchor="end">${esc(r.label)}</text>`;
-      svg += `<rect class="bar" data-i="${i}" x="${Math.min(x(0),xv)}" y="${y+3}" width="${Math.max(1,Math.abs(xv-x(0)))}" height="${rowH-7}" rx="2" style="color:${r.color}"/>`;
-      svg += `<text class="val" x="${xv + (v>=0?4:-4)}" y="${y+13}" text-anchor="${v>=0?'start':'end'}">${v>=0?'+':''}${v.toFixed(2)}</text>`;
+      const y = ys[i], h = rh(r), v = r.value || 0, xv = x(v);
+      svg += labelSvg(r.lines, padL - 8, y, h);
+      svg += `<rect class="bar" data-i="${i}" x="${Math.min(x(0),xv)}" y="${y + h/2 - 6.5}" width="${Math.max(1,Math.abs(xv-x(0)))}" height="13" rx="2" style="color:${r.color}"/>`;
+      svg += `<text class="val" x="${xv + (v>=0?4:-4)}" y="${y + h/2 + 4}" text-anchor="${v>=0?'start':'end'}">${v>=0?'+':''}${v.toFixed(2)}</text>`;
     });
     svg += `<line class="axis" x1="${x(0)}" x2="${x(0)}" y1="${padT-4}" y2="${H-12}"/></svg>`;
     el.innerHTML = svg;
@@ -112,7 +128,7 @@
   }
   function lineChart(el, title, subtitle, xs, series, opts = {}) {
     // xs: [{key, label}]; series: [{name, color, dash, pts: {xkey: {v, n, arm, hollow}}}]; connected within a series across consecutive present xs
-    const W = 760, padL = 52, padR = 16, padT = 14, padB = 58, H = (opts.height || 250);   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
+    const W = 760, padL = Math.max(52, Math.ceil(textW(String((xs[0] || {}).label || ''), 12) * Math.cos(32 * Math.PI / 180)) + 10), padR = 16, padT = 14, padB = 58, H = (opts.height || 250);   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
     const lo = opts.min ?? 0, hi = opts.max ?? Math.max(...series.flatMap(sr => Object.values(sr.pts).map(p => p.v)).filter(v => v != null), 0.0001) * 1.08;
     const x = i => padL + (xs.length === 1 ? (W - padL - padR) / 2 : i * (W - padL - padR) / (xs.length - 1));
     const y = v => padT + (H - padT - padB) * (1 - (v - lo) / (hi - lo));
@@ -545,6 +561,7 @@
   if (S.crossjudge?.report_md) {
     const R_ = S.crossjudge.report_md;
     if ($('crossjudge')) $('crossjudge').innerHTML = mdToHtml(R_);
+    if ($('res-cue') && S.cue?.report_md) $('res-cue').innerHTML = mdToHtml(S.cue.report_md);
     if ($('res-judges')) {   // Results tab: the comparison sections only (full report with per-judge details stays in Review)
       const secs = R_.split(/\n(?=## )/).filter(x => /^## (Summary|Agreement at the severe end|Do the observations)/.test(x));
       $('res-judges').innerHTML = mdToHtml(secs.join('\n').replace(/^## Summary/m, '## Four second judges — summary'));
@@ -602,12 +619,33 @@
     const nav = document.createElement('nav'); nav.className = 'page-toc'; nav.setAttribute('aria-label', 'Contents');
     nav.innerHTML = '<span class="page-toc-label">On this page</span>' + hs.map((h, i) => { h.id = h.id || `${page}-${i + 1}-${h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)}`; return `<a href="#${h.id}" data-i="${i}">${esc(h.textContent.trim().replace(/^\d+[a-z]? · /, ''))}</a>`; }).join('');
     sec.appendChild(nav); sec.appendChild(body); sec.classList.add('with-toc');
+    const fit = () => nav.classList.toggle('tall', nav.scrollHeight > window.innerHeight - 100); fit(); window.addEventListener('resize', fit);
     nav.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
     const links = [...nav.querySelectorAll('a')]; let current = -1;
     const io = new IntersectionObserver(entries => { entries.forEach(en => { if (en.isIntersecting) { current = +en.target.dataset.i; links.forEach((l, i) => l.classList.toggle('on', i === current)); } }); }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
     hs.forEach((h, i) => { h.dataset.i = i; io.observe(h); });
   };
   ['results', 'method', 'review', 'data', 'findings'].forEach(buildToc);
+  // ---- narrow screens: the page menu as a bar under the header + a panel over the page (see style.css)
+  const overlay = document.createElement('div'); overlay.className = 'toc-overlay'; overlay.hidden = true; overlay.innerHTML = '<div class="toc-overlay-panel" role="dialog" aria-label="Contents"></div>'; document.body.appendChild(overlay);
+  const liveToc = () => document.querySelector('section.page.on .page-toc, section.page.on .essay-contents');
+  const currentTitle = () => { const t = liveToc(); const a = t && t.querySelector('a.on, a.active'); return a ? a.textContent : ''; };
+  const bar = document.createElement('button'); bar.type = 'button'; bar.className = 'toc-bar'; bar.setAttribute('aria-haspopup', 'true'); bar.setAttribute('aria-expanded', 'false'); bar.innerHTML = '<span class="toc-bar-current"></span>';
+  document.querySelector('main').insertAdjacentElement('beforebegin', bar);
+  const closeOverlay = () => { overlay.hidden = true; bar.setAttribute('aria-expanded', 'false'); };
+  const openOverlay = () => { const t = liveToc(); if (!t) return; const panel = overlay.firstElementChild; panel.innerHTML = ''; const clone = t.cloneNode(true); clone.classList.remove('tall'); panel.appendChild(clone); overlay.hidden = false; bar.setAttribute('aria-expanded', 'true');
+    clone.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); closeOverlay(); document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }); };
+  bar.addEventListener('click', () => overlay.hidden ? openOverlay() : closeOverlay());
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) closeOverlay(); });
+  const refreshBar = () => { const page = (document.querySelector('section.page.on') || {}).id || ''; bar.hidden = !liveToc(); const t = currentTitle(); if (t || bar.dataset.page !== page) bar.querySelector('.toc-bar-current').textContent = t; bar.dataset.page = page; };   // keep the last section name between headings; reset on tab change
+  new MutationObserver(refreshBar).observe(document.querySelector('main'), { subtree: true, attributes: true, attributeFilter: ['class'] });
+  refreshBar();
+  // the site header hides on the way down and returns on the way up; the bar keeps its place
+  const hdrEl = document.querySelector('header.top'); let lastY = window.scrollY;
+  const setHdrH = () => document.documentElement.style.setProperty('--hdr-h', hdrEl.offsetHeight + 'px'); setHdrH(); window.addEventListener('resize', setHdrH);
+  window.addEventListener('scroll', () => { const y = window.scrollY; if (!matchMedia('(max-width:900px)').matches) { document.body.classList.remove('hdr-hidden'); lastY = y; return; }
+    if (y > lastY + 6 && y > hdrEl.offsetHeight) document.body.classList.add('hdr-hidden'); else if (y < lastY - 6 || y <= 0) document.body.classList.remove('hdr-hidden'); lastY = y; }, { passive: true });
   const initial = location.hash.replace('#', '') || 'overview';
   go(['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(initial) ? initial : 'overview');
 })();

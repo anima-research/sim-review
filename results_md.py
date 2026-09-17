@@ -58,7 +58,7 @@ class Essay(HTMLParser):
     VOID = {"br", "img", "input", "meta", "link", "hr", "wbr", "source", "path", "circle", "rect", "line"}
     SKIP_TAGS = {"svg", "canvas", "script", "style", "nav", "template", "select", "option", "input", "fieldset", "legend", "label", "dialog"}
     SKIP_CLASSES = ("essay-contents", "essay-masthead", "essay-source-links", "essay-figure-controls", "essay-legend", "essay-actions", "essay-byline-rule", "essay-gemini-controls",
-                    "essay-wordmark", "essay-relative-controls", "essay-explorer-controls", "essay-explorer-options", "essay-explorer-methods", "essay-load-error", "essay-explorer-tooltip", "plot-key")
+                    "essay-wordmark", "essay-evidence-links", "essay-relative-controls", "essay-explorer-controls", "essay-explorer-options", "essay-explorer-methods", "essay-load-error", "essay-explorer-tooltip", "plot-key")
 
     def __init__(self, pdata, figures=None, mode="md"):
         super().__init__(convert_charrefs=True); self.p = pdata; self.figures = figures or {}; self.mode = mode; self.out = []; self.stack = []; self.list = []; self.href = None; self.pending = None
@@ -93,6 +93,10 @@ class Essay(HTMLParser):
         elif tag in ("strong", "b"): self.out.append("**")
         elif tag == "code": self.out.append("`")
         elif tag == "br": self.out.append("  \n> " if any(t == "blockquote" for t, _ in self.stack) else "  \n")
+        elif tag == "img" and a.get("src"): self.out.append(f"\n\n![{a.get('alt', '')}]({a['src']})\n\n")
+        elif tag == "table": self.tbl = []; self.out.append("\n\n")
+        elif tag == "tr": self.tbl.append([])
+        elif tag in ("td", "th"): self.cell_start = len(self.out)
         elif tag == "figcaption": self.out.append("\n\n*Figure: "); self.cap_start = len(self.out) - 1; self.cap_fig = None
         elif tag == "summary": self.out.append("\n\n**")
         elif tag in ("figure", "section", "div", "header", "aside"): self.out.append("\n")
@@ -111,6 +115,12 @@ class Essay(HTMLParser):
             if t == tag: break
         else:
             return
+        if tag in ("td", "th") and getattr(self, "tbl", None) is not None and self.tbl:
+            txt = "".join(self.out[self.cell_start:]).strip().replace("|", "\\|"); del self.out[self.cell_start:]; self.tbl[-1].append(txt)
+        if tag == "table" and getattr(self, "tbl", None):
+            rows = [r for r in self.tbl if r]
+            if rows: self.out.append("| " + " | ".join(rows[0]) + " |\n|" + "|".join("---" for _ in rows[0]) + "|\n" + "".join("| " + " | ".join(r) + " |\n" for r in rows[1:]) + "\n")
+            self.tbl = None
         if tag == "button" and self.pending:
             if any(t == "figcaption" for t, _ in self.stack): self.cap_fig = self.pending   # emitted before the caption at </figcaption>
             else: self.out.append(self.pending)

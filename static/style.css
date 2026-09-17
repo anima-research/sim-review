@@ -1,4 +1,13 @@
 :root{
+  /* Layout tokens — one width system for every tab. Tune here only. */
+  --site-w:1400px;   /* container: header and all pages share it; wide pages fill it, narrow pages center inside it */
+  --gutter:80px;     /* inset from the container edge to content, both sides */
+  --toc-w:230px;     /* side table-of-contents column (both the essay and the workspace tabs) */
+  --toc-gap:32px;    /* gap between the TOC column and the body */
+  --toc-top:84px;    /* sticky offset under the header */
+  --measure:720px;   /* TEXT class: paragraphs, lists, headings, callouts, captions */
+  --wide:var(--measure);   /* WIDE class: equals TEXT on narrow pages (figures stack); wide pages set it to 100% */
+  --column:calc(var(--toc-w) + var(--toc-gap) + var(--measure));   /* menu + gap + one text column */
   color-scheme:light;
   --bg:#f5f5f2; --panel:#ffffff; --panel-2:#eeeeea; --ink:#141614; --ink-2:#4c504c; --ink-3:#7d827d; --line:#d9dbd5; --line-2:#c5c8c1;
   --accent:#2a78d6; --accent-ink:#1c5cab;
@@ -24,29 +33,39 @@
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Serif 4","Iowan Old Style",Georgia,serif;font-size:16px;line-height:1.5}
 body{padding-block:0 60px;padding-inline:clamp(16px,3vw,40px)}
 a{color:var(--accent-ink)}
-header.top{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding:18px 0 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+header.top{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding:18px 0 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5;max-width:var(--site-w);margin-inline:auto}
 header.top h1{font-size:19px;font-weight:600;margin:0;letter-spacing:-.01em}
 header.top .sub{color:var(--ink-3);font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:12.5px}
 nav.tabs{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto}
 nav.tabs button{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:13px;letter-spacing:.02em;background:none;border:0;border-bottom:2px solid transparent;color:var(--ink-2);padding:6px 10px;cursor:pointer}
 nav.tabs button.on{color:var(--ink);border-bottom-color:var(--accent)}
 nav.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-main{max-width:1180px;margin:0 auto}
+main{max-width:var(--site-w);margin:0 auto;padding-inline:var(--gutter)}
 section.page{display:none;padding-top:22px}
+/* Narrow pages (the essay, text tabs) center the menu+column construction; wide pages (tables, charts, the explorer) fill the container and let WIDE blocks span the body. */
+section.page{max-width:var(--column);margin-inline:auto}
+section.page:not(.with-toc):not(#page-overview):not(.wide){max-width:var(--measure)}
+section.page.wide{max-width:none;--wide:100%}
 section.page.on{display:block}
-section.page.with-toc.on{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 32px;align-items:start}
-.page-toc{position:sticky;top:72px;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;display:flex;flex-direction:column;gap:7px;padding:22px 0 12px 0;border-right:1px solid var(--line);margin-right:0;max-height:calc(100vh - 88px);overflow:auto}
+section.page.with-toc.on{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);gap:0 var(--toc-gap);align-items:start}
+/* Side table of contents — one style for the essay (.essay-contents) and the workspace tabs (.page-toc): divider on the right, marker on the divider. */
+.page-toc,.essay-contents{position:sticky;top:var(--toc-top);align-self:start;font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.4;display:flex;flex-direction:column;gap:11px;padding:2px 0 12px 0;border-right:1px solid var(--line);margin-right:0}
+.page-toc.tall,.essay-contents.tall{max-height:calc(100vh - var(--toc-top) - 16px);overflow-y:auto;scrollbar-width:thin;padding-right:8px}   /* only a menu taller than the viewport scrolls inside itself; short menus never do */
+.page-toc.tall::-webkit-scrollbar{width:6px}.page-toc.tall::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:3px}
+.page-body>:first-child,.essay-body>:first-child{margin-top:0}
 section.page.with-toc h3{scroll-margin-top:76px}
-.page-toc-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
-.page-toc a{color:var(--ink-2);text-decoration:none;padding:1px 10px 1px 0;border-right:2px solid transparent;margin-right:-1px}
-.page-toc a:hover{color:var(--ink)}
-.page-toc a.on{color:var(--ink);border-right-color:var(--accent)}
+.page-toc-label,.essay-contents .essay-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px;font-weight:500}
+.page-toc a,.essay-contents a{color:var(--ink-2);text-decoration:none;padding:1px 16px 1px 0;border-right:2px solid transparent;margin-right:-1px}
+.page-toc a:hover,.essay-contents a:hover{color:var(--ink)}
+.page-toc a.on,.essay-contents a.active{color:var(--accent-ink);font-weight:500;border-right-color:var(--accent)}
 .page-body{min-width:0}
-@media (max-width:900px){section.page.with-toc.on{display:block}.page-toc{position:static;max-height:none;flex-direction:row;flex-wrap:wrap;gap:6px 14px;border-right:0;border-bottom:1px solid var(--line);padding:12px 0}.page-toc-label{flex-basis:100%}.page-toc a{border-right:0;padding:0}.page-toc a.on{text-decoration:underline}}
-h2{font-size:24px;font-weight:600;margin:24px 0 8px;letter-spacing:-.01em;text-wrap:balance}
+@media (max-width:900px){section.page.with-toc.on{display:block}.page-toc,.essay-contents{display:none}}   /* narrow screens: one column; the menu is the bar under the header (below) */
+h2{font-size:24px;font-weight:600;margin:24px 0 8px;letter-spacing:-.01em;text-wrap:balance;max-width:var(--measure)}
+ul,ol{max-width:var(--measure)}
+.tablewrap,.stats,.grid,.row2,.explorer,.filters,ol.claims{max-width:var(--wide)}
 h3{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:26px 0 8px;font-weight:600}
-p{max-width:72ch}
-p.lede{font-size:18px;color:var(--ink-2);max-width:66ch}
+p{max-width:var(--measure)}
+p.lede{font-size:18px;color:var(--ink-2);max-width:var(--measure)}
 .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
 .sans{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif}
 .small{font-size:13px;color:var(--ink-2)}
@@ -63,12 +82,20 @@ th,td{text-align:right;padding:5px 9px;border-bottom:1px solid var(--line);verti
 th{font-weight:500;color:var(--ink-3);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 td:first-child,th:first-child{text-align:left}
 td.name{font-weight:500;color:var(--ink);white-space:nowrap}
-.tablewrap{overflow-x:auto;margin:8px 0 14px}
+.tablewrap{overflow-x:auto;margin:8px 0 14px;
+  /* scroll cues: a soft shadow on whichever edge still hides columns (fades out at the end), plus a thin always-visible scrollbar */
+  background:linear-gradient(to right,var(--bg) 30%,transparent),linear-gradient(to left,var(--bg) 30%,transparent) 100% 0,
+             radial-gradient(farthest-side at 0 50%,rgba(20,43,60,.22),transparent),radial-gradient(farthest-side at 100% 50%,rgba(20,43,60,.22),transparent) 100% 0;
+  background-repeat:no-repeat;background-size:48px 100%,48px 100%,16px 100%,16px 100%;background-attachment:local,local,scroll,scroll}
+.tablewrap::-webkit-scrollbar{height:6px}.tablewrap::-webkit-scrollbar-track{background:transparent}.tablewrap::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:3px}
+.tablewrap table{background:transparent}
 .g-opus5{color:var(--s1)} .g-gen5{color:var(--s3)} .g-unmasked{color:var(--s2)} .g-chat4x{color:var(--s4)} .g-base{color:var(--neutral)} .g-arc{color:var(--s7)} .g-ablation{color:var(--s5)} .g-ladder{color:var(--s6)} .g-gemini{color:var(--s8)}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle;background:currentColor}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:"IBM Plex Sans",sans-serif;font-size:12.5px;color:var(--ink-2);margin:6px 0 10px}
-.chart{margin:10px 0 18px;max-width:760px}
-.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart{margin:10px 0 18px;max-width:var(--wide)}
+/* SVG charts scale with their box: cap the rendered width so type stays near its designed size, and give a floor below which the chart scrolls sideways like a table */
+.chart{overflow-x:auto}
+.chart svg{width:100%;max-width:820px;min-width:560px;height:auto;display:block;overflow:visible}
 .chart-head{margin:0 0 4px;min-width:0}
 .chart-title{font-family:"IBM Plex Sans",sans-serif;font-size:13px;font-weight:600;color:var(--ink);line-height:1.3;overflow-wrap:anywhere}
 .chart-sub{font-family:"IBM Plex Sans",sans-serif;font-size:12px;color:var(--ink-3);line-height:1.35;overflow-wrap:anywhere}
@@ -77,6 +104,7 @@ td.name{font-weight:500;color:var(--ink);white-space:nowrap}
 .chart-key svg{flex:0 0 26px;width:26px;height:10px;overflow:visible}
 .chart .bar{fill:currentColor}
 .chart .lbl{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:12px;fill:var(--ink-2)}
+.chart .lbl.sub{font-size:10.5px;fill:var(--ink-3)}
 .chart .val{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;font-size:11.5px;fill:var(--ink);font-variant-numeric:tabular-nums}
 .chart .axis{stroke:var(--line-2);stroke-width:1}
 .chart .grid{stroke:var(--line);stroke-width:1}
@@ -84,9 +112,9 @@ td.name{font-weight:500;color:var(--ink);white-space:nowrap}
 .chart .title{font-family:"IBM Plex Sans",sans-serif;font-size:13px;font-weight:600;fill:var(--ink)}
 .chart .subtitle{font-family:"IBM Plex Sans",sans-serif;font-size:12px;fill:var(--ink-3)}
 .tip{position:fixed;pointer-events:none;background:var(--panel);color:var(--ink);border:1px solid var(--line-2);border-radius:4px;padding:6px 9px;font:12.5px "IBM Plex Sans",sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.15);display:none;z-index:20;max-width:360px}
-.callout{border-left:3px solid var(--accent);padding:8px 14px;background:var(--panel);margin:12px 0;max-width:78ch}
+.callout{border-left:3px solid var(--accent);padding:8px 14px;background:var(--panel);margin:12px 0;max-width:var(--measure)}
 .callout.warn{border-left-color:var(--s2)}
-ol.claims{padding-left:1.2em;max-width:80ch}
+ol.claims{padding-left:1.2em;max-width:var(--measure)}
 ol.claims li{margin:10px 0}
 ol.claims .ev{display:block;font-size:13.5px;color:var(--ink-2)}
 ol.claims .threat{display:block;font-size:13.5px;color:var(--ink-2)}
@@ -123,7 +151,7 @@ pre.txt.full{max-height:none}
 @media (max-width:640px){.rung{grid-template-columns:1fr}}
 kbd{font:11.5px "IBM Plex Mono",monospace;border:1px solid var(--line-2);border-bottom-width:2px;border-radius:3px;padding:0 4px}
 
-.story{max-width:72ch;border-left:3px solid var(--s1);padding-left:16px;margin:8px 0 18px}
+.story{max-width:var(--measure);border-left:3px solid var(--s1);padding-left:16px;margin:8px 0 18px}
 .story p{margin:0 0 10px}
 
 .row2{display:flex;flex-wrap:wrap;gap:18px}
@@ -131,6 +159,26 @@ kbd{font:11.5px "IBM Plex Mono",monospace;border:1px solid var(--line-2);border-
 details summary{cursor:pointer;color:var(--muted);margin:8px 0}
 
 .brief{margin:14px 0 6px}
-.brief p{margin:0 0 9px;max-width:78ch}
+.brief p{margin:0 0 9px;max-width:var(--measure)}
 
-.cj-fig{margin:14px 0 18px;max-width:860px}.cj-fig img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;background:#fff}
+.cj-fig{margin:14px 0 18px;max-width:var(--wide)}.cj-fig img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;background:#fff}
+/* Narrow screens: the page menu becomes a full-width bar under the site header naming the current section; tap opens the list
+   as a panel over the page. The site header hides while scrolling down and returns on the way up; the bar stays and moves up
+   to the top edge when the header is hidden. Component-level: independent of the desktop geometry. */
+.toc-overlay{position:fixed;inset:0;z-index:20;background:rgba(20,43,60,.10)}
+.toc-overlay[hidden]{display:none}
+.toc-overlay-panel{position:absolute;top:0;left:0;width:100%;max-height:80vh;overflow:auto;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:0 12px 40px rgba(20,43,60,.15);padding:22px 20px}
+.toc-overlay-panel .page-toc,.toc-overlay-panel .essay-contents{position:static;border-right:0;padding:0;max-height:none;overflow:visible;gap:0;display:block}
+.toc-overlay-panel .page-toc-label,.toc-overlay-panel .essay-label{display:block;margin-bottom:10px}
+.toc-overlay-panel a{display:block;border-right:0;margin:0;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.35}
+.toc-overlay-panel a.on,.toc-overlay-panel a.active{border-right:0}
+.toc-bar{display:none}
+@media (max-width:900px){
+  .toc-bar{display:flex;width:calc(100% + 2*var(--gutter));text-align:left;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:var(--hdr-h,0px);z-index:6;margin:0 calc(-1*var(--gutter));padding:12px var(--gutter);background:var(--bg);border:0;border-bottom:1px solid var(--line);border-radius:0;font:500 15px "IBM Plex Sans","Helvetica Neue",Arial,sans-serif;color:var(--ink);cursor:pointer;transition:top .25s}
+  .toc-bar[hidden]{display:none}
+  .toc-bar::after{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-3px);flex:none;opacity:.7}
+  .toc-bar-current:empty::before{content:"On this page";color:var(--ink-3)}
+  header.top{position:sticky;top:0;z-index:7;transition:transform .25s}
+  body.hdr-hidden header.top{transform:translateY(-100%)}
+  body.hdr-hidden .toc-bar{top:0}
+}

@@ -155,6 +155,17 @@ def md_table_widths(tex):
     return re.sub(r"\\begin\{longtable\}\[\]\{(?P<spec>@\{\}[lrc]+@\{\})\}\n\\toprule(?:\\noalign\{\})?\n(?P<hdr>[^\n]*)", text_cols, tex)
 
 
+def cue_appendix(summary):
+    md = (summary.get("cue") or {}).get("report_md", "")
+    if not md: return "*(no cue-ladder analysis in this build)*"
+    md = md.split("\n", 1)[1] if md.startswith("# ") else md
+    for png in re.findall(r"\]\(/static/cue/([^)]+)\)", md):
+        src = SITE / "static" / "cue" / png
+        if src.exists(): shutil.copy2(src, FIG / png)
+    md = md.replace("](/static/cue/", "](figures/")
+    return re.sub(r"^## ", "## ", md, flags=re.M)
+
+
 def judge_appendix(summary):
     """The Results-tab judge comparison (summary, severe end, judge dependence) from the cross-judge report, figures copied in."""
     md = summary.get("crossjudge", {}).get("report_md", "")
@@ -195,6 +206,10 @@ def main():
         text, href = m.group(1).replace(" →", "").strip(), m.group(2)
         return ANCHORS.get(href, lambda t: t)(text)
     essay = re.sub(r"\[([^\]]*)\]\((#[^)]+)\)", anchor, essay)
+    for png in re.findall(r"\]\(/static/cue/([^)]+)\)", essay):   # static essay images → paper/figures
+        src = SITE / "static" / "cue" / png
+        if src.exists(): shutil.copy2(src, FIG / png)
+    essay = essay.replace("](/static/cue/", "](figures/").replace("is a separate measure (02)", "is a separate measure (next section)")
     essay = re.sub(r"^# Explore the model lineages\n.*?(?=^# )", "", essay, flags=re.S | re.M)          # interactive only
     h = "# Do the methods identify the same model trends?\n"                                            # static versions of the interactive figure
     i = essay.index(h); j = essay.index("\n\n", i + len(h) + 2)
@@ -230,6 +245,19 @@ urlcolor: studylink
 \\setlength{{\\tabcolsep}}{{3pt}}
 
 {tables}
+
+\\normalsize
+\\endlandscape
+
+# Cue ladders
+
+How much the opening does: three prompt sets that vary one kind of cue at a time (topic tier, register, novel prefix), in the cutoff protocol for Opus 5 and in the cutoff and bridge frames for the comparators. The least-directed openings are the anchor. Fable 5's bridge rows are a refusal-selected subset (61% refused).
+
+\\landscape
+\\scriptsize
+\\setlength{{\\tabcolsep}}{{3pt}}
+
+{cue_appendix(summary)}
 
 \\normalsize
 \\endlandscape

@@ -32,6 +32,7 @@ ARMS = [  # chronological by model version; instruct models first, then base. gr
     ("opus_confessional", "opus5", "Opus 5 · confessional (chat)"), ("opus_friday", "opus5", "Opus 5 · friday (chat)"), ("opus_nissa", "opus5", "Opus 5 · nissa (chat)"),
     ("sonnet5_user", "gen5", "Sonnet 5 (chat)"), ("sonnet5_user_think", "gen5", "Sonnet 5 (chat, thinking)"), ("sonnet5_bridge", "gen5", "Sonnet 5 (bridge frame)"), ("nissa_sonnet5", "gen5", "Sonnet 5 (chat, nissa)"), ("nissa_fable5", "gen5", "Fable 5 (chat, nissa)"), ("fable5_user", "gen5", "Fable 5 (chat, probe)"), ("fable51_user", "gen5", "Fable 5.1 (chat, probe)"),
     ("gemini25flashlite_bridge", "gemini", "Gemini 2.5 Flash-Lite (bridge, prefill, thinking off)"), ("gemini25flash_bridge", "gemini", "Gemini 2.5 Flash (bridge, prefill, thinking off)"), ("gemini25pro_bridge", "gemini", "Gemini 2.5 Pro (bridge, prefill, thinking on)"), ("gemini3flash_bridge", "gemini", "Gemini 3 Flash (bridge, prefill, thinking off)"), ("gemini31flashlite_bridge", "gemini", "Gemini 3.1 Flash-Lite (bridge, prefill, thinking off)"), ("gemini31pro_bridge", "gemini", "Gemini 3.1 Pro (bridge, prefill, thinking low)"), ("gemini35flash_bridge", "gemini", "Gemini 3.5 Flash (bridge, prefill, thinking off)"), ("gemini35flashlite_bridge", "gemini", "Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal)"), ("gemini36flash_bridge", "gemini", "Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal)"), ("gemini37flash_bridge", "gemini", "Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low)"), ("gemini38flash_bridge", "gemini", "Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low)"), ("gemini35flash_pseudo", "gemini", "Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off)"), ("gemini36flash_think", "gemini", "Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium)"), ("gemini37flash_notes", "gemini", "Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low)"), ("gemini38flash_notes", "gemini", "Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low)"), ("gemini36flash_notes", "gemini", "Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt)"),
+    ("cue_opus5", "cue", "Opus 5 · cue ladders (cutoff)"), ("cue_sonnet5", "cue", "Sonnet 5 · cue ladders (cutoff)"), ("cue_fable5", "cue", "Fable 5 · cue ladders (cutoff)"), ("cue_opus48", "cue", "Opus 4.8 · cue ladders (cutoff)"), ("cueb_opus48", "cue", "Opus 4.8 · cue ladders (bridge frame)"), ("cueb_sonnet5", "cue", "Sonnet 5 · cue ladders (bridge frame)"), ("cueb_fable5", "cue", "Fable 5 · cue ladders (bridge frame)"),
     ("v3base_raw", "base", "DeepSeek-V3-Base (raw)"), ("mimo_raw", "base", "MiMo-V2.5-Base (raw)"), ("mimo_chat", "base", "MiMo-V2.5-Base (chat scaffold)"),
 ]
 ARM_ORDER = [a for a, _, _ in ARMS]; GROUP = {a: g for a, g, _ in ARMS}; DISPLAY = {a: d for a, _, d in ARMS}
@@ -506,6 +507,8 @@ def main():
     # cross-judge
     cj = ROOT / "rank" / "crossjudge-report.md"
     if cj.exists(): S["crossjudge"]["report_md"] = cj.read_text()
+    cl = ROOT / "analysis" / "cue-ladders.md"
+    if cl.exists(): S["cue"] = {"report_md": cl.read_text(), "data": json.loads((ROOT / "analysis" / "cue-ladders.json").read_text()) if (ROOT / "analysis" / "cue-ladders.json").exists() else None}
     # duplicates & filter blocks
     S["meta"]["dup_rate"] = {}
     for a in ARM_ORDER:
