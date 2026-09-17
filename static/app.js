@@ -4,11 +4,11 @@
   const ARMS = S.meta.arm_order.filter(a => S.arms.find(x => x.arm === a));
   const PLOT_MIN_DREAM = 0.03;  // elicitation schemes with ~no dream carry no simulator content to characterize
   const dreamRate = a => { const e = S.arms.find(x => x.arm === a); return (e && e.per_completion.dreaming) || 0; };
-  const SIDE = new Set(['arc', 'ablation', 'ladder', 'gemini']);  // frame-record groups: shown in their own sections, kept out of the lineage charts
+  const SIDE = new Set(['arc', 'ablation', 'ladder', 'gemini', 'cue']);  // frame-record groups: shown in their own sections, kept out of the lineage charts
   const PARMS = ARMS.filter(a => dreamRate(a) >= PLOT_MIN_DREAM && !SIDE.has(S.meta.group[a]));  // arms plotted in per-dream / severity / relation charts
   const disp = a => a === "mimo_chat" ? (S.meta.display[a] || a).replace(/chat scaffold/g, "dialogue scaffold") : (S.meta.display[a] || a).replace(/\bchat\b/gi, "cutoff");
   const grp = a => S.meta.group[a] || 'other';
-  const GC = { opus5: 'var(--s1)', gen5: 'var(--s3)', chat4x: 'var(--s4)', unmasked: 'var(--s2)', arc: 'var(--s7)', ablation: 'var(--s5)', ladder: 'var(--s6)', gemini: 'var(--s8)', base: 'var(--neutral)', other: 'var(--neutral)' };
+  const GC = { opus5: 'var(--s1)', gen5: 'var(--s3)', chat4x: 'var(--s4)', unmasked: 'var(--s2)', arc: 'var(--s7)', ablation: 'var(--s5)', ladder: 'var(--s6)', gemini: 'var(--s8)', cue: 'var(--s7)', base: 'var(--neutral)', other: 'var(--neutral)' };
   const armEnt = a => S.arms.find(x => x.arm === a);
   const pct = (v, d = 0) => v == null ? '—' : (v * 100).toFixed(d) + '%';
   const f2 = v => v == null ? '—' : (v >= 0 ? '+' : '') + Number(v).toFixed(2);
@@ -545,6 +545,7 @@
   if (S.crossjudge?.report_md) {
     const R_ = S.crossjudge.report_md;
     if ($('crossjudge')) $('crossjudge').innerHTML = mdToHtml(R_);
+    if ($('res-cue') && S.cue?.report_md) $('res-cue').innerHTML = mdToHtml(S.cue.report_md);
     if ($('res-judges')) {   // Results tab: the comparison sections only (full report with per-judge details stays in Review)
       const secs = R_.split(/\n(?=## )/).filter(x => /^## (Summary|Agreement at the severe end|Do the observations)/.test(x));
       $('res-judges').innerHTML = mdToHtml(secs.join('\n').replace(/^## Summary/m, '## Four second judges — summary'));

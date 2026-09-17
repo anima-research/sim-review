@@ -142,3 +142,5 @@ main{max-width:1280px}.page:not(#page-overview){max-width:1180px;margin-inline:a
 .gemini-point{cursor:pointer}.gemini-point:focus,.gemini-point:hover{stroke-width:4;outline:none}
 #essay-gemini-legend{font-size:13px;min-height:0;margin-bottom:10px}
 @media(max-width:1000px){.essay-gemini-grid{grid-template-columns:1fr}.essay-gemini-grid h3{min-height:0}.essay-gemini-grid .essay-chart{max-width:600px}.essay-gemini-refs{max-width:600px}.essay-gemini-grid .plot-axis{font-size:14px}}
+
+.essay-revised .essay-table{border-collapse:collapse;font:14px/1.4 "IBM Plex Sans",sans-serif;margin:8px 0 4px}.essay-revised .essay-table th,.essay-revised .essay-table td{padding:6px 10px;border-bottom:1px solid var(--essay-rule,#d8e0e6);text-align:left;vertical-align:top}.essay-revised .essay-table th{font-weight:600;color:#43596b}.essay-revised .essay-table td:first-child{font-weight:500}
