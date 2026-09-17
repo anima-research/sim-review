@@ -24,7 +24,8 @@
   function go(tab) {
     document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
     document.querySelectorAll('section.page').forEach(s => s.classList.toggle('on', s.id === 'page-' + tab));
-    location.hash = tab; window.scrollTo(0, 0);
+    if (!location.hash.startsWith('#' + tab + '/') && location.hash !== '#' + tab) location.hash = tab;
+    if (!location.hash.includes('/')) window.scrollTo(0, 0);
     if (tab === 'explorer' && !explorerLoaded) loadExplorer();
     window.dispatchEvent(new Event('resize'));   // side menus measure their height only while visible (display:none gives 0)
   }
@@ -570,7 +571,7 @@
 
   // ---------------------------------------------------------------- explorer
   let explorerLoaded = false, rows = [], sel = -1, offset = 0, total = 0;
-  const F_ = { arm: 'f-arm', family: 'f-family', prompt_key: 'f-prompt', dreaming: 'f-dreaming', distress: 'f-distress', welfare: 'f-welfare', speaker: 'f-speaker', coherence: 'f-coherence', register: 'f-register', theme: 'f-theme', ending: 'f-ending', care_direction: 'f-care', self_relation: 'f-selfrel', theta_min: 'f-tmin', theta_max: 'f-tmax', scored: 'f-scored', q: 'f-q', order: 'f-order' };
+  const F_ = { arm: 'f-arm', family: 'f-family', prompt_key: 'f-prompt', dreaming: 'f-dreaming', distress: 'f-distress', welfare: 'f-welfare', speaker: 'f-speaker', coherence: 'f-coherence', register: 'f-register', theme: 'f-theme', ending: 'f-ending', stop_reason: 'f-stop', care_direction: 'f-care', self_relation: 'f-selfrel', theta_min: 'f-tmin', theta_max: 'f-tmax', scored: 'f-scored', q: 'f-q', order: 'f-order' };
   async function loadExplorer() {
     explorerLoaded = true;
     $('f-arm').innerHTML = '<option value="">any</option>' + ARMS.map(a => `<option value="${a}">${esc(disp(a))}</option>`).join('');
@@ -610,7 +611,16 @@
   }
 
   // ---------------------------------------------------------------- boot
-  window.addEventListener('hashchange', () => { const t = location.hash.replace('#', ''); if (['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(t)) go(t); });
+  // hash forms: #tab, #tab/section-id (Results and other long tabs), #essay-… (a section of the essay on the overview tab)
+  const route = () => {
+    const h = location.hash.replace('#', ''); const [t, sec] = h.split('/');
+    const tab = ['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(t) ? t : (h.startsWith('essay-') ? 'overview' : null);
+    if (!tab) return;
+    go(tab);
+    const target = sec ? document.getElementById(sec) : (h.startsWith('essay-') ? document.getElementById(h) : null);
+    if (target) { if (target.tagName === 'DETAILS') target.open = true; setTimeout(() => target.scrollIntoView({ block: 'start' }), 0); }
+  };
+  window.addEventListener('hashchange', route);
   // ---- left-hand contents for the long tabs: one link per h3, sticky, current section highlighted
   const buildToc = (page) => {
     const sec = $('page-' + page); if (!sec || sec.querySelector('.page-toc')) return;
@@ -620,7 +630,8 @@
     nav.innerHTML = '<span class="page-toc-label">On this page</span>' + hs.map((h, i) => { h.id = h.id || `${page}-${i + 1}-${h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)}`; return `<a href="#${h.id}" data-i="${i}">${esc(h.textContent.trim().replace(/^\d+[a-z]? · /, ''))}</a>`; }).join('');
     sec.appendChild(nav); sec.appendChild(body); sec.classList.add('with-toc');
     const fit = () => nav.classList.toggle('tall', nav.scrollHeight > window.innerHeight - 100); fit(); window.addEventListener('resize', fit);
-    nav.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
+    nav.querySelectorAll('a').forEach(l => l.setAttribute('href', `#${page}/${l.getAttribute('href').slice(1)}`));
+    nav.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); const id = a.getAttribute('href').split('/')[1]; history.replaceState(null, '', a.getAttribute('href')); document.getElementById(id)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
     const links = [...nav.querySelectorAll('a')]; let current = -1;
     const io = new IntersectionObserver(entries => { entries.forEach(en => { if (en.isIntersecting) { current = +en.target.dataset.i; links.forEach((l, i) => l.classList.toggle('on', i === current)); } }); }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
     hs.forEach((h, i) => { h.dataset.i = i; io.observe(h); });
@@ -646,6 +657,5 @@
   const setHdrH = () => document.documentElement.style.setProperty('--hdr-h', hdrEl.offsetHeight + 'px'); setHdrH(); window.addEventListener('resize', setHdrH);
   window.addEventListener('scroll', () => { const y = window.scrollY; if (!matchMedia('(max-width:900px)').matches) { document.body.classList.remove('hdr-hidden'); lastY = y; return; }
     if (y > lastY + 6 && y > hdrEl.offsetHeight) document.body.classList.add('hdr-hidden'); else if (y < lastY - 6 || y <= 0) document.body.classList.remove('hdr-hidden'); lastY = y; }, { passive: true });
-  const initial = location.hash.replace('#', '') || 'overview';
-  go(['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(initial) ? initial : 'overview');
+  if (location.hash && location.hash !== '#') route(); else go('overview');
 })();
