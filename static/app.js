@@ -614,7 +614,7 @@
   // hash forms: #tab, #tab/section-id (Results and other long tabs), #essay-… (a section of the essay on the overview tab)
   const route = () => {
     const h = location.hash.replace('#', ''); const [t, sec] = h.split('/');
-    const tab = ['overview', 'findings', 'measurement', 'method', 'results', 'ladder', 'explorer', 'review', 'data'].includes(t) ? t : (h.startsWith('essay-') ? 'overview' : null);
+    const tab = ['overview', 'findings', 'measurement', 'method', 'results', 'reference', 'ladder', 'explorer', 'review', 'data'].includes(t) ? t : (h.startsWith('essay-') ? 'overview' : null);
     if (!tab) return;
     go(tab);
     const target = sec ? document.getElementById(sec) : (h.startsWith('essay-') ? document.getElementById(h) : null);
@@ -636,7 +636,7 @@
     const io = new IntersectionObserver(entries => { entries.forEach(en => { if (en.isIntersecting) { current = +en.target.dataset.i; links.forEach((l, i) => l.classList.toggle('on', i === current)); } }); }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
     hs.forEach((h, i) => { h.dataset.i = i; io.observe(h); });
   };
-  ['results', 'method', 'review', 'data', 'findings'].forEach(buildToc);
+  ['results', 'reference', 'method', 'review', 'data', 'findings'].forEach(buildToc);
   // ---- narrow screens: the page menu as a bar under the header + a panel over the page (see style.css)
   const overlay = document.createElement('div'); overlay.className = 'toc-overlay'; overlay.hidden = true; overlay.innerHTML = '<div class="toc-overlay-panel" role="dialog" aria-label="Contents"></div>'; document.body.appendChild(overlay);
   const liveToc = () => document.querySelector('section.page.on .page-toc, section.page.on .essay-contents');

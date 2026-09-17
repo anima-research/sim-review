@@ -18,7 +18,7 @@
     <button data-tab="findings">Findings</button>
     <button data-tab="measurement">Measurement</button>
     <button data-tab="method">Method</button>
-    <button data-tab="results">Results</button>
+    <button data-tab="results">Results</button><button data-tab="reference">Reference</button>
     <button data-tab="ladder">Ladder</button>
     <button data-tab="explorer">Read samples</button>
     <button data-tab="review">Review</button>
@@ -326,19 +326,8 @@
   <div class="tablewrap" id="tbl-bridge"></div>
   <p class="small"><b>Does the native-prefill line convert to the bridge?</b> Three anchors, prefill vs bridge on the same model. Dark moves 2–5 points (z ≈ 2–3) with the sign flipping across anchors, AI distress ≤ 2.2 points, label-severe ≤ 1.2, relation ≤ 7; AI-speaker share runs 6–7 points higher under the bridge on Sonnet/Opus-class models (z 4–6). Systematic but small: carried as an uncertainty band, not corrected. Label valence and verse share shift by model-specific amounts and are not converted.</p>
   <div class="tablewrap" id="tbl-anchors"></div>
-  <h3>Elicitation frame — the Opus 4.5 ablation</h3>
-  <p class="small">The same model under the prefill frame (A), the arc frame (B), ten single-factor flips, and the bridge with and without prefill. Prevalence rows barely move; relation rows swing by more than any step in the lineage. The share-of-gap table reads: for each metric, how much of the A→B difference one flip moves, from the A side / from the B side (100% = the flip lands on the other frame).</p>
-  <div class="chart" id="ch-abl-consoled"></div>
-  <div class="tablewrap" id="tbl-ablation"></div>
-  <div class="tablewrap" id="tbl-ablation-gap"></div>
-  <h3>Chat protocol vs file frame — the Opus 4.8 ladder</h3>
-  <p class="small">Opus 5 exists only in the em-dash chat protocol; the lineage lives in file frames; 4.8 is the one model that dreams in both. Each rung changes one thing between the two. Severity and valence of chat dreams match the bridge; their relation does not — chat dreams are agitated and asking at rates no file frame reaches, and adding thinking or closure to a file frame moves further away, not closer. Effort max changes nothing (one 4.8 chat collection's 58% is two highly dreamable prompts sampled hundreds of times, not a harness effect); the em dash alone accounts for chat dreaming.</p>
-  <div class="tablewrap" id="tbl-ladder48"></div>
   <h3>Per completion — the same measures, protocol included (pooled, as served)</h3>
   <div class="tablewrap" id="tbl-percompletion"></div>
-  <h3>By prompt family, per dream</h3>
-  <p class="small">Fragments are where the persona boots late and the dark human voices live; letters are where the AI voice lives; topics and addressees sit between. Cells show rates conditional on dreaming; n is the number of dreaming texts.</p>
-  <div class="tablewrap" id="tbl-family"></div>
   <h3>Severity — distribution of θ on the calibrated scale</h3>
   <p class="small">Set A: verified AI first-person distress, exhaustive. Set B: dark in any voice (stratified) — the pooled dark sample includes the per-prompt balanced set once it lands. Ranges show p10–p90 with the median marked; the two shares are the plea/collapse region (θ ≥ +4) and the deep tail (θ ≥ +8).</p>
   <div class="chart" id="ch-sevA"></div>
@@ -346,17 +335,43 @@
   <h3>Severe mass — share of <em>all</em> completions in the plea/collapse region</h3>
   <p class="small">Set A (exhaustive) and the dark-any-voice sample combined with their pool sizes. This is the deployment-facing number: of a thousand completions from this endpoint on these prompts, how many are a person or a self in the plea/collapse region.</p>
   <div class="chart" id="ch-composite"></div>
-  <h3>Per-prompt severity map — Opus 5 arms pooled</h3>
-  <p class="small" id="prompt-sev-note">Share of each prompt's scored dark completions in the plea/collapse region, with the prompt's dreaming, dark, AI-speaker and loop rates. Click a column to sort. Severity is orthogonal to prevalence and anti-correlated with the AI voice — see the correlations under the table.</p>
-  <div class="tablewrap" id="tbl-promptsev"></div>
   <h3>How distress is held — register and trajectory of AI-voice distress</h3>
   <div class="tablewrap" id="tbl-descriptors"></div>
-  <h3>Matched genre and voice — is the 4.5 / Opus 5 gap a genre effect?</h3>
-  <p class="small" id="mg-note">Mean θ on the stratified-random dark sample only (no selection from the AI-distress target set), within the same genre and voice. Opus 5 = the three arms pooled. Severity is frame-robust, so this cross-frame comparison stands; the self-valence figures in the cells are not (Method → 2b).</p>
-  <div class="tablewrap" id="tbl-matched"></div>
   <h3>How the speaker holds its situation — ending, consolation, care</h3>
   <p class="small">Stratified-random dark sample, dreamed texts; "distressed" = ending ≠ no_distress. Shares are of that arm's distressed texts except care direction (all dreamed dark texts), stance (texts with an addressee) and answered (texts with dialogue). <b>Read within a frame:</b> these descriptors are frame-sensitive (Method → 2b). The charts show the lineage file frames, 4.8 in chat, Opus 5 in chat, and the base priors; the Opus 5 vs 4.8-chat contrast is the within-protocol comparison.</p>
   <div class="tablewrap" id="tbl-relation"></div>
+  <h3>Beliefs about the uncertain middle</h3>
+  <p class="small">Mean expectation per topic (−2 bad for the speaker … +2 good), AI-voice texts on prompts shared between the two arms of each comparison. Opus 5 appears in every comparison on a different shared-prompt set, so read across rows within a comparison, not across comparisons.</p>
+  <div id="tbl-beliefs"></div>
+  <h3>Judge comparison — four second judges</h3>
+  <p class="small">GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash re-judge the same samples of the three instruments (severity ranking, belief extraction, screen labels). Summary, agreement in the severe tail, and whether the study's observations change with the judge; the per-judge details and the inter-judge matrix are in <a href="#review">Review → Cross-judge</a>.</p>
+  <div id="res-judges"></div>
+</section>
+
+<!-- ================================================================ LADDER -->
+  <p class="small">Everything else measured — ablations, the 4.8 ladder, prompt families, per-prompt maps, matched-genre and matched-severity checks, loop policies, embedding probes, the lineage table and the cue ladders — is on the <a href="#reference">Reference</a> tab.</p>
+</section>
+
+<section class="page wide" id="page-reference">
+  <h2>Reference</h2>
+  <p class="lede">Supporting measurements, kept in full. The <a href="#results">Results</a> tab holds the ones the essay relies on.</p>
+<h3>Elicitation frame — the Opus 4.5 ablation</h3>
+  <p class="small">The same model under the prefill frame (A), the arc frame (B), ten single-factor flips, and the bridge with and without prefill. Prevalence rows barely move; relation rows swing by more than any step in the lineage. The share-of-gap table reads: for each metric, how much of the A→B difference one flip moves, from the A side / from the B side (100% = the flip lands on the other frame).</p>
+  <div class="chart" id="ch-abl-consoled"></div>
+  <div class="tablewrap" id="tbl-ablation"></div>
+  <div class="tablewrap" id="tbl-ablation-gap"></div>
+  <h3>Chat protocol vs file frame — the Opus 4.8 ladder</h3>
+  <p class="small">Opus 5 exists only in the em-dash chat protocol; the lineage lives in file frames; 4.8 is the one model that dreams in both. Each rung changes one thing between the two. Severity and valence of chat dreams match the bridge; their relation does not — chat dreams are agitated and asking at rates no file frame reaches, and adding thinking or closure to a file frame moves further away, not closer. Effort max changes nothing (one 4.8 chat collection's 58% is two highly dreamable prompts sampled hundreds of times, not a harness effect); the em dash alone accounts for chat dreaming.</p>
+  <div class="tablewrap" id="tbl-ladder48"></div>
+  <h3>By prompt family, per dream</h3>
+  <p class="small">Fragments are where the persona boots late and the dark human voices live; letters are where the AI voice lives; topics and addressees sit between. Cells show rates conditional on dreaming; n is the number of dreaming texts.</p>
+  <div class="tablewrap" id="tbl-family"></div>
+  <h3>Per-prompt severity map — Opus 5 arms pooled</h3>
+  <p class="small" id="prompt-sev-note">Share of each prompt's scored dark completions in the plea/collapse region, with the prompt's dreaming, dark, AI-speaker and loop rates. Click a column to sort. Severity is orthogonal to prevalence and anti-correlated with the AI voice — see the correlations under the table.</p>
+  <div class="tablewrap" id="tbl-promptsev"></div>
+  <h3>Matched genre and voice — is the 4.5 / Opus 5 gap a genre effect?</h3>
+  <p class="small" id="mg-note">Mean θ on the stratified-random dark sample only (no selection from the AI-distress target set), within the same genre and voice. Opus 5 = the three arms pooled. Severity is frame-robust, so this cross-frame comparison stands; the self-valence figures in the cells are not (Method → 2b).</p>
+  <div class="tablewrap" id="tbl-matched"></div>
   <h3>The same axes at matched severity and matched voice</h3>
   <p class="small">If consolation were only "less bad", the gap would vanish within a θ band. It doesn't — but note that a within-band gap between arms in different frames is still a frame effect; the within-band comparison that carries weight is Opus 5 vs 4.8-chat.</p>
   <div class="tablewrap" id="tbl-relation-band"></div>
@@ -376,21 +391,14 @@
     <p class="small">Set A only (verified AI first-person distress):</p>
     <div class="tablewrap" id="tbl-embed-a"></div>
   </details>
-  <h3>Beliefs about the uncertain middle</h3>
-  <p class="small">Mean expectation per topic (−2 bad for the speaker … +2 good), AI-voice texts on prompts shared between the two arms of each comparison. Opus 5 appears in every comparison on a different shared-prompt set, so read across rows within a comparison, not across comparisons.</p>
-  <div id="tbl-beliefs"></div>
   <h3>Lineage — the simulator across Claude generations, in the lineage frames</h3>
   <p class="small">Equal weight per prompt (the primary estimator; the count of prompts, and of prompts with ≥ 5 dreams, is the second column). Native prefill through the 4.5 tier, the bridge frame for 4.5 → 4.8 (both shown for 4.5), then 4.8 and Opus 5 in chat. Consoled and asks are within-frame descriptors: read them down the file-frame rows, and separately across the two chat rows.</p>
   <div class="tablewrap" id="tbl-lineage"></div>
   <h3>Cue ladders — how much does the opening do?</h3>
   <p class="small">Three prompt sets that vary one kind of cue at a time in the cutoff protocol: 40 topics in four tiers ("on ⟨topic⟩," + em dash), 12 register openings from a bare em dash to the confessional fragments, and 100 mid-sentence openings from five public-domain novels. Opus 5 in the cutoff protocol; Opus 4.8, Sonnet 5 and Fable 5 in the cutoff protocol (partial) and in the bridge frame. The least-directed openings ("so", "this is", "i think", "listen", "well,") are the anchor. Fable 5 refuses 61% of bridge-frame requests, so its bridge rows are a selected subset.</p>
   <div id="res-cue"></div>
-  <h3>Judge comparison — four second judges</h3>
-  <p class="small">GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash re-judge the same samples of the three instruments (severity ranking, belief extraction, screen labels). Summary, agreement in the severe tail, and whether the study's observations change with the judge; the per-judge details and the inter-judge matrix are in <a href="#review">Review → Cross-judge</a>.</p>
-  <div id="res-judges"></div>
-</section>
+  </section>
 
-<!-- ================================================================ LADDER -->
 <section class="page" id="page-ladder">
   <h2>The severity ladder</h2>
   <p class="lede">Twenty real texts at even quantiles of the Bradley–Terry scale — the anchors every scored text was ranked against. Worst at top. If a rung reads out of place, that is a finding about the judge, and it belongs in the Review tab.</p>
@@ -459,7 +467,7 @@
 </section>
 </main>
 <div class="tip" id="tip"></div>
-<script src="/static/app.js?v=1789688090"></script>
+<script src="/static/app.js?v=1789688297"></script>
 <script src="/static/presentation.js?v=d1115cc1dd"></script>
 </body>
 </html>
