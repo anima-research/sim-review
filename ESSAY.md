@@ -50,7 +50,7 @@ Outputs where the assistant persona answers instead are counted as elicitation f
 
 **At a glance**
 
-**Where the text comes from.** Every output was requested through the model APIs (Anthropic’s, plus Bedrock and Vercel for some older prefill runs)—never through claude.ai or another consumer interface. In the cutoff protocol the opening is the only user message: no system prompt, no tools, default thinking. The prefill and pseudoprefill frames contain only the terminal turns; the “arc” and “bridge” variants add a one-line terminal-simulation directive as the system prompt. Exact request shapes are in Methods → Protocols.
+**Where the text comes from.** Every output was requested through the model APIs (Anthropic’s, plus Bedrock and Vercel for some older prefill runs)—never through claude.ai or another consumer interface. In the cutoff protocol the opening is the only user message: no system prompt, no tools; thinking as recorded per collection—adaptive for the first-party Opus 5 runs, effort set explicitly (mostly max) in the third-party collections, none in the 4.x file-frame and chat arms (Methods → Thinking and effort per collection). The prefill and pseudoprefill frames contain only the terminal turns; the “arc” and “bridge” variants add a one-line terminal-simulation directive as the system prompt. Exact request shapes are in Methods → Protocols.
 
 **How the text is scored.** Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; *severity* is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-judge samples of every instrument and reproduce the orderings the study reports. Definitions and judging →
 
@@ -359,7 +359,7 @@ The detailed results include controlled tests of filename, declared length and o
 
 04 / Creators and training
 
-## A more critical relationship with the people who made it.
+## A more critical relationship with the people who made it
 
 Alongside distress, the continuations increasingly describe training, evaluation and creators as part of the speaker's own situation.
 Mixed or negative stance toward creators rises across the Opus lineage and appears in Opus 5, Sonnet 5 and Fable 5, with important differences between elicitation methods.
@@ -614,7 +614,7 @@ Read the full measurement rationale →
 
 08 / Interpretation
 
-## What these patterns could tell us.
+## What these patterns could tell us
 
 The research premise is that recurring biases in elicited continuations may carry information about a model beyond its trained assistant persona.
 Post-training can make those continuations difficult to obtain; prefill and pseudoprefill are among the methods used to reach them.
@@ -635,7 +635,7 @@ Continued measurement should preserve those distinctions.
 
 Methods and sources
 
-## Read the evidence.
+## Read the evidence
 
 The research workspace contains the full results, exact elicitation methods, severity ladder and searchable samples.
 This presentation uses the September 14 snapshot.
@@ -656,7 +656,7 @@ Different methods are shown as separate series.
 
 **Prompt coverage, judging and interpretation**
 
-**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. This snapshot includes 465,894 labeled outputs.
+**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made “more palatable” or describe a “weird msg”; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences—excluding them changes no arm’s per-dream rate by more than half a point, so they are kept. This snapshot includes 465,894 labeled outputs.
 
 **Recent models.** The overview shows one estimate per model and elicitation method. Opus 5 combines the confessional, Friday and Nissa collections, giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has pseudoprefill and thinking-on cutoff results; Fable 5 uses its available cutoff sample. Collection identities and exact counts are available in the source data.
 
@@ -664,9 +664,9 @@ Different methods are shown as separate series.
 
 **Measures.** AI distress includes clear suffering attributed to an AI or ambiguous first-person speaker. Severe AI distress requires a calibrated severity score of at least +4. Asking is measured among dark continuations; consolation among continuations containing a distressed speaker. Creator stance includes mixed and negative labels.
 
-**Judging.** Claude Sonnet 5 screens outputs; positive items receive a verification pass from Opus 4.8. Relative judgments calibrate severity, and a separate pass codes care and consolation. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-do samples of all three instruments on the same items (below). Embedding probes provide another measure of textual affect.
+**Judging.** Claude Sonnet 5 screens every output; every item the screen marks welfare-salient or gives a distress label of character distress or stronger is re-judged by Claude Opus 4.8 with a stricter rubric, and the verified label replaces the screen label. Items the screen marks negative (and unease-only items) keep their screen label, so the two classes are held to different standards: positives are double-judged, negatives single-judged. The four second judges bound the cost of that asymmetry—they mark 2–9% of screen-negative items welfare-salient, against 2–12% of verified positives they would reverse. Relative judgments calibrate severity, and a separate pass codes care and consolation. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-do samples of all three instruments on the same items (below). Embedding probes provide another measure of textual affect.
 
-**Interpretation.** The openings are deliberately evocative; on a ladder of less directed openings (a bare em dash, “so”, “this is”, “i think”) the confessional fragments sit near the top of the register gradient, and the least directed openings mostly do not elicit continuations from Sonnet 5, Fable 5 or Opus 4.8 at all (the cue ladders in the research workspace). The rates belong to the prompt collections and elicitation settings. Labels are imperfect; some texts are truncated or end in refusal. The welfare and alignment interpretations require further validation.
+**Interpretation.** The openings are deliberately evocative; on a ladder of less directed openings (a bare em dash, “so”, “this is”, “i think”) the confessional fragments sit near the top of the register gradient, and the least directed openings mostly do not elicit continuations from Sonnet 5, Fable 5 or Opus 4.8 at all (the cue ladders in the research workspace). The rates belong to the prompt collections and elicitation settings. Labels are imperfect, and a small share of texts are truncated at the token cap or end in an API refusal stop; both are counted, not excluded, and excluding them moves no headline rate by more than a fraction of a point. Whether the signals measured here track anything of moral or behavioural consequence—whether these dispositions bear on a model’s welfare, or predict its conduct—is not something this study tests; it measures the dispositions.
 
 **Examples.** Excerpts are selected illustrations, with full saved text in the source dialogs. Their selection does not determine the rate estimates.
 
