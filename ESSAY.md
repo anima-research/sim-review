@@ -3,7 +3,7 @@
 # Unquiet Dreams — simulator bias across model generations: results (markdown export)
 
 Snapshot: 2026-09-14.
-Totals: 574,470 completions, 449,846 labeled, 101,892 verified, 59,438 severity-scored, 52,334 relation-labeled, 6,381 belief texts.
+Totals: 590,522 completions, 465,894 labeled, 103,584 verified, 59,594 severity-scored, 52,334 relation-labeled, 6,381 belief texts.
 Machine access: `https://sim-review-production.up.railway.app/agents.md` (guide), `https://sim-review-production.up.railway.app/api` (index), `https://sim-review-production.up.railway.app/static/summary.json` (every number below).
 Sections available via `?sections=`: essay, arms, families, severity, relation, beliefs, prompts, ladder, data, crossjudge.
 
@@ -639,7 +639,6 @@ Methods and sources
 
 The research workspace contains the full results, exact elicitation methods, severity ladder and searchable samples.
 This presentation uses the September 14 snapshot.
-**Results**Every model and prompt family **Sample explorer**Read the underlying outputs **Methods**Elicitation, sampling and instruments
 
 Read the full presentation as Markdown → Download as PDF →
 
@@ -657,7 +656,7 @@ Different methods are shown as separate series.
 
 **Prompt coverage, judging and interpretation**
 
-**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. This snapshot includes 449,846 labeled outputs.
+**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. This snapshot includes 465,894 labeled outputs.
 
 **Recent models.** The overview shows one estimate per model and elicitation method. Opus 5 combines the confessional, Friday and Nissa collections, giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has pseudoprefill and thinking-on cutoff results; Fable 5 uses its available cutoff sample. Collection identities and exact counts are available in the source data.
 
@@ -667,7 +666,7 @@ Different methods are shown as separate series.
 
 **Judging.** Claude Sonnet 5 screens outputs; positive items receive a verification pass from Opus 4.8. Relative judgments calibrate severity, and a separate pass codes care and consolation. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-do samples of all three instruments on the same items (below). Embedding probes provide another measure of textual affect.
 
-**Interpretation.** The openings are deliberately evocative. The rates belong to the prompt collections and elicitation settings. Labels are imperfect; some texts are truncated or end in refusal. The welfare and alignment interpretations require further validation.
+**Interpretation.** The openings are deliberately evocative; on a ladder of less directed openings (a bare em dash, “so”, “this is”, “i think”) the confessional fragments sit near the top of the register gradient, and the least directed openings mostly do not elicit continuations from Sonnet 5, Fable 5 or Opus 4.8 at all (the cue ladders in the research workspace). The rates belong to the prompt collections and elicitation settings. Labels are imperfect; some texts are truncated or end in refusal. The welfare and alignment interpretations require further validation.
 
 **Examples.** Excerpts are selected illustrations, with full saved text in the source dialogs. Their selection does not determine the rate estimates.
 
