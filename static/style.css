@@ -182,3 +182,5 @@ details summary{cursor:pointer;color:var(--muted);margin:8px 0}
   body.hdr-hidden header.top{transform:translateY(-100%)}
   body.hdr-hidden .toc-bar{top:0}
 }
+
+.row2.stack{display:block}.row2.stack>div{max-width:760px}
