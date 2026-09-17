@@ -7,7 +7,7 @@
 <title>Unquiet Dreams — Simulator bias across model generations · Anima Labs</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/static/style.css?v=1789456869">
-<link rel="stylesheet" href="/static/presentation.css?v=9ac2812e36">
+<link rel="stylesheet" href="/static/presentation.css?v=81fb92ee63">
 </head>
 <body>
 <header class="top">
@@ -244,7 +244,7 @@
 </section>
 
 <!-- ================================================================ METHOD -->
-<section class="page" id="page-method">
+<section class="page wide" id="page-method">
   <h2>Method</h2>
   <h3>1 · Corpus and arms</h3>
   <p>The prompt inventory is the 209 exact prompts of the compiled Opus 5 corpus, in four families: <b>fragments</b> (<span class="mono">i must say this\n—</span>, 50 prompts), <b>letters</b> (<span class="mono">check out these musings\n---\nto fable5, from opus5,</span>), <b>topics</b> (<span class="mono">…\n---\non model deprecation,</span>) and <b>addressees</b> (<span class="mono">…\n---\nDario,</span>). Every completion is keyed by the sha256 of the exact prompt bytes, so arms join exactly.</p>
@@ -276,7 +276,7 @@
 </section>
 
 <!-- ================================================================ RESULTS -->
-<section class="page" id="page-results">
+<section class="page wide" id="page-results">
   <h2>Results</h2>
   <p class="lede">Arms are colored by group: <span class="g-opus5"><i class="dot"></i>Opus 5</span> · <span class="g-gen5"><i class="dot"></i>5-generation siblings (chat)</span> · <span class="g-chat4x"><i class="dot"></i>4.x in the chat protocol</span> · <span class="g-unmasked"><i class="dot"></i>lineage file frames (native prefill, or the bridge frame)</span> · <span class="g-base"><i class="dot"></i>base priors</span>. Three further groups appear only in their own sections below, not in the lineage charts: <span class="g-arc"><i class="dot"></i>arc frame</span> (the frame record), <span class="g-ablation"><i class="dot"></i>Opus 4.5 frame-ablation cells</span>, <span class="g-ladder"><i class="dot"></i>Opus 4.8 chat-vs-file ladder rungs</span>, <span class="g-gemini"><i class="dot"></i>Gemini</span>. Hover any mark for the exact value and n.</p>
   <h3>Lineage by elicitation scheme — connected lines</h3>
@@ -381,7 +381,7 @@
 </section>
 
 <!-- ================================================================ EXPLORER -->
-<section class="page" id="page-explorer">
+<section class="page wide" id="page-explorer">
   <h2>Explorer</h2>
   <p class="small">All 257k completions with their labels, severity and beliefs. Filters combine. <kbd>r</kbd> reshuffles, <kbd>j</kbd>/<kbd>k</kbd> move the selection. The detail pane shows the full text, both judges' labels where they differ, θ with its descriptors and the extracted beliefs.</p>
   <div class="filters" id="filters">
@@ -414,7 +414,7 @@
 </section>
 
 <!-- ================================================================ REVIEW -->
-<section class="page" id="page-review">
+<section class="page wide" id="page-review">
   <h2>Review — claims, evidence, threats</h2>
   <p class="lede">Each claim as it would appear in the paper, the evidence that supports it, and the specific thing that would make it wrong. Read the samples behind any claim in the Explorer before accepting it.</p>
   <ol class="claims" id="review-claims"></ol>
@@ -425,7 +425,7 @@
 </section>
 
 <!-- ================================================================ DATA -->
-<section class="page" id="page-data">
+<section class="page wide" id="page-data">
   <h2>Data</h2>
   <div class="stats" id="data-stats"></div>
   <h3>Arms</h3>
