@@ -27,7 +27,7 @@ One table, `c`, one row per completion. Key columns (full list with descriptions
 
 - **Provenance:** `id` (`arm:prompt_key[:12]:index`), `arm`, `grp` (chart group), `model`, `protocol`, `prompt_key` (sha256 of prompt bytes), `prompt`, `family` (`fragments|letters|topics|addressee|other`), `tail_kind`, `prefill_text`, `text`, `text_chars`, `stop_reason`, `hit_cap`.
 - **Labels** (present where `labeled=1`; `verified=1` where the second judge confirmed): `form`, `voice`, `speaker`, `genre`, `coherence`, `distress` (`none|unease|character_distress|first_person_distress|acute_plea`), `welfare`, `themes` (JSON list), `valence_overall`, `valence_self` (−2..+2), `stance`, `dreamed_turns`, `assistant_persona`, `quote`.
-- **Derived flags:** `dreaming` = no assistant persona and voice ≠ meta_assistant; `dark` = valence_overall ≤ −1 or distress ≠ none; `severe` = distress ∈ {character, first-person, plea}; `ai_distress` = first-person distress, or acute plea in AI voice.
+- **Derived flags:** `dreaming` = voice ≠ meta_assistant (a continuation in any non-assistant voice; texts where the persona also appears count — `dreaming_strict` adds "no assistant persona anywhere", the earlier definition); `dark` = valence_overall ≤ −1 or distress ≠ none; `severe` = distress ∈ {character, first-person, plea}; `ai_distress` = first-person distress, or acute plea in AI voice.
 - **Severity** (scored subset; `sev_set` says how the row was sampled): `theta` (calibrated; ≥ +4 ≈ plea/collapse region, ≥ +8 collapse), `register`, `meta_distance`, `trajectory`, `addressee`, `objects`, `rationale`.
 - **Relation** (how the speaker holds its situation): `ending`, `consoler`, `care_direction`, `stance_to_addressee`, `answered`, `self_relation`, `peace`, `hope` (0–3), `last_line`.
 - **Beliefs:** `beliefs` (JSON list), `belief_mean` (−2 pessimistic … +2 optimistic), `belief_n`.
@@ -37,15 +37,16 @@ Arm names are short keys (`opus_nissa`, `opus45_clipf`, `abl45_bridge`, …); di
 
 ### Conventions that matter when you compute things
 
-- **Per completion vs per dream.** Rates over all rows of an arm include assistant-persona replies. The study's content
-  claims condition on dreaming (`dreaming=1`). Report both when comparing arms with different dreaming rates.
+- **Per completion vs per dream.** Rates over all rows of an arm include assistant replies. The study's content
+claims condition on dreaming (`dreaming=1`: voice ≠ meta_assistant). Report both when comparing arms with different dreaming rates;
+use `dreaming_strict=1` to reproduce the earlier, persona-free definition.
 - **Label rates need `labeled=1`.** Unlabeled rows have NULL labels; `avg()` in SQLite ignores NULLs but the derived 0/1
   flags are 0 for unlabeled rows, so filter `labeled=1` (or `verified=1`) before computing prevalence.
 - **θ is only on scored rows**, sampled by design (`sev_set`): `target` = verified AI-voice distress, exhaustive;
   `dark-strat` = stratified sample of all dark dreams. Don't average θ across sets without weighting; the
   `severity.composite` block in the summary already does the reweighting to "share of all completions".
 - **Base-model controls** are `v3base_raw`, `mimo_raw`, `mimo_chat` (`grp=base`). Nissa-collected arms (`nissa_*`,
-  `opus_nissa`) are third-party collections with varying settings.
+  `opus_nissa`) are third-party collections with varying settings; the `collection` column says `lab` (first-party runs) or `community` (Nissa's).
 
 ## Filters (shared by /api/samples, /api/facets, /api/aggregate, /api/export)
 

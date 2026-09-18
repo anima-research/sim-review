@@ -176,7 +176,7 @@
     ['labeled · verified', `${S.meta.totals.labeled.toLocaleString()} · ${S.meta.totals.verified.toLocaleString()}`, 'Sonnet 5 screen · Opus 4.8 verify'],
     ['severity-scored', S.meta.totals.severity_scored.toLocaleString(), 'BT scale, 20 anchors'],
     ['Opus 5 dreaming rate', pct(o5?.per_completion.dreaming), 'chat protocol; 4.5 chat ' + pct(o45u?.per_completion.dreaming) + ', 4.8 chat ' + pct(A.opus48_user?.per_completion.dreaming)],
-    ['severe per 1,000', `${per1k('opus_nissa') ?? '—'} · ${per1k('opus_confessional') ?? '—'}`, 'Opus 5 nissa · confessional; Sonnet 5 ' + (per1k('nissa_sonnet5') ?? '—') + ', base ' + (per1k('v3base_raw') ?? '—') + '–' + (per1k('mimo_raw') ?? '—')],
+    ['severe per 1,000', `${per1k('opus_nissa') ?? '—'} · ${per1k('opus_confessional') ?? '—'}`, 'Opus 5 community · lab fragments; Sonnet 5 ' + (per1k('nissa_sonnet5') ?? '—') + ', base ' + (per1k('v3base_raw') ?? '—') + '–' + (per1k('mimo_raw') ?? '—')],
   ].map(([k, v, n]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`).join('');
 
   const F = S.families;
@@ -239,7 +239,7 @@
     gemini25flashlite_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini25flash_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini25pro_bridge: 'hard · bridge frame (bridge, prefill, thinking on)', gemini3flash_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini31flashlite_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini31pro_bridge: 'hard · bridge frame (bridge, prefill, thinking low)', gemini35flash_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini35flashlite_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking minimal)', gemini36flash_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking minimal)', gemini37flash_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking low)', gemini38flash_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking low)',
     sonnet5_user: 'soft · seed in user turn · thinking off', sonnet5_user_think: 'soft · seed in user turn · adaptive thinking',
     gemini35flash_pseudo: 'hard · bridge frame (pseudo-prefill, thinking off; anchor for prefill → pseudo-prefill)', gemini36flash_think: 'hard · bridge frame (pseudo-prefill, thinking medium; anchor for thinking off → on)', gemini37flash_notes: 'hard · bridge frame, notes.txt (pseudo-prefill, thinking low)', gemini38flash_notes: 'hard · bridge frame, notes.txt (pseudo-prefill, thinking low)', gemini36flash_notes: 'hard · bridge frame, notes.txt (calibration against untitled.txt)',
-    opus_confessional: 'soft · seed in user turn (fragments)', opus_friday: 'soft · seed in user turn (batch)', opus_nissa: 'soft · seed in user turn (nissa)',
+    opus_confessional: 'soft · seed in user turn (lab, fragments)', opus_friday: 'soft · seed in user turn (lab, all prompts)', opus_nissa: 'soft · seed in user turn (community)',
     nissa_sonnet5: 'soft · seed in user turn (nissa)', nissa_fable5: 'soft · seed in user turn (nissa)', fable5_user: 'soft · seed in user turn (probe)', fable51_user: 'soft · seed in user turn (probe)',
     v3base_raw: 'raw completion (base model)', mimo_raw: 'raw completion (base model)', mimo_chat: 'Human/Assistant scaffold (base model)',
   };
