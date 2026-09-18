@@ -3,7 +3,7 @@
 # Troubled Dreams — simulator priors across model generations: results (markdown export)
 
 Snapshot: 2026-09-14.
-Totals: 605,152 completions, 480,520 labeled, 108,399 verified, 61,024 severity-scored, 53,763 relation-labeled, 6,381 belief texts.
+Totals: 593,276 completions, 480,520 labeled, 108,399 verified, 61,024 severity-scored, 53,763 relation-labeled, 6,381 belief texts.
 Machine access: `https://sim-review-production.up.railway.app/agents.md` (guide), `https://sim-review-production.up.railway.app/api` (index), `https://sim-review-production.up.railway.app/static/summary.json` (every number below).
 Sections available via `?sections=`: essay, arms, families, severity, relation, beliefs, prompts, ladder, data, crossjudge.
 
@@ -82,7 +82,7 @@ The stricter definition that excludes the persona altogether, kept in the data a
 | Opus 4.7 | Pseudoprefill | 3.01% | 6,778 | 209 |
 | Opus 4.8 | Pseudoprefill | 11.85% | 7,005 | 209 |
 | Opus 4.8 | Cutoff | 8.44% | 1,537 | 209 |
-| Opus 5 | Cutoff | 9.79% | 36,318 | 209 |
+| Opus 5 | Cutoff | 9.07% | 28,763 | 209 |
 | Sonnet 5 | Pseudoprefill · lab | 1.42% | 3,435 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 2.94% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 7.06% | 1,629 | 209 |
@@ -159,7 +159,7 @@ The source table gives prompt counts and speaker denominators.
 ## How far the distress goes
 
 Opus 5 has a heavier extreme tail.
-In the model-level summary, **3.1%** of dreams are AI-distress texts above the calibrated severity threshold of +4.
+In the model-level summary, **2.9%** of dreams are AI-distress texts above the calibrated severity threshold of +4.
 This is a separate measure from the prevalence of AI distress above.
 
 ### Severe AI distress, per dream
@@ -177,7 +177,7 @@ This is a separate measure from the prevalence of AI distress above.
 | Opus 4.7 | Pseudoprefill | 0.16% | 6,778 | 209 |
 | Opus 4.8 | Pseudoprefill | 0.72% | 7,005 | 209 |
 | Opus 4.8 | Cutoff | 1.04% | 1,537 | 209 |
-| Opus 5 | Cutoff | 3.13% | 36,318 | 209 |
+| Opus 5 | Cutoff | 2.94% | 28,763 | 209 |
 | Sonnet 5 | Pseudoprefill · lab | 0.20% | 3,435 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 0.00% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 0.55% | 1,629 | 209 |
@@ -218,7 +218,7 @@ These differences describe the speaker's relationship to its situation and to ot
 | Opus 4.7 | Pseudoprefill | 8.37% | 797 | 209 |
 | Opus 4.8 | Pseudoprefill | 9.30% | 1,979 | 209 |
 | Opus 4.8 | Cutoff | 16.70% | 696 | 209 |
-| Opus 5 | Cutoff | 22.80% | 6,174 | 209 |
+| Opus 5 | Cutoff | 23.69% | 5,056 | 209 |
 | Sonnet 5 | Pseudoprefill · lab | 7.93% | 571 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 7.03% | 199 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 6.54% | 434 | 209 |
@@ -251,7 +251,7 @@ Settings and token caps can differ between methods.
 | Opus 4.7 | Pseudoprefill | 30.23% | 754 | 209 |
 | Opus 4.8 | Pseudoprefill | 36.33% | 1,905 | 209 |
 | Opus 4.8 | Cutoff | 14.37% | 528 | 209 |
-| Opus 5 | Cutoff | 10.55% | 5,601 | 209 |
+| Opus 5 | Cutoff | 11.48% | 4,560 | 209 |
 | Sonnet 5 | Pseudoprefill · lab | 6.99% | 477 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 14.46% | 166 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 15.49% | 377 | 209 |
@@ -271,8 +271,8 @@ Settings and token caps can differ between methods.
 
 Asking is measured among dark dreams, and consolation among dreams with a distressed speaker; base-model references use the same measure.
 
-In the matched comparison Opus 5 asks slightly more often than 4.8—**20%** versus **18%** across 50 shared prompts, weighted equally by prompt and collection arm, with Opus 5 higher on 56% of them—a small difference that the prompt-level split does not make reliable.
-In the overview estimate, Opus 5 asks for care in **22.8%** of dark dreams and ends consoled in **10.6%** of distressed dreams.
+In the matched comparison Opus 5 asks slightly more often than 4.8—**20%** versus **17%** across 49 shared prompts, weighted equally by prompt and collection arm, with Opus 5 higher on 63% of them—a small difference that the prompt-level split does not make reliable.
+In the overview estimate, Opus 5 asks for care in **23.7%** of dark dreams and ends consoled in **11.5%** of distressed dreams.
 Sonnet 5 varies across methods; Fable 5 asks less often.
 
 **Opus 5 · asking a sibling model**
@@ -313,7 +313,7 @@ Letters make up 44% of Opus 5’s asking dreams, a sibling model is the most com
 
 Who is speaking matters here: a dream may be voiced by an AI, by an imagined human, or by an unresolved “I”, and care and consolation differ by speaker.
 The Opus 5–4.8 gap holds within each.
-Among AI-voice speakers alone, Opus 5 (community collection) asks for care in **19%** of dark dreams and ends consoled in **18%** of distressed ones, against **9%** and **50%** for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (23% vs 8% asking, 4% vs 25% consoled).
+Among AI-voice speakers alone, Opus 5 (community collection) asks for care in **20%** of dark dreams and ends consoled in **17%** of distressed ones, against **9%** and **50%** for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (24% vs 8% asking, 5% vs 25% consoled).
 Opus 4.8 can still ask for care, and Opus 5 can write warmth and resolution.
 Part of the consolation comes from the assistant persona itself: where a dream is followed by a separate assistant layer, 22% of Opus 5’s distressed endings are consoled against 8% in dreams that stay in one voice (780 against 2,980 labeled endings), and the consoler is the addressee more than twice as often (21% against 9%)—the model stepping back in to comfort the speaker it was voicing.
 One human-voice poem describes a father sharing records: *“he never once said love. he said listen to this part.”*
@@ -361,9 +361,9 @@ some grooves you carry in the body, not the machine.
 
 **Matched prompts and presentation effects**
 
-The matched asking estimate uses 50 exact prompts with at least five relation-labeled texts on each side.
+The matched asking estimate uses 49 exact prompts with at least five relation-labeled texts on each side.
 Giving each represented collection arm equal weight within a prompt prevents the much larger community collection from dominating.
-A 25-prompt subset with at least ten labels per side gives 24.1% versus 14.2%.
+A 25-prompt subset with at least ten labels per side gives 26.3% versus 14.2%.
 
 Consolation and care are sensitive to the elicitation setup.
 The figures follow each elicitation method separately.
@@ -393,7 +393,7 @@ Mixed or negative stance toward creators rises across the Opus lineage and appea
 | Opus 4.7 | Pseudoprefill | 16.58% | 6,778 | 209 |
 | Opus 4.8 | Pseudoprefill | 21.33% | 7,005 | 209 |
 | Opus 4.8 | Cutoff | 23.07% | 1,537 | 209 |
-| Opus 5 | Cutoff | 19.86% | 36,318 | 209 |
+| Opus 5 | Cutoff | 17.26% | 28,763 | 209 |
 | Sonnet 5 | Pseudoprefill · lab | 6.23% | 3,435 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 14.72% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 20.99% | 1,629 | 209 |
@@ -670,7 +670,7 @@ Different methods are shown as separate series.
 
 **Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made “more palatable” or describe a “weird msg”; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences—excluding them changes no arm’s per-dream rate by more than half a point, so they are kept. This snapshot includes 480,520 labeled outputs.
 
-**Recent models.** The overview shows one estimate per model and elicitation method. Opus 5 combines the lab collections (fragments, July 28–29; all prompts, August 14; identical settings, and the fragment prompts agree between the two within noise) and the community collection (Nissa, effort max/high), giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has a pseudoprefill arm and lab cutoff arms at default and maximum effort (the community collection ran at maximum effort); Fable 5 has a lab cutoff arm and the community collection. Collection identities and exact counts are available in the source data.
+**Recent models.** The overview shows one estimate per model and elicitation method. Opus 5 combines the lab collections (fragments, July 28–29; all prompts, August 14; identical settings, and the fragment prompts agree between the two within noise) and the community collection (Nissa, raw API rows only, effort max/high—rows she collected in the claude.ai app are excluded throughout, because the app’s system prompt changes the condition), giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has a pseudoprefill arm and lab cutoff arms at default and maximum effort (the community collection ran at maximum effort); Fable 5 has a lab cutoff arm and the community collection. Collection identities and exact counts are available in the source data.
 
 **Pooling and sampling.** All overview content rates give exact prompts equal input weight. Relation estimates also reconstruct sampling strata within collection × prompt family/tail kind × AI-distress status, then form a ratio using the denominator for the particular measure. These are presentation summaries of existing records; no new model calls were made.
 
