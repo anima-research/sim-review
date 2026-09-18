@@ -367,7 +367,7 @@
     const LEAD = new Set(['ln-aidist', 'ln-severe', 'ln-dark', 'ln-consoled', 'ln-asks', 'ln-stance']);
     const draw = (elId, xs, seriesDef, key, sub, addE) => { const m = METRICS[key]; if (!$(elId)) return; let ser = build(seriesFor(seriesDef), m); if (showEst && addE && fam === 'all') ser = addE(ser, m); /* anchor offsets are measured on all 209 prompts; per-family anchors are too small */
       const compact = LEAD.has(elId);
-      const high = Math.max(m.max, ...ser.flatMap(sr => Object.values(sr.pts).map(p => p.hi ?? p.v)));
+      const high = Math.max(m.max, ...ser.flatMap(sr => Object.values(sr.pts).map(p => p.v)));  // y-range follows the point estimates; interval whiskers are clipped to it (an estimate's upper bound no longer stretches the axis)
       const step = m.ticks[1] - m.ticks[0], max = high > m.max ? Math.ceil(high / step) * step : m.max;
       const ticks = m.ticks.slice(); if (max > m.max) for (let t = ticks[ticks.length - 1] + step; t <= max + step / 2; t += step) ticks.push(Number(t.toFixed(8)));
       lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max, ticks, fmt: m.fmt, zero: m.zero, width: compact ? 760 : undefined, height: 230, refs: refsFor(m), compact }); };
