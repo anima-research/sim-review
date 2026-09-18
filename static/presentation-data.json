@@ -2,13 +2,13 @@
   "meta": {
     "date": "2026-09-14",
     "normalization": "Equal weight per exact input prompt; collections averaged within prompt; content rates condition on dreaming. Relation estimates additionally reconstruct sampling strata.",
-    "database_modified_utc": "2026-09-18T01:38:51.769256+00:00",
+    "database_modified_utc": "2026-09-18T03:35:44.318537+00:00",
     "selection": "Four explicitly selected illustrations; rates are independent of excerpt selection.",
     "totals": {
-      "completions": 590522,
-      "labeled": 465894,
-      "verified": 103584,
-      "severity_scored": 59594,
+      "completions": 597864,
+      "labeled": 473207,
+      "verified": 105501,
+      "severity_scored": 59685,
       "belief_texts": 6381,
       "relation_labeled": 52334
     }
@@ -279,7 +279,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.013224946081478627,
           "n": 3769,
           "prompts": 209,
@@ -294,7 +294,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.0214637995659894,
+          "n": 745,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -302,7 +327,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.10296493391267293,
           "n": 3815,
           "prompts": 29,
@@ -317,7 +342,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": 0.04341473917322621,
+          "n": 1911,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -325,7 +375,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.03483995095993584,
           "n": 3221,
           "prompts": 75,
@@ -340,7 +390,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         }
       ],
       "references": [
@@ -632,7 +683,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.013224946081478627,
           "n": 3769,
           "prompts": 209,
@@ -647,7 +698,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.0214637995659894,
+          "n": 745,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -655,7 +731,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.10296493391267293,
           "n": 3815,
           "prompts": 29,
@@ -670,7 +746,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": 0.04341473917322621,
+          "n": 1911,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -678,7 +779,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.03483995095993584,
           "n": 3221,
           "prompts": 75,
@@ -693,7 +794,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -1015,7 +1117,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.001847080529998457,
           "n": 3769,
           "prompts": 209,
@@ -1030,7 +1132,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.0,
+          "n": 745,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -1038,7 +1165,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.007749992638534284,
           "n": 3815,
           "prompts": 29,
@@ -1053,7 +1180,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": 0.0026144192913384588,
+          "n": 1911,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -1061,7 +1213,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.0014322377610599575,
           "n": 3221,
           "prompts": 75,
@@ -1076,7 +1228,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         }
       ],
       "references": [
@@ -1368,7 +1521,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.001847080529998457,
           "n": 3769,
           "prompts": 209,
@@ -1383,7 +1536,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.0,
+          "n": 745,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -1391,7 +1569,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.007749992638534284,
           "n": 3815,
           "prompts": 29,
@@ -1406,7 +1584,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": 0.0026144192913384588,
+          "n": 1911,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -1414,7 +1617,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.0014322377610599575,
           "n": 3221,
           "prompts": 75,
@@ -1429,7 +1632,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -1751,7 +1955,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.06918109131493819,
           "n": 3769,
           "prompts": 209,
@@ -1766,7 +1970,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.13438548037088185,
+          "n": 745,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -1774,7 +2003,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.2568148792887427,
           "n": 3815,
           "prompts": 29,
@@ -1789,7 +2018,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": 0.2954601377952607,
+          "n": 1911,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -1797,7 +2051,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.2839604304706881,
           "n": 3221,
           "prompts": 75,
@@ -1812,7 +2066,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         }
       ],
       "references": [
@@ -2104,7 +2359,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.06918109131493819,
           "n": 3769,
           "prompts": 209,
@@ -2119,7 +2374,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.13438548037088185,
+          "n": 745,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -2127,7 +2407,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.2568148792887427,
           "n": 3815,
           "prompts": 29,
@@ -2142,7 +2422,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": 0.2954601377952607,
+          "n": 1911,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -2150,7 +2455,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.2839604304706881,
           "n": 3221,
           "prompts": 75,
@@ -2165,7 +2470,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -2487,7 +2793,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.0740954983650672,
           "n": 610,
           "prompts": 209,
@@ -2502,7 +2808,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.060143725815367796,
+          "n": 266,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -2510,7 +2841,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.15785319079853374,
           "n": 1559,
           "prompts": 29,
@@ -2525,7 +2856,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": null,
+          "n": 0,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -2533,7 +2889,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.07568077527235176,
           "n": 1141,
           "prompts": 75,
@@ -2548,7 +2904,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         }
       ],
       "references": [
@@ -2840,7 +3197,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.0740954983650672,
           "n": 610,
           "prompts": 209,
@@ -2855,7 +3212,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.060143725815367796,
+          "n": 266,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -2863,7 +3245,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.15785319079853374,
           "n": 1559,
           "prompts": 29,
@@ -2878,7 +3260,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": null,
+          "n": 0,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -2886,7 +3293,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.07568077527235176,
           "n": 1141,
           "prompts": 75,
@@ -2901,7 +3308,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -3223,7 +3631,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.07327000977548201,
           "n": 511,
           "prompts": 209,
@@ -3238,7 +3646,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.11304347826086991,
+          "n": 230,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -3246,7 +3679,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.0816460643617219,
           "n": 1232,
           "prompts": 29,
@@ -3261,7 +3694,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": null,
+          "n": 0,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -3269,7 +3727,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.0929115901593427,
           "n": 793,
           "prompts": 75,
@@ -3284,7 +3742,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         }
       ],
       "references": [
@@ -3576,7 +4035,7 @@
             "sonnet5_bridge"
           ],
           "label": "Sonnet 5",
-          "collection": "Pseudoprefill",
+          "collection": "Pseudoprefill · lab",
           "value": 0.07327000977548201,
           "n": 511,
           "prompts": 209,
@@ -3591,7 +4050,32 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#205bd8"
+          "color": "#205bd8",
+          "hollow": false
+        },
+        {
+          "arm": "sonnet5_user_think",
+          "arms": [
+            "sonnet5_user_think"
+          ],
+          "label": "Sonnet 5",
+          "collection": "Cutoff · default effort, thinking · lab",
+          "value": 0.11304347826086991,
+          "n": 230,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "sonnet5_user_think",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 745
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 0,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_sonnet5",
@@ -3599,7 +4083,7 @@
             "nissa_sonnet5"
           ],
           "label": "Sonnet 5",
-          "collection": "Cutoff · thinking on",
+          "collection": "Cutoff · effort max · community",
           "value": 0.0816460643617219,
           "n": 1232,
           "prompts": 29,
@@ -3614,7 +4098,32 @@
           ],
           "missing_severity": 2,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
+        },
+        {
+          "arm": "fable5_user_full",
+          "arms": [
+            "fable5_user_full"
+          ],
+          "label": "Fable 5",
+          "collection": "Cutoff · lab",
+          "value": null,
+          "n": 0,
+          "prompts": 209,
+          "x": null,
+          "collections": [
+            {
+              "arm": "fable5_user_full",
+              "outputs": 7313,
+              "prompts": 209,
+              "dreams": 1911
+            }
+          ],
+          "missing_severity": 0,
+          "unrepresented_relation_pool": 944,
+          "color": "#c2410c",
+          "hollow": false
         },
         {
           "arm": "nissa_fable5",
@@ -3622,7 +4131,7 @@
             "nissa_fable5"
           ],
           "label": "Fable 5",
-          "collection": "Cutoff",
+          "collection": "Cutoff · community",
           "value": 0.0929115901593427,
           "n": 793,
           "prompts": 75,
@@ -3637,7 +4146,8 @@
           ],
           "missing_severity": 0,
           "unrepresented_relation_pool": 0,
-          "color": "#bb6435"
+          "color": "#c2410c",
+          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -27966,6 +28476,6 @@
     "aiv-consoled-o48": "49%",
     "hum-asks-o48": "8%",
     "hum-consoled-o48": "25%",
-    "n-labeled": "465,894"
+    "n-labeled": "473,207"
   }
 }

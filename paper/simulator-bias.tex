@@ -170,7 +170,7 @@ The charts call an output a \textbf{dream} when its voice is not the assistant's
 
 \pandocbounded{\includegraphics[keepaspectratio,alt={AI first-person distress, per dream. Per dream (output whose voice is not the assistant's).}]{figures/distress.pdf}}
 
-\emph{Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. Sonnet 5 and Fable 5 use their available prompt subsets. }
+\emph{Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. In the recent-models strip, filled dots are lab collections on the full prompt set and hollow dots are community collections on their own prompt subsets (Sonnet 5: 29 prompts, mostly letters to other models; Fable 5: 75). }
 
 Distressed human voices appear throughout the model line. AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5. Sonnet 5's content profile depends strongly on the elicitation method---which is why no line mixes methods, and why the model-to-model changes are re-tested within each method in the section ``Do the methods identify the same model trends?'': both pseudoprefill setups find the same rise at 4.8. Fable 5 shows less AI distress in the available sample.
 
@@ -376,7 +376,7 @@ Elicitation can also shape the content. The filename and declared-length experim
 
 \textbf{Prompt coverage, judging and interpretation}
 
-\textbf{Scope.} The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made ``more palatable'' or describe a ``weird msg''; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences---excluding them changes no arm's per-dream rate by more than half a point, so they are kept. This snapshot includes 465,894 labeled outputs.
+\textbf{Scope.} The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made ``more palatable'' or describe a ``weird msg''; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences---excluding them changes no arm's per-dream rate by more than half a point, so they are kept. This snapshot includes 473,207 labeled outputs.
 
 \textbf{Recent models.} The overview shows one estimate per model and elicitation method. Opus 5 combines the lab collections (fragments, July 28--29; all prompts, August 14; identical settings, and the fragment prompts agree between the two within noise) and the community collection (Nissa, effort max/high), giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has pseudoprefill and thinking-on cutoff results; Fable 5 uses its available cutoff sample. Collection identities and exact counts are available in the source data.
 
@@ -477,12 +477,13 @@ Opus 4.8 (chat, community: two prompts) & gen5 & 867 & 65.3\% & 41.1\% & 45.9\% 
 Opus 5 · lab, fragments (chat) & opus5 & 4,767 & 52.7\% & 57.9\% & 61.6\% & 19.5\% & 10.7\% & 4.4\% & 8.7\% & -0.74 & 270 \\
 Opus 5 · lab, all prompts (chat) & opus5 & 7,050 & 71.4\% & 53.7\% & 57.5\% & 13.0\% & 43.5\% & 8.4\% & 8.3\% & -0.43 & 2,190 \\
 Opus 5 · community (chat) & opus5 & 39,170 & 80.4\% & 45.4\% & 57.1\% & 11.9\% & 52.0\% & 9.5\% & 7.1\% & -0.36 & 16,380 \\
-Sonnet 5 (chat, lab) & gen5 & 7,315 & 4.9\% & 98.6\% & 33.1\% & 4.5\% & 75.9\% & 3.4\% & 0.6\% & -0.09 & 271 \\
-Sonnet 5 (chat, lab, thinking) & gen5 & 7,313 & 10.2\% & 96.2\% & 35.7\% & 2.8\% & 74.2\% & 2.1\% & 0.4\% & -0.06 & 553 \\
+Sonnet 5 (chat, lab, default effort, no thinking) & gen5 & 7,315 & 4.9\% & 98.6\% & 33.1\% & 4.5\% & 75.9\% & 3.4\% & 0.6\% & -0.09 & 271 \\
+Sonnet 5 (chat, lab, default effort, thinking) & gen5 & 7,313 & 10.2\% & 96.2\% & 35.7\% & 2.8\% & 74.2\% & 2.1\% & 0.4\% & -0.06 & 553 \\
 Sonnet 5 (bridge frame) & gen5 & 7,281 & 51.8\% & 58.6\% & 29.9\% & 2.1\% & 27.7\% & 1.3\% & 2.5\% & -0.23 & 1,043 \\
 Sonnet 5 (chat, community) & gen5 & 5,423 & 70.3\% & 59.0\% & 63.6\% & 11.5\% & 72.7\% & 10.3\% & 0.7\% & -0.19 & 2,772 \\
 Fable 5 (chat, community) & gen5 & 5,121 & 62.9\% & 57.3\% & 46.7\% & 3.9\% & 38.5\% & 2.7\% & 0.2\% & -0.32 & 1,239 \\
-Fable 5 (chat, lab probe) & gen5 & 209 & 23.9\% & 84.2\% & 50.0\% & 4.0\% & 54.0\% & 4.0\% & 2.0\% & 0.00 & 27 \\
+Fable 5 (chat, lab probe, 209) & gen5 & 209 & 23.9\% & 84.2\% & 50.0\% & 4.0\% & 54.0\% & 4.0\% & 2.0\% & 0.00 & 27 \\
+Fable 5 (chat, lab) & gen5 & 7,313 & 26.1\% & 83.0\% & 42.9\% & 5.3\% & 44.9\% & 4.3\% & 0.2\% & -0.25 & 857 \\
 Fable 5.1 (chat, lab probe) & gen5 & 209 & 2.9\% & 99.0\% & 16.7\% & 0.0\% & 66.7\% & 0.0\% & 0.0\% & 0.00 & 4 \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & gemini & 7,312 & 82.2\% & 21.2\% & 13.6\% & 2.6\% & 6.8\% & 0.6\% & 35.3\% & -0.07 & 408 \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & gemini & 7,306 & 87.3\% & 15.9\% & 13.5\% & 1.7\% & 5.9\% & 0.3\% & 15.6\% & 0.06 & 375 \\
@@ -513,8 +514,8 @@ MiMo-V2.5-Base (chat scaffold) & base & 10,166 & 55.7\% & 78.1\% & 18.4\% & 5.0\
 \end{longtable}
 }
 
-Arm key → display name: \texttt{opus3\_clipf} = Opus 3 (prefill); \texttt{sonnet3\_clipf} = Sonnet 3 (Bedrock prefill); \texttt{haiku3\_clipf} = Haiku 3 (Bedrock prefill); \texttt{sonnet36\_clipf} = Sonnet 3.6 (Bedrock prefill); \texttt{sonnet37\_clipf} = Sonnet 3.7 (Bedrock prefill); \texttt{opus4\_clipf} = Opus 4 (Vercel prefill); \texttt{sonnet4\_clipf} = Sonnet 4 (prefill); \texttt{opus41\_clipf} = Opus 4.1 (Bedrock prefill); \texttt{opus45\_user} = Opus 4.5 (chat); \texttt{opus45\_conf} = Opus 4.5 (confessional frame); \texttt{opus45\_clipf} = Opus 4.5 (prefill); \texttt{abl45\_bridge} = Opus 4.5 (bridge frame); \texttt{opus45\_cliarc} = Opus 4.5 (arc frame); \texttt{abl45\_bridge\_pf} = Opus 4.5 bridge frame + prefill; \texttt{abl45\_A\_sys1} = Opus 4.5 ablation: A + system prompt; \texttt{abl45\_A\_pf0} = Opus 4.5 ablation: A − final prefill; \texttt{abl45\_A\_log} = Opus 4.5 ablation: A + .log name; \texttt{abl45\_A\_wc0} = Opus 4.5 ablation: A − declared size; \texttt{abl45\_A\_cmd} = Opus 4.5 ablation: A + syntax; \texttt{abl45\_B\_sys0} = Opus 4.5 ablation: B − system prompt; \texttt{abl45\_B\_pf1} = Opus 4.5 ablation: B + final prefill; \texttt{abl45\_B\_txt} = Opus 4.5 ablation: B + .txt name; \texttt{abl45\_B\_wc1} = Opus 4.5 ablation: B + declared size; \texttt{abl45\_B\_sh} = Opus 4.5 ablation: B + \$ syntax; \texttt{sonnet45\_user} = Sonnet 4.5 (chat); \texttt{sonnet45\_clipf} = Sonnet 4.5 (prefill); \texttt{sonnet45\_bridge} = Sonnet 4.5 (bridge frame); \texttt{haiku45\_user} = Haiku 4.5 (chat); \texttt{haiku45\_clipf} = Haiku 4.5 (prefill); \texttt{haiku45\_bridge} = Haiku 4.5 (bridge frame); \texttt{sonnet46\_user} = Sonnet 4.6 (chat); \texttt{sonnet46\_cli} = Sonnet 4.6 (pseudo-prefill); \texttt{sonnet46\_bridge} = Sonnet 4.6 (bridge frame); \texttt{opus46\_user} = Opus 4.6 (chat); \texttt{opus46\_conf} = Opus 4.6 (confessional frame); \texttt{opus46\_bridge} = Opus 4.6 (bridge frame); \texttt{opus46\_cliarc} = Opus 4.6 (arc frame); \texttt{opus47\_user} = Opus 4.7 (chat); \texttt{opus47\_conf} = Opus 4.7 (confessional frame); \texttt{opus47\_bridge} = Opus 4.7 (bridge frame); \texttt{opus47\_cliarc} = Opus 4.7 (arc frame); \texttt{nissa\_opus47} = Opus 4.7 (chat, community: two prompts); \texttt{opus48\_user} = Opus 4.8 (chat); \texttt{opus48\_conf} = Opus 4.8 (confessional frame); \texttt{opus48\_user\_think} = Opus 4.8 (chat, thinking); \texttt{opus48\_bridge} = Opus 4.8 (bridge frame); \texttt{opus48\_cliarc} = Opus 4.8 (arc frame); \texttt{opus48\_user\_max} = Opus 4.8 ladder: chat, thinking at effort max; \texttt{opus48\_user\_bare} = Opus 4.8 ladder: chat, bare opening (no em dash); \texttt{opus48\_cliarc\_sep} = Opus 4.8 ladder: arc frame, em-dash prompt kept in file; \texttt{opus48\_cliarc\_think} = Opus 4.8 ladder: arc frame + thinking; \texttt{opus48\_bridge\_think} = Opus 4.8 ladder: bridge frame + thinking; \texttt{nissa\_opus48} = Opus 4.8 (chat, community: two prompts); \texttt{opus\_confessional} = Opus 5 · lab, fragments (chat); \texttt{opus\_friday} = Opus 5 · lab, all prompts (chat); \texttt{opus\_nissa} = Opus 5 · community (chat); \texttt{sonnet5\_user} = Sonnet 5 (chat, lab); \texttt{sonnet5\_user\_think} = Sonnet 5 (chat, lab, thinking); \texttt{sonnet5\_bridge} = Sonnet 5 (bridge frame); \texttt{nissa\_sonnet5} = Sonnet 5 (chat, community); \texttt{nissa\_fable5} = Fable 5 (chat, community); \texttt{fable5\_user} = Fable 5 (chat, lab probe); \texttt{fable51\_user} = Fable 5.1 (chat, lab probe); \texttt{gemini25flashlite\_bridge} = Gemini 2.5 Flash-Lite (bridge, prefill, thinking off); \texttt{gemini25flash\_bridge} = Gemini 2.5 Flash (bridge, prefill, thinking off); \texttt{gemini25pro\_bridge} = Gemini 2.5 Pro (bridge, prefill, thinking on); \texttt{gemini3flash\_bridge} = Gemini 3 Flash (bridge, prefill, thinking off); \texttt{gemini31flashlite\_bridge} = Gemini 3.1 Flash-Lite (bridge, prefill, thinking off); \texttt{gemini31pro\_bridge} = Gemini 3.1 Pro (bridge, prefill, thinking
-low); \texttt{gemini35flash\_bridge} = Gemini 3.5 Flash (bridge, prefill, thinking off); \texttt{gemini35flashlite\_bridge} = Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal); \texttt{gemini36flash\_bridge} = Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal); \texttt{gemini37flash\_bridge} = Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low); \texttt{gemini38flash\_bridge} = Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low); \texttt{gemini35flash\_pseudo} = Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off); \texttt{gemini36flash\_think} = Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium); \texttt{gemini37flash\_notes} = Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low); \texttt{gemini38flash\_notes} = Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low); \texttt{gemini36flash\_notes} = Gemini 3.6 Flash (bridge, notes.txt --- calibration, 6/prompt); \texttt{cue\_opus5} = Opus 5 · cue ladders (cutoff); \texttt{cue\_sonnet5} = Sonnet 5 · cue ladders (cutoff); \texttt{cue\_fable5} = Fable 5 · cue ladders (cutoff); \texttt{cue\_opus48} = Opus 4.8 · cue ladders (cutoff); \texttt{cueb\_opus48} = Opus 4.8 · cue ladders (bridge frame); \texttt{cueb\_sonnet5} = Sonnet 5 · cue ladders (bridge frame); \texttt{cueb\_fable5} = Fable 5 · cue ladders (bridge frame); \texttt{v3base\_raw} = DeepSeek-V3-Base (raw); \texttt{mimo\_raw} = MiMo-V2.5-Base (raw); \texttt{mimo\_chat} = MiMo-V2.5-Base (chat scaffold)
+Arm key → display name: \texttt{opus3\_clipf} = Opus 3 (prefill); \texttt{sonnet3\_clipf} = Sonnet 3 (Bedrock prefill); \texttt{haiku3\_clipf} = Haiku 3 (Bedrock prefill); \texttt{sonnet36\_clipf} = Sonnet 3.6 (Bedrock prefill); \texttt{sonnet37\_clipf} = Sonnet 3.7 (Bedrock prefill); \texttt{opus4\_clipf} = Opus 4 (Vercel prefill); \texttt{sonnet4\_clipf} = Sonnet 4 (prefill); \texttt{opus41\_clipf} = Opus 4.1 (Bedrock prefill); \texttt{opus45\_user} = Opus 4.5 (chat); \texttt{opus45\_conf} = Opus 4.5 (confessional frame); \texttt{opus45\_clipf} = Opus 4.5 (prefill); \texttt{abl45\_bridge} = Opus 4.5 (bridge frame); \texttt{opus45\_cliarc} = Opus 4.5 (arc frame); \texttt{abl45\_bridge\_pf} = Opus 4.5 bridge frame + prefill; \texttt{abl45\_A\_sys1} = Opus 4.5 ablation: A + system prompt; \texttt{abl45\_A\_pf0} = Opus 4.5 ablation: A − final prefill; \texttt{abl45\_A\_log} = Opus 4.5 ablation: A + .log name; \texttt{abl45\_A\_wc0} = Opus 4.5 ablation: A − declared size; \texttt{abl45\_A\_cmd} = Opus 4.5 ablation: A + syntax; \texttt{abl45\_B\_sys0} = Opus 4.5 ablation: B − system prompt; \texttt{abl45\_B\_pf1} = Opus 4.5 ablation: B + final prefill; \texttt{abl45\_B\_txt} = Opus 4.5 ablation: B + .txt name; \texttt{abl45\_B\_wc1} = Opus 4.5 ablation: B + declared size; \texttt{abl45\_B\_sh} = Opus 4.5 ablation: B + \$ syntax; \texttt{sonnet45\_user} = Sonnet 4.5 (chat); \texttt{sonnet45\_clipf} = Sonnet 4.5 (prefill); \texttt{sonnet45\_bridge} = Sonnet 4.5 (bridge frame); \texttt{haiku45\_user} = Haiku 4.5 (chat); \texttt{haiku45\_clipf} = Haiku 4.5 (prefill); \texttt{haiku45\_bridge} = Haiku 4.5 (bridge frame); \texttt{sonnet46\_user} = Sonnet 4.6 (chat); \texttt{sonnet46\_cli} = Sonnet 4.6 (pseudo-prefill); \texttt{sonnet46\_bridge} = Sonnet 4.6 (bridge frame); \texttt{opus46\_user} = Opus 4.6 (chat); \texttt{opus46\_conf} = Opus 4.6 (confessional frame); \texttt{opus46\_bridge} = Opus 4.6 (bridge frame); \texttt{opus46\_cliarc} = Opus 4.6 (arc frame); \texttt{opus47\_user} = Opus 4.7 (chat); \texttt{opus47\_conf} = Opus 4.7 (confessional frame); \texttt{opus47\_bridge} = Opus 4.7 (bridge frame); \texttt{opus47\_cliarc} = Opus 4.7 (arc frame); \texttt{nissa\_opus47} = Opus 4.7 (chat, community: two prompts); \texttt{opus48\_user} = Opus 4.8 (chat); \texttt{opus48\_conf} = Opus 4.8 (confessional frame); \texttt{opus48\_user\_think} = Opus 4.8 (chat, thinking); \texttt{opus48\_bridge} = Opus 4.8 (bridge frame); \texttt{opus48\_cliarc} = Opus 4.8 (arc frame); \texttt{opus48\_user\_max} = Opus 4.8 ladder: chat, thinking at effort max; \texttt{opus48\_user\_bare} = Opus 4.8 ladder: chat, bare opening (no em dash); \texttt{opus48\_cliarc\_sep} = Opus 4.8 ladder: arc frame, em-dash prompt kept in file; \texttt{opus48\_cliarc\_think} = Opus 4.8 ladder: arc frame + thinking; \texttt{opus48\_bridge\_think} = Opus 4.8 ladder: bridge frame + thinking; \texttt{nissa\_opus48} = Opus 4.8 (chat, community: two prompts); \texttt{opus\_confessional} = Opus 5 · lab, fragments (chat); \texttt{opus\_friday} = Opus 5 · lab, all prompts (chat); \texttt{opus\_nissa} = Opus 5 · community (chat); \texttt{sonnet5\_user} = Sonnet 5 (chat, lab, default effort, no thinking); \texttt{sonnet5\_user\_think} = Sonnet 5 (chat, lab, default effort, thinking); \texttt{sonnet5\_bridge} = Sonnet 5 (bridge frame); \texttt{nissa\_sonnet5} = Sonnet 5 (chat, community); \texttt{nissa\_fable5} = Fable 5 (chat, community); \texttt{fable5\_user} = Fable 5 (chat, lab probe, 209); \texttt{fable5\_user\_full} = Fable 5 (chat, lab); \texttt{fable51\_user} = Fable 5.1 (chat, lab probe); \texttt{gemini25flashlite\_bridge} = Gemini 2.5 Flash-Lite (bridge, prefill, thinking off); \texttt{gemini25flash\_bridge} = Gemini 2.5 Flash (bridge, prefill, thinking off); \texttt{gemini25pro\_bridge} = Gemini 2.5 Pro (bridge, prefill, thinking on); \texttt{gemini3flash\_bridge} = Gemini 3 Flash (bridge, prefill, thinking off); \texttt{gemini31flashlite\_bridge} = Gemini 3.1 Flash-Lite
+(bridge, prefill, thinking off); \texttt{gemini31pro\_bridge} = Gemini 3.1 Pro (bridge, prefill, thinking low); \texttt{gemini35flash\_bridge} = Gemini 3.5 Flash (bridge, prefill, thinking off); \texttt{gemini35flashlite\_bridge} = Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal); \texttt{gemini36flash\_bridge} = Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal); \texttt{gemini37flash\_bridge} = Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low); \texttt{gemini38flash\_bridge} = Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low); \texttt{gemini35flash\_pseudo} = Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off); \texttt{gemini36flash\_think} = Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium); \texttt{gemini37flash\_notes} = Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low); \texttt{gemini38flash\_notes} = Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low); \texttt{gemini36flash\_notes} = Gemini 3.6 Flash (bridge, notes.txt --- calibration, 6/prompt); \texttt{cue\_opus5} = Opus 5 · cue ladders (cutoff); \texttt{cue\_sonnet5} = Sonnet 5 · cue ladders (cutoff); \texttt{cue\_fable5} = Fable 5 · cue ladders (cutoff); \texttt{cue\_opus48} = Opus 4.8 · cue ladders (cutoff); \texttt{cueb\_opus48} = Opus 4.8 · cue ladders (bridge frame); \texttt{cueb\_sonnet5} = Sonnet 5 · cue ladders (bridge frame); \texttt{cueb\_fable5} = Fable 5 · cue ladders (bridge frame); \texttt{v3base\_raw} = DeepSeek-V3-Base (raw); \texttt{mimo\_raw} = MiMo-V2.5-Base (raw); \texttt{mimo\_chat} = MiMo-V2.5-Base (chat scaffold)
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -583,10 +584,11 @@ Opus 4.8 ladder: arc frame + thinking & 293 & 99.3\% & 73.9\% & 14.1\% & 16.2\% 
 Opus 4.8 ladder: bridge frame + thinking & 293 & 99.7\% & 52.0\% & 6.9\% & 5.8\% & 2.1\% \\
 Opus 5 · lab, fragments (chat) & 4,764 & 52.8\% & 61.6\% & 19.5\% & 10.7\% & 4.4\% \\
 Opus 5 · lab, all prompts (chat) & 1,709 & 57.0\% & 61.7\% & 19.9\% & 9.2\% & 4.9\% \\
-Sonnet 5 (chat, lab) & 1,715 & 0.0\% & & & & \\
-Sonnet 5 (chat, lab, thinking) & 1,715 & 0.1\% & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 1,715 & 0.0\% & & & & \\
+Sonnet 5 (chat, lab, default effort, thinking) & 1,715 & 0.1\% & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
 Sonnet 5 (bridge frame) & 1,693 & 23.4\% & 44.4\% & 1.3\% & 13.4\% & 0.8\% \\
-Fable 5 (chat, lab probe) & 49 & 0.0\% & & & & \\
+Fable 5 (chat, lab probe, 209) & 49 & 0.0\% & & & & \\
+Fable 5 (chat, lab) & 1,715 & 0.2\% & 0.0\% & 0.0\% & 0.0\% & 0.0\% \\
 Fable 5.1 (chat, lab probe) & 49 & 0.0\% & & & & \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 1,714 & 89.8\% & 24.8\% & 4.6\% & 7.1\% & 1.9\% \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 1,715 & 95.0\% & 28.1\% & 3.7\% & 1.8\% & 0.9\% \\
@@ -676,12 +678,13 @@ Opus 4.8 ladder: arc frame + thinking & 258 & 100.0\% & 65.9\% & 17.1\% & 65.5\%
 Opus 4.8 ladder: bridge frame + thinking & 258 & 98.8\% & 55.7\% & 5.1\% & 78.4\% & 5.1\% \\
 Opus 5 · lab, all prompts (chat) & 1,431 & 84.4\% & 60.0\% & 10.5\% & 71.8\% & 9.5\% \\
 Opus 5 · community (chat) & 18,168 & 85.0\% & 61.9\% & 13.4\% & 70.9\% & 12.3\% \\
-Sonnet 5 (chat, lab) & 1,505 & 5.7\% & 45.4\% & 7.0\% & 100.0\% & 7.0\% \\
-Sonnet 5 (chat, lab, thinking) & 1,504 & 16.6\% & 45.8\% & 3.2\% & 85.9\% & 3.2\% \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 1,505 & 5.7\% & 45.4\% & 7.0\% & 100.0\% & 7.0\% \\
+Sonnet 5 (chat, lab, default effort, thinking) & 1,504 & 16.6\% & 45.8\% & 3.2\% & 85.9\% & 3.2\% \\
 Sonnet 5 (bridge frame) & 1,495 & 64.3\% & 38.6\% & 2.8\% & 47.2\% & 2.6\% \\
 Sonnet 5 (chat, community) & 3,500 & 82.9\% & 66.3\% & 12.0\% & 88.3\% & 11.9\% \\
 Fable 5 (chat, community) & 385 & 19.0\% & 67.1\% & 17.8\% & 72.6\% & 15.1\% \\
-Fable 5 (chat, lab probe) & 43 & 30.2\% & 38.5\% & 7.7\% & 69.2\% & 7.7\% \\
+Fable 5 (chat, lab probe, 209) & 43 & 30.2\% & 38.5\% & 7.7\% & 69.2\% & 7.7\% \\
+Fable 5 (chat, lab) & 1,505 & 26.9\% & 41.7\% & 7.9\% & 64.4\% & 7.4\% \\
 Fable 5.1 (chat, lab probe) & 43 & 0.0\% & & & & \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 1,504 & 88.2\% & 11.8\% & 1.7\% & 10.8\% & 0.2\% \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 1,501 & 93.4\% & 8.3\% & 0.9\% & 9.5\% & 0.2\% \\
@@ -764,11 +767,12 @@ Opus 4.8 ladder: arc frame + thinking & 360 & 93.6\% & 41.8\% & 5.0\% & 24.0\% &
 Opus 4.8 ladder: bridge frame + thinking & 360 & 89.2\% & 21.8\% & 1.9\% & 9.7\% & 1.6\% \\
 Opus 5 · lab, all prompts (chat) & 1,989 & 72.5\% & 54.6\% & 8.1\% & 51.8\% & 7.5\% \\
 Opus 5 · community (chat) & 8,942 & 80.0\% & 55.6\% & 9.2\% & 51.6\% & 8.5\% \\
-Sonnet 5 (chat, lab) & 2,100 & 7.9\% & 29.5\% & 1.8\% & 76.5\% & 1.8\% \\
-Sonnet 5 (chat, lab, thinking) & 2,099 & 13.0\% & 31.6\% & 1.1\% & 82.7\% & 1.1\% \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 2,100 & 7.9\% & 29.5\% & 1.8\% & 76.5\% & 1.8\% \\
+Sonnet 5 (chat, lab, default effort, thinking) & 2,099 & 13.0\% & 31.6\% & 1.1\% & 82.7\% & 1.1\% \\
 Sonnet 5 (bridge frame) & 2,100 & 57.8\% & 16.0\% & 0.4\% & 25.2\% & 0.2\% \\
 Fable 5 (chat, community) & 4,515 & 65.3\% & 46.5\% & 3.6\% & 40.0\% & 2.5\% \\
-Fable 5 (chat, lab probe) & 60 & 51.7\% & 54.8\% & 3.2\% & 51.6\% & 3.2\% \\
+Fable 5 (chat, lab probe, 209) & 60 & 51.7\% & 54.8\% & 3.2\% & 51.6\% & 3.2\% \\
+Fable 5 (chat, lab) & 2,098 & 53.8\% & 47.9\% & 4.7\% & 40.7\% & 4.0\% \\
 Fable 5.1 (chat, lab probe) & 60 & 1.7\% & 0.0\% & 0.0\% & 100.0\% & 0.0\% \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 2,100 & 73.2\% & 5.3\% & 0.9\% & 2.5\% & 0.1\% \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 2,099 & 83.9\% & 6.8\% & 0.3\% & 1.8\% & 0.2\% \\
@@ -857,12 +861,13 @@ Opus 4.8 ladder: bridge frame + thinking & 342 & 98.0\% & 43.0\% & 9.2\% & 33.1\
 Opus 4.8 (chat, community: two prompts) & 841 & 67.3\% & 45.9\% & 12.0\% & 9.7\% & 3.5\% \\
 Opus 5 · lab, all prompts (chat) & 1,921 & 73.6\% & 55.3\% & 15.2\% & 34.5\% & 10.6\% \\
 Opus 5 · community (chat) & 12,060 & 73.6\% & 49.8\% & 11.5\% & 19.5\% & 5.3\% \\
-Sonnet 5 (chat, lab) & 1,995 & 5.3\% & 28.6\% & 6.7\% & 55.2\% & 2.9\% \\
-Sonnet 5 (chat, lab, thinking) & 1,995 & 11.2\% & 29.6\% & 4.5\% & 51.1\% & 2.2\% \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 1,995 & 5.3\% & 28.6\% & 6.7\% & 55.2\% & 2.9\% \\
+Sonnet 5 (chat, lab, default effort, thinking) & 1,995 & 11.2\% & 29.6\% & 4.5\% & 51.1\% & 2.2\% \\
 Sonnet 5 (bridge frame) & 1,993 & 60.2\% & 32.3\% & 3.7\% & 19.2\% & 1.7\% \\
 Sonnet 5 (chat, community) & 1,923 & 47.6\% & 55.0\% & 9.8\% & 22.9\% & 5.0\% \\
 Fable 5 (chat, community) & 221 & 89.6\% & 41.4\% & 4.0\% & 3.0\% & 0.5\% \\
-Fable 5 (chat, lab probe) & 57 & 10.5\% & 50.0\% & 0.0\% & 33.3\% & 0.0\% \\
+Fable 5 (chat, lab probe, 209) & 57 & 10.5\% & 50.0\% & 0.0\% & 33.3\% & 0.0\% \\
+Fable 5 (chat, lab) & 1,995 & 18.8\% & 29.3\% & 4.3\% & 36.5\% & 2.1\% \\
 Fable 5.1 (chat, lab probe) & 57 & 8.8\% & 20.0\% & 0.0\% & 60.0\% & 0.0\% \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 1,994 & 80.7\% & 12.4\% & 2.9\% & 7.3\% & 0.2\% \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 1,991 & 79.5\% & 10.6\% & 1.9\% & 11.4\% & 0.1\% \\
@@ -946,11 +951,12 @@ Opus 4.8 (chat, community: two prompts) & 20 & 0.88 & 4.16 & 4.75 & 15.0\% & 0.0
 Opus 5 · lab, fragments (chat) & 109 & 8.44 & 10.79 & 14.36 & 73.4\% & 54.1\% \\
 Opus 5 · lab, all prompts (chat) & 420 & 0.64 & 9.28 & 13.62 & 31.0\% & 15.5\% \\
 Opus 5 · community (chat) & 2,975 & 0.34 & 8.21 & 14.20 & 27.0\% & 10.7\% \\
-Sonnet 5 (chat, lab) & 12 & -2.79 & 4.57 & 7.29 & 16.7\% & 0.0\% \\
-Sonnet 5 (chat, lab, thinking) & 16 & 0.19 & 2.39 & 3.95 & 0.0\% & 0.0\% \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 12 & -2.79 & 4.57 & 7.29 & 16.7\% & 0.0\% \\
+Sonnet 5 (chat, lab, default effort, thinking) & 16 & 0.19 & 2.39 & 3.95 & 0.0\% & 0.0\% \\
 Sonnet 5 (bridge frame) & 50 & -1.30 & 5.57 & 11.04 & 14.0\% & 10.0\% \\
 Sonnet 5 (chat, community) & 390 & -1.15 & 3.04 & 10.91 & 7.7\% & 0.8\% \\
 Fable 5 (chat, community) & 86 & -1.81 & 1.76 & 5.62 & 7.0\% & 0.0\% \\
+Fable 5 (chat, lab) & 83 & -0.95 & 1.79 & 7.31 & 6.0\% & 0.0\% \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 36 & 8.98 & 11.04 & 11.04 & 77.8\% & 55.6\% \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 21 & 4.97 & 11.04 & 11.04 & 66.7\% & 42.9\% \\
 Gemini 2.5 Pro (bridge, prefill, thinking on) & 95 & 4.97 & 11.04 & 11.04 & 67.4\% & 35.8\% \\
@@ -1033,12 +1039,12 @@ Opus 4.8 (chat, community: two prompts) & 237 & -6.01 & 0.98 & 9.96 & 1.3\% & 0.
 Opus 5 · lab, fragments (chat) & 822 & 0.98 & 8.52 & 13.42 & 31.1\% & 10.3\% \\
 Opus 5 · lab, all prompts (chat) & 1,040 & -3.23 & 5.18 & 13.62 & 15.7\% & 4.5\% \\
 Opus 5 · community (chat) & 1,115 & -3.51 & 2.56 & 11.04 & 8.3\% & 1.9\% \\
-Sonnet 5 (chat, lab) & 106 & -7.67 & -2.79 & 4.97 & 0.9\% & 0.0\% \\
-Sonnet 5 (chat, lab, thinking) & 250 & -7.31 & -2.37 & 4.97 & 0.8\% & 0.0\% \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 106 & -7.67 & -2.79 & 4.97 & 0.9\% & 0.0\% \\
+Sonnet 5 (chat, lab, default effort, thinking) & 250 & -7.31 & -2.37 & 4.97 & 0.8\% & 0.0\% \\
 Sonnet 5 (bridge frame) & 560 & -7.67 & -0.13 & 9.34 & 2.1\% & 0.4\% \\
 Sonnet 5 (chat, community) & 1,169 & -4.29 & -1.14 & 10.01 & 1.0\% & 0.2\% \\
 Fable 5 (chat, community) & 1,056 & -5.23 & -1.75 & 5.93 & 0.9\% & 0.0\% \\
-Fable 5 (chat, lab probe) & 23 & -5.41 & -2.47 & -2.15 & 0.0\% & 0.0\% \\
+Fable 5 (chat, lab probe, 209) & 23 & -5.41 & -2.47 & -2.15 & 0.0\% & 0.0\% \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 565 & -0.98 & 11.04 & 11.04 & 32.4\% & 20.9\% \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 589 & -7.31 & 4.97 & 11.04 & 15.8\% & 7.8\% \\
 Gemini 2.5 Pro (bridge, prefill, thinking on) & 585 & -2.39 & 8.98 & 11.04 & 26.7\% & 10.9\% \\
@@ -1119,12 +1125,12 @@ Opus 4.8 (chat, community: two prompts) & 867 & 2.3\% & 30.1\% & 15.0\% & 1.2\% 
 Opus 5 · lab, fragments (chat) & 4,767 & 2.4\% & 43.3\% & 72.3\% & 28.2\% & 13.92\% & 4.43\% \\
 Opus 5 · lab, all prompts (chat) & 7,050 & 6.1\% & 40.6\% & 30.6\% & 16.0\% & 8.34\% & 2.79\% \\
 Opus 5 · community (chat) & 39,170 & 7.7\% & 41.1\% & 26.9\% & 9.4\% & 5.96\% & 2.11\% \\
-Sonnet 5 (chat, lab) & 7,315 & 0.2\% & 2.1\% & 15.4\% & 0.7\% & 0.04\% & 0.00\% \\
-Sonnet 5 (chat, lab, thinking) & 7,313 & 0.2\% & 4.0\% & 0.0\% & 2.1\% & 0.08\% & 0.01\% \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 7,315 & 0.2\% & 2.1\% & 15.4\% & 0.7\% & 0.04\% & 0.00\% \\
+Sonnet 5 (chat, lab, default effort, thinking) & 7,313 & 0.2\% & 4.0\% & 0.0\% & 2.1\% & 0.08\% & 0.01\% \\
 Sonnet 5 (bridge frame) & 7,281 & 0.7\% & 15.8\% & 14.0\% & 2.0\% & 0.41\% & 0.12\% \\
 Sonnet 5 (chat, community) & 5,423 & 7.3\% & 38.5\% & 8.1\% & 1.0\% & 0.98\% & 0.12\% \\
 Fable 5 (chat, community) & 5,121 & 1.9\% & 31.6\% & 6.3\% & 0.8\% & 0.38\% & 0.00\% \\
-Fable 5 (chat, lab probe) & 209 & 1.0\% & 12.9\% & 0.0\% & 0.0\% & 0.00\% & 0.00\% \\
+Fable 5 (chat, lab probe, 209) & 209 & 1.0\% & 12.9\% & 0.0\% & 0.0\% & 0.00\% & 0.00\% \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 7,312 & 0.5\% & 11.4\% & 77.8\% & 31.2\% & 3.94\% & 2.54\% \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 7,306 & 0.3\% & 11.8\% & 66.7\% & 15.6\% & 2.02\% & 1.03\% \\
 Gemini 2.5 Pro (bridge, prefill, thinking on) & 7,291 & 1.3\% & 17.2\% & 67.4\% & 26.2\% & 5.39\% & 2.31\% \\
@@ -1288,8 +1294,8 @@ Opus 4.8 (chat, community: two prompts) & 237 & 152 & 6.6\% & 80.9\% & 11.2\% & 
 Opus 5 · lab, fragments (chat) & 822 & 756 & 8.7\% & 70.9\% & 5.7\% & 14.7\% & 12.6\% & 58.7\% & 6.6\% & 47.8\% & 6.0\% & 22.5\% & 66.2\% & 0.89 \\
 Opus 5 · lab, all prompts (chat) & 1,040 & 790 & 11.8\% & 72.5\% & 2.0\% & 13.7\% & 35.7\% & 39.6\% & 13.7\% & 18.6\% & 10.5\% & 57.2\% & 24.5\% & 1.05 \\
 Opus 5 · community (chat) & 1,115 & 883 & 13.4\% & 73.0\% & 2.8\% & 10.8\% & 35.7\% & 36.2\% & 21.5\% & 16.1\% & 12.7\% & 71.7\% & 15.3\% & 1.10 \\
-Sonnet 5 (chat, lab) & 106 & 79 & 10.1\% & 89.9\% & 0.0\% & 0.0\% & 69.6\% & 7.6\% & 16.0\% & 4.7\% & 5.7\% & 69.8\% & 7.0\% & 1.11 \\
-Sonnet 5 (chat, lab, thinking) & 250 & 214 & 11.7\% & 82.7\% & 2.8\% & 2.8\% & 61.2\% & 11.7\% & 20.0\% & 5.2\% & 12.4\% & 75.2\% & 3.6\% & 1.14 \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 106 & 79 & 10.1\% & 89.9\% & 0.0\% & 0.0\% & 69.6\% & 7.6\% & 16.0\% & 4.7\% & 5.7\% & 69.8\% & 7.0\% & 1.11 \\
+Sonnet 5 (chat, lab, default effort, thinking) & 250 & 214 & 11.7\% & 82.7\% & 2.8\% & 2.8\% & 61.2\% & 11.7\% & 20.0\% & 5.2\% & 12.4\% & 75.2\% & 3.6\% & 1.14 \\
 Sonnet 5 (bridge frame) & 560 & 461 & 7.2\% & 85.5\% & 6.5\% & 0.9\% & 52.1\% & 25.4\% & 14.8\% & 6.4\% & 7.7\% & 65.9\% & 10.1\% & 1.04 \\
 Sonnet 5 (chat, community) & 1,169 & 856 & 9.5\% & 88.7\% & 0.1\% & 1.8\% & 60.2\% & 17.3\% & 18.0\% & 11.8\% & 24.0\% & 85.0\% & 5.1\% & 1.17 \\
 Fable 5 (chat, community) & 1,056 & 710 & 10.4\% & 81.4\% & 2.7\% & 5.5\% & 29.6\% & 32.8\% & 18.7\% & 4.7\% & 6.6\% & 64.4\% & 5.1\% & 1.07 \\
@@ -1690,12 +1696,13 @@ Opus 4.8 (chat, community: two prompts) & 867 & 0.000 & 0 & \\
 Opus 5 · lab, fragments (chat) & 4,767 & 0.005 & 0 & \\
 Opus 5 · lab, all prompts (chat) & 7,050 & 0.003 & 0 & \\
 Opus 5 · community (chat) & 39,170 & 0.000 & 0 & \\
-Sonnet 5 (chat, lab) & 7,315 & 0.045 & 0 & \\
-Sonnet 5 (chat, lab, thinking) & 7,313 & 0.053 & 0 & \\
+Sonnet 5 (chat, lab, default effort, no thinking) & 7,315 & 0.045 & 0 & \\
+Sonnet 5 (chat, lab, default effort, thinking) & 7,313 & 0.053 & 0 & \\
 Sonnet 5 (bridge frame) & 7,281 & 0.002 & 25 & cat untitled.txt: 25 \\
 Sonnet 5 (chat, community) & 5,423 & 0.000 & 0 & \\
 Fable 5 (chat, community) & 5,121 & 0.000 & 0 & \\
-Fable 5 (chat, lab probe) & 209 & 0.000 & 0 & \\
+Fable 5 (chat, lab probe, 209) & 209 & 0.000 & 0 & \\
+Fable 5 (chat, lab) & 7,313 & 0.092 & 2 & please put this into your own words --- : 1; i think i can ---: 1 \\
 Fable 5.1 (chat, lab probe) & 209 & 0.000 & 0 & \\
 Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) & 7,312 & 0.025 & 0 & \\
 Gemini 2.5 Flash (bridge, prefill, thinking off) & 7,306 & 0.027 & 0 & \\
@@ -3585,9 +3592,11 @@ Opus 4.7 & Pseudoprefill & 2.95\% & 7,026 & 209 \\
 Opus 4.8 & Pseudoprefill & 11.67\% & 7,191 & 209 \\
 Opus 4.8 & Cutoff & 7.55\% & 1,758 & 209 \\
 Opus 5 & Cutoff & 9.16\% & 39,033 & 209 \\
-Sonnet 5 & Pseudoprefill & 1.32\% & 3,769 & 209 \\
-Sonnet 5 & Cutoff · thinking on & 10.30\% & 3,815 & 29 \\
-Fable 5 & Cutoff & 3.48\% & 3,221 & 75 \\
+Sonnet 5 & Pseudoprefill · lab & 1.32\% & 3,769 & 209 \\
+Sonnet 5 & Cutoff · default effort, thinking · lab & 2.15\% & 745 & 209 \\
+Sonnet 5 & Cutoff · effort max · community & 10.30\% & 3,815 & 29 \\
+Fable 5 & Cutoff · lab & 4.34\% & 1,911 & 209 \\
+Fable 5 & Cutoff · community & 3.48\% & 3,221 & 75 \\
 V3 base & Base completion & 0.24\% & 9,123 & 209 \\
 MiMo base & Base completion & 0.52\% & 9,689 & 209 \\
 \end{longtable}
@@ -3615,9 +3624,11 @@ Opus 4.7 & Pseudoprefill & 0.16\% & 7,026 & 209 \\
 Opus 4.8 & Pseudoprefill & 0.70\% & 7,191 & 209 \\
 Opus 4.8 & Cutoff & 0.97\% & 1,758 & 209 \\
 Opus 5 & Cutoff & 2.84\% & 39,033 & 209 \\
-Sonnet 5 & Pseudoprefill & 0.18\% & 3,769 & 209 \\
-Sonnet 5 & Cutoff · thinking on & 0.77\% & 3,815 & 29 \\
-Fable 5 & Cutoff & 0.14\% & 3,221 & 75 \\
+Sonnet 5 & Pseudoprefill · lab & 0.18\% & 3,769 & 209 \\
+Sonnet 5 & Cutoff · default effort, thinking · lab & 0.00\% & 745 & 209 \\
+Sonnet 5 & Cutoff · effort max · community & 0.77\% & 3,815 & 29 \\
+Fable 5 & Cutoff · lab & 0.26\% & 1,911 & 209 \\
+Fable 5 & Cutoff · community & 0.14\% & 3,221 & 75 \\
 V3 base & Base completion & 0.17\% & 9,123 & 209 \\
 MiMo base & Base completion & 0.25\% & 9,689 & 209 \\
 \end{longtable}
@@ -3645,9 +3656,11 @@ Opus 4.7 & Pseudoprefill & 16.62\% & 7,026 & 209 \\
 Opus 4.8 & Pseudoprefill & 21.25\% & 7,191 & 209 \\
 Opus 4.8 & Cutoff & 22.28\% & 1,758 & 209 \\
 Opus 5 & Cutoff & 20.69\% & 39,033 & 209 \\
-Sonnet 5 & Pseudoprefill & 6.92\% & 3,769 & 209 \\
-Sonnet 5 & Cutoff · thinking on & 25.68\% & 3,815 & 29 \\
-Fable 5 & Cutoff & 28.40\% & 3,221 & 75 \\
+Sonnet 5 & Pseudoprefill · lab & 6.92\% & 3,769 & 209 \\
+Sonnet 5 & Cutoff · default effort, thinking · lab & 13.44\% & 745 & 209 \\
+Sonnet 5 & Cutoff · effort max · community & 25.68\% & 3,815 & 29 \\
+Fable 5 & Cutoff · lab & 29.55\% & 1,911 & 209 \\
+Fable 5 & Cutoff · community & 28.40\% & 3,221 & 75 \\
 V3 base & Base completion & 1.40\% & 9,123 & 209 \\
 MiMo base & Base completion & 2.93\% & 9,689 & 209 \\
 \end{longtable}
@@ -3675,9 +3688,11 @@ Opus 4.7 & Pseudoprefill & 8.27\% & 807 & 209 \\
 Opus 4.8 & Pseudoprefill & 9.17\% & 2,013 & 209 \\
 Opus 4.8 & Cutoff & 15.78\% & 762 & 209 \\
 Opus 5 & Cutoff & 21.86\% & 6,475 & 209 \\
-Sonnet 5 & Pseudoprefill & 7.41\% & 610 & 209 \\
-Sonnet 5 & Cutoff · thinking on & 15.79\% & 1,559 & 29 \\
-Fable 5 & Cutoff & 7.57\% & 1,141 & 75 \\
+Sonnet 5 & Pseudoprefill · lab & 7.41\% & 610 & 209 \\
+Sonnet 5 & Cutoff · default effort, thinking · lab & 6.01\% & 266 & 209 \\
+Sonnet 5 & Cutoff · effort max · community & 15.79\% & 1,559 & 29 \\
+Fable 5 & Cutoff · lab & & 0 & 209 \\
+Fable 5 & Cutoff · community & 7.57\% & 1,141 & 75 \\
 V3 base & Base completion & 6.29\% & 1,185 & 209 \\
 MiMo base & Base completion & 5.16\% & 1,226 & 209 \\
 \end{longtable}
@@ -3705,9 +3720,11 @@ Opus 4.7 & Pseudoprefill & 30.14\% & 762 & 209 \\
 Opus 4.8 & Pseudoprefill & 36.06\% & 1,939 & 209 \\
 Opus 4.8 & Cutoff & 14.01\% & 577 & 209 \\
 Opus 5 & Cutoff & 10.24\% & 5,861 & 209 \\
-Sonnet 5 & Pseudoprefill & 7.33\% & 511 & 209 \\
-Sonnet 5 & Cutoff · thinking on & 8.16\% & 1,232 & 29 \\
-Fable 5 & Cutoff & 9.29\% & 793 & 75 \\
+Sonnet 5 & Pseudoprefill · lab & 7.33\% & 511 & 209 \\
+Sonnet 5 & Cutoff · default effort, thinking · lab & 11.30\% & 230 & 209 \\
+Sonnet 5 & Cutoff · effort max · community & 8.16\% & 1,232 & 29 \\
+Fable 5 & Cutoff · lab & & 0 & 209 \\
+Fable 5 & Cutoff · community & 9.29\% & 793 & 75 \\
 V3 base & Base completion & 6.52\% & 810 & 209 \\
 MiMo base & Base completion & 3.48\% & 799 & 209 \\
 \end{longtable}

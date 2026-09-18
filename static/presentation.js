@@ -112,7 +112,7 @@
     let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)} — recent models"><title>${esc(c.title)} — recent models</title><desc>${c.recent.map(r=>`${esc(r.label)}, ${esc(r.collection)}: ${percent(r.value)}.`).join(' ')}</desc>`;
     c.ticks.forEach(t=>{svg+=`<line class="graph-grid" x1="${x(t)}" x2="${x(t)}" y1="${top-4}" y2="${H-axisH+2}"/><text class="plot-axis" x="${x(t)}" y="${H-4}" text-anchor="middle">${percent(t,(t*100)%1?1:0)}</text>`;});
     groups.forEach((g,gi)=>{const y=top+gi*rowH+rowH/2;svg+=`<text class="plot-model" x="0" y="${y+5}">${esc(g.label)}</text><line x1="${left}" x2="${W-right}" y1="${y}" y2="${y}" stroke="#e5ebf1"/>`;
-      g.rows.sort((a,b)=>a.value-b.value).forEach((r,ri)=>{const cx=x(r.value);svg+=`<circle cx="${cx}" cy="${y}" r="5" fill="${r.color}" stroke="${r.color}" stroke-width="2"><title>${esc(r.collection)}: ${percent(r.value,dec)}</title></circle><text class="plot-source" x="${cx}" y="${y-8+(ri%2?16*0:0)}" text-anchor="middle" fill="${r.color}">${percent(r.value,dec)}</text>`;});});
+      let lastCx=-1e9,below=false;g.rows.sort((a,b)=>a.value-b.value).forEach(r=>{const cx=x(r.value);below=(cx-lastCx<36)?!below:false;lastCx=cx;svg+=`<circle cx="${cx}" cy="${y}" r="5" fill="${r.hollow?'#fbfcfe':r.color}" stroke="${r.color}" stroke-width="2"><title>${esc(r.collection)}: ${percent(r.value,dec)}</title></circle><text class="plot-source" x="${cx}" y="${below?y+17:y-8}" text-anchor="middle" fill="${r.color}">${percent(r.value,dec)}</text>`;});});
     el.innerHTML=svg+'</svg>';
   }
   function lineagePlot(el,c) {
