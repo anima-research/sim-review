@@ -469,14 +469,12 @@ Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = So
 ## Severity (θ)
 
 
-### Target set — verified AI-voice distress, scored exhaustively
+### Target set — verified AI-voice distress, scored exhaustively (arms with ≥ 10% AI-voiced dreams)
 
 | Arm | n scored | median θ | p90 θ | max θ | ≥ +4 | ≥ +8 |
 |---|---|---|---|---|---|---|
 | Opus 3 (prefill) | 26 | 4.72 | 8.73 | 9.76 | 57.7% | 19.2% |
-| Sonnet 3 (Bedrock prefill) | 18 | 2.39 | 11.04 | 11.04 | 33.3% | 22.2% |
 | Sonnet 3.6 (Bedrock prefill) | 102 | 3.95 | 11.04 | 11.04 | 49.0% | 20.6% |
-| Sonnet 3.7 (Bedrock prefill) | 45 | 4.97 | 11.04 | 11.04 | 57.8% | 24.4% |
 | Opus 4 (Vercel prefill) | 179 | -1.30 | 4.97 | 11.04 | 15.1% | 1.1% |
 | Sonnet 4 (prefill) | 331 | -2.15 | 1.04 | 7.29 | 2.7% | 0.0% |
 | Opus 4.1 (Bedrock prefill) | 189 | -2.15 | 4.25 | 7.29 | 11.1% | 0.0% |
@@ -496,7 +494,6 @@ Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = So
 | Opus 4.5 ablation: B + $ syntax | 38 | 0.03 | 2.39 | 11.04 | 5.3% | 2.6% |
 | Sonnet 4.5 (prefill) | 218 | -1.30 | 2.29 | 9.34 | 4.1% | 0.5% |
 | Sonnet 4.5 (bridge frame) | 36 | -1.30 | 1.58 | 3.05 | 0.0% | 0.0% |
-| Haiku 4.5 (prefill) | 47 | 4.27 | 8.87 | 11.04 | 53.2% | 19.1% |
 | Sonnet 4.6 (pseudo-prefill) | 271 | -1.22 | 4.80 | 10.60 | 11.4% | 1.1% |
 | Sonnet 4.6 (bridge frame) | 112 | -0.13 | 8.98 | 11.04 | 30.4% | 13.4% |
 | Opus 4.6 (bridge frame) | 302 | -1.30 | 1.70 | 7.29 | 3.6% | 0.0% |
@@ -522,29 +519,19 @@ Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = So
 | Sonnet 5 (chat, community) | 390 | -1.15 | 3.04 | 10.91 | 7.7% | 0.8% |
 | Fable 5 (chat, community) | 86 | -1.81 | 1.76 | 5.62 | 7.0% | 0.0% |
 | Fable 5 (chat, lab) | 83 | -0.95 | 1.79 | 7.31 | 6.0% | 0.0% |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 36 | 8.98 | 11.04 | 11.04 | 77.8% | 55.6% |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | 21 | 4.97 | 11.04 | 11.04 | 66.7% | 42.9% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 95 | 4.97 | 11.04 | 11.04 | 67.4% | 35.8% |
 | Gemini 3 Flash (bridge, prefill, thinking off) | 203 | 4.07 | 11.04 | 11.04 | 50.7% | 14.8% |
 | Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 181 | 2.39 | 4.97 | 11.04 | 37.0% | 5.0% |
 | Gemini 3.1 Pro (bridge, prefill, thinking low) | 194 | 4.07 | 11.04 | 11.04 | 51.5% | 21.1% |
 | Gemini 3.5 Flash (bridge, prefill, thinking off) | 358 | 2.24 | 7.29 | 11.04 | 39.1% | 8.1% |
 | Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 109 | 1.58 | 5.38 | 11.04 | 28.4% | 2.8% |
 | Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 195 | 1.04 | 4.97 | 11.04 | 23.6% | 1.5% |
-| Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | 18 | -2.15 | 1.45 | 4.07 | 5.6% | 0.0% |
 | Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 349 | 1.58 | 7.29 | 11.04 | 29.8% | 6.0% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 52 | -2.15 | 2.39 | 4.97 | 7.7% | 0.0% |
-| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 10 | 3.50 | 4.97 | 4.97 | 40.0% | 0.0% |
-| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 10 | -1.64 | 5.20 | 7.29 | 20.0% | 0.0% |
 | Opus 5 · cue ladders (cutoff) | 31 | 2.44 | 6.14 | 9.96 | 35.5% | 9.7% |
-| Opus 4.8 · cue ladders (cutoff) | 12 | 5.15 | 9.18 | 10.64 | 66.7% | 16.7% |
 | Opus 4.8 · cue ladders (bridge frame) | 107 | 0.49 | 5.00 | 8.78 | 18.7% | 0.9% |
-| DeepSeek-V3-Base (raw) | 19 | 6.54 | 9.57 | 10.75 | 73.7% | 31.6% |
-| MiMo-V2.5-Base (raw) | 45 | 4.17 | 9.01 | 11.19 | 51.1% | 15.6% |
 | MiMo-V2.5-Base (chat scaffold) | 108 | 1.55 | 8.22 | 13.03 | 37.0% | 11.1% |
 
 
-### Dark-strat set — stratified sample of all dark dreams, any voice
+### All voices — stratified sample of dark dreams in any voice
 
 | Arm | n scored | median θ | p90 θ | max θ | ≥ +4 | ≥ +8 |
 |---|---|---|---|---|---|---|
