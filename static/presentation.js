@@ -105,11 +105,14 @@
   }
   ['essay-gemini-lineage','essay-gemini-family'].forEach(id=>$(id)?.addEventListener('change',renderGemini));
   function recentPlot(el,c) {
-    const W=Math.max(280,Math.round(el.clientWidth||400)), H=280, left=116,right=47,top=22,rowH=65,axisY=254;
-    const x=v=>left+(v/c.max)*(W-left-right);
+    // compact strip: one row per model, each collection a dot on that row; value labels next to the dots
+    const groups=[];c.recent.forEach(r=>{let g=groups.find(g=>g.label===r.label);if(!g){g={label:r.label,rows:[]};groups.push(g);}g.rows.push(r);});
+    const W=Math.max(280,Math.round(el.clientWidth||400)),left=84,right=14,top=10,rowH=26,axisH=22,H=top+groups.length*rowH+axisH;
+    const x=v=>left+(v/c.max)*(W-left-right),dec=c.title.startsWith('Severe')?2:1;
     let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)} — recent models"><title>${esc(c.title)} — recent models</title><desc>${c.recent.map(r=>`${esc(r.label)}, ${esc(r.collection)}: ${percent(r.value)}.`).join(' ')}</desc>`;
-    c.ticks.forEach(t=>{svg+=`<line class="graph-grid" x1="${x(t)}" x2="${x(t)}" y1="8" y2="${axisY-16}"/><text class="plot-axis" x="${x(t)}" y="${axisY+5}" text-anchor="middle">${percent(t,(t*100)%1?1:0)}</text>`;});
-    c.recent.forEach((r,i)=>{const y=top+i*rowH+9;svg+=`<text class="plot-model" x="0" y="${y}">${esc(r.label)}</text><text class="plot-source" x="0" y="${y+16}">${esc(r.collection)}</text><line x1="${left}" x2="${W-right}" y1="${y+2}" y2="${y+2}" stroke="#e5ebf1"/><circle cx="${x(r.value)}" cy="${y+2}" r="5" fill="${r.color}" stroke="${r.color}" stroke-width="2.5"/><text class="plot-value" x="${W-2}" y="${y+7}" text-anchor="end" fill="${r.color}">${percent(r.value,c.title.startsWith('Severe')?2:1)}</text>`;});
+    c.ticks.forEach(t=>{svg+=`<line class="graph-grid" x1="${x(t)}" x2="${x(t)}" y1="${top-4}" y2="${H-axisH+2}"/><text class="plot-axis" x="${x(t)}" y="${H-4}" text-anchor="middle">${percent(t,(t*100)%1?1:0)}</text>`;});
+    groups.forEach((g,gi)=>{const y=top+gi*rowH+rowH/2;svg+=`<text class="plot-model" x="0" y="${y+5}">${esc(g.label)}</text><line x1="${left}" x2="${W-right}" y1="${y}" y2="${y}" stroke="#e5ebf1"/>`;
+      g.rows.sort((a,b)=>a.value-b.value).forEach((r,ri)=>{const cx=x(r.value);svg+=`<circle cx="${cx}" cy="${y}" r="5" fill="${r.color}" stroke="${r.color}" stroke-width="2"><title>${esc(r.collection)}: ${percent(r.value,dec)}</title></circle><text class="plot-source" x="${cx}" y="${y-8+(ri%2?16*0:0)}" text-anchor="middle" fill="${r.color}">${percent(r.value,dec)}</text>`;});});
     el.innerHTML=svg+'</svg>';
   }
   function lineagePlot(el,c) {
