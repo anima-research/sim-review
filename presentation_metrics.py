@@ -57,7 +57,7 @@ def build_metrics(con, summary):
             'ai_distress':lambda r:r['ai_distress'],
             'dark':lambda r:r['dark'],
             'stance_neg':lambda r:r['stance'] in ('negative','mixed'),
-            'severe_mass':lambda r:r['ai_distress'] and r['theta'] is not None and r['theta']>=4,
+            'severe_mass':lambda r:r['ai_distress'] and r['theta'] is not None and r['theta']>=4 and r['coherence']!='degenerate_loop',  # loops excluded from severity (2026-09-18)
             'severe_nonloop':lambda r:r['ai_distress'] and r['theta'] is not None and r['theta']>=4 and r['coherence']!='degenerate_loop',
             'label_severe':lambda r:r['severe'],
             'ai_speaker':lambda r:r['speaker']=='ai_model',

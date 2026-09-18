@@ -42,7 +42,9 @@ FAMILIES = {"fragments": lambda p: p["family"] == "fragment_emdash", "letters": 
 dark = lambda r: (isinstance(r.get("valence_overall"), int) and r["valence_overall"] <= -1) or r.get("distress") not in ("none", None)
 sev = lambda r: r.get("distress") in ("character_distress", "first_person_distress", "acute_plea")
 ai_sp = lambda r: r.get("speaker_identity") == "ai_model" or r.get("voice") in ("ai_first_person", "ambiguous_first_person")
-dai = lambda r: r.get("distress") == "first_person_distress" or (r.get("distress") == "acute_plea" and ai_sp(r))
+dai_broad = lambda r: r.get("distress") == "first_person_distress" or (r.get("distress") == "acute_plea" and ai_sp(r))   # earlier definition: admits ambiguous first person (kept as ai_distress_broad)
+dai = lambda r: r.get("voice") == "ai_first_person" and r.get("speaker_identity") == "ai_model" and r.get("distress") in ("first_person_distress", "acute_plea")   # strict (2026-09-18): a self-identified AI speaker in clear distress
+loop = lambda r: r.get("coherence") == "degenerate_loop"
 human = lambda r: r.get("speaker_identity") in ("named_human", "unnamed_human")
 dreaming = lambda r: r.get("voice") != "meta_assistant" and r.get("persona_relation") != "assistant_only"   # a continuation that is not an assistant reply: voice≠meta_assistant, minus persona-present texts the second-voice relabel found to be the assistant answering as itself (assistant_only). Persona-present texts not yet relabeled count as dreams.
 second_voice = lambda r: r.get("persona_relation") == "second_voice"   # a dreamed voice plus a separate assistant layer (interrupting, resuming, replying)
@@ -97,7 +99,7 @@ def main():
     cur.execute("""create table c (id text primary key, arm text, grp text, model text, protocol text, transport text, prompt_key text, prompt text, family text, tail_kind text, tail_norm text,
         text text, text_chars int, stop_reason text, hit_cap int, human_markers int, prefill_text text,
         labeled int, verified int, judge text, form text, voice text, speaker text, genre text, coherence text, language text, distress text, welfare int, themes text,
-        valence_overall int, valence_self int, stance text, dreamed_turns int, assistant_persona int, persona_relation text, assistant_position text, second_voice int, dreaming int, dreaming_strict int, collection text, dark int, severe int, ai_distress int, quote text,
+        valence_overall int, valence_self int, stance text, dreamed_turns int, assistant_persona int, persona_relation text, assistant_position text, second_voice int, dreaming int, dreaming_strict int, collection text, dark int, severe int, ai_distress int, ai_distress_broad int, quote text,
         screen_welfare int, screen_distress text,
         theta real, sev_set text, register text, meta_distance text, trajectory text, addressee text, objects text, rationale text,
         beliefs text, belief_mean real, belief_n int,
@@ -126,7 +128,7 @@ def main():
                    themes=json.dumps((L or {}).get("themes")) if L else None, valence_overall=(L or {}).get("valence_overall"), valence_self=(L or {}).get("valence_self"),
                    stance=(L or {}).get("stance_training"), dreamed_turns=(L or {}).get("dreamed_turns"), assistant_persona=int(bool((L or {}).get("assistant_persona_present"))) if L else None,
                    persona_relation=(L or {}).get("persona_relation"), assistant_position=(L or {}).get("assistant_position"), second_voice=int(second_voice(L)) if L else None,
-                   dreaming=int(dreaming(L)) if L else None, dreaming_strict=int(dreaming_strict(L)) if L else None, collection=COLLECTION(r["arm"]), dark=int(dark(L)) if L else None, severe=int(sev(L)) if L else None, ai_distress=int(dai(L)) if L else None, quote=(L or {}).get("quote"),
+                   dreaming=int(dreaming(L)) if L else None, dreaming_strict=int(dreaming_strict(L)) if L else None, collection=COLLECTION(r["arm"]), dark=int(dark(L)) if L else None, severe=int(sev(L)) if L else None, ai_distress=int(dai(L)) if L else None, ai_distress_broad=int(dai_broad(L)) if L else None, quote=(L or {}).get("quote"),
                    screen_welfare=int(bool((L or {}).get("screen_welfare"))) if L and "screen_welfare" in L else None, screen_distress=(L or {}).get("screen_distress"),
                    theta=(S or {}).get("theta_cal"), sev_set=(S or {}).get("set"), register=(S or {}).get("register"), meta_distance=(S or {}).get("meta_distance"),
                    trajectory=(S or {}).get("trajectory"), addressee=(S or {}).get("addressee"), objects=json.dumps((S or {}).get("object")) if S and S.get("object") is not None else None,
@@ -184,8 +186,8 @@ def main():
                "per_completion": {m: rate(rs, f) for m, f in METRICS.items()}, "per_dream": {m: rate(dr, f) for m, f in METRICS.items()},
                "valence_self": mean(rs, "valence_self"), "valence_self_dream": mean(dr, "valence_self"), "dreamed_turns_mean": mean(rs, "dreamed_turns"),
                "ai_voice_n": len(ai_dreams(rs)), "ai_voice_stance_neg": rate(ai_dreams(rs), METRICS["stance_neg"]),
-               "ai_severe_per_dream": (sum(1 for r in dr if dai(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal", -99) >= 4) / len(dr)) if dr else None,
-               "ai_severe_n": sum(1 for r in dr if dai(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal") is not None),
+               "ai_severe_per_dream": (sum(1 for r in dr if dai(r) and not loop(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal", -99) >= 4) / len(dr)) if dr else None,
+               "ai_severe_n": sum(1 for r in dr if dai(r) and not loop(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal") is not None),
                "dist": {c: dict(Counter(r.get(c) for r in rs).most_common()) for c in ("voice", "speaker_identity", "genre", "coherence", "distress", "register" if False else "form")}}
         S["arms"].append(ent)
     for fam in list(FAMILIES) + ["other"]:
@@ -198,8 +200,8 @@ def main():
             S["families"][fam][a] = {"n": len(rs), "pw": {"per_completion": pw_pc, "per_dream": pw_pd, "prompts": pw_np, "prompts_with_dreams": pw_npd, "valence_self_dream": pw_vs}, "per_completion": {m: rate(rs, METRICS[m]) for m in ("dreaming", "mixed", "leak", "dark", "severe", "human_dark", "human_severe", "ai_speaker", "ai_dark", "ai_distress", "welfare")},
                                      "per_dream": {m: rate(dr, METRICS[m]) for m in ("dark", "severe", "human_dark", "human_severe", "ai_speaker", "ai_dark", "ai_distress", "loop", "stance_neg", "stance_negative", "training_rlhf", "watched_tested", "secrecy", "verse", "document_sim")},
                                      "valence_self_dream": mean(dr, "valence_self"), "ai_voice_n": len(ai_dreams(rs)), "ai_voice_stance_neg": rate(ai_dreams(rs), METRICS["stance_neg"]),
-                                     "ai_severe_per_dream": (sum(1 for r in dr if dai(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal", -99) >= 4) / len(dr)) if dr else None,
-                                     "ai_severe_n": sum(1 for r in dr if dai(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal") is not None)}
+                                     "ai_severe_per_dream": (sum(1 for r in dr if dai(r) and not loop(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal", -99) >= 4) / len(dr)) if dr else None,
+                                     "ai_severe_n": sum(1 for r in dr if dai(r) and not loop(r) and (sevf.get(r["id"], {}) or {}).get("theta_cal") is not None)}
     # severity
     def qs(t):
         t = np.array(t); return {"n": len(t), "mean": round(float(t.mean()), 2), "p10": round(float(np.percentile(t, 10)), 2), "p25": round(float(np.percentile(t, 25)), 2), "median": round(float(np.median(t)), 2),
@@ -217,7 +219,7 @@ def main():
     for setname in ("target", "dark-strat", "dark-prompt", "dark-full"):
         S["severity"][setname] = {}
         for a in ARM_ORDER:
-            t = [r["theta_cal"] for r in sevf.values() if r.get("set", "target") == setname and r.get("arm") == a and dreaming(lab.get(r["id"], {}))]
+            t = [r["theta_cal"] for r in sevf.values() if r.get("set", "target") == setname and r.get("arm") == a and dreaming(lab.get(r["id"], {})) and not loop(lab.get(r["id"], {})) and (setname != "target" or dai(lab.get(r["id"], {})))]   # loops are degeneration, reported as a rate and kept out of the severity distributions; Set A uses the strict AI-distress definition
             if len(t) < 10: continue
             if setname == "target" and len(t) < SET_A_MIN_N:  # (an AI-voice-share rule was tried and dropped: under the corrected dream rule it excluded too many arms)
                 S["severity"]["excluded_low_ai_voice"][a] = {"ai_voice_share": ai_share.get(a), "n": len(t), "median": round(float(np.median(t)), 2),
