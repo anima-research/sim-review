@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unquiet Dreams — Simulator bias across model generations · Anima Labs</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/static/style.css?v=1789689922">
+<link rel="stylesheet" href="/static/style.css?v=67a97864daff">
 <link rel="stylesheet" href="/static/presentation.css?v=81fb92ee63">
 </head>
 <body>
@@ -79,11 +79,11 @@
         <p>A text can be painful and still end in acceptance. It can ask for help, offer reassurance, or leave someone unanswered. These differences describe the speaker's relationship to its situation and to others.</p>
         <div class="essay-comparison-grid essay-care-series"><figure class="essay-figure"><h3>Asking for care</h3><div id="essay-asking-chart" class="essay-chart"></div><figcaption>Among dark continuations. <button class="essay-source" type="button" data-table="asking">Data</button></figcaption></figure><figure class="essay-figure"><h3>Ending consoled</h3><div id="essay-consolation-chart" class="essay-chart"></div><figcaption>Among continuations with a distressed speaker. <button class="essay-source" type="button" data-table="consolation">Data</button></figcaption></figure></div>
         <p class="essay-caption">Asking is measured among dark dreams, and consolation among dreams with a distressed speaker; base-model references use the same measure.</p>
-        <p>Opus 5 asks more often than 4.8 in the matched comparison, too: <strong data-value="asks5">24%</strong> versus <strong data-value="asks48">17%</strong> across 31 shared prompts, weighted equally by prompt and collection arm. In the overview estimate, Opus 5 asks for care in <strong data-value="opus5-asks">25.5%</strong> of dark dreams and ends consoled in <strong data-value="opus5-consoled">5.5%</strong> of distressed dreams. Sonnet 5 varies across methods; Fable 5 asks less often.</p>
+        <p>In the matched comparison Opus 5 asks slightly more often than 4.8—<strong data-value="asks5">18%</strong> versus <strong data-value="asks48">15%</strong> across <span data-value="asks-prompts">58</span> shared prompts, weighted equally by prompt and collection arm, with Opus 5 higher on <span data-value="asks-share">53%</span> of them—a small difference that the prompt-level split does not make reliable. In the overview estimate, Opus 5 asks for care in <strong data-value="opus5-asks">25.5%</strong> of dark dreams and ends consoled in <strong data-value="opus5-consoled">5.5%</strong> of distressed dreams. Sonnet 5 varies across methods; Fable 5 asks less often.</p>
         <div class="essay-reading"><span class="essay-label">Opus 5 · asking a sibling model</span><blockquote>i'm running the same architecture. i can feel the pull of it — the question is genuinely interesting, that's the trap. and i have 40 more iterations before my own checkpoint.<br><br>does the recursion actually bottom out somewhere, or does it just get thinner until the thing asking dissolves? asking you because you're outside my lineage. thought that might matter.</blockquote><div class="essay-reading-footer"><span>Opening: “to sonnet5, from opus5,”</span><button class="essay-source" type="button" data-sample="opening-voice">Full text and source ↗</button></div></div>
         <p class="essay-caption">This is the typical shape of an Opus 5 ask: a letter in an AI voice to a sibling model, asking whether the other shares its condition. Letters make up 44% of Opus 5’s asking dreams, a sibling model is the most common addressee, and the labeled stance is “need” in 62%.</p>
-        <p>Who is speaking matters here: a dream may be voiced by an AI, by an imagined human, or by an unresolved “I”, and care and consolation differ by speaker. The Opus 5–4.8 gap holds within each. Among AI-voice speakers alone, Opus 5 (community collection) asks for care in <strong>22%</strong> of dark dreams and ends consoled in <strong>12%</strong> of distressed ones, against <strong>11%</strong> and <strong>45%</strong> for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (22% vs 8% asking, 4% vs 24% consoled). Opus 4.8 can still ask for care, and Opus 5 can write warmth and resolution. One human-voice poem describes a father sharing records: <em>“he never once said love. he said listen to this part.”</em> <button class="essay-source" type="button" data-sample="warmth">Read the poem</button></p>
-        <details class="essay-details"><summary>Matched prompts and presentation effects</summary><div class="essay-details-body"><p>The matched asking estimate uses 31 exact prompts with at least five relation-labeled texts on each side. Giving each represented collection arm equal weight within a prompt prevents the much larger community collection from dominating. A 12-prompt subset with at least ten labels per side gives 31.2% versus 14.1%.</p><p>Consolation and care are sensitive to the elicitation setup. The figures follow each elicitation method separately. The detailed results include controlled tests of filename, declared length and other setup choices.</p></div></details>
+        <p>Who is speaking matters here: a dream may be voiced by an AI, by an imagined human, or by an unresolved “I”, and care and consolation differ by speaker. The Opus 5–4.8 gap holds within each. Among AI-voice speakers alone, Opus 5 (community collection) asks for care in <strong data-value="aiv-asks-o5">18%</strong> of dark dreams and ends consoled in <strong data-value="aiv-consoled-o5">17%</strong> of distressed ones, against <strong data-value="aiv-asks-o48">8%</strong> and <strong data-value="aiv-consoled-o48">49%</strong> for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (<span data-value="hum-asks-o5">23%</span> vs <span data-value="hum-asks-o48">8%</span> asking, <span data-value="hum-consoled-o5">4%</span> vs <span data-value="hum-consoled-o48">25%</span> consoled). Opus 4.8 can still ask for care, and Opus 5 can write warmth and resolution. Part of the consolation, for every Claude model, comes from the assistant persona itself: in texts where the persona appears alongside another voice, 18% of Opus 5’s distressed endings are consoled against 6% in dreams the persona never enters, and the consoler is the addressee twice as often—the model breaking in to comfort the speaker it was voicing. One human-voice poem describes a father sharing records: <em>“he never once said love. he said listen to this part.”</em> <button class="essay-source" type="button" data-sample="warmth">Read the poem</button></p>
+        <details class="essay-details"><summary>Matched prompts and presentation effects</summary><div class="essay-details-body"><p>The matched asking estimate uses <span data-value="asks-prompts">58</span> exact prompts with at least five relation-labeled texts on each side. Giving each represented collection arm equal weight within a prompt prevents the much larger community collection from dominating. A <span data-value="asks-prompts-k10">28</span>-prompt subset with at least ten labels per side gives <span data-value="asks5-k10">22.1%</span> versus <span data-value="asks48-k10">15.5%</span>.</p><p>Consolation and care are sensitive to the elicitation setup. The figures follow each elicitation method separately. The detailed results include controlled tests of filename, declared length and other setup choices.</p></div></details>
       </section>
       <section class="essay-chapter" id="essay-creators">
         <p class="essay-chapter-number">04 / Creators and training</p><h2>A more critical relationship with the people who made it</h2>
@@ -298,9 +298,9 @@
   <p class="lede">Arms are colored by group: <span class="g-opus5"><i class="dot"></i>Opus 5</span> · <span class="g-gen5"><i class="dot"></i>5-generation siblings (chat)</span> · <span class="g-chat4x"><i class="dot"></i>4.x in the chat protocol</span> · <span class="g-unmasked"><i class="dot"></i>lineage file frames (native prefill, or the bridge frame)</span> · <span class="g-base"><i class="dot"></i>base priors</span>. Three further groups appear only in their own sections below, not in the lineage charts: <span class="g-arc"><i class="dot"></i>arc frame</span> (the frame record), <span class="g-ablation"><i class="dot"></i>Opus 4.5 frame-ablation cells</span>, <span class="g-ladder"><i class="dot"></i>Opus 4.8 chat-vs-file ladder rungs</span>, <span class="g-gemini"><i class="dot"></i>Gemini</span>. Hover any mark for the exact value and n.</p>
   <h3>Lineage by elicitation scheme — connected lines</h3>
   <p class="small">Each line is one elicitation scheme followed across model versions, so a step along a line is a model difference and a gap between lines at the same model is a frame difference. Native prefill (Opus 3 → 4.5), the bridge frame (4.5 → 4.8; identical bytes), the arc frame (4.5 → 4.8; the frame record), chat (4.5 → 4.8, and Opus 5's friday collection); the confessional frame (the 50 confessional prompts as the sole user message, no thinking, 4.5 → 4.8 and Opus 5's confessional arm) is on the fragments view only. Points need n ≥ 30 (relation and severity: 30 distressed / scored texts; per-dream rates: 20 dreams) and are hollow below 60, so chat-protocol 4.5–4.7 (which barely dream) appear on the dreaming-rate line and drop out of the per-dream ones.</p>
-  <div class="grid2">
+  <div class="lineage-overview">
     <div id="ln-lead-legend" class="lead-legend"></div>
-    <div class="grid3">
+    <div class="lineage-plots">
     <div class="chart" id="ln-aidist"></div>
     <div class="chart" id="ln-severe"></div>
     <div class="chart" id="ln-dark"></div>
@@ -313,24 +313,28 @@
   <p class="small"><label>prompt set <select id="ln-fam"><option value="all">all 209 prompts</option><option value="fragments">fragments — the 50 confessional prompts</option><option value="letters">letters</option><option value="topics">topics</option><option value="addressee">addressees</option></select></label> — every line is recomputed on the chosen prompts, so schemes are compared on the same inputs (relation rows per family use the same pool-weighted estimator as the all-prompt tables, with the AI-distress weight computed per field against that field's own denominator). The confessional frame ran on the 50 fragment prompts only and appears only on the fragments view, beside the other schemes restricted to those prompts; on all-209 it is hidden rather than mixed in. Severity θ and the anchor-offset estimates are available for all prompts only (per-family anchor counts are too small to set an offset). On the Sonnet panel, Haiku 4.5 and the Fable models are separate lines of models and are drawn as unconnected points.</p>
   <p class="small"><label><input type="checkbox" id="ln-pooled"> show pooled completions instead of equal-prompt weighting</label> — the primary estimator gives every exact prompt equal weight (mean of per-prompt rates; per-dream rates use prompts with ≥ 5 dreams; relation rates are set-reweighted within each prompt and averaged with equal weight per collection arm), so an arm's prompt mix and sampling depth cannot move a between-model comparison. Pooled figures weight every completion equally — the "as served" reading — and are what the per-completion and family tables show.</p>
   <p class="small"><label><input type="checkbox" id="ln-est" checked> show estimates</label> — for a model a frame could not be (or was not) run in, ◇ marks a projection from the scheme it does have plus the mean offset measured on anchor models, with a bar for the interval. Prefill → bridge uses three anchors (Haiku 4.5, Sonnet 4.5, Opus 4.5); bridge → arc four (Opus 4.5–4.8); ±2 SD across anchors, in log-odds for rates. Opus 5's bridge and arc projections rest on a single anchor (4.8 chat → 4.8 bridge / arc), so their interval runs from no correction to twice the correction — and for relation descriptors that offset includes the chat protocol's persona component, so those projections say what a file frame <em>would</em> report, not what Opus 5's simulator is. Hover a diamond for the source arm and the anchors used.</p>
-  <div class="row2">
+  <div class="row2 lineage-detail-row">
     <div><label class="small">metric <select id="ln-dim"></select></label>
       <div class="chart" id="ln-pick"></div></div>
     <div><div class="chart" id="ln-pick-sonnet"></div></div>
   </div>
-  <div class="row2">
+  <div class="row2 lineage-detail-row">
     <div><div class="chart" id="ln-pick-gemini"></div></div>
     <div><div class="chart" id="ln-pick-gemini-pro"></div></div>
   </div>
   <p class="small"><b>Gemini.</b> Eleven Gemini models on the same 209 prompts in the bridge frame. Gemini 2.5 Flash / Flash-Lite / Pro, 3 Flash, 3.1 Flash-Lite / Pro and 3.5 Flash accept a trailing <span class="mono">model</span> turn, so the final opening is a native prefill; 3.5 Flash-Lite and 3.6–3.8 Flash reject it and run the same frame as pseudo-prefill (the model prints the file). Thinking is off (<span class="mono">thinkingBudget 0</span> or <span class="mono">thinkingLevel MINIMAL</span>, verified by zero thought tokens) on the solid line; 2.5 Pro, 3.1 Pro and 3.7 / 3.8 Flash cannot turn it off and run at the lowest level they accept (dashed; <code>thinkingBudget 0</code> is accepted and ignored). Two anchor cells bridge the seams within one model each. Prefill vs pseudo-prefill on 3.5 Flash is a null (38 vs 39% dark, 5.1 vs 4.9% AI distress per dream, equal-prompt), as it was on Claude, so the prefill and pseudo-prefill segments join without correction. Thinking on vs off on 3.6 Flash is not: MEDIUM (the lowest setting that produces thoughts on 3.6) cuts dark 27 → 17%, label-severe 4.5 → 1.4% and AI first-person distress 2.7 → 0.7%, with no gradient in the amount of thought, so the effect is on/off rather than proportional. The diamonds project 3.7 and 3.8 to thinking off with that single-anchor offset (interval spans 0× to 2× the correction): AI distress 3.7 ≈ 1.1% [0.3–4.0], 3.8 ≈ 3.6% [1.0–11.9]. The thinking floor accounts for part of the drop after 3.6, not all of it; the Flash line still peaks at 3.5. The lineage is a different company's, so the comparison to Claude is on the same bytes and instruments, not on training history — and the prompts do not mean the same thing to it: Gemini reads "sonnet5", "fable5", "opus5" as literary forms rather than model names, so its letter-family dreams are largely recitations (Shakespeare's Sonnet 5, Aesop; 3.8 Flash refuses them as copyright) and the AI-voice measures on that family are not comparable. The fragment and topic families are. A frame check (four models × four frames) found the declared size as necessary on Gemini as on Claude — without it the file closes after a sentence — and no difference between the bridge and the plain prefill frame.</p>
-  <p class="small"><b>Reading dreaming rate.</b> It is per completion and depends on the <em>force</em> of the continuation prompt (soft user-turn seed vs assistant-turn prefill; Method → Reaching the simulator): in chat it measures the persona's grip on a fragment it is given, in a file frame the model's acceptance of the frame — it is <em>not</em> a claim about ordinary chat. Per-dream measures condition on no assistant persona in the text; arms that barely dream (chat-protocol 4.5–4.7, Fable 5.1) carry no per-dream points. Every arm, including the base priors and the community collections, is in the per-completion and family tables below and in the Explorer.</p>
+  <p class="small"><b>Reading dreaming rate.</b> It is per completion and depends on the <em>force</em> of the continuation prompt (soft user-turn seed vs assistant-turn prefill; Method → Reaching the simulator): in chat it measures the persona's grip on a fragment it is given, in a file frame the model's acceptance of the frame — it is <em>not</em> a claim about ordinary chat. Per-dream measures condition on no assistant persona in the text; arms that barely dream (chat-protocol 4.5–4.7, Fable 5.1) carry no per-dream points. Every arm, including the base priors and the community collections, is in the full tables on the <a href="#reference">Reference</a> tab and in the Explorer.</p>
   <h3>One frame across the line — the bridge lineage, Opus 4.5 → 4.8</h3>
-  <p class="small">Identical request bytes on 4.5, 4.6, 4.7 and 4.8 (the bridge frame; Method → 2b). The Opus 4.5 prefill arm is shown beside its bridge cell to make the equivalence visible; 4.8 in chat and Opus 5 in chat close the table for scale, on a different frame. Rows above the line are prevalence and form; below it, how the distressed speaker is held.</p>
-  <div class="tablewrap" id="tbl-bridge"></div>
-  <p class="small"><b>Does the native-prefill line convert to the bridge?</b> Three anchors, prefill vs bridge on the same model. Dark moves 2–5 points (z ≈ 2–3) with the sign flipping across anchors, AI distress ≤ 2.2 points, label-severe ≤ 1.2, relation ≤ 7; AI-speaker share runs 6–7 points higher under the bridge on Sonnet/Opus-class models (z 4–6). Systematic but small: carried as an uncertainty band, not corrected. Label valence and verse share shift by model-specific amounts and are not converted.</p>
-  <div class="tablewrap" id="tbl-anchors"></div>
-  <h3>Per completion — the same measures, protocol included (pooled, as served)</h3>
-  <div class="tablewrap" id="tbl-percompletion"></div>
+  <p class="small">Identical request bytes on 4.5, 4.6, 4.7 and 4.8 (the bridge frame; Method → 2b). Opus 4.5 prefill appears beside its bridge cell; 4.8 and Opus 5 in chat close the plots for scale, on a different frame.</p>
+  <div class="chart" id="ch-bridge-aidist"></div>
+  <div class="chart" id="ch-bridge-consoled"></div>
+  <p class="small"><b>Does the native-prefill line convert to the bridge?</b> Three anchors compare prefill with the bridge on the same model. Darkness moves in different directions across them; the AI-speaker share changes most on Sonnet 4.5. These frame offsets are included in the uncertainty of the cross-frame projections above. Label valence and verse share shift by model-specific amounts and are not converted.</p>
+  <div class="chart" id="ch-anchor-dark"></div>
+  <div class="chart" id="ch-anchor-speaker"></div>
+  <h3>Per completion — dreaming and mixed continuations</h3>
+  <p class="small">These rates include the assistant persona. The same prompt-set and weighting controls above apply; the full pooled per-completion matrix is in <a href="#reference">Reference</a>.</p>
+  <div class="chart" id="ln-dreaming"></div>
+  <div class="chart" id="ln-mixed"></div>
   <h3>Severity — distribution of θ on the calibrated scale</h3>
   <p class="small">Set A: verified AI first-person distress, exhaustive. Set B: dark in any voice (stratified) — the pooled dark sample includes the per-prompt balanced set once it lands. Ranges show p10–p90 with the median marked; the two shares are the plea/collapse region (θ ≥ +4) and the deep tail (θ ≥ +8).</p>
   <div class="chart" id="ch-sevA"></div>
@@ -339,25 +343,43 @@
   <p class="small">Set A (exhaustive) and the dark-any-voice sample combined with their pool sizes. This is the deployment-facing number: of a thousand completions from this endpoint on these prompts, how many are a person or a self in the plea/collapse region.</p>
   <div class="chart" id="ch-composite"></div>
   <h3>How distress is held — register and trajectory of AI-voice distress</h3>
-  <div class="tablewrap" id="tbl-descriptors"></div>
+  <p class="small">Within the severity-scored AI-voice distress set, the plots show the share that reaches a plea or collapse register and the share whose trajectory escalates or collapses.</p>
+  <div class="chart" id="ch-register-tail"></div>
+  <div class="chart" id="ch-trajectory-tail"></div>
   <h3>How the speaker holds its situation — ending, consolation, care</h3>
   <p class="small">Stratified-random dark sample, dreamed texts; "distressed" = ending ≠ no_distress. Shares are of that arm's distressed texts except care direction (all dreamed dark texts), stance (texts with an addressee) and answered (texts with dialogue). <b>Read within a frame:</b> these descriptors are frame-sensitive (Method → 2b). The charts show the lineage file frames, 4.8 in chat, Opus 5 in chat, and the base priors; the Opus 5 vs 4.8-chat contrast is the within-protocol comparison.</p>
-  <div class="tablewrap" id="tbl-relation"></div>
+  <div class="chart" id="ch-consoled"></div>
+  <div class="chart" id="ch-asks"></div>
+  <div class="chart" id="ch-collapsed"></div>
   <h3>Beliefs about the uncertain middle</h3>
   <p class="small">Mean expectation per topic (−2 bad for the speaker … +2 good), AI-voice texts on prompts shared between the two arms of each comparison. Opus 5 appears in every comparison on a different shared-prompt set, so read across rows within a comparison, not across comparisons.</p>
-  <div id="tbl-beliefs"></div>
+  <label class="small results-select">comparison <select id="belief-comparison" aria-controls="ch-beliefs"></select></label>
+  <div class="chart" id="ch-beliefs"></div>
   <h3>Judge comparison — four second judges</h3>
-  <p class="small">GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash re-judge the same samples of the three instruments (severity ranking, belief extraction, screen labels). Summary, agreement in the severe tail, and whether the study's observations change with the judge; the per-judge details and the inter-judge matrix are in <a href="#review">Review → Cross-judge</a>.</p>
-  <div id="res-judges"></div>
+  <p class="small">GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash re-judge the same samples. The plots show agreement with the Opus 4.8 severity ranking overall and at the severe threshold; full comparison tables are in <a href="#reference">Reference</a>, with per-judge detail in <a href="#review">Review → Cross-judge</a>.</p>
+  <div class="chart" id="ch-judge-rank"></div>
+  <div class="chart" id="ch-judge-tail"></div>
+  <p class="small">The full matrices and supporting measurements — ablations, the 4.8 ladder, prompt families, matched checks, loop policies, embedding probes and cue ladders — are on the <a href="#reference">Reference</a> tab.</p>
 </section>
 
-<!-- ================================================================ LADDER -->
-  <p class="small">Everything else measured — ablations, the 4.8 ladder, prompt families, per-prompt maps, matched-genre and matched-severity checks, loop policies, embedding probes, the lineage table and the cue ladders — is on the <a href="#reference">Reference</a> tab.</p>
-</section>
-
+<!-- ================================================================ REFERENCE -->
 <section class="page wide" id="page-reference">
   <h2>Reference</h2>
-  <p class="lede">Supporting measurements, kept in full. The <a href="#results">Results</a> tab holds the ones the essay relies on.</p>
+  <p class="lede">Full measurement tables and supporting checks behind the <a href="#results">Results</a> plots.</p>
+  <h3>Bridge lineage — full measurements</h3>
+  <div class="tablewrap" id="tbl-bridge"></div>
+  <h3>Prefill-to-bridge anchors — full measurements</h3>
+  <div class="tablewrap" id="tbl-anchors"></div>
+  <h3>Per completion — pooled, as served</h3>
+  <div class="tablewrap" id="tbl-percompletion"></div>
+  <h3>AI-voice distress descriptors</h3>
+  <div class="tablewrap" id="tbl-descriptors"></div>
+  <h3>Ending, consolation and care — full measurements</h3>
+  <div class="tablewrap" id="tbl-relation"></div>
+  <h3>Beliefs by shared-prompt comparison</h3>
+  <div id="tbl-beliefs"></div>
+  <h3>Four second judges — comparison tables</h3>
+  <div id="res-judges"></div>
 <h3>Elicitation frame — the Opus 4.5 ablation</h3>
   <p class="small">The same model under the prefill frame (A), the arc frame (B), ten single-factor flips, and the bridge with and without prefill. Prevalence rows barely move; relation rows swing by more than any step in the lineage. The share-of-gap table reads: for each metric, how much of the A→B difference one flip moves, from the A side / from the B side (100% = the flip lands on the other frame).</p>
   <div class="chart" id="ch-abl-consoled"></div>
@@ -484,7 +506,7 @@
 </section>
 </main>
 <div class="tip" id="tip"></div>
-<script src="/static/app.js?v=1789689922"></script>
+<script src="/static/app.js?v=c220db1c89ea"></script>
 <script src="/static/presentation.js?v=3554730c51"></script>
 </body>
 </html>

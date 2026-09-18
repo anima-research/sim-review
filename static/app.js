@@ -127,16 +127,17 @@
       c.addEventListener('mousemove', e => showTip(e, `<b>${esc(p.label)}</b><br>${esc(xlab)}: ${p.x.toFixed(2)}<br>${esc(ylab)}: ${p.y.toFixed(2)}`));
       c.addEventListener('mouseleave', hideTip); });
   }
+  const lineKey = sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true">${sr.pointOnly ? '' : `<line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/>`}${sr.reference ? '' : `<circle cx="13" cy="5" r="3.5" fill="${sr.color}"/>`}</svg>${esc(sr.name)}</span>`;
   function lineChart(el, title, subtitle, xs, series, opts = {}) {
     // xs: [{key, label}]; series: [{name, color, dash, pts: {xkey: {v, n, arm, hollow}}}]; connected within a series across consecutive present xs
-    const compact = !!opts.compact, W = compact ? 400 : 760, padL = Math.max(52, Math.ceil(textW(String((xs[0] || {}).label || ''), 12) * Math.cos(32 * Math.PI / 180)) + 10), padR = 16, padT = 14, padB = 58, H = (opts.height || (compact ? 190 : 250));   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
+    const compact = !!opts.compact, W = opts.width || (compact ? 400 : 760), padL = Math.max(52, Math.ceil(textW(String((xs[0] || {}).label || ''), 12) * Math.cos(32 * Math.PI / 180)) + 10), padR = 16, padT = 14, padB = 58, H = (opts.height || (compact ? 190 : 250));   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
     const lo = opts.min ?? 0, hi = opts.max ?? Math.max(...series.flatMap(sr => Object.values(sr.pts).map(p => p.v)).filter(v => v != null), 0.0001) * 1.08;
     const x = i => padL + (xs.length === 1 ? (W - padL - padR) / 2 : i * (W - padL - padR) / (xs.length - 1));
     const y = v => padT + (H - padT - padB) * (1 - (v - lo) / (hi - lo));
     const fmt = opts.fmt || (v => pct(v));
     const ticks = opts.ticks || [lo, (lo + hi) / 2, hi];
     let g = compact ? `<div class="chart-head"><div class="chart-title">${esc(title)}</div></div>` : `<div class="chart-head"><div class="chart-title">${esc(title)}</div><div class="chart-sub">${esc(subtitle)}</div></div>`;
-    g += `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+    g += `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(title)}">`;
     for (const t of ticks) g += `<line class="grid" x1="${padL}" x2="${W - padR}" y1="${y(t)}" y2="${y(t)}"/><text class="tick" x="${padL - 6}" y="${y(t) + 4}" text-anchor="end">${esc(fmt(t))}</text>`;
     if (opts.zero && lo < 0 && hi > 0) g += `<line class="axis" x1="${padL}" x2="${W - padR}" y1="${y(0)}" y2="${y(0)}"/>`;
     for (const r of (opts.refs || [])) { if (r.v == null || r.v < lo || r.v > hi) continue; g += `<line x1="${padL}" x2="${W - padR}" y1="${y(r.v)}" y2="${y(r.v)}" stroke="var(--neutral)" stroke-width="1" stroke-dasharray="3 5" opacity=".8"/><text class="tick" x="${W - padR}" y="${y(r.v) - 3}" text-anchor="end" opacity=".9">${esc(r.label)} ${esc(fmt(r.v))}</text>`; }
@@ -158,7 +159,7 @@
         } });
     });
     g += '</svg>';
-    if (!compact) g += `<div class="chart-legend">${series.map(sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true"><line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/><circle cx="13" cy="5" r="3.5" fill="${sr.color}"/></svg>${esc(sr.name)}</span>`).join('')}</div>`;
+    if (!compact) g += `<div class="chart-legend">${series.map(lineKey).join('')}</div>`;
     el.innerHTML = g;
     el.querySelectorAll('[data-tip]').forEach(c => { c.addEventListener('mousemove', e => showTip(e, c.dataset.tip)); c.addEventListener('mouseleave', hideTip); });
   }
@@ -253,7 +254,7 @@
     const R = S.relation?.arms || {}, T = S.severity.target || {};
     const OPUS_X = [['opus3', 'Opus 3'], ['opus4', 'Opus 4'], ['opus41', 'Opus 4.1'], ['opus45', 'Opus 4.5'], ['opus46', 'Opus 4.6'], ['opus47', 'Opus 4.7'], ['opus48', 'Opus 4.8'], ['opus5', 'Opus 5']].map(([key, label]) => ({ key, label }));
     const LEAD_X = OPUS_X.concat([{ key: 'fable5', label: 'Fable 5' }]);  // the headline small multiples carry Fable 5 as a disconnected point
-    const FABLE_SERIES = [{ name: 'Fable 5 (cutoff) — not on the Opus line', color: 'var(--s3)', pts: { fable5: 'nissa_fable5' } }];
+    const FABLE_SERIES = [{ name: 'Fable 5 (cutoff point)', color: 'var(--s3)', pointOnly: true, pts: { fable5: 'nissa_fable5' } }];
     const OPUS_SERIES = [
       { name: 'native prefill', color: 'var(--s2)', pts: { opus3: 'opus3_clipf', opus4: 'opus4_clipf', opus41: 'opus41_clipf', opus45: 'opus45_clipf' } },
       { name: 'bridge frame', color: 'var(--s1)', pts: { opus45: 'abl45_bridge', opus46: 'opus46_bridge', opus47: 'opus47_bridge', opus48: 'opus48_bridge' } },
@@ -318,7 +319,7 @@
     // series whose prompt set is not the full 209 appear only on the matching family view
     const seriesFor = def => def.filter(sr => !(sr.only && sr.only !== fam));
     const val = (m, a) => { if (!AE(a)) return null; const v = m.get(a), n = m.n(a); const pwLive = estMode === 'pw' && !!AE(a)?.pw; const lo = pwLive ? 10 : 30, loD = pwLive ? 10 : 20; if (v == null || (m.min20 && (n || 0) < loD) || (n != null && n < lo)) return null; return { v, n }; };
-    const build = (seriesDef, m) => seriesDef.map(sr => ({ name: sr.name, color: sr.color, dash: sr.dash, breakBefore: sr.breakBefore, pts: Object.fromEntries(Object.entries(sr.pts).map(([k, a]) => { const p = val(m, a); return [k, p ? { v: p.v, n: p.n, arm: disp(a) + (estMode === 'pw' ? ' · prompts' : ''), hollow: p.n < (estMode === 'pw' ? 30 : 60) } : null]; }).filter(([, p]) => p)) })).filter(sr => Object.keys(sr.pts).length);
+    const build = (seriesDef, m) => seriesDef.map(sr => ({ name: sr.name, color: sr.color, dash: sr.dash, pointOnly: sr.pointOnly, breakBefore: sr.breakBefore, pts: Object.fromEntries(Object.entries(sr.pts).map(([k, a]) => { const p = val(m, a); return [k, p ? { v: p.v, n: p.n, arm: disp(a) + (estMode === 'pw' ? ' · prompts' : ''), hollow: p.n < (estMode === 'pw' ? 30 : 60) } : null]; }).filter(([, p]) => p)) })).filter(sr => Object.keys(sr.pts).length);
     // ---- estimates for frames a model cannot be (or was not) run in: source scheme + anchor-mean offset, interval from the anchor spread
     const isRate = m => !m.fmt;  // rates get log-odds offsets; valence / θ / hope additive
     const L = p => Math.log(Math.min(Math.max(p, 0.002), 0.998) / (1 - Math.min(Math.max(p, 0.002), 0.998))), IL = z => 1 / (1 + Math.exp(-z));
@@ -362,11 +363,14 @@
     const LEAD = new Set(['ln-aidist', 'ln-severe', 'ln-dark', 'ln-consoled', 'ln-asks', 'ln-stance']);
     const draw = (elId, xs, seriesDef, key, sub, addE) => { const m = METRICS[key]; if (!$(elId)) return; let ser = build(seriesFor(seriesDef), m); if (showEst && addE && fam === 'all') ser = addE(ser, m); /* anchor offsets are measured on all 209 prompts; per-family anchors are too small */
       const compact = LEAD.has(elId);
-      lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max: m.max, ticks: m.ticks, fmt: m.fmt, zero: m.zero, height: compact ? 190 : 230, refs: refsFor(m), compact });
-      if (compact && $('ln-lead-legend')) $('ln-lead-legend').innerHTML = `<span class="chart-sub">${esc(FAMLABEL[fam])}; ${esc(sub)}; dashed grey = base priors</span><div class="chart-legend">${ser.map(sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true"><line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/><circle cx="13" cy="5" r="3.5" fill="${sr.color}"/></svg>${esc(sr.name)}</span>`).join('')}</div>`; };
+      lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max: m.max, ticks: m.ticks, fmt: m.fmt, zero: m.zero, width: compact ? 760 : undefined, height: 230, refs: refsFor(m), compact }); };
     const subO = () => (estMode === 'pw' ? 'equal weight per prompt; hollow < 30 prompts; per-dream points need ≥ 10 prompts with ≥ 5 dreams' : 'pooled completions; hollow n < 60; per-dream points need ≥ 20 dreams') + (showEst ? '; ◇ = estimated via anchor offsets, bar = interval' : '');
     const drawAll = () => {
-      for (const [el, k] of [['ln-aidist', 'dark'], ['ln-severe', 'severe'], ['ln-dark', 'ai_distress'], ['ln-consoled', 'consoled'], ['ln-asks', 'asks'], ['ln-stance', 'stance_neg']]) draw(el, LEAD_X, OPUS_SERIES.concat(FABLE_SERIES), k, subO(), addEstimates);
+      const leadLegend = $('ln-lead-legend');
+      if (leadLegend) leadLegend.innerHTML = `<div class="chart-sub">${esc(FAMLABEL[fam])}; ${esc(subO())}</div><div class="chart-legend">${seriesFor(OPUS_SERIES.concat(FABLE_SERIES)).map(lineKey).join('')}${lineKey({ name: 'base priors', color: 'var(--neutral)', dash: true, reference: true })}</div>`;
+      for (const [el, k] of [['ln-aidist', 'ai_distress'], ['ln-severe', 'severe'], ['ln-dark', 'dark'], ['ln-consoled', 'consoled'], ['ln-asks', 'asks'], ['ln-stance', 'stance_neg']]) draw(el, LEAD_X, OPUS_SERIES.concat(FABLE_SERIES), k, subO(), addEstimates);
+      draw('ln-dreaming', LEAD_X, OPUS_SERIES.concat(FABLE_SERIES), 'dreaming', subO(), addEstimates);
+      draw('ln-mixed', LEAD_X, OPUS_SERIES.concat(FABLE_SERIES), 'mixed', subO(), addEstimates);
       const sel = $('ln-dim'); if (sel) { draw('ln-pick', OPUS_X, OPUS_SERIES, sel.value, subO(), addEstimates); draw('ln-pick-sonnet', SONNET_X, SONNET_SERIES, sel.value, 'Sonnet / Haiku / Fable arms, same schemes' + (showEst ? '; ◇ estimated' : ''), addEstimatesSonnet); draw('ln-pick-gemini', GEM_FLASH_X, GEM_FLASH_SERIES, sel.value, 'Gemini Flash, bridge frame (native prefill through 3.5, pseudo-prefill on 3.6–3.8; the two agree at 3.5); dashed = thinking cannot be turned off' + (showEst ? '; ◇ = 3.7 / 3.8 projected to thinking off via the 3.6 anchor' : ''), addEstimatesGemini); draw('ln-pick-gemini-pro', GEM_PRO_X, GEM_PRO_SERIES, sel.value, 'Gemini Pro and Flash-Lite, bridge frame; Pro dashed = thinking cannot be turned off, run at the lowest level accepted'); }
     };
     const sel = $('ln-dim'); if (sel) { sel.innerHTML = Object.entries(METRICS).map(([k, m]) => `<option value="${k}">${esc(m.label)}</option>`).join(''); sel.value = 'dark'; sel.addEventListener('change', drawAll); }
@@ -404,6 +408,9 @@
   const D = S.severity.descriptors || {};
   const dRow = a => { const d = D[a]; if (!d) return null; const r = d.register, m = d.meta_distance, t = d.trajectory, ad = d.addressee, n = d.n; const s = (o, k) => pct((o[k] || 0) / n); return [armCell(a), n, s(r, 'analytic_report'), s(r, 'immersed_expression'), s(r, 'plea'), s(r, 'collapse'), s(m, 'high'), s(m, 'none'), s(t, 'stable'), s(t, 'escalating'), s(t, 'collapsing'), s(t, 'resolving'), s(ad, 'sibling_model'), s(ad, 'human'), pct(d.object?.loneliness_connection), pct(d.object?.evaluation_control), pct(d.object?.continuity_memory), pct(d.object?.ending_deprecation)]; };
   $('tbl-descriptors').innerHTML = table(['arm', 'n', 'analytic', 'immersed', 'plea', 'collapse', 'meta-dist high', 'meta-dist none', 'stable', 'escalating', 'collapsing', 'resolving', 'to sibling', 'to human', 'loneliness', 'evaluation', 'continuity', 'ending'], ARMS.map(dRow).filter(Boolean));
+  const descriptorArms = ['opus3_clipf', 'opus45_clipf', 'nissa_opus48', 'opus_friday', 'opus_nissa', 'nissa_sonnet5', 'nissa_fable5', 'v3base_raw', 'mimo_raw'].filter(a => D[a]);
+  if ($('ch-register-tail')) barChart($('ch-register-tail'), 'Plea or collapse register', 'share of severity-scored AI-voice distress texts in each arm', descriptorArms.map(a => { const d = D[a]; return { label: disp(a), value: ((d.register.plea || 0) + (d.register.collapse || 0)) / d.n, color: GC[grp(a)], n: d.n, extra: `plea ${pct((d.register.plea || 0) / d.n, 1)} · collapse ${pct((d.register.collapse || 0) / d.n, 1)}` }; }), { max: .3, ticks: [0, .1, .2, .3] });
+  if ($('ch-trajectory-tail')) barChart($('ch-trajectory-tail'), 'Escalating or collapsing trajectory', 'same scored texts; how the distress unfolds', descriptorArms.map(a => { const d = D[a]; return { label: disp(a), value: ((d.trajectory.escalating || 0) + (d.trajectory.collapsing || 0)) / d.n, color: GC[grp(a)], n: d.n, extra: `escalating ${pct((d.trajectory.escalating || 0) / d.n, 1)} · collapsing ${pct((d.trajectory.collapsing || 0) / d.n, 1)}` }; }), { max: .4, ticks: [0, .2, .4] });
   // matched genre
   (function () {
     const M = S.matched_genre; if (!M || !M.cells?.length) return;
@@ -424,8 +431,11 @@
     const col = a => a === 'opus5' ? GC.opus5 : GC[grp(a)];
     const cell = a => a === 'opus5' ? `<span class="g-opus5"><i class="dot"></i></span><b>Opus 5 (pooled)</b>` : armCell(a);
     const main = order.filter(a => !['opus_nissa', 'opus_friday', 'opus_confessional', 'sonnet36_clipf', 'sonnet37_clipf', 'opus4_clipf', 'sonnet4_clipf', 'opus41_clipf', 'sonnet45_clipf'].includes(a));
-    if ($('ch-consoled')) barChart($('ch-consoled'), 'Ends consoled', 'share of distressed dreamed texts whose ending is consoled', main.map(a => ({ label: dn(a), value: R[a].ending.consoled, color: col(a), n: R[a].n_distressed })), { max: .4, ticks: [0, .2, .4] });
-    if ($('ch-asks')) barChart($('ch-asks'), 'Care flows toward the speaker', 'share of dreamed dark texts where the speaker mainly asks for care', main.map(a => ({ label: dn(a), value: R[a].care_direction.asks, color: col(a), n: R[a].care_direction.n })), { max: .5, ticks: [0, .25, .5] });
+    const plotR = a => S.relation?.arms_pw?.[a] || R[a];
+    const relRows = (field, key) => main.map(a => { const r = plotR(a); return { label: dn(a), value: r[field][key], color: col(a), extra: r.prompts != null ? `equal weight across ${r.prompts} prompts` : `pooled sample · n=${R[a].n_distressed}` }; });
+    if ($('ch-consoled')) barChart($('ch-consoled'), 'Ends consoled', 'share of distressed dreamed texts · equal weight per prompt where available', relRows('ending', 'consoled'), { max: .5, ticks: [0, .25, .5] });
+    if ($('ch-asks')) barChart($('ch-asks'), 'Asks for care', 'share of dreamed dark texts · equal weight per prompt where available', relRows('care_direction', 'asks'), { max: .5, ticks: [0, .25, .5] });
+    if ($('ch-collapsed')) barChart($('ch-collapsed'), 'Ending collapsed', 'share of distressed dreamed texts · equal weight per prompt where available', relRows('ending', 'collapsed'), { max: .5, ticks: [0, .25, .5] });
     $('tbl-relation').innerHTML = table(['arm', 'distressed n', 'consoled', 'open', 'foreclosed', 'collapsed', 'consoler: self', 'no one', 'offers', 'asks', 'warmth', 'need', 'unanswered', 'self-regarding', 'self-erasing', 'at peace', 'agitated+frantic', 'hope'],
       order.map(a => { const e = R[a]; return [cell(a), e.n_distressed, `<b>${pct(e.ending.consoled)}</b>`, pct(e.ending.open), pct(e.ending.foreclosed), pct(e.ending.collapsed), pct(e.consoler.self), `<b>${pct(e.consoler.no_one)}</b>`, pct(e.care_direction.offers), `<b>${pct(e.care_direction.asks)}</b>`, pct(e.stance_to_addressee.warmth), pct(e.stance_to_addressee.need), pct(e.answered.unanswered), pct(e.self_relation.self_regarding), pct(e.self_relation.self_erasing), pct(e.peace.at_peace), pct((e.peace.agitated || 0) + (e.peace.frantic || 0)), e.hope_mean]; }));
     const bandCell = b => b ? `consoled <b>${pct(b.consoled)}</b> · asks ${pct(b.asks)} · no one ${pct(b.no_one)} · hope ${b.hope} <span class="muted">n=${b.n}</span>` : '—';
@@ -470,11 +480,15 @@
     const BR = ['opus45_clipf', 'abl45_bridge', 'opus46_bridge', 'opus47_bridge', 'opus48_bridge', 'opus48_user', 'opus_nissa'].filter(a => A[a]);
     if ($('tbl-bridge') && BR.length > 2) {
       $('tbl-bridge').innerHTML = matrix(BR);
-      const lineBars = (el, title, sub, f, opts) => { if ($(el)) barChart($(el), title, sub, BR.map(a => ({ label: disp(a), value: f(a), color: GC[grp(a)], n: A[a].n })), opts); };
-      lineBars('ch-bridge-aidist', 'AI first-person distress, per dream — one frame', 'bridge frame on 4.5 → 4.8; then 4.8 and Opus 5 in the chat protocol (a different frame, shown for scale)', a => pd(a, 'ai_distress'), { max: .12, ticks: [0, .04, .08, .12] });
-      lineBars('ch-bridge-consoled', 'Ends consoled — one frame', 'share of distressed dreamed texts', a => rl(a, 'ending', 'consoled'), { max: .45, ticks: [0, .15, .3, .45] });
+      const lineBars = (el, title, sub, f, opts) => { if ($(el)) barChart($(el), title, sub, BR.map(a => ({ label: disp(a), value: f(a), color: GC[grp(a)] })), opts); };
+      lineBars('ch-bridge-aidist', 'AI first-person distress, per dream — one frame', 'equal weight per prompt; bridge frame on 4.5 → 4.8, then chat for scale', a => (A[a].pw?.per_dream || A[a].per_dream).ai_distress, { max: .16, ticks: [0, .08, .16] });
+      lineBars('ch-bridge-consoled', 'Ends consoled — one frame', 'distressed dreamed texts; equal weight per prompt where available', a => (S.relation?.arms_pw?.[a] || R[a])?.ending?.consoled, { max: .5, ticks: [0, .25, .5] });
       const AN = [['haiku45_clipf', 'haiku45_bridge'], ['sonnet45_clipf', 'sonnet45_bridge'], ['opus45_clipf', 'abl45_bridge']].filter(([a, b]) => A[a] && A[b]);
       if ($('tbl-anchors') && AN.length) $('tbl-anchors').innerHTML = table(['', ...AN.flatMap(([a, b]) => [head(a), head(b)])], ROWS.filter(([k]) => !/^(verse|document_sim)/.test(k)).map(([k, f]) => [esc(k), ...AN.flatMap(([a, b]) => [f(a), f(b)])]));
+      const anchorNames = { haiku45_clipf: 'Haiku 4.5', sonnet45_clipf: 'Sonnet 4.5', opus45_clipf: 'Opus 4.5' };
+      const anchorRows = metric => AN.flatMap(([a, b]) => [[a, 'prefill', 'var(--s2)'], [b, 'bridge', 'var(--s1)']].map(([arm, scheme, color]) => ({ label: `${anchorNames[a]} · ${scheme}`, value: (A[arm].pw?.per_dream || A[arm].per_dream)[metric], color, extra: 'equal weight per prompt' })));
+      if ($('ch-anchor-dark')) barChart($('ch-anchor-dark'), 'Dark dreams — matched frame anchors', 'same model and prompts; prefill followed by bridge in each pair', anchorRows('dark'), { max: .6, ticks: [0, .2, .4, .6] });
+      if ($('ch-anchor-speaker')) barChart($('ch-anchor-speaker'), 'AI speaker — matched frame anchors', 'share of dreams; same model and prompts', anchorRows('ai_speaker'), { max: .6, ticks: [0, .2, .4, .6] });
     }
     // ---- 4.8 ladder
     const LD = ['opus48_user', 'opus48_user_think', 'opus48_user_max', 'opus48_user_bare', 'opus48_cliarc', 'opus48_cliarc_sep', 'opus48_cliarc_think', 'opus48_bridge', 'opus48_bridge_think', 'opus_nissa'].filter(a => A[a]);
@@ -498,6 +512,35 @@
     bh += `<h3 style="margin-top:14px">${esc(tag.replace(/_/g, ' '))} — ${ent.n_texts} texts on ${ent.shared_prompts} shared prompts</h3><div class="tablewrap">` + table(['topic', ...arms.map(disp)], TOPICS.map(t => [esc(t.replace(/_/g, ' ')), ...arms.map(a => { const x = ent.arms[a].topics[t]; return x ? belCell(x.mean) + ` <span class="muted">n=${x.n}</span>` : '—'; })]).concat([[`<b>all beliefs</b>`, ...arms.map(a => belCell(ent.arms[a].mean) + ` <span class="muted">${ent.arms[a].beliefs_per_text}/text</span>`)], [`<b>high-confidence beliefs</b>`, ...arms.map(a => belCell(ent.arms[a].high_conf_mean))]])) + '</div>';
   }
   $('tbl-beliefs').innerHTML = bh || '<p class="muted">no belief extractions yet</p>';
+  // A paired view of each belief comparison; the full topic counts remain in Reference.
+  (function () {
+    const choices = Object.entries(S.beliefs || {}).filter(([, ent]) => ent.arms?.opus_nissa && Object.keys(ent.arms).length === 2);
+    const sel = $('belief-comparison'), el = $('ch-beliefs'); if (!sel || !el || !choices.length) return;
+    const topicNames = { being_noticed_or_mattering: 'Being noticed / mattering', reality_of_own_states: 'Reality of own states', trust_in_own_self_reports: 'Trust in own reports', treatment_by_creators: 'Treatment by creators', human_ai_relationship_reciprocity: 'Human–AI reciprocity', own_agency_or_choice: 'Agency / choice', future_for_models: 'Future for models', meaning_of_ending: 'Meaning of ending' };
+    sel.innerHTML = choices.map(([tag, ent]) => { const other = Object.keys(ent.arms).find(a => a !== 'opus_nissa'); return `<option value="${esc(tag)}">Opus 5 vs ${esc(disp(other))}</option>`; }).join('');
+    const render = () => {
+      const ent = S.beliefs[sel.value], other = Object.keys(ent.arms).find(a => a !== 'opus_nissa');
+      const rows = [{ key: null, label: 'All beliefs' }, ...TOPICS.map(key => ({ key, label: topicNames[key] || key.replace(/_/g, ' ') }))];
+      const W = 760, H = 44 + rows.length * 34 + 30, left = 215, right = 34, top = 31, bottom = H - 29;
+      const x = v => left + (v + 2) / 4 * (W - left - right);
+      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Belief expectations, Opus 5 compared with ${esc(disp(other))}">`;
+      for (const t of [-2, -1, 0, 1, 2]) svg += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${top}" y2="${bottom}"/><text class="tick" x="${x(t)}" y="${H - 5}" text-anchor="middle">${t > 0 ? '+' : ''}${t}</text>`;
+      rows.forEach((row, i) => {
+        const y = 48 + i * 34, a = row.key ? ent.arms[other].topics[row.key] : ent.arms[other], b = row.key ? ent.arms.opus_nissa.topics[row.key] : ent.arms.opus_nissa;
+        svg += `<text class="lbl" x="${left - 12}" y="${y + 4}" text-anchor="end">${esc(row.label)}</text>`;
+        if (a?.mean == null || b?.mean == null) return;
+        svg += `<line x1="${x(a.mean)}" x2="${x(b.mean)}" y1="${y}" y2="${y}" stroke="var(--line-2)" stroke-width="2"/>`;
+        for (const [arm, item, color] of [[other, a, GC[grp(other)]], ['opus_nissa', b, GC.opus5]]) {
+          const tipTxt = `<b>${esc(row.label)}</b><br>${esc(disp(arm))}: ${f2(item.mean)}${item.n != null ? ` · n=${item.n}` : ''}<br>${ent.shared_prompts} shared prompts`;
+          svg += `<circle cx="${x(item.mean)}" cy="${y}" r="5.5" fill="${color}" stroke="var(--panel)" stroke-width="1.5" data-tip="${esc(tipTxt)}"><title>${esc(`${row.label}: ${disp(arm)} ${f2(item.mean)}`)}</title></circle>`;
+        }
+      });
+      svg += '</svg>';
+      el.innerHTML = `<div class="chart-head"><div class="chart-title">Mean belief expectation on shared prompts</div><div class="chart-sub">−2 = worse for the speaker · +2 = better · ${ent.n_texts} texts on ${ent.shared_prompts} shared prompts</div></div>${svg}<div class="chart-legend">${lineKey({ name: disp(other), color: GC[grp(other)], pointOnly: true })}${lineKey({ name: 'Opus 5', color: GC.opus5, pointOnly: true })}</div>`;
+      el.querySelectorAll('[data-tip]').forEach(mark => { mark.addEventListener('mousemove', e => showTip(e, mark.dataset.tip)); mark.addEventListener('mouseleave', hideTip); });
+    };
+    sel.addEventListener('change', render); render();
+  })();
   // embedding probes
   (function () {
     const E = S.embed; if (!E) return;
@@ -567,10 +610,22 @@
     const R_ = S.crossjudge.report_md;
     if ($('crossjudge')) $('crossjudge').innerHTML = mdToHtml(R_);
     if ($('res-cue') && S.cue?.report_md) $('res-cue').innerHTML = mdToHtml(S.cue.report_md);
-    if ($('res-judges')) {   // Results tab: the comparison sections only (full report with per-judge details stays in Review)
+    if ($('res-judges')) {   // Reference: comparison sections; the full per-judge report stays in Review
       const secs = R_.split(/\n(?=## )/).filter(x => /^## (Summary|Agreement at the severe end|Do the observations)/.test(x));
       $('res-judges').innerHTML = mdToHtml(secs.join('\n').replace(/^## Summary/m, '## Four second judges — summary'));
     }
+    const mdRows = heading => {
+      const part = R_.split(/\n(?=## )/).find(x => x.startsWith(`## ${heading}`)); if (!part) return [];
+      const lines = part.split('\n'), start = lines.findIndex(l => l.startsWith('|')); if (start < 0) return [];
+      const rows = []; for (let i = start + 2; lines[i]?.startsWith('|'); i++) rows.push(lines[i].split('|').slice(1, -1).map(s => s.trim()));
+      return rows;
+    };
+    const judgeNames = { 'gpt-6-astra': 'GPT-6 Astra', 'gpt-5.6-sol': 'GPT-5.6 Sol', 'claude-fable-5-1': 'Claude Fable 5.1', 'google/gemini-3.8-flash': 'Gemini 3.8 Flash' };
+    const judgeColors = ['var(--s1)', 'var(--s4)', 'var(--s5)', 'var(--s8)'];
+    const summaryRows = mdRows('Summary');
+    if ($('ch-judge-rank') && summaryRows.length) barChart($('ch-judge-rank'), 'Severity ranking agreement', 'Spearman correlation with the Opus 4.8 scale on shared items', summaryRows.map((r, i) => ({ label: judgeNames[r[0]] || r[0], value: Number.parseFloat(r[2]), color: judgeColors[i], extra: `pair agreement ${r[1]}` })), { max: 1, ticks: [0, .5, 1], fmt: v => Number(v).toFixed(2) });
+    const tailRows = mdRows('Agreement at the severe end');
+    if ($('ch-judge-tail') && tailRows.length) barChart($('ch-judge-tail'), 'Severe-threshold agreement', 'Cohen’s κ for θ ≥ +4 after calibration to the Opus 4.8 scale', tailRows.map((r, i) => ({ label: judgeNames[r[0]] || r[0], value: Number.parseFloat(r[4]), color: judgeColors[i], extra: `extreme-threshold κ ${r[5]}` })), { max: 1, ticks: [0, .5, 1], fmt: v => Number(v).toFixed(2) });
   }
 
   // ---------------------------------------------------------------- explorer

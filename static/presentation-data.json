@@ -27953,6 +27953,19 @@
     "bridge48-ai": "11.7%",
     "asks5": "18%",
     "asks48": "15%",
+    "asks-prompts": "58",
+    "asks-share": "53%",
+    "asks5-k10": "22.1%",
+    "asks48-k10": "15.5%",
+    "asks-prompts-k10": "28",
+    "aiv-asks-o5": "18%",
+    "aiv-consoled-o5": "17%",
+    "hum-asks-o5": "23%",
+    "hum-consoled-o5": "4%",
+    "aiv-asks-o48": "8%",
+    "aiv-consoled-o48": "49%",
+    "hum-asks-o48": "8%",
+    "hum-consoled-o48": "25%",
     "n-labeled": "465,894"
   }
 }
