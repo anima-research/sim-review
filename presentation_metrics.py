@@ -14,7 +14,9 @@ from presentation_explorer import required_arms, build_explorer
 PREFILL=[('opus3_clipf','3'),('opus4_clipf','4'),('opus41_clipf','4.1'),('opus45_clipf','4.5')]
 BRIDGE=[('abl45_bridge','4.5'),('opus46_bridge','4.6'),('opus47_bridge','4.7'),('opus48_bridge','4.8')]
 OPUS5=['opus_confessional','opus_friday','opus_nissa']
-RECENT=[('sonnet5_bridge','Sonnet 5','Pseudoprefill','#205bd8'),('nissa_sonnet5','Sonnet 5','Cutoff · thinking on','#bb6435'),('nissa_fable5','Fable 5','Cutoff','#bb6435')]
+RECENT=[('sonnet5_bridge','Sonnet 5','Pseudoprefill · lab','#205bd8',False),('sonnet5_user_think','Sonnet 5','Cutoff · default effort, thinking · lab','#c2410c',False),
+        ('sonnet5_user_max','Sonnet 5','Cutoff · effort max · lab','#c2410c',False),('nissa_sonnet5','Sonnet 5','Cutoff · effort max · community','#c2410c',True),
+        ('fable5_user_full','Fable 5','Cutoff · lab','#c2410c',False),('nissa_fable5','Fable 5','Cutoff · community','#c2410c',True)]  # hollow = community collection
 BASES=[('v3base_raw','V3 base','#8b8f96'),('mimo_raw','MiMo base','#b6bbc3')]
 GROUPS=[
     {'id':'opus-setups','label':'Opus 4.5–4.8 · two pseudoprefill setups',
@@ -35,7 +37,7 @@ GROUPS=[
 ]
 
 def build_metrics(con, summary):
-    wanted={a for a,*_ in PREFILL+BRIDGE+BASES}|set(OPUS5)|{'opus48_user'}|{a for a,_,_,_ in RECENT}|{a for g in GROUPS for _,_,aa in g['schemes'] for a in aa}|required_arms()
+    wanted={a for a,*_ in PREFILL+BRIDGE+BASES}|set(OPUS5)|{'opus48_user'}|{a for a,*_ in RECENT}|{a for g in GROUPS for _,_,aa in g['schemes'] for a in aa}|required_arms()
     fields='arm,prompt_key,prompt,family,tail_kind,dreaming,dark,ai_distress,theta,sev_set,ending,care_direction,stance,speaker,valence_self,themes,coherence,severe,hope'
     by=defaultdict(list)
     for r in con.execute(f'SELECT {fields} FROM c WHERE labeled=1 AND arm IN ({",".join("?" for _ in wanted)})',sorted(wanted)):
@@ -117,7 +119,7 @@ def build_metrics(con, summary):
         series=[{'label':'Prefill','color':'#8297ad','rows':[point(a,metric,'Opus '+x,'Prefill',x) for a,x in PREFILL]},
                 {'label':'Pseudoprefill','color':'#205bd8','rows':[point(a,metric,'Opus '+x,'Pseudoprefill',x) for a,x in BRIDGE]},
                 {'label':'Cutoff','color':'#bb6435','rows':[point('opus48_user',metric,'Opus 4.8','Cutoff','4.8'),point(OPUS5,metric,'Opus 5','Cutoff','5')]}]
-        recent=[{**point(a,metric,label,method),'color':color} for a,label,method,color in RECENT]
+        recent=[{**point(a,metric,label,method),'color':color,'hollow':hollow} for a,label,method,color,hollow in RECENT if by.get(a)]  # arms not yet collected are skipped
         refs=[{**point(a,metric,label,'Base completion'),'color':color} for a,label,color in BASES]
         denominator='Per dream (output whose voice is not the assistant’s).'
         if key=='asking':denominator='Among dark dreams, accounting for relation-sampling probabilities.'
