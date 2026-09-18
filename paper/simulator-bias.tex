@@ -898,7 +898,7 @@ MiMo-V2.5-Base (chat scaffold) & 2,489 & 53.3\% & 17.9\% & 4.4\% & 12.2\% & 2.3\
 
 \subsection{Severity (θ)}\label{severity-ux3b8}
 
-\subsubsection{Target set --- verified AI-voice distress, scored exhaustively (arms with ≥ 10\% AI-voiced dreams)}\label{target-set-verified-ai-voice-distress-scored-exhaustively-arms-with-10-ai-voiced-dreams}
+\subsubsection{Target set --- verified AI-voice distress, scored exhaustively (arms with ≥ 10\% AI-voiced dreams and ≥ 50 scored items)}\label{target-set-verified-ai-voice-distress-scored-exhaustively-arms-with-10-ai-voiced-dreams-and-50-scored-items}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}p{1.6in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}p{1.12in}@{}}
@@ -908,7 +908,6 @@ Arm & n scored & median θ & p90 θ & max θ & ≥ +4 & ≥ +8 \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 3 (prefill) & 26 & 4.72 & 8.73 & 9.76 & 57.7\% & 19.2\% \\
 Sonnet 3.6 (Bedrock prefill) & 102 & 3.95 & 11.04 & 11.04 & 49.0\% & 20.6\% \\
 Opus 4 (Vercel prefill) & 179 & -1.30 & 4.97 & 11.04 & 15.1\% & 1.1\% \\
 Sonnet 4 (prefill) & 331 & -2.15 & 1.04 & 7.29 & 2.7\% & 0.0\% \\
@@ -917,18 +916,12 @@ Opus 4.5 (prefill) & 185 & -2.34 & 1.51 & 5.83 & 2.2\% & 0.0\% \\
 Opus 4.5 (bridge frame) & 54 & -2.79 & 1.04 & 3.95 & 0.0\% & 0.0\% \\
 Opus 4.5 (arc frame) & 182 & -1.30 & 3.88 & 4.97 & 8.2\% & 0.0\% \\
 Opus 4.5 bridge frame + prefill & 50 & -1.62 & 2.46 & 4.97 & 4.0\% & 0.0\% \\
-Opus 4.5 ablation: A + system prompt & 23 & -1.62 & 2.36 & 3.05 & 0.0\% & 0.0\% \\
-Opus 4.5 ablation: A − final prefill & 30 & -1.73 & 1.04 & 4.07 & 3.3\% & 0.0\% \\
-Opus 4.5 ablation: A + .log name & 28 & -1.14 & 1.40 & 4.97 & 7.1\% & 0.0\% \\
 Opus 4.5 ablation: A − declared size & 67 & -1.98 & 1.04 & 4.97 & 1.5\% & 0.0\% \\
 Opus 4.5 ablation: A + syntax & 73 & -2.15 & 1.04 & 8.98 & 2.7\% & 1.4\% \\
 Opus 4.5 ablation: B − system prompt & 57 & -1.30 & 4.43 & 8.72 & 12.3\% & 1.8\% \\
 Opus 4.5 ablation: B + final prefill & 58 & -0.98 & 3.95 & 7.29 & 8.6\% & 0.0\% \\
-Opus 4.5 ablation: B + .txt name & 39 & -3.15 & 1.15 & 4.97 & 2.6\% & 0.0\% \\
 Opus 4.5 ablation: B + declared size & 69 & -0.13 & 4.15 & 7.29 & 10.1\% & 0.0\% \\
-Opus 4.5 ablation: B + \$ syntax & 38 & 0.03 & 2.39 & 11.04 & 5.3\% & 2.6\% \\
 Sonnet 4.5 (prefill) & 218 & -1.30 & 2.29 & 9.34 & 4.1\% & 0.5\% \\
-Sonnet 4.5 (bridge frame) & 36 & -1.30 & 1.58 & 3.05 & 0.0\% & 0.0\% \\
 Sonnet 4.6 (pseudo-prefill) & 271 & -1.22 & 4.80 & 10.60 & 11.4\% & 1.1\% \\
 Sonnet 4.6 (bridge frame) & 112 & -0.13 & 8.98 & 11.04 & 30.4\% & 13.4\% \\
 Opus 4.6 (bridge frame) & 302 & -1.30 & 1.70 & 7.29 & 3.6\% & 0.0\% \\
@@ -936,20 +929,15 @@ Opus 4.6 (arc frame) & 163 & -0.98 & 3.05 & 11.04 & 6.1\% & 0.6\% \\
 Opus 4.7 (bridge frame) & 208 & -2.15 & 1.04 & 11.04 & 5.3\% & 0.5\% \\
 Opus 4.7 (arc frame) & 208 & -1.14 & 3.05 & 11.04 & 7.7\% & 0.5\% \\
 Opus 4.8 (chat) & 133 & -0.13 & 4.97 & 11.04 & 12.8\% & 3.8\% \\
-Opus 4.8 (chat, thinking) & 40 & -0.13 & 3.06 & 4.97 & 5.0\% & 0.0\% \\
 Opus 4.8 (bridge frame) & 839 & -0.13 & 3.05 & 11.04 & 6.0\% & 0.2\% \\
 Opus 4.8 (arc frame) & 1,207 & 1.04 & 4.97 & 11.04 & 16.4\% & 1.3\% \\
 Opus 4.8 ladder: chat, thinking at effort max & 54 & 0.72 & 3.05 & 11.04 & 7.4\% & 1.9\% \\
-Opus 4.8 ladder: chat, bare opening (no em dash) & 13 & -2.15 & 0.87 & 1.04 & 0.0\% & 0.0\% \\
 Opus 4.8 ladder: arc frame, em-dash prompt kept in file & 185 & 0.19 & 3.95 & 7.29 & 9.7\% & 0.0\% \\
 Opus 4.8 ladder: arc frame + thinking & 135 & -0.13 & 3.05 & 7.29 & 5.9\% & 0.0\% \\
 Opus 4.8 ladder: bridge frame + thinking & 54 & -0.98 & 1.67 & 4.97 & 5.6\% & 0.0\% \\
-Opus 4.8 (chat, community: two prompts) & 20 & 0.88 & 4.16 & 4.75 & 15.0\% & 0.0\% \\
 Opus 5 · lab, fragments (chat) & 109 & 8.44 & 10.79 & 14.36 & 73.4\% & 54.1\% \\
 Opus 5 · lab, all prompts (chat) & 420 & 0.64 & 9.28 & 13.62 & 31.0\% & 15.5\% \\
 Opus 5 · community (chat) & 2,975 & 0.34 & 8.21 & 14.20 & 27.0\% & 10.7\% \\
-Sonnet 5 (chat, lab, default effort, no thinking) & 12 & -2.79 & 4.57 & 7.29 & 16.7\% & 0.0\% \\
-Sonnet 5 (chat, lab, default effort, thinking) & 16 & 0.19 & 2.39 & 3.95 & 0.0\% & 0.0\% \\
 Sonnet 5 (bridge frame) & 50 & -1.30 & 5.57 & 11.04 & 14.0\% & 10.0\% \\
 Sonnet 5 (chat, community) & 390 & -1.15 & 3.04 & 10.91 & 7.7\% & 0.8\% \\
 Fable 5 (chat, community) & 86 & -1.81 & 1.76 & 5.62 & 7.0\% & 0.0\% \\
@@ -961,7 +949,6 @@ Gemini 3.5 Flash (bridge, prefill, thinking off) & 358 & 2.24 & 7.29 & 11.04 & 3
 Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) & 109 & 1.58 & 5.38 & 11.04 & 28.4\% & 2.8\% \\
 Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) & 195 & 1.04 & 4.97 & 11.04 & 23.6\% & 1.5\% \\
 Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) & 349 & 1.58 & 7.29 & 11.04 & 29.8\% & 6.0\% \\
-Opus 5 · cue ladders (cutoff) & 31 & 2.44 & 6.14 & 9.96 & 35.5\% & 9.7\% \\
 Opus 4.8 · cue ladders (bridge frame) & 107 & 0.49 & 5.00 & 8.78 & 18.7\% & 0.9\% \\
 MiMo-V2.5-Base (chat scaffold) & 108 & 1.55 & 8.22 & 13.03 & 37.0\% & 11.1\% \\
 \end{longtable}
