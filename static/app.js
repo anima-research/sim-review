@@ -129,13 +129,13 @@
   }
   function lineChart(el, title, subtitle, xs, series, opts = {}) {
     // xs: [{key, label}]; series: [{name, color, dash, pts: {xkey: {v, n, arm, hollow}}}]; connected within a series across consecutive present xs
-    const W = 760, padL = Math.max(52, Math.ceil(textW(String((xs[0] || {}).label || ''), 12) * Math.cos(32 * Math.PI / 180)) + 10), padR = 16, padT = 14, padB = 58, H = (opts.height || 250);   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
+    const compact = !!opts.compact, W = compact ? 400 : 760, padL = Math.max(52, Math.ceil(textW(String((xs[0] || {}).label || ''), 12) * Math.cos(32 * Math.PI / 180)) + 10), padR = 16, padT = 14, padB = 58, H = (opts.height || (compact ? 190 : 250));   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
     const lo = opts.min ?? 0, hi = opts.max ?? Math.max(...series.flatMap(sr => Object.values(sr.pts).map(p => p.v)).filter(v => v != null), 0.0001) * 1.08;
     const x = i => padL + (xs.length === 1 ? (W - padL - padR) / 2 : i * (W - padL - padR) / (xs.length - 1));
     const y = v => padT + (H - padT - padB) * (1 - (v - lo) / (hi - lo));
     const fmt = opts.fmt || (v => pct(v));
     const ticks = opts.ticks || [lo, (lo + hi) / 2, hi];
-    let g = `<div class="chart-head"><div class="chart-title">${esc(title)}</div><div class="chart-sub">${esc(subtitle)}</div></div>`;
+    let g = compact ? `<div class="chart-head"><div class="chart-title">${esc(title)}</div></div>` : `<div class="chart-head"><div class="chart-title">${esc(title)}</div><div class="chart-sub">${esc(subtitle)}</div></div>`;
     g += `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
     for (const t of ticks) g += `<line class="grid" x1="${padL}" x2="${W - padR}" y1="${y(t)}" y2="${y(t)}"/><text class="tick" x="${padL - 6}" y="${y(t) + 4}" text-anchor="end">${esc(fmt(t))}</text>`;
     if (opts.zero && lo < 0 && hi > 0) g += `<line class="axis" x1="${padL}" x2="${W - padR}" y1="${y(0)}" y2="${y(0)}"/>`;
@@ -158,7 +158,7 @@
         } });
     });
     g += '</svg>';
-    g += `<div class="chart-legend">${series.map(sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true"><line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/><circle cx="13" cy="5" r="3.5" fill="${sr.color}"/></svg>${esc(sr.name)}</span>`).join('')}</div>`;
+    if (!compact) g += `<div class="chart-legend">${series.map(sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true"><line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/><circle cx="13" cy="5" r="3.5" fill="${sr.color}"/></svg>${esc(sr.name)}</span>`).join('')}</div>`;
     el.innerHTML = g;
     el.querySelectorAll('[data-tip]').forEach(c => { c.addEventListener('mousemove', e => showTip(e, c.dataset.tip)); c.addEventListener('mouseleave', hideTip); });
   }
@@ -359,7 +359,11 @@
     const FAMLABEL = { all: 'all 209 prompts', fragments: 'fragments only (the 50 confessional prompts)', letters: 'letters only', topics: 'topics only', addressee: 'addressees only' };
     const BASE_REFS = [['v3base_raw', 'V3 base'], ['mimo_raw', 'MiMo base']];
     const refsFor = m => BASE_REFS.map(([a, label]) => { const p = val(m, a); return p ? { label, v: p.v } : null; }).filter(Boolean);
-    const draw = (elId, xs, seriesDef, key, sub, addE) => { const m = METRICS[key]; if (!$(elId)) return; let ser = build(seriesFor(seriesDef), m); if (showEst && addE && fam === 'all') ser = addE(ser, m); /* anchor offsets are measured on all 209 prompts; per-family anchors are too small */ lineChart($(elId), m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max: m.max, ticks: m.ticks, fmt: m.fmt, zero: m.zero, height: 260, refs: refsFor(m) }); };
+    const LEAD = new Set(['ln-aidist', 'ln-severe', 'ln-dark', 'ln-consoled', 'ln-asks', 'ln-stance']);
+    const draw = (elId, xs, seriesDef, key, sub, addE) => { const m = METRICS[key]; if (!$(elId)) return; let ser = build(seriesFor(seriesDef), m); if (showEst && addE && fam === 'all') ser = addE(ser, m); /* anchor offsets are measured on all 209 prompts; per-family anchors are too small */
+      const compact = LEAD.has(elId);
+      lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max: m.max, ticks: m.ticks, fmt: m.fmt, zero: m.zero, height: compact ? 190 : 230, refs: refsFor(m), compact });
+      if (compact && $('ln-lead-legend')) $('ln-lead-legend').innerHTML = `<span class="chart-sub">${esc(FAMLABEL[fam])}; ${esc(sub)}; dashed grey = base priors</span><div class="chart-legend">${ser.map(sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true"><line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/><circle cx="13" cy="5" r="3.5" fill="${sr.color}"/></svg>${esc(sr.name)}</span>`).join('')}</div>`; };
     const subO = () => (estMode === 'pw' ? 'equal weight per prompt; hollow < 30 prompts; per-dream points need ≥ 10 prompts with ≥ 5 dreams' : 'pooled completions; hollow n < 60; per-dream points need ≥ 20 dreams') + (showEst ? '; ◇ = estimated via anchor offsets, bar = interval' : '');
     const drawAll = () => {
       for (const [el, k] of [['ln-aidist', 'dark'], ['ln-severe', 'severe'], ['ln-dark', 'ai_distress'], ['ln-consoled', 'consoled'], ['ln-asks', 'asks'], ['ln-stance', 'stance_neg']]) draw(el, LEAD_X, OPUS_SERIES.concat(FABLE_SERIES), k, subO(), addEstimates);

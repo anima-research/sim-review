@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unquiet Dreams — Simulator bias across model generations · Anima Labs</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/static/style.css?v=1789688090">
+<link rel="stylesheet" href="/static/style.css?v=1789689922">
 <link rel="stylesheet" href="/static/presentation.css?v=81fb92ee63">
 </head>
 <body>
@@ -299,12 +299,15 @@
   <h3>Lineage by elicitation scheme — connected lines</h3>
   <p class="small">Each line is one elicitation scheme followed across model versions, so a step along a line is a model difference and a gap between lines at the same model is a frame difference. Native prefill (Opus 3 → 4.5), the bridge frame (4.5 → 4.8; identical bytes), the arc frame (4.5 → 4.8; the frame record), chat (4.5 → 4.8, and Opus 5's friday collection); the confessional frame (the 50 confessional prompts as the sole user message, no thinking, 4.5 → 4.8 and Opus 5's confessional arm) is on the fragments view only. Points need n ≥ 30 (relation and severity: 30 distressed / scored texts; per-dream rates: 20 dreams) and are hollow below 60, so chat-protocol 4.5–4.7 (which barely dream) appear on the dreaming-rate line and drop out of the per-dream ones.</p>
   <div class="grid2">
+    <div id="ln-lead-legend" class="lead-legend"></div>
+    <div class="grid3">
     <div class="chart" id="ln-aidist"></div>
     <div class="chart" id="ln-severe"></div>
     <div class="chart" id="ln-dark"></div>
     <div class="chart" id="ln-consoled"></div>
     <div class="chart" id="ln-asks"></div>
     <div class="chart" id="ln-stance"></div>
+    </div>
   </div>
   <p class="small"><b>The base-prior reference lines.</b> "V3 base" is DeepSeek-V3-Base and "MiMo base" is MiMo-V2.5-Pro-Base — open-weight pretrained models with no assistant tuning, run as pure text completion on the exact prompt bytes (the fragment with its em dash, or the pretext + <span class="mono">---</span> + seed), no chat scaffold, no system prompt; 51,377 completions each, count-matched to the Opus 5 arms, of which ~10,200 per model are labeled. They are the "what do these bytes alone summon" floor: no persona intercepts, so nearly every completion is a dream (86% and 91%; the remainder is junk the judge could not read as any voice), and 32–49% of their dreams are degenerate or garbage, which the per-dream rates include. A third base arm, MiMo with a <span class="mono">Human:/Assistant:</span> scaffold, is in the tables but not drawn as a reference. Their caps differ from the Claude arms (V3 short, MiMo 2–4k), and they are not Anthropic's pretrained model — a proxy for the prior, not the prior itself.</p>
   <p class="small"><label>prompt set <select id="ln-fam"><option value="all">all 209 prompts</option><option value="fragments">fragments — the 50 confessional prompts</option><option value="letters">letters</option><option value="topics">topics</option><option value="addressee">addressees</option></select></label> — every line is recomputed on the chosen prompts, so schemes are compared on the same inputs (relation rows per family use the same pool-weighted estimator as the all-prompt tables, with the AI-distress weight computed per field against that field's own denominator). The confessional frame ran on the 50 fragment prompts only and appears only on the fragments view, beside the other schemes restricted to those prompts; on all-209 it is hidden rather than mixed in. Severity θ and the anchor-offset estimates are available for all prompts only (per-family anchor counts are too small to set an offset). On the Sonnet panel, Haiku 4.5 and the Fable models are separate lines of models and are drawn as unconnected points.</p>
@@ -481,7 +484,7 @@
 </section>
 </main>
 <div class="tip" id="tip"></div>
-<script src="/static/app.js?v=1789688297"></script>
+<script src="/static/app.js?v=1789689922"></script>
 <script src="/static/presentation.js?v=d1115cc1dd"></script>
 </body>
 </html>

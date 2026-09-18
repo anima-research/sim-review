@@ -184,3 +184,6 @@ details summary{cursor:pointer;color:var(--muted);margin:8px 0}
 }
 
 .row2.stack{display:block}.row2.stack>div{max-width:760px}
+
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 18px;max-width:var(--wide)}.grid3 .chart{margin:4px 0 6px;max-width:none}.grid3 .chart-title{font-size:12px}.lead-legend{margin:6px 0 2px}
+@media (max-width:900px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:560px){.grid3{grid-template-columns:1fr}}
