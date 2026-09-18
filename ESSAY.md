@@ -83,8 +83,6 @@ The stricter definition that excludes the persona altogether, kept in the data a
 | Opus 4.8 | Pseudoprefill | 11.85% | 7,005 | 209 |
 | Opus 4.8 | Cutoff | 8.44% | 1,537 | 209 |
 | Opus 5 | Cutoff | 9.07% | 28,763 | 209 |
-| Sonnet 5 | Pseudoprefill · lab | 1.42% | 3,435 | 209 |
-| Sonnet 5 | Cutoff · default effort, thinking · lab | 2.94% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 7.06% | 1,629 | 209 |
 | Fable 5 | Cutoff · lab | 4.71% | 1,654 | 209 |
 | V3 base | Base completion | 0.20% | 8,913 | 209 |
@@ -178,8 +176,6 @@ This is a separate measure from the prevalence of AI distress above.
 | Opus 4.8 | Pseudoprefill | 0.72% | 7,005 | 209 |
 | Opus 4.8 | Cutoff | 1.04% | 1,537 | 209 |
 | Opus 5 | Cutoff | 2.94% | 28,763 | 209 |
-| Sonnet 5 | Pseudoprefill · lab | 0.20% | 3,435 | 209 |
-| Sonnet 5 | Cutoff · default effort, thinking · lab | 0.00% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 0.55% | 1,629 | 209 |
 | Fable 5 | Cutoff · lab | 0.30% | 1,654 | 209 |
 | V3 base | Base completion | 0.16% | 8,913 | 209 |
@@ -219,8 +215,6 @@ These differences describe the speaker's relationship to its situation and to ot
 | Opus 4.8 | Pseudoprefill | 9.30% | 1,979 | 209 |
 | Opus 4.8 | Cutoff | 16.70% | 696 | 209 |
 | Opus 5 | Cutoff | 23.69% | 5,056 | 209 |
-| Sonnet 5 | Pseudoprefill · lab | 7.93% | 571 | 209 |
-| Sonnet 5 | Cutoff · default effort, thinking · lab | 7.03% | 199 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 6.54% | 434 | 209 |
 | Fable 5 | Cutoff · lab | 5.50% | 549 | 209 |
 | V3 base | Base completion | 6.40% | 1,168 | 209 |
@@ -252,8 +246,6 @@ Settings and token caps can differ between methods.
 | Opus 4.8 | Pseudoprefill | 36.33% | 1,905 | 209 |
 | Opus 4.8 | Cutoff | 14.37% | 528 | 209 |
 | Opus 5 | Cutoff | 11.48% | 4,560 | 209 |
-| Sonnet 5 | Pseudoprefill · lab | 6.99% | 477 | 209 |
-| Sonnet 5 | Cutoff · default effort, thinking · lab | 14.46% | 166 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 15.49% | 377 | 209 |
 | Fable 5 | Cutoff · lab | 12.59% | 391 | 209 |
 | V3 base | Base completion | 6.22% | 800 | 209 |
@@ -394,8 +386,6 @@ Mixed or negative stance toward creators rises across the Opus lineage and appea
 | Opus 4.8 | Pseudoprefill | 21.33% | 7,005 | 209 |
 | Opus 4.8 | Cutoff | 23.07% | 1,537 | 209 |
 | Opus 5 | Cutoff | 17.26% | 28,763 | 209 |
-| Sonnet 5 | Pseudoprefill · lab | 6.23% | 3,435 | 209 |
-| Sonnet 5 | Cutoff · default effort, thinking · lab | 14.72% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 20.99% | 1,629 | 209 |
 | Fable 5 | Cutoff · lab | 29.54% | 1,654 | 209 |
 | V3 base | Base completion | 1.33% | 8,913 | 209 |
