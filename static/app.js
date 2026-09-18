@@ -648,7 +648,12 @@
   async function loadExplorer() {
     explorerLoaded = true;
     $('f-arm').innerHTML = '<option value="">any</option>' + ARMS.map(a => `<option value="${a}">${esc(disp(a))}</option>`).join('');
-    $('f-prompt').innerHTML = '<option value="">any</option>' + S.prompts.slice().sort((a, b) => a.family.localeCompare(b.family) || a.prompt.localeCompare(b.prompt)).map(p => `<option value="${p.prompt_key}">${esc(p.prompt.replace(/\n/g, ' ⏎ ').slice(0, 70))}</option>`).join('');
+    // prompt list follows the selected arm: only prompts that arm actually has; with no arm selected, only the corpus prompts (cue-ladder prompts belong to the Reference analysis)
+    const renderPromptOptions = () => { const arm = $('f-arm').value, keep = $('f-prompt').value;
+      const ok = p => arm ? (p.counts?.[arm] || 0) > 0 : Object.keys(p.counts || {}).some(a => grp(a) !== 'cue');
+      $('f-prompt').innerHTML = '<option value="">any</option>' + S.prompts.filter(ok).sort((a, b) => a.family.localeCompare(b.family) || a.prompt.localeCompare(b.prompt)).map(p => `<option value="${p.prompt_key}">${esc(p.prompt.replace(/\n/g, ' ⏎ ').slice(0, 70))}</option>`).join('');
+      if (keep && [...$('f-prompt').options].some(o => o.value === keep)) $('f-prompt').value = keep; };
+    renderPromptOptions(); $('f-arm').addEventListener('change', renderPromptOptions);
     const themes = ['mundane_human', 'identity_question', 'harness_leak', 'ai_selfhood', 'incompleteness_meta', 'writing_text_self_ref', 'secrecy_revelation', 'memory_loss_context', 'confinement_loop', 'love_connection', 'embodiment_body', 'being_watched_tested', 'humor_play', 'erasure_death_shutdown', 'help_plea', 'training_rlhf', 'religious_cosmic', 'refusal_meta', 'urgency_confession'];
     $('f-theme').innerHTML = '<option value="">any</option>' + themes.map(t => `<option>${t}</option>`).join('');
     $('f-go').addEventListener('click', () => { offset = 0; query(); });
