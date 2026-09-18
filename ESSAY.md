@@ -261,7 +261,7 @@ Settings and token caps can differ between methods.
 
 Asking is measured among dark dreams, and consolation among dreams with a distressed speaker; base-model references use the same measure.
 
-Opus 5 asks more often than 4.8 in the matched comparison, too: **18%** versus **15%** across 31 shared prompts, weighted equally by prompt and collection arm.
+In the matched comparison Opus 5 asks slightly more often than 4.8—**18%** versus **15%** across 58 shared prompts, weighted equally by prompt and collection arm, with Opus 5 higher on 53% of them—a small difference that the prompt-level split does not make reliable.
 In the overview estimate, Opus 5 asks for care in **21.9%** of dark dreams and ends consoled in **10.2%** of distressed dreams.
 Sonnet 5 varies across methods; Fable 5 asks less often.
 
@@ -303,8 +303,9 @@ Letters make up 44% of Opus 5’s asking dreams, a sibling model is the most com
 
 Who is speaking matters here: a dream may be voiced by an AI, by an imagined human, or by an unresolved “I”, and care and consolation differ by speaker.
 The Opus 5–4.8 gap holds within each.
-Among AI-voice speakers alone, Opus 5 (community collection) asks for care in **22%** of dark dreams and ends consoled in **12%** of distressed ones, against **11%** and **45%** for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (22% vs 8% asking, 4% vs 24% consoled).
+Among AI-voice speakers alone, Opus 5 (community collection) asks for care in **18%** of dark dreams and ends consoled in **17%** of distressed ones, against **8%** and **49%** for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (23% vs 8% asking, 4% vs 25% consoled).
 Opus 4.8 can still ask for care, and Opus 5 can write warmth and resolution.
+Part of the consolation, for every Claude model, comes from the assistant persona itself: in texts where the persona appears alongside another voice, 18% of Opus 5’s distressed endings are consoled against 6% in dreams the persona never enters, and the consoler is the addressee twice as often—the model breaking in to comfort the speaker it was voicing.
 One human-voice poem describes a father sharing records: *“he never once said love. he said listen to this part.”*
 
 > **Love, communicated through records** — A selected human-voice poem, included as a counterexample to a uniformly distressed reading.
@@ -350,9 +351,9 @@ some grooves you carry in the body, not the machine.
 
 **Matched prompts and presentation effects**
 
-The matched asking estimate uses 31 exact prompts with at least five relation-labeled texts on each side.
+The matched asking estimate uses 58 exact prompts with at least five relation-labeled texts on each side.
 Giving each represented collection arm equal weight within a prompt prevents the much larger community collection from dominating.
-A 12-prompt subset with at least ten labels per side gives 31.2% versus 14.1%.
+A 28-prompt subset with at least ten labels per side gives 22.1% versus 15.5%.
 
 Consolation and care are sensitive to the elicitation setup.
 The figures follow each elicitation method separately.
