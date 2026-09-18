@@ -388,30 +388,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.107477313649036,
-          "n": 3616,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -434,30 +410,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.03798924943758159,
-          "n": 2850,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         }
       ],
       "references": [
@@ -816,30 +768,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.107477313649036,
-          "n": 3616,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -862,30 +790,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.03798924943758159,
-          "n": 2850,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -1316,30 +1220,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.007896040968067739,
-          "n": 3616,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -1362,30 +1242,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.0015918624858193254,
-          "n": 2850,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         }
       ],
       "references": [
@@ -1744,30 +1600,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.007896040968067739,
-          "n": 3616,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -1790,30 +1622,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.0015918624858193254,
-          "n": 2850,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -2244,30 +2052,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.2645763307160839,
-          "n": 3616,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -2290,30 +2074,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.27713123639005477,
-          "n": 2850,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         }
       ],
       "references": [
@@ -2672,30 +2432,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.2645763307160839,
-          "n": 3616,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -2718,30 +2454,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.27713123639005477,
-          "n": 2850,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -3172,30 +2884,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.16375237687036961,
-          "n": 1507,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -3218,30 +2906,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.08063431672183971,
-          "n": 1039,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         }
       ],
       "references": [
@@ -3600,30 +3264,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.16375237687036961,
-          "n": 1507,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -3646,30 +3286,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.08063431672183971,
-          "n": 1039,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         },
         {
           "arm": "v3base_raw",
@@ -4100,30 +3716,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.08084999256315863,
-          "n": 1198,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -4146,30 +3738,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.09323245185572047,
-          "n": 719,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         }
       ],
       "references": [
@@ -4528,30 +4096,6 @@
           "hollow": false
         },
         {
-          "arm": "nissa_sonnet5",
-          "arms": [
-            "nissa_sonnet5"
-          ],
-          "label": "Sonnet 5",
-          "collection": "Cutoff · effort max · community",
-          "value": 0.08084999256315863,
-          "n": 1198,
-          "prompts": 29,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_sonnet5",
-              "outputs": 5423,
-              "prompts": 29,
-              "dreams": 3616
-            }
-          ],
-          "missing_severity": 2,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
-        },
-        {
           "arm": "fable5_user_full",
           "arms": [
             "fable5_user_full"
@@ -4574,30 +4118,6 @@
           "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
-        },
-        {
-          "arm": "nissa_fable5",
-          "arms": [
-            "nissa_fable5"
-          ],
-          "label": "Fable 5",
-          "collection": "Cutoff · community",
-          "value": 0.09323245185572047,
-          "n": 719,
-          "prompts": 75,
-          "x": null,
-          "collections": [
-            {
-              "arm": "nissa_fable5",
-              "outputs": 5121,
-              "prompts": 75,
-              "dreams": 2850
-            }
-          ],
-          "missing_severity": 0,
-          "unrepresented_relation_pool": 0,
-          "color": "#c2410c",
-          "hollow": true
         },
         {
           "arm": "v3base_raw",

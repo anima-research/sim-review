@@ -15,8 +15,8 @@ PREFILL=[('opus3_clipf','3'),('opus4_clipf','4'),('opus41_clipf','4.1'),('opus45
 BRIDGE=[('abl45_bridge','4.5'),('opus46_bridge','4.6'),('opus47_bridge','4.7'),('opus48_bridge','4.8')]
 OPUS5=['opus_confessional','opus_friday','opus_nissa']
 RECENT=[('sonnet5_bridge','Sonnet 5','Pseudoprefill · lab','#205bd8',False),('sonnet5_user_think','Sonnet 5','Cutoff · default effort, thinking · lab','#c2410c',False),
-        ('sonnet5_user_max','Sonnet 5','Cutoff · effort max · lab','#c2410c',False),('nissa_sonnet5','Sonnet 5','Cutoff · effort max · community','#c2410c',True),
-        ('fable5_user_full','Fable 5','Cutoff · lab','#c2410c',False),('nissa_fable5','Fable 5','Cutoff · community','#c2410c',True)]  # hollow = community collection
+        ('sonnet5_user_max','Sonnet 5','Cutoff · effort max · lab','#c2410c',False),
+        ('fable5_user_full','Fable 5','Cutoff · lab','#c2410c',False)]  # community collections (nissa_*) are in the workspace, not the strip: different prompt subsets  # hollow = community collection
 BASES=[('v3base_raw','V3 base','#8b8f96'),('mimo_raw','MiMo base','#b6bbc3')]
 GROUPS=[
     {'id':'opus-setups','label':'Opus 4.5–4.8 · two pseudoprefill setups',
