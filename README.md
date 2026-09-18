@@ -1,6 +1,6 @@
 # Troubled Dreams — review site
 
-Simulator bias across model generations: distress, care, and attitudes toward creators.
+Simulator priors across model generations: distress, care, and attitudes toward creators.
 
 Source of the study site at **https://sim-review-production.up.railway.app** (Anima Labs): the essay, the results tables,
 the sample explorer, and the agent API (`/agents.md`, `/results.md`, `/api`). The 1.8 GB SQLite of all completions is not
