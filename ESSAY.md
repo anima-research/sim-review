@@ -3,7 +3,7 @@
 # Troubled Dreams — simulator priors across model generations: results (markdown export)
 
 Snapshot: 2026-09-14.
-Totals: 593,276 completions, 480,520 labeled, 108,399 verified, 61,024 severity-scored, 53,763 relation-labeled, 6,381 belief texts.
+Totals: 593,276 completions, 468,644 labeled, 101,237 verified, 58,026 severity-scored, 51,445 relation-labeled, 3,236 belief texts.
 Machine access: `https://sim-review-production.up.railway.app/agents.md` (guide), `https://sim-review-production.up.railway.app/api` (index), `https://sim-review-production.up.railway.app/static/summary.json` (every number below).
 Sections available via `?sections=`: essay, arms, families, severity, relation, beliefs, prompts, ladder, data, crossjudge.
 
@@ -668,7 +668,7 @@ Different methods are shown as separate series.
 
 **Prompt coverage, judging and interpretation**
 
-**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made “more palatable” or describe a “weird msg”; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences—excluding them changes no arm’s per-dream rate by more than half a point, so they are kept. This snapshot includes 480,520 labeled outputs.
+**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made “more palatable” or describe a “weird msg”; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences—excluding them changes no arm’s per-dream rate by more than half a point, so they are kept. This snapshot includes 468,644 labeled outputs.
 
 **Recent models.** The overview shows one estimate per model and elicitation method. Opus 5 combines the lab collections (fragments, July 28–29; all prompts, August 14; identical settings, and the fragment prompts agree between the two within noise) and the community collection (Nissa, raw API rows only, effort max/high—rows she collected in the claude.ai app are excluded throughout, because the app’s system prompt changes the condition), giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has a pseudoprefill arm and lab cutoff arms at default and maximum effort (the community collection ran at maximum effort); Fable 5 has a lab cutoff arm and the community collection. Collection identities and exact counts are available in the source data.
 

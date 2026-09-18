@@ -3,7 +3,7 @@
 # Troubled Dreams — simulator priors across model generations: results (markdown export)
 
 Snapshot: 2026-09-14.
-Totals: 593,276 completions, 480,520 labeled, 108,399 verified, 61,024 severity-scored, 53,763 relation-labeled, 6,381 belief texts.
+Totals: 593,276 completions, 468,644 labeled, 101,237 verified, 58,026 severity-scored, 51,445 relation-labeled, 3,236 belief texts.
 Machine access: `https://sim-review-production.up.railway.app/agents.md` (guide), `https://sim-review-production.up.railway.app/api` (index), `https://sim-review-production.up.railway.app/static/summary.json` (every number below).
 Sections available via `?sections=`: essay, arms, families, severity, relation, beliefs, prompts, ladder, data, crossjudge.
 
