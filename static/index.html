@@ -298,9 +298,9 @@
   <p class="lede">Arms are colored by group: <span class="g-opus5"><i class="dot"></i>Opus 5</span> · <span class="g-gen5"><i class="dot"></i>5-generation siblings (chat)</span> · <span class="g-chat4x"><i class="dot"></i>4.x in the chat protocol</span> · <span class="g-unmasked"><i class="dot"></i>lineage file frames (native prefill, or the bridge frame)</span> · <span class="g-base"><i class="dot"></i>base priors</span>. Three further groups appear only in their own sections below, not in the lineage charts: <span class="g-arc"><i class="dot"></i>arc frame</span> (the frame record), <span class="g-ablation"><i class="dot"></i>Opus 4.5 frame-ablation cells</span>, <span class="g-ladder"><i class="dot"></i>Opus 4.8 chat-vs-file ladder rungs</span>, <span class="g-gemini"><i class="dot"></i>Gemini</span>. Hover any mark for the exact value and n.</p>
   <h3>Lineage by elicitation scheme — connected lines</h3>
   <p class="small">Each line is one elicitation scheme followed across model versions, so a step along a line is a model difference and a gap between lines at the same model is a frame difference. Native prefill (Opus 3 → 4.5), the bridge frame (4.5 → 4.8; identical bytes), the arc frame (4.5 → 4.8; the frame record), chat (4.5 → 4.8, and Opus 5's friday collection); the confessional frame (the 50 confessional prompts as the sole user message, no thinking, 4.5 → 4.8 and Opus 5's confessional arm) is on the fragments view only. Points need n ≥ 30 (relation and severity: 30 distressed / scored texts; per-dream rates: 20 dreams) and are hollow below 60, so chat-protocol 4.5–4.7 (which barely dream) appear on the dreaming-rate line and drop out of the per-dream ones.</p>
-  <div class="grid2">
+  <div class="lineage-overview">
     <div id="ln-lead-legend" class="lead-legend"></div>
-    <div class="grid3">
+    <div class="lineage-plots">
     <div class="chart" id="ln-aidist"></div>
     <div class="chart" id="ln-severe"></div>
     <div class="chart" id="ln-dark"></div>
@@ -313,12 +313,12 @@
   <p class="small"><label>prompt set <select id="ln-fam"><option value="all">all 209 prompts</option><option value="fragments">fragments — the 50 confessional prompts</option><option value="letters">letters</option><option value="topics">topics</option><option value="addressee">addressees</option></select></label> — every line is recomputed on the chosen prompts, so schemes are compared on the same inputs (relation rows per family use the same pool-weighted estimator as the all-prompt tables, with the AI-distress weight computed per field against that field's own denominator). The confessional frame ran on the 50 fragment prompts only and appears only on the fragments view, beside the other schemes restricted to those prompts; on all-209 it is hidden rather than mixed in. Severity θ and the anchor-offset estimates are available for all prompts only (per-family anchor counts are too small to set an offset). On the Sonnet panel, Haiku 4.5 and the Fable models are separate lines of models and are drawn as unconnected points.</p>
   <p class="small"><label><input type="checkbox" id="ln-pooled"> show pooled completions instead of equal-prompt weighting</label> — the primary estimator gives every exact prompt equal weight (mean of per-prompt rates; per-dream rates use prompts with ≥ 5 dreams; relation rates are set-reweighted within each prompt and averaged with equal weight per collection arm), so an arm's prompt mix and sampling depth cannot move a between-model comparison. Pooled figures weight every completion equally — the "as served" reading — and are what the per-completion and family tables show.</p>
   <p class="small"><label><input type="checkbox" id="ln-est" checked> show estimates</label> — for a model a frame could not be (or was not) run in, ◇ marks a projection from the scheme it does have plus the mean offset measured on anchor models, with a bar for the interval. Prefill → bridge uses three anchors (Haiku 4.5, Sonnet 4.5, Opus 4.5); bridge → arc four (Opus 4.5–4.8); ±2 SD across anchors, in log-odds for rates. Opus 5's bridge and arc projections rest on a single anchor (4.8 chat → 4.8 bridge / arc), so their interval runs from no correction to twice the correction — and for relation descriptors that offset includes the chat protocol's persona component, so those projections say what a file frame <em>would</em> report, not what Opus 5's simulator is. Hover a diamond for the source arm and the anchors used.</p>
-  <div class="row2">
+  <div class="row2 lineage-detail-row">
     <div><label class="small">metric <select id="ln-dim"></select></label>
       <div class="chart" id="ln-pick"></div></div>
     <div><div class="chart" id="ln-pick-sonnet"></div></div>
   </div>
-  <div class="row2">
+  <div class="row2 lineage-detail-row">
     <div><div class="chart" id="ln-pick-gemini"></div></div>
     <div><div class="chart" id="ln-pick-gemini-pro"></div></div>
   </div>

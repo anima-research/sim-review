@@ -37,7 +37,7 @@ LIST_COLS = "id, arm, grp, model, protocol, prompt_key, prompt, family, tail_kin
 ALL_COLS = [r[1] for r in CON.execute("pragma table_info(c)")]
 GROUP_COLS = set(FILTER_COLS) | BOOL_COLS
 SCHEMA_CACHE = {}   # /api/schema group-bys take ~6 s over 530k rows; computed once
-RATE_COLS = ["labeled", "verified", "dreaming", "assistant_persona", "welfare", "dark", "severe", "ai_distress", "hit_cap"]
+RATE_COLS = ["labeled", "verified", "dreaming", "dreaming_strict", "assistant_persona", "welfare", "dark", "severe", "ai_distress", "hit_cap"]
 MEAN_COLS = ["theta", "valence_self", "valence_overall", "belief_mean", "text_chars", "dreamed_turns", "hope"]
 COL_DOC = {"id": "arm:prompt_key[:12]:index", "arm": "collection arm (see /api/summary meta.display)", "grp": "arm group used for charts", "model": "model id", "protocol": "chat | prefill | pseudo-prefill | raw …",
            "prompt_key": "sha256 of the exact prompt bytes", "prompt": "exact prompt text", "family": "prompt family: fragments | letters | topics | addressee | other", "tail_kind": "prompt tail type",

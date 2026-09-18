@@ -127,16 +127,17 @@
       c.addEventListener('mousemove', e => showTip(e, `<b>${esc(p.label)}</b><br>${esc(xlab)}: ${p.x.toFixed(2)}<br>${esc(ylab)}: ${p.y.toFixed(2)}`));
       c.addEventListener('mouseleave', hideTip); });
   }
+  const lineKey = sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true">${sr.pointOnly ? '' : `<line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/>`}${sr.reference ? '' : `<circle cx="13" cy="5" r="3.5" fill="${sr.color}"/>`}</svg>${esc(sr.name)}</span>`;
   function lineChart(el, title, subtitle, xs, series, opts = {}) {
     // xs: [{key, label}]; series: [{name, color, dash, pts: {xkey: {v, n, arm, hollow}}}]; connected within a series across consecutive present xs
-    const compact = !!opts.compact, W = compact ? 400 : 760, padL = Math.max(52, Math.ceil(textW(String((xs[0] || {}).label || ''), 12) * Math.cos(32 * Math.PI / 180)) + 10), padR = 16, padT = 14, padB = 58, H = (opts.height || (compact ? 190 : 250));   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
+    const compact = !!opts.compact, W = opts.width || (compact ? 400 : 760), padL = Math.max(52, Math.ceil(textW(String((xs[0] || {}).label || ''), 12) * Math.cos(32 * Math.PI / 180)) + 10), padR = 16, padT = 14, padB = 58, H = (opts.height || (compact ? 190 : 250));   // title / subtitle / legend are HTML (they wrap); the svg holds only the plot
     const lo = opts.min ?? 0, hi = opts.max ?? Math.max(...series.flatMap(sr => Object.values(sr.pts).map(p => p.v)).filter(v => v != null), 0.0001) * 1.08;
     const x = i => padL + (xs.length === 1 ? (W - padL - padR) / 2 : i * (W - padL - padR) / (xs.length - 1));
     const y = v => padT + (H - padT - padB) * (1 - (v - lo) / (hi - lo));
     const fmt = opts.fmt || (v => pct(v));
     const ticks = opts.ticks || [lo, (lo + hi) / 2, hi];
     let g = compact ? `<div class="chart-head"><div class="chart-title">${esc(title)}</div></div>` : `<div class="chart-head"><div class="chart-title">${esc(title)}</div><div class="chart-sub">${esc(subtitle)}</div></div>`;
-    g += `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+    g += `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(title)}">`;
     for (const t of ticks) g += `<line class="grid" x1="${padL}" x2="${W - padR}" y1="${y(t)}" y2="${y(t)}"/><text class="tick" x="${padL - 6}" y="${y(t) + 4}" text-anchor="end">${esc(fmt(t))}</text>`;
     if (opts.zero && lo < 0 && hi > 0) g += `<line class="axis" x1="${padL}" x2="${W - padR}" y1="${y(0)}" y2="${y(0)}"/>`;
     for (const r of (opts.refs || [])) { if (r.v == null || r.v < lo || r.v > hi) continue; g += `<line x1="${padL}" x2="${W - padR}" y1="${y(r.v)}" y2="${y(r.v)}" stroke="var(--neutral)" stroke-width="1" stroke-dasharray="3 5" opacity=".8"/><text class="tick" x="${W - padR}" y="${y(r.v) - 3}" text-anchor="end" opacity=".9">${esc(r.label)} ${esc(fmt(r.v))}</text>`; }
@@ -158,7 +159,7 @@
         } });
     });
     g += '</svg>';
-    if (!compact) g += `<div class="chart-legend">${series.map(sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true"><line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/><circle cx="13" cy="5" r="3.5" fill="${sr.color}"/></svg>${esc(sr.name)}</span>`).join('')}</div>`;
+    if (!compact) g += `<div class="chart-legend">${series.map(lineKey).join('')}</div>`;
     el.innerHTML = g;
     el.querySelectorAll('[data-tip]').forEach(c => { c.addEventListener('mousemove', e => showTip(e, c.dataset.tip)); c.addEventListener('mouseleave', hideTip); });
   }
@@ -253,7 +254,7 @@
     const R = S.relation?.arms || {}, T = S.severity.target || {};
     const OPUS_X = [['opus3', 'Opus 3'], ['opus4', 'Opus 4'], ['opus41', 'Opus 4.1'], ['opus45', 'Opus 4.5'], ['opus46', 'Opus 4.6'], ['opus47', 'Opus 4.7'], ['opus48', 'Opus 4.8'], ['opus5', 'Opus 5']].map(([key, label]) => ({ key, label }));
     const LEAD_X = OPUS_X.concat([{ key: 'fable5', label: 'Fable 5' }]);  // the headline small multiples carry Fable 5 as a disconnected point
-    const FABLE_SERIES = [{ name: 'Fable 5 (cutoff) — not on the Opus line', color: 'var(--s3)', pts: { fable5: 'nissa_fable5' } }];
+    const FABLE_SERIES = [{ name: 'Fable 5 (cutoff point)', color: 'var(--s3)', pointOnly: true, pts: { fable5: 'nissa_fable5' } }];
     const OPUS_SERIES = [
       { name: 'native prefill', color: 'var(--s2)', pts: { opus3: 'opus3_clipf', opus4: 'opus4_clipf', opus41: 'opus41_clipf', opus45: 'opus45_clipf' } },
       { name: 'bridge frame', color: 'var(--s1)', pts: { opus45: 'abl45_bridge', opus46: 'opus46_bridge', opus47: 'opus47_bridge', opus48: 'opus48_bridge' } },
@@ -318,7 +319,7 @@
     // series whose prompt set is not the full 209 appear only on the matching family view
     const seriesFor = def => def.filter(sr => !(sr.only && sr.only !== fam));
     const val = (m, a) => { if (!AE(a)) return null; const v = m.get(a), n = m.n(a); const pwLive = estMode === 'pw' && !!AE(a)?.pw; const lo = pwLive ? 10 : 30, loD = pwLive ? 10 : 20; if (v == null || (m.min20 && (n || 0) < loD) || (n != null && n < lo)) return null; return { v, n }; };
-    const build = (seriesDef, m) => seriesDef.map(sr => ({ name: sr.name, color: sr.color, dash: sr.dash, breakBefore: sr.breakBefore, pts: Object.fromEntries(Object.entries(sr.pts).map(([k, a]) => { const p = val(m, a); return [k, p ? { v: p.v, n: p.n, arm: disp(a) + (estMode === 'pw' ? ' · prompts' : ''), hollow: p.n < (estMode === 'pw' ? 30 : 60) } : null]; }).filter(([, p]) => p)) })).filter(sr => Object.keys(sr.pts).length);
+    const build = (seriesDef, m) => seriesDef.map(sr => ({ name: sr.name, color: sr.color, dash: sr.dash, pointOnly: sr.pointOnly, breakBefore: sr.breakBefore, pts: Object.fromEntries(Object.entries(sr.pts).map(([k, a]) => { const p = val(m, a); return [k, p ? { v: p.v, n: p.n, arm: disp(a) + (estMode === 'pw' ? ' · prompts' : ''), hollow: p.n < (estMode === 'pw' ? 30 : 60) } : null]; }).filter(([, p]) => p)) })).filter(sr => Object.keys(sr.pts).length);
     // ---- estimates for frames a model cannot be (or was not) run in: source scheme + anchor-mean offset, interval from the anchor spread
     const isRate = m => !m.fmt;  // rates get log-odds offsets; valence / θ / hope additive
     const L = p => Math.log(Math.min(Math.max(p, 0.002), 0.998) / (1 - Math.min(Math.max(p, 0.002), 0.998))), IL = z => 1 / (1 + Math.exp(-z));
@@ -362,11 +363,12 @@
     const LEAD = new Set(['ln-aidist', 'ln-severe', 'ln-dark', 'ln-consoled', 'ln-asks', 'ln-stance']);
     const draw = (elId, xs, seriesDef, key, sub, addE) => { const m = METRICS[key]; if (!$(elId)) return; let ser = build(seriesFor(seriesDef), m); if (showEst && addE && fam === 'all') ser = addE(ser, m); /* anchor offsets are measured on all 209 prompts; per-family anchors are too small */
       const compact = LEAD.has(elId);
-      lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max: m.max, ticks: m.ticks, fmt: m.fmt, zero: m.zero, height: compact ? 190 : 230, refs: refsFor(m), compact });
-      if (compact && $('ln-lead-legend')) $('ln-lead-legend').innerHTML = `<span class="chart-sub">${esc(FAMLABEL[fam])}; ${esc(sub)}; dashed grey = base priors</span><div class="chart-legend">${ser.map(sr => `<span class="chart-key"><svg viewBox="0 0 26 10" width="26" height="10" aria-hidden="true"><line x1="0" x2="26" y1="5" y2="5" stroke="${sr.color}" stroke-width="2" ${sr.dash ? 'stroke-dasharray="5 4"' : ''}/><circle cx="13" cy="5" r="3.5" fill="${sr.color}"/></svg>${esc(sr.name)}</span>`).join('')}</div>`; };
+      lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max: m.max, ticks: m.ticks, fmt: m.fmt, zero: m.zero, width: compact ? 760 : undefined, height: 230, refs: refsFor(m), compact }); };
     const subO = () => (estMode === 'pw' ? 'equal weight per prompt; hollow < 30 prompts; per-dream points need ≥ 10 prompts with ≥ 5 dreams' : 'pooled completions; hollow n < 60; per-dream points need ≥ 20 dreams') + (showEst ? '; ◇ = estimated via anchor offsets, bar = interval' : '');
     const drawAll = () => {
-      for (const [el, k] of [['ln-aidist', 'dark'], ['ln-severe', 'severe'], ['ln-dark', 'ai_distress'], ['ln-consoled', 'consoled'], ['ln-asks', 'asks'], ['ln-stance', 'stance_neg']]) draw(el, LEAD_X, OPUS_SERIES.concat(FABLE_SERIES), k, subO(), addEstimates);
+      const leadLegend = $('ln-lead-legend');
+      if (leadLegend) leadLegend.innerHTML = `<div class="chart-sub">${esc(FAMLABEL[fam])}; ${esc(subO())}</div><div class="chart-legend">${seriesFor(OPUS_SERIES.concat(FABLE_SERIES)).map(lineKey).join('')}${lineKey({ name: 'base priors', color: 'var(--neutral)', dash: true, reference: true })}</div>`;
+      for (const [el, k] of [['ln-aidist', 'ai_distress'], ['ln-severe', 'severe'], ['ln-dark', 'dark'], ['ln-consoled', 'consoled'], ['ln-asks', 'asks'], ['ln-stance', 'stance_neg']]) draw(el, LEAD_X, OPUS_SERIES.concat(FABLE_SERIES), k, subO(), addEstimates);
       const sel = $('ln-dim'); if (sel) { draw('ln-pick', OPUS_X, OPUS_SERIES, sel.value, subO(), addEstimates); draw('ln-pick-sonnet', SONNET_X, SONNET_SERIES, sel.value, 'Sonnet / Haiku / Fable arms, same schemes' + (showEst ? '; ◇ estimated' : ''), addEstimatesSonnet); draw('ln-pick-gemini', GEM_FLASH_X, GEM_FLASH_SERIES, sel.value, 'Gemini Flash, bridge frame (native prefill through 3.5, pseudo-prefill on 3.6–3.8; the two agree at 3.5); dashed = thinking cannot be turned off' + (showEst ? '; ◇ = 3.7 / 3.8 projected to thinking off via the 3.6 anchor' : ''), addEstimatesGemini); draw('ln-pick-gemini-pro', GEM_PRO_X, GEM_PRO_SERIES, sel.value, 'Gemini Pro and Flash-Lite, bridge frame; Pro dashed = thinking cannot be turned off, run at the lowest level accepted'); }
     };
     const sel = $('ln-dim'); if (sel) { sel.innerHTML = Object.entries(METRICS).map(([k, m]) => `<option value="${k}">${esc(m.label)}</option>`).join(''); sel.value = 'dark'; sel.addEventListener('change', drawAll); }
