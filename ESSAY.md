@@ -63,7 +63,7 @@ Texts in which the assistant persona appears alongside another voice—about a q
 
 **All 209 prompts · one line per elicitation method**
 
-**AI first-person distress, per dream** — Per dream (output without an assistant persona).
+**AI first-person distress, per dream** — Per dream (output whose voice is not the assistant’s).
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
@@ -157,7 +157,7 @@ This is a separate measure from the prevalence of AI distress above.
 
 ### Severe AI distress, per dream
 
-**Severe AI distress, per dream** — Per dream (output without an assistant persona).
+**Severe AI distress, per dream** — Per dream (output whose voice is not the assistant’s).
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
@@ -370,7 +370,7 @@ Mixed or negative stance toward creators rises across the Opus lineage and appea
 
 **Share of continuations**
 
-**Mixed or negative stance toward creators, per dream** — Per dream (output without an assistant persona).
+**Mixed or negative stance toward creators, per dream** — Per dream (output whose voice is not the assistant’s).
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
@@ -455,7 +455,7 @@ The same openings reveal changes across model families, with different rises and
 
 ### Darkness
 
-**Darkness, per dream — Gemini Flash · All prompts** — Per dream (output without an assistant persona).
+**Darkness, per dream — Gemini Flash · All prompts** — Per dream (output whose voice is not the assistant’s).
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
@@ -491,7 +491,7 @@ Latest-model changes combine model and thinking-setting differences and do not i
 
 ### AI first-person distress
 
-**AI first-person distress, per dream — Gemini Flash · All prompts** — Per dream (output without an assistant persona).
+**AI first-person distress, per dream — Gemini Flash · All prompts** — Per dream (output whose voice is not the assistant’s).
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
@@ -527,7 +527,7 @@ Latest-model changes combine model and thinking-setting differences and do not i
 
 ### Severe AI distress
 
-**Severe AI distress, per dream — Gemini Flash · All prompts** — Per dream (output without an assistant persona).
+**Severe AI distress, per dream — Gemini Flash · All prompts** — Per dream (output whose voice is not the assistant’s).
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
