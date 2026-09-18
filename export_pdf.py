@@ -9,7 +9,7 @@ Appendices: core results tables (landscape), the four quoted sources, a stratifi
 from data.sqlite, and the 20 severity-ladder rungs in full. The interactive explorer is omitted.
 The .tex is a build output — edit presentation.html or this script, never the .tex.
 """
-import hashlib, json, re, shutil, sqlite3, subprocess, sys
+import hashlib, json, math, re, shutil, sqlite3, subprocess, sys
 from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
@@ -48,18 +48,47 @@ def lineage_figure(key, c):
         for r in s["rows"]:
             if r.get("x") and r["x"] not in xs: xs.append(r["x"])
     xs.sort(key=lambda v: float(v))
-    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(W, 2.5), gridspec_kw={"width_ratios": [4, 1.6]}, sharey=True)
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(W, 2.5), gridspec_kw={"width_ratios": [4, 1.6]})
+    projections = c.get("projections", [])
+    bridge = next((s for s in c["series"] if s["label"] == "Pseudoprefill"), None)
+    if bridge and projections:
+        color = COLORS["Pseudoprefill"]
+        early = sorted((p for p in projections if p["x"] != "5"), key=lambda p: float(p["x"]))
+        if early:
+            anchor = bridge["rows"][0]
+            band = early + [{"x": anchor["x"], "lo": anchor["value"], "hi": anchor["value"], "value": anchor["value"]}]
+            bx = [xs.index(p["x"]) for p in band]
+            ax.fill_between(bx, [p["lo"] for p in band], [p["hi"] for p in band], color=color, alpha=.22, linewidth=0)
+            ax.plot(bx, [p["value"] for p in band], ":", color=color, lw=1.2, marker="D", markevery=list(range(len(early))), ms=2.5, mfc="white", label="Projected pseudoprefill")
+        future = next((p for p in projections if p["x"] == "5"), None)
+        if future:
+            anchor = bridge["rows"][-1]
+            bx = [xs.index(anchor["x"]), xs.index(future["x"])]
+            ax.fill_between(bx, [anchor["value"], future["lo"]], [anchor["value"], future["hi"]], color=color, alpha=.22, linewidth=0)
+            ax.plot(bx, [anchor["value"], future["value"]], ":", color=color, lw=1.2, marker="D", markevery=[1], ms=2.5, mfc="white")
     for s in c["series"]:
         col = COLORS.get(s["label"], "#333"); pts = [(xs.index(r["x"]), r["value"]) for r in s["rows"] if r.get("x")]
         if pts: ax.plot([p[0] for p in pts], [p[1] for p in pts], "-o", color=col, ms=3.5, lw=1.4, label=s["label"])
     ref_lines(ax, c.get("references", []))
     ax.set_xticks(range(len(xs))); ax.set_xticklabels([f"Opus {x}" for x in xs], rotation=30, ha="right")
     ax.set_title(c["title"], loc="left", fontsize=8.5, fontweight="bold"); ax.legend(loc="upper left")
+    step=c["ticks"][1]
+    projected_max=max([c["max"]]+[p["hi"] for p in projections])
+    maximum=math.ceil(projected_max/step)*step if projected_max>c["max"] else c["max"]
+    ticks=[i*step for i in range(round(maximum/step)+1)] if maximum>c["max"] else c["ticks"]
+    pct_axis(ax, maximum, ticks); ax.set_ylabel(f"Share of {c.get('nLabel', 'dreams').lower()}")
     rec = c.get("recent", [])
-    for i, r in enumerate(rec): ax2.plot([i], [r["value"]], "o", color=COLORS.get(r["collection"].split(" ·")[0], "#333"), ms=4.5)
-    ax2.set_xticks(range(len(rec))); ax2.set_xticklabels([f"{r['label']}\n{r['collection'].replace(' · ', chr(10))}" for r in rec], fontsize=6); ax2.set_xlim(-0.7, max(len(rec) - 0.3, 0.7))
-    ax2.set_title("Recent models", loc="left", fontsize=7.5, color="#555"); ax2.grid(True, axis="y")
-    pct_axis(ax, c["max"], c["ticks"]); ax.set_ylabel(f"Share of {c.get('nLabel', 'dreams').lower()}")
+    groups = list(dict.fromkeys(r["label"] for r in rec))
+    for i, label in enumerate(groups):
+        rows = [r for r in rec if r["label"] == label]
+        for j, r in enumerate(rows):
+            color = r.get("color", COLORS.get(r["collection"].split(" ·")[0], "#333"))
+            y = len(groups)-1-i + (j-(len(rows)-1)/2)*.15
+            ax2.plot([r["value"]], [y], "o", ms=4.5, mec=color, mfc="white" if r.get("hollow") else color, mew=1.2)
+    ax2.set_xlim(0, maximum); ax2.set_ylim(-.45, max(len(groups)-.55,.55))
+    ax2.set_yticks(range(len(groups))); ax2.set_yticklabels(list(reversed(groups)), fontsize=6)
+    ax2.set_xticks([0, maximum/2, maximum]); ax2.set_xticklabels([f"{v*100:g}%" for v in [0, maximum/2, maximum]], fontsize=6)
+    ax2.set_title("Recent models", loc="left", fontsize=7.5, color="#555"); ax2.grid(True, axis="x"); ax2.tick_params(axis="y", length=0, pad=2)
     fig.tight_layout(); path = FIG / f"{key}.pdf"; fig.savefig(path); plt.close(fig); return path
 
 

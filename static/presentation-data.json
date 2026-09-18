@@ -272,6 +272,48 @@
           ]
         }
       ],
+      "projections": [
+        {
+          "x": "3",
+          "label": "Opus 3",
+          "source": "opus3_clipf",
+          "value": 0.01062045330669148,
+          "lo": 0.0072659041044741595,
+          "hi": 0.014825382440212458,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4",
+          "label": "Opus 4",
+          "source": "opus4_clipf",
+          "value": 0.03383721848801618,
+          "lo": 0.023322344270177132,
+          "hi": 0.0467994964983608,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4.1",
+          "label": "Opus 4.1",
+          "source": "opus41_clipf",
+          "value": 0.03502692195193792,
+          "lo": 0.02415159036297674,
+          "hi": 0.0484221074310977,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "5",
+          "label": "Opus 5",
+          "source": "opus5",
+          "value": 0.1367082517707719,
+          "lo": 0.1177191227197243,
+          "hi": 0.16090714521797655,
+          "anchors": 1,
+          "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
+        }
+      ],
       "recent": [
         {
           "arm": "sonnet5_bridge",
@@ -1156,6 +1198,48 @@
               "unrepresented_relation_pool": 0
             }
           ]
+        }
+      ],
+      "projections": [
+        {
+          "x": "3",
+          "label": "Opus 3",
+          "source": "opus3_clipf",
+          "value": 0.005975753224315021,
+          "lo": 0.004862129390697097,
+          "hi": 0.009019153399042981,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4",
+          "label": "Opus 4",
+          "source": "opus4_clipf",
+          "value": 0.005125414455000544,
+          "lo": 0.004169592545437001,
+          "hi": 0.007739116073367622,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4.1",
+          "label": "Opus 4.1",
+          "source": "opus41_clipf",
+          "value": 0.003992984972596319,
+          "lo": 0.0032476567788319714,
+          "hi": 0.006032706671115611,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "5",
+          "label": "Opus 5",
+          "source": "opus5",
+          "value": 0.021687767275278613,
+          "lo": 0.01587967111266781,
+          "hi": 0.030275722755940027,
+          "anchors": 1,
+          "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
         }
       ],
       "recent": [
@@ -2044,6 +2128,48 @@
           ]
         }
       ],
+      "projections": [
+        {
+          "x": "3",
+          "label": "Opus 3",
+          "source": "opus3_clipf",
+          "value": 0.008297313392028213,
+          "lo": 0.005908791631086324,
+          "hi": 0.010617394809849056,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4",
+          "label": "Opus 4",
+          "source": "opus4_clipf",
+          "value": 0.07000227435696138,
+          "lo": 0.050760124183130965,
+          "hi": 0.08804438384126083,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4.1",
+          "label": "Opus 4.1",
+          "source": "opus41_clipf",
+          "value": 0.08074369201609256,
+          "lo": 0.05873542775946863,
+          "hi": 0.1012528389522974,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "5",
+          "label": "Opus 5",
+          "source": "opus5",
+          "value": 0.1830251621860322,
+          "lo": 0.16466288052809083,
+          "hi": 0.20246735494997375,
+          "anchors": 1,
+          "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
+        }
+      ],
       "recent": [
         {
           "arm": "sonnet5_bridge",
@@ -2930,6 +3056,48 @@
           ]
         }
       ],
+      "projections": [
+        {
+          "x": "3",
+          "label": "Opus 3",
+          "source": "opus3_clipf",
+          "value": 0.0937665766518242,
+          "lo": 0.0557737291713489,
+          "hi": 0.17219968148735657,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4",
+          "label": "Opus 4",
+          "source": "opus4_clipf",
+          "value": 0.05461839609317701,
+          "lo": 0.03192895075632061,
+          "hi": 0.10406551082539915,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4.1",
+          "label": "Opus 4.1",
+          "source": "opus41_clipf",
+          "value": 0.06894703974784504,
+          "lo": 0.04056060327734175,
+          "hi": 0.12958802376125564,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "5",
+          "label": "Opus 5",
+          "source": "opus5",
+          "value": 0.13121134498393405,
+          "lo": 0.112939206551533,
+          "hi": 0.15050398628396702,
+          "anchors": 1,
+          "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
+        }
+      ],
       "recent": [
         {
           "arm": "sonnet5_bridge",
@@ -3814,6 +3982,48 @@
               "unrepresented_relation_pool": 0
             }
           ]
+        }
+      ],
+      "projections": [
+        {
+          "x": "3",
+          "label": "Opus 3",
+          "source": "opus3_clipf",
+          "value": 0.188444296088267,
+          "lo": 0.16354530650070404,
+          "hi": 0.22723999331221353,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4",
+          "label": "Opus 4",
+          "source": "opus4_clipf",
+          "value": 0.2031023894230199,
+          "lo": 0.1766883012105869,
+          "hi": 0.2440084718003109,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "4.1",
+          "label": "Opus 4.1",
+          "source": "opus41_clipf",
+          "value": 0.14497450322420202,
+          "lo": 0.12493493878303626,
+          "hi": 0.17677022063749487,
+          "anchors": 3,
+          "how": "Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets"
+        },
+        {
+          "x": "5",
+          "label": "Opus 5",
+          "source": "opus5",
+          "value": 0.2863153385462857,
+          "lo": 0.2513407625405949,
+          "hi": 0.3332785534415189,
+          "anchors": 1,
+          "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
         }
       ],
       "recent": [

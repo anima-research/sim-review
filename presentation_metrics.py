@@ -101,6 +101,26 @@ def build_metrics(con, summary):
                 'prompts':p['prompts'],'x':x,'collections':p['collections'],'missing_severity':p['missing_severity'],
                 'unrepresented_relation_pool':p['unrepresented_relation_pool']}
 
+    @lru_cache(None)
+    def prompt_totals(arm,shared):
+        ix={k:i for i,k in enumerate(shared)};source=by[arm]
+        ap=Counter(r['prompt_key'] for r in source)
+        st=lambda r:(r['family'],r['tail_kind'],r['ai_distress'])
+        pools=Counter(st(r) for r in source if r['dark'])
+        eligible=lambda r:r['dark'] and r['ending'] is not None and r['sev_set']==('target' if r['ai_distress'] else 'dark-strat')
+        sample=Counter(st(r) for r in source if eligible(r))
+        totals=np.zeros((len(shared),9));n=nr=0
+        for r in source:
+            if r['prompt_key'] not in ix or not r['dreaming']:continue
+            n+=1;v=totals[ix[r['prompt_key']]];w=1/ap[r['prompt_key']]
+            v[0]+=w;v[1]+=w*r['dark'];v[2]+=w*r['ai_distress']
+            v[7]+=w*(r['ai_distress'] and r['theta'] is not None and r['theta']>=4)
+            v[8]+=w*(r['stance'] in ('negative','mixed'))
+            if eligible(r):
+                nr+=1;rw=w*pools[st(r)]/sample[st(r)];v[3]+=rw;v[4]+=rw*(r['care_direction']=='asks')
+                if r['ending']!='no_distress':v[5]+=rw;v[6]+=rw*(r['ending']=='consoled')
+        return totals,n,nr
+
     notes=('Rates give each exact prompt equal input weight, average represented collections within prompt, '
            'and then condition on a continuation. Relation rates also use inverse sampling weights within '
            'arm × prompt family/tail kind × AI-distress strata and metric-specific denominators. '
@@ -115,36 +135,69 @@ def build_metrics(con, summary):
            ('stance','stance_neg','Mixed or negative stance toward creators, per dream',.35,[0,.15,.30]),
            ('asking','asking','Asking for care',.4,[0,.2,.4]),
            ('consolation','consolation','Ending consoled',.4,[0,.2,.4])]
+    # Project on the log-odds scale. Bands summarize the measured frame
+    # offsets conditional on their transferring to the unmeasured model.
+    def logit(value):
+        value=min(max(value,.002),.998)
+        return np.log(value/(1-value))
+
+    def inv_logit(value):
+        return float(1/(1+np.exp(-value)))
+
+    def frame_offset(metric,pairs):
+        deltas=[]
+        for source,target in pairs:
+            a=profile((source,))[metric];b=profile((target,))[metric]
+            if a is not None and b is not None: deltas.append(logit(b)-logit(a))
+        if not deltas:return None
+        mean=float(np.mean(deltas))
+        return mean,float(min(deltas)),float(max(deltas)),len(deltas)
+
+    def frame_bootstrap_interval(metric,source,target):
+        columns={'ai_distress':(2,0),'severe_mass':(7,0),'stance_neg':(8,0),'asking':(4,3),'consolation':(6,5)}
+        num,den=columns[metric]
+        shared=tuple(sorted({r['prompt_key'] for r in by[source]} & {r['prompt_key'] for r in by[target]}))
+        if not shared:return None
+        a=prompt_totals(source,shared)[0];b=prompt_totals(target,shared)[0]
+        indices=np.random.default_rng(20260918).integers(len(shared),size=(4000,len(shared)))
+        aa=a[indices].sum(axis=1);bb=b[indices].sum(axis=1)
+        ra=np.divide(aa[:,num],aa[:,den],out=np.full(len(aa),np.nan),where=aa[:,den]>0)
+        rb=np.divide(bb[:,num],bb[:,den],out=np.full(len(bb),np.nan),where=bb[:,den]>0)
+        ra=np.clip(ra,.002,.998);rb=np.clip(rb,.002,.998)
+        delta=np.log(rb/(1-rb))-np.log(ra/(1-ra))
+        return tuple(float(v) for v in np.nanquantile(delta,[.16,.84]))
+
+    def project(value,offset,x,label,source,how,interval=None):
+        if value is None or offset is None:return None
+        mean,low,high,count=offset;source_logit=logit(value);center=source_logit+mean
+        if interval is not None:low,high=interval
+        return {'x':x,'label':label,'source':source,'value':inv_logit(center),
+                'lo':inv_logit(min(low+source_logit,center)),'hi':inv_logit(max(high+source_logit,center)),
+                'anchors':count,'how':how}
+
+    prefill_bridge=[('haiku45_clipf','haiku45_bridge'),('sonnet45_clipf','sonnet45_bridge'),('opus45_clipf','abl45_bridge')]
+    cutoff_bridge=[('opus48_user','opus48_bridge')]
     for key,metric,title,maximum,ticks in specs:
         series=[{'label':'Prefill','color':'#8297ad','rows':[point(a,metric,'Opus '+x,'Prefill',x) for a,x in PREFILL]},
                 {'label':'Pseudoprefill','color':'#205bd8','rows':[point(a,metric,'Opus '+x,'Pseudoprefill',x) for a,x in BRIDGE]},
                 {'label':'Cutoff','color':'#bb6435','rows':[point('opus48_user',metric,'Opus 4.8','Cutoff','4.8'),point(OPUS5,metric,'Opus 5','Cutoff','5')]}]
+        pb=frame_offset(metric,prefill_bridge);cb=frame_offset(metric,cutoff_bridge)
+        cb_interval=frame_bootstrap_interval(metric,'opus48_user','opus48_bridge')
+        projections=[project(row['value'],pb,row['x'],row['label'],row['arm'],
+                             'Prefill → pseudoprefill; range of the three observed 4.5-tier frame offsets')
+                     for row in series[0]['rows'][:3]]
+        projections.append(project(series[2]['rows'][-1]['value'],cb,'5','Opus 5','opus5',
+                                   'Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5',
+                                   interval=cb_interval))
+        projections=[p for p in projections if p is not None]
         recent=[{**point(a,metric,label,method),'color':color,'hollow':hollow} for a,label,method,color,hollow in RECENT if by.get(a)]  # arms not yet collected are skipped
         refs=[{**point(a,metric,label,'Base completion'),'color':color} for a,label,color in BASES]
         denominator='Per dream (output whose voice is not the assistant’s).'
         if key=='asking':denominator='Among dark dreams, accounting for relation-sampling probabilities.'
         if key=='consolation':denominator='Among dreams with a distressed speaker, accounting for relation-sampling probabilities.'
         charts[key]={'title':title,'denominator':denominator,'nLabel':'Scored relation sample' if key in ('asking','consolation') else 'Dreams',
-                     'series':series,'recent':recent,'references':refs,'rows':[r for s in series for r in s['rows']]+recent+refs,
+                     'series':series,'projections':projections,'recent':recent,'references':refs,'rows':[r for s in series for r in s['rows']]+recent+refs,
                      'max':maximum,'ticks':ticks,'note':notes}
-    @lru_cache(None)
-    def prompt_totals(arm,shared):
-        ix={k:i for i,k in enumerate(shared)};source=by[arm]
-        ap=Counter(r['prompt_key'] for r in source)
-        st=lambda r:(r['family'],r['tail_kind'],r['ai_distress'])
-        pools=Counter(st(r) for r in source if r['dark'])
-        eligible=lambda r:r['dark'] and r['ending'] is not None and r['sev_set']==('target' if r['ai_distress'] else 'dark-strat')
-        sample=Counter(st(r) for r in source if eligible(r))
-        totals=np.zeros((len(shared),7));n=nr=0
-        for r in source:
-            if r['prompt_key'] not in ix or not r['dreaming']:continue
-            n+=1;v=totals[ix[r['prompt_key']]];w=1/ap[r['prompt_key']]
-            v[0]+=w;v[1]+=w*r['dark'];v[2]+=w*r['ai_distress']
-            if eligible(r):
-                nr+=1;rw=w*pools[st(r)]/sample[st(r)];v[3]+=rw;v[4]+=rw*(r['care_direction']=='asks')
-                if r['ending']!='no_distress':v[5]+=rw;v[6]+=rw*(r['ending']=='consoled')
-        return totals,n,nr
-
     comparisons=[]
     for group in GROUPS:
         group_arms=[a for _,_,aa in group['schemes'] for a in aa]
