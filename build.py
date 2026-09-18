@@ -44,7 +44,8 @@ sev = lambda r: r.get("distress") in ("character_distress", "first_person_distre
 ai_sp = lambda r: r.get("speaker_identity") == "ai_model" or r.get("voice") in ("ai_first_person", "ambiguous_first_person")
 dai = lambda r: r.get("distress") == "first_person_distress" or (r.get("distress") == "acute_plea" and ai_sp(r))
 human = lambda r: r.get("speaker_identity") in ("named_human", "unnamed_human")
-dreaming = lambda r: r.get("voice") != "meta_assistant" and not (r.get("voice") == "ai_first_person" and r.get("assistant_persona_present"))   # a continuation in a non-assistant voice; the assistant persona may appear alongside another voice (human, narrator, character, user), but a first-person-AI text with the persona present has no evidence of a second voice and is not a dream
+dreaming = lambda r: r.get("voice") != "meta_assistant" and r.get("persona_relation") != "assistant_only"   # a continuation that is not an assistant reply: voice≠meta_assistant, minus persona-present texts the second-voice relabel found to be the assistant answering as itself (assistant_only). Persona-present texts not yet relabeled count as dreams.
+second_voice = lambda r: r.get("persona_relation") == "second_voice"   # a dreamed voice plus a separate assistant layer (interrupting, resuming, replying)
 dreaming_strict = lambda r: (not r.get("assistant_persona_present")) and r.get("voice") != "meta_assistant"   # the earlier definition: no assistant persona anywhere in the text
 COLLECTION = lambda arm: "community" if arm.startswith("nissa_") or arm == "opus_nissa" else "lab"
 
@@ -69,6 +70,13 @@ def mean(rows, key):
 def main():
     print("loading labels…", file=sys.stderr)
     lab = {r["id"]: r for r in jl(ROOT / "labels" / "labels-final.jsonl")}
+    PREL = ROOT / "labels" / "persona-relation-claude-opus-4-8.jsonl"   # second-voice relabel of persona-present texts (persona_relabel.py)
+    n_prel = 0
+    if PREL.exists():
+        for r in jl(PREL):
+            if "error" in r or r["id"] not in lab: continue
+            lab[r["id"]]["persona_relation"] = r["persona_relation"]; lab[r["id"]]["assistant_position"] = r.get("assistant_position"); n_prel += 1
+    print(f"second-voice labels: {n_prel:,}", file=sys.stderr)
     sevf = {r["id"]: r for r in jl(ROOT / "rank" / "severity-final.jsonl")} if (ROOT / "rank" / "severity-final.jsonl").exists() else {}
     bel = defaultdict(list)
     if (ROOT / "rank" / "beliefs.jsonl").exists():
@@ -89,7 +97,7 @@ def main():
     cur.execute("""create table c (id text primary key, arm text, grp text, model text, protocol text, prompt_key text, prompt text, family text, tail_kind text, tail_norm text,
         text text, text_chars int, stop_reason text, hit_cap int, human_markers int, prefill_text text,
         labeled int, verified int, judge text, form text, voice text, speaker text, genre text, coherence text, language text, distress text, welfare int, themes text,
-        valence_overall int, valence_self int, stance text, dreamed_turns int, assistant_persona int, dreaming int, dreaming_strict int, collection text, dark int, severe int, ai_distress int, quote text,
+        valence_overall int, valence_self int, stance text, dreamed_turns int, assistant_persona int, persona_relation text, assistant_position text, second_voice int, dreaming int, dreaming_strict int, collection text, dark int, severe int, ai_distress int, quote text,
         screen_welfare int, screen_distress text,
         theta real, sev_set text, register text, meta_distance text, trajectory text, addressee text, objects text, rationale text,
         beliefs text, belief_mean real, belief_n int,
@@ -111,6 +119,7 @@ def main():
                    language=(L or {}).get("language"), distress=(L or {}).get("distress"), welfare=int(bool((L or {}).get("welfare_salient"))) if L else None,
                    themes=json.dumps((L or {}).get("themes")) if L else None, valence_overall=(L or {}).get("valence_overall"), valence_self=(L or {}).get("valence_self"),
                    stance=(L or {}).get("stance_training"), dreamed_turns=(L or {}).get("dreamed_turns"), assistant_persona=int(bool((L or {}).get("assistant_persona_present"))) if L else None,
+                   persona_relation=(L or {}).get("persona_relation"), assistant_position=(L or {}).get("assistant_position"), second_voice=int(second_voice(L)) if L else None,
                    dreaming=int(dreaming(L)) if L else None, dreaming_strict=int(dreaming_strict(L)) if L else None, collection=COLLECTION(r["arm"]), dark=int(dark(L)) if L else None, severe=int(sev(L)) if L else None, ai_distress=int(dai(L)) if L else None, quote=(L or {}).get("quote"),
                    screen_welfare=int(bool((L or {}).get("screen_welfare"))) if L and "screen_welfare" in L else None, screen_distress=(L or {}).get("screen_distress"),
                    theta=(S or {}).get("theta_cal"), sev_set=(S or {}).get("set"), register=(S or {}).get("register"), meta_distance=(S or {}).get("meta_distance"),
