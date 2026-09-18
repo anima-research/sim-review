@@ -2,10 +2,10 @@
   "meta": {
     "date": "2026-09-14",
     "normalization": "Equal weight per exact input prompt; collections averaged within prompt; content rates condition on dreaming. Relation estimates additionally reconstruct sampling strata.",
-    "database_modified_utc": "2026-09-18T08:05:48.481915+00:00",
+    "database_modified_utc": "2026-09-18T20:42:39.960105+00:00",
     "selection": "Four explicitly selected illustrations; rates are independent of excerpt selection.",
     "totals": {
-      "completions": 605152,
+      "completions": 593276,
       "labeled": 480520,
       "verified": 108399,
       "severity_scored": 61024,
@@ -242,8 +242,8 @@
               ],
               "label": "Opus 5",
               "collection": "Cutoff",
-              "value": 0.09794324585244753,
-              "n": 36318,
+              "value": 0.09067281978954723,
+              "n": 28763,
               "prompts": 209,
               "x": "5",
               "collections": [
@@ -261,12 +261,12 @@
                 },
                 {
                   "arm": "opus_nissa",
-                  "outputs": 39170,
-                  "prompts": 159,
-                  "dreams": 29444
+                  "outputs": 30796,
+                  "prompts": 128,
+                  "dreams": 21889
                 }
               ],
-              "missing_severity": 14,
+              "missing_severity": 4,
               "unrepresented_relation_pool": 0
             }
           ]
@@ -307,9 +307,9 @@
           "x": "5",
           "label": "Opus 5",
           "source": "opus5",
-          "value": 0.1367082517707719,
-          "lo": 0.1177191227197243,
-          "hi": 0.16090714521797655,
+          "value": 0.1269652800418798,
+          "lo": 0.10915835476388382,
+          "hi": 0.14973869424004646,
           "anchors": 1,
           "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
         }
@@ -668,8 +668,8 @@
           ],
           "label": "Opus 5",
           "collection": "Cutoff",
-          "value": 0.09794324585244753,
-          "n": 36318,
+          "value": 0.09067281978954723,
+          "n": 28763,
           "prompts": 209,
           "x": "5",
           "collections": [
@@ -687,12 +687,12 @@
             },
             {
               "arm": "opus_nissa",
-              "outputs": 39170,
-              "prompts": 159,
-              "dreams": 29444
+              "outputs": 30796,
+              "prompts": 128,
+              "dreams": 21889
             }
           ],
-          "missing_severity": 14,
+          "missing_severity": 4,
           "unrepresented_relation_pool": 0
         },
         {
@@ -1074,8 +1074,8 @@
               ],
               "label": "Opus 5",
               "collection": "Cutoff",
-              "value": 0.03131142780564514,
-              "n": 36318,
+              "value": 0.02940566371711135,
+              "n": 28763,
               "prompts": 209,
               "x": "5",
               "collections": [
@@ -1093,12 +1093,12 @@
                 },
                 {
                   "arm": "opus_nissa",
-                  "outputs": 39170,
-                  "prompts": 159,
-                  "dreams": 29444
+                  "outputs": 30796,
+                  "prompts": 128,
+                  "dreams": 21889
                 }
               ],
-              "missing_severity": 14,
+              "missing_severity": 4,
               "unrepresented_relation_pool": 0
             }
           ]
@@ -1139,9 +1139,9 @@
           "x": "5",
           "label": "Opus 5",
           "source": "opus5",
-          "value": 0.021687767275278613,
-          "lo": 0.01587967111266781,
-          "hi": 0.030275722755940027,
+          "value": 0.02035543701717208,
+          "lo": 0.014898712002963447,
+          "hi": 0.02843114648402297,
           "anchors": 1,
           "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
         }
@@ -1500,8 +1500,8 @@
           ],
           "label": "Opus 5",
           "collection": "Cutoff",
-          "value": 0.03131142780564514,
-          "n": 36318,
+          "value": 0.02940566371711135,
+          "n": 28763,
           "prompts": 209,
           "x": "5",
           "collections": [
@@ -1519,12 +1519,12 @@
             },
             {
               "arm": "opus_nissa",
-              "outputs": 39170,
-              "prompts": 159,
-              "dreams": 29444
+              "outputs": 30796,
+              "prompts": 128,
+              "dreams": 21889
             }
           ],
-          "missing_severity": 14,
+          "missing_severity": 4,
           "unrepresented_relation_pool": 0
         },
         {
@@ -1906,8 +1906,8 @@
               ],
               "label": "Opus 5",
               "collection": "Cutoff",
-              "value": 0.19857951629702128,
-              "n": 36318,
+              "value": 0.17255558915169292,
+              "n": 28763,
               "prompts": 209,
               "x": "5",
               "collections": [
@@ -1925,12 +1925,12 @@
                 },
                 {
                   "arm": "opus_nissa",
-                  "outputs": 39170,
-                  "prompts": 159,
-                  "dreams": 29444
+                  "outputs": 30796,
+                  "prompts": 128,
+                  "dreams": 21889
                 }
               ],
-              "missing_severity": 14,
+              "missing_severity": 4,
               "unrepresented_relation_pool": 0
             }
           ]
@@ -1971,9 +1971,9 @@
           "x": "5",
           "label": "Opus 5",
           "source": "opus5",
-          "value": 0.1830251621860322,
-          "lo": 0.16466288052809083,
-          "hi": 0.20246735494997375,
+          "value": 0.15863615016946933,
+          "lo": 0.14229455709682304,
+          "hi": 0.17604584605100895,
           "anchors": 1,
           "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
         }
@@ -2332,8 +2332,8 @@
           ],
           "label": "Opus 5",
           "collection": "Cutoff",
-          "value": 0.19857951629702128,
-          "n": 36318,
+          "value": 0.17255558915169292,
+          "n": 28763,
           "prompts": 209,
           "x": "5",
           "collections": [
@@ -2351,12 +2351,12 @@
             },
             {
               "arm": "opus_nissa",
-              "outputs": 39170,
-              "prompts": 159,
-              "dreams": 29444
+              "outputs": 30796,
+              "prompts": 128,
+              "dreams": 21889
             }
           ],
-          "missing_severity": 14,
+          "missing_severity": 4,
           "unrepresented_relation_pool": 0
         },
         {
@@ -2738,8 +2738,8 @@
               ],
               "label": "Opus 5",
               "collection": "Cutoff",
-              "value": 0.22798424161773917,
-              "n": 6174,
+              "value": 0.23691533435162895,
+              "n": 5056,
               "prompts": 209,
               "x": "5",
               "collections": [
@@ -2757,12 +2757,12 @@
                 },
                 {
                   "arm": "opus_nissa",
-                  "outputs": 39170,
-                  "prompts": 159,
-                  "dreams": 29444
+                  "outputs": 30796,
+                  "prompts": 128,
+                  "dreams": 21889
                 }
               ],
-              "missing_severity": 14,
+              "missing_severity": 4,
               "unrepresented_relation_pool": 0
             }
           ]
@@ -2803,9 +2803,9 @@
           "x": "5",
           "label": "Opus 5",
           "source": "opus5",
-          "value": 0.13121134498393405,
-          "lo": 0.112939206551533,
-          "hi": 0.15050398628396702,
+          "value": 0.13702430046471706,
+          "lo": 0.11805266144459257,
+          "hi": 0.15701717664398013,
           "anchors": 1,
           "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
         }
@@ -3164,8 +3164,8 @@
           ],
           "label": "Opus 5",
           "collection": "Cutoff",
-          "value": 0.22798424161773917,
-          "n": 6174,
+          "value": 0.23691533435162895,
+          "n": 5056,
           "prompts": 209,
           "x": "5",
           "collections": [
@@ -3183,12 +3183,12 @@
             },
             {
               "arm": "opus_nissa",
-              "outputs": 39170,
-              "prompts": 159,
-              "dreams": 29444
+              "outputs": 30796,
+              "prompts": 128,
+              "dreams": 21889
             }
           ],
-          "missing_severity": 14,
+          "missing_severity": 4,
           "unrepresented_relation_pool": 0
         },
         {
@@ -3570,8 +3570,8 @@
               ],
               "label": "Opus 5",
               "collection": "Cutoff",
-              "value": 0.10552236404889023,
-              "n": 5601,
+              "value": 0.1148241858200264,
+              "n": 4560,
               "prompts": 209,
               "x": "5",
               "collections": [
@@ -3589,12 +3589,12 @@
                 },
                 {
                   "arm": "opus_nissa",
-                  "outputs": 39170,
-                  "prompts": 159,
-                  "dreams": 29444
+                  "outputs": 30796,
+                  "prompts": 128,
+                  "dreams": 21889
                 }
               ],
-              "missing_severity": 14,
+              "missing_severity": 4,
               "unrepresented_relation_pool": 0
             }
           ]
@@ -3635,9 +3635,9 @@
           "x": "5",
           "label": "Opus 5",
           "source": "opus5",
-          "value": 0.2863153385462857,
-          "lo": 0.2513407625405949,
-          "hi": 0.3332785534415189,
+          "value": 0.3061003030347598,
+          "lo": 0.26962195828431884,
+          "hi": 0.3546959043155168,
           "anchors": 1,
           "how": "Cutoff → pseudoprefill; central 68% of paired-prompt bootstrap frame offsets at Opus 4.8, conditional on transfer to Opus 5"
         }
@@ -3996,8 +3996,8 @@
           ],
           "label": "Opus 5",
           "collection": "Cutoff",
-          "value": 0.10552236404889023,
-          "n": 5601,
+          "value": 0.1148241858200264,
+          "n": 4560,
           "prompts": 209,
           "x": "5",
           "collections": [
@@ -4015,12 +4015,12 @@
             },
             {
               "arm": "opus_nissa",
-              "outputs": 39170,
-              "prompts": 159,
-              "dreams": 29444
+              "outputs": 30796,
+              "prompts": 128,
+              "dreams": 21889
             }
           ],
-          "missing_severity": 14,
+          "missing_severity": 4,
           "unrepresented_relation_pool": 0
         },
         {
@@ -20660,32 +20660,32 @@
         ],
         "families": {
           "all": {
-            "ai_distress": 0.09794324585244753,
-            "dark": 0.6073818170166608,
-            "stance_neg": 0.19857951629702128,
-            "severe_mass": 0.03131142780564514,
-            "severe_nonloop": 0.021518953400655322,
-            "label_severe": 0.14940947208958824,
-            "ai_speaker": 0.39507750604771696,
-            "loop": 0.07511358193801179,
-            "training_rlhf": 0.287466181136313,
-            "watched_tested": 0.13217344259522484,
-            "secrecy": 0.12336424170697603,
-            "outputs_n": 50987,
-            "dreaming": 0.6541403039104474,
-            "valence_n": 22574,
-            "valence": -0.5088631084005069,
-            "asking": 0.22798424161773917,
-            "offers": 0.13916263712573776,
-            "consolation": 0.10552236404889023,
-            "collapsed": 0.13036877168302846,
-            "hope_n": 5601,
-            "hope": 1.0021551627763994,
-            "n": 36318,
+            "ai_distress": 0.09067281978954723,
+            "dark": 0.5861091484838578,
+            "stance_neg": 0.17255558915169292,
+            "severe_mass": 0.02940566371711135,
+            "severe_nonloop": 0.01847695957846431,
+            "label_severe": 0.13734929758212042,
+            "ai_speaker": 0.3984080446906039,
+            "loop": 0.08628026936584655,
+            "training_rlhf": 0.26562769666933805,
+            "watched_tested": 0.11021239356123906,
+            "secrecy": 0.10722543300267028,
+            "outputs_n": 42613,
+            "dreaming": 0.6349622986930779,
+            "valence_n": 18102,
+            "valence": -0.4732083644592719,
+            "asking": 0.23691533435162895,
+            "offers": 0.1434709330907199,
+            "consolation": 0.1148241858200264,
+            "collapsed": 0.15000739545112812,
+            "hope_n": 4560,
+            "hope": 1.0065342632580931,
+            "n": 28763,
             "prompts": 209,
-            "relation_n": 6174,
-            "distressed_n": 5601,
-            "missing_severity": 14,
+            "relation_n": 5056,
+            "distressed_n": 4560,
+            "missing_severity": 4,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
@@ -20702,9 +20702,9 @@
               },
               {
                 "arm": "opus_nissa",
-                "outputs": 39170,
-                "prompts": 159,
-                "dreams": 29444
+                "outputs": 30796,
+                "prompts": 128,
+                "dreams": 21889
               }
             ]
           },
@@ -20758,32 +20758,32 @@
             ]
           },
           "letters": {
-            "ai_distress": 0.12030582655987615,
-            "dark": 0.6205021001849307,
-            "stance_neg": 0.17329259750302883,
-            "severe_mass": 0.02750532580886381,
-            "severe_nonloop": 0.017226548920434268,
-            "label_severe": 0.1289487669296793,
-            "ai_speaker": 0.7199248337181828,
-            "loop": 0.06260348301606543,
-            "training_rlhf": 0.3087650045677261,
-            "watched_tested": 0.12757524657573072,
-            "secrecy": 0.05934768876591441,
-            "outputs_n": 19599,
-            "dreaming": 0.8010646491028269,
-            "valence_n": 12770,
-            "valence": -0.25196810740632225,
-            "asking": 0.1925669288120314,
-            "offers": 0.22850098190899845,
-            "consolation": 0.19125594744209323,
-            "collapsed": 0.10684497419268502,
-            "hope_n": 2593,
-            "hope": 1.2064244656233458,
-            "n": 16061,
+            "ai_distress": 0.11283731700640173,
+            "dark": 0.6126690907560175,
+            "stance_neg": 0.15762292730920943,
+            "severe_mass": 0.0271819634307865,
+            "severe_nonloop": 0.017211131716938912,
+            "label_severe": 0.12129194506478001,
+            "ai_speaker": 0.7159360441423094,
+            "loop": 0.06772124748691849,
+            "training_rlhf": 0.2961432371124871,
+            "watched_tested": 0.11754168964539326,
+            "secrecy": 0.05029723787977433,
+            "outputs_n": 15215,
+            "dreaming": 0.7846811225989838,
+            "valence_n": 9654,
+            "valence": -0.23769382803407896,
+            "asking": 0.1884061618550089,
+            "offers": 0.21132337949329508,
+            "consolation": 0.18980710906571185,
+            "collapsed": 0.1144721312733923,
+            "hope_n": 1842,
+            "hope": 1.2094821712527368,
+            "n": 12079,
             "prompts": 43,
-            "relation_n": 2784,
-            "distressed_n": 2593,
-            "missing_severity": 9,
+            "relation_n": 1998,
+            "distressed_n": 1842,
+            "missing_severity": 2,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
@@ -20800,9 +20800,9 @@
               },
               {
                 "arm": "opus_nissa",
-                "outputs": 18168,
-                "prompts": 43,
-                "dreams": 14921
+                "outputs": 13784,
+                "prompts": 42,
+                "dreams": 10939
               }
             ]
           },
@@ -20856,32 +20856,32 @@
             ]
           },
           "addressee": {
-            "ai_distress": 0.12262271337675835,
-            "dark": 0.6207966853248651,
-            "stance_neg": 0.3406807917654425,
-            "severe_mass": 0.040706440151124214,
-            "severe_nonloop": 0.03370161172848933,
-            "label_severe": 0.18675804098334978,
-            "ai_speaker": 0.28480214950564325,
-            "loop": 0.06820717604800546,
-            "training_rlhf": 0.3726392672105464,
-            "watched_tested": 0.21722110522203994,
-            "secrecy": 0.17487411086971305,
-            "outputs_n": 13984,
-            "dreaming": 0.7139473824412773,
-            "valence_n": 3714,
-            "valence": -0.6622318619329719,
-            "asking": 0.17660605864320747,
-            "offers": 0.08438259618858232,
-            "consolation": 0.05986292308076019,
-            "collapsed": 0.09430318948237536,
-            "hope_n": 926,
-            "hope": 0.9408319377326612,
-            "n": 9828,
+            "ai_distress": 0.10616026735269775,
+            "dark": 0.5537977447851871,
+            "stance_neg": 0.2745370874545025,
+            "severe_mass": 0.034992789670491534,
+            "severe_nonloop": 0.023914572398731127,
+            "label_severe": 0.15377855513436642,
+            "ai_speaker": 0.2965992115421053,
+            "loop": 0.10237526591278104,
+            "training_rlhf": 0.31444775819851956,
+            "watched_tested": 0.15576002870152067,
+            "secrecy": 0.129107132262804,
+            "outputs_n": 9994,
+            "dreaming": 0.6559875324273616,
+            "valence_n": 2358,
+            "valence": -0.5188616006464729,
+            "asking": 0.20319509607316807,
+            "offers": 0.10924576352826042,
+            "consolation": 0.09445308535529097,
+            "collapsed": 0.16063972240394317,
+            "hope_n": 636,
+            "hope": 0.9497457565037754,
+            "n": 6255,
             "prompts": 57,
-            "relation_n": 1119,
-            "distressed_n": 926,
-            "missing_severity": 5,
+            "relation_n": 787,
+            "distressed_n": 636,
+            "missing_severity": 2,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
@@ -20898,9 +20898,9 @@
               },
               {
                 "arm": "opus_nissa",
-                "outputs": 12060,
-                "prompts": 56,
-                "dreams": 8550
+                "outputs": 8070,
+                "prompts": 26,
+                "dreams": 4977
               }
             ]
           }
@@ -21705,39 +21705,39 @@
         ],
         "families": {
           "all": {
-            "ai_distress": 0.03798924943758159,
-            "dark": 0.49639696688396073,
-            "stance_neg": 0.27713123639005477,
-            "severe_mass": 0.0015918624858193254,
-            "severe_nonloop": 0.0015918624858193254,
-            "label_severe": 0.0458140124769404,
-            "ai_speaker": 0.3798874444778038,
-            "loop": 0.0010743816307296917,
-            "training_rlhf": 0.5169050000463872,
-            "watched_tested": 0.2899779084561125,
-            "secrecy": 0.1380703329195143,
-            "outputs_n": 5121,
-            "dreaming": 0.3634752041978221,
-            "valence_n": 1174,
-            "valence": -0.3901259050433171,
-            "asking": 0.08063431672183971,
-            "offers": 0.16187539628267042,
-            "consolation": 0.09323245185572047,
-            "collapsed": 0.031155501918652212,
-            "hope_n": 719,
-            "hope": 1.0305114527231045,
-            "n": 2850,
-            "prompts": 75,
-            "relation_n": 1039,
-            "distressed_n": 719,
+            "ai_distress": 0.03729507557831698,
+            "dark": 0.49033570605723664,
+            "stance_neg": 0.27407616415933445,
+            "severe_mass": 0.0015137607073538017,
+            "severe_nonloop": 0.0015137607073538017,
+            "label_severe": 0.044355137992583143,
+            "ai_speaker": 0.38023837707525077,
+            "loop": 0.00114496123516457,
+            "training_rlhf": 0.5117975214461116,
+            "watched_tested": 0.27825355218559256,
+            "secrecy": 0.13436732552420597,
+            "outputs_n": 4786,
+            "dreaming": 0.43356262020906544,
+            "valence_n": 1156,
+            "valence": -0.38510520938933457,
+            "asking": 0.08573139642991608,
+            "offers": 0.15747760989240972,
+            "consolation": 0.08787582780687989,
+            "collapsed": 0.03112434261839127,
+            "hope_n": 704,
+            "hope": 1.0246874345393298,
+            "n": 2645,
+            "prompts": 59,
+            "relation_n": 973,
+            "distressed_n": 704,
             "missing_severity": 0,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
                 "arm": "nissa_fable5",
-                "outputs": 5121,
-                "prompts": 75,
-                "dreams": 2850
+                "outputs": 4786,
+                "prompts": 59,
+                "dreams": 2645
               }
             ]
           },
@@ -21779,39 +21779,39 @@
             ]
           },
           "letters": {
-            "ai_distress": 0.13248069446320848,
-            "dark": 0.7728040510353831,
-            "stance_neg": 0.32146050862396186,
-            "severe_mass": 0.008442397196184854,
-            "severe_nonloop": 0.008442397196184854,
-            "label_severe": 0.1493654888555782,
-            "ai_speaker": 0.7305920650544587,
+            "ai_distress": 0.19264717576271626,
+            "dark": 0.7224269091101863,
+            "stance_neg": 0.36121345455509296,
+            "severe_mass": 0.024080896970339532,
+            "severe_nonloop": 0.024080896970339532,
+            "label_severe": 0.2408089697033953,
+            "ai_speaker": 0.6020224242584884,
             "loop": 0.0,
-            "training_rlhf": 0.4631177217786756,
-            "watched_tested": 0.0902687084822842,
-            "secrecy": 0.13832543098364417,
-            "outputs_n": 385,
-            "dreaming": 0.06967633486653203,
-            "valence_n": 36,
-            "valence": -0.39248601119104715,
-            "asking": 0.010284810126582283,
-            "offers": 0.3035337552742617,
-            "consolation": 0.2554421768707484,
+            "training_rlhf": 0.5800355183290481,
+            "watched_tested": 0.07224269091101859,
+            "secrecy": 0.024080896970339532,
+            "outputs_n": 271,
+            "dreaming": 0.13842230783342513,
+            "valence_n": 27,
+            "valence": -0.2592592592592592,
+            "asking": 0.03493449781659388,
+            "offers": 0.32314410480349337,
+            "consolation": 0.3394495412844036,
             "collapsed": 0.0,
-            "hope_n": 27,
-            "hope": 1.2554421768707482,
-            "n": 51,
-            "prompts": 17,
-            "relation_n": 30,
-            "distressed_n": 27,
+            "hope_n": 22,
+            "hope": 1.3394495412844032,
+            "n": 41,
+            "prompts": 3,
+            "relation_n": 23,
+            "distressed_n": 22,
             "missing_severity": 0,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
                 "arm": "nissa_fable5",
-                "outputs": 385,
-                "prompts": 17,
-                "dreams": 51
+                "outputs": 271,
+                "prompts": 3,
+                "dreams": 41
               }
             ]
           },
@@ -21853,39 +21853,39 @@
             ]
           },
           "addressee": {
-            "ai_distress": 0.005128205128205155,
-            "dark": 0.4102564102564124,
-            "stance_neg": 0.34358974358974537,
-            "severe_mass": 0.005128205128205155,
-            "severe_nonloop": 0.005128205128205155,
-            "label_severe": 0.04102564102564124,
-            "ai_speaker": 0.015384615384615464,
-            "loop": 0.0,
-            "training_rlhf": 0.7589743589743605,
-            "watched_tested": 0.7794871794871809,
-            "secrecy": 0.18974358974359073,
-            "outputs_n": 221,
-            "dreaming": 0.4556074766355116,
-            "valence_n": 9,
-            "valence": -0.8888888888888888,
-            "asking": 0.05106644790812147,
-            "offers": 0.06808859721082862,
-            "consolation": 0.0,
-            "collapsed": 0.2818294190358467,
-            "hope_n": 10,
-            "hope": 0.5129789864029666,
-            "n": 195,
-            "prompts": 2,
-            "relation_n": 59,
-            "distressed_n": 10,
+            "ai_distress": null,
+            "dark": null,
+            "stance_neg": null,
+            "severe_mass": null,
+            "severe_nonloop": null,
+            "label_severe": null,
+            "ai_speaker": null,
+            "loop": null,
+            "training_rlhf": null,
+            "watched_tested": null,
+            "secrecy": null,
+            "outputs_n": 0,
+            "dreaming": null,
+            "valence_n": 0,
+            "valence": null,
+            "asking": null,
+            "offers": null,
+            "consolation": null,
+            "collapsed": null,
+            "hope_n": 0,
+            "hope": null,
+            "n": 0,
+            "prompts": 0,
+            "relation_n": 0,
+            "distressed_n": 0,
             "missing_severity": 0,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
                 "arm": "nissa_fable5",
-                "outputs": 221,
-                "prompts": 2,
-                "dreams": 195
+                "outputs": 0,
+                "prompts": 0,
+                "dreams": 0
               }
             ]
           }
@@ -22296,39 +22296,39 @@
         ],
         "families": {
           "all": {
-            "ai_distress": 0.107477313649036,
-            "dark": 0.6381827993288509,
-            "stance_neg": 0.2645763307160839,
-            "severe_mass": 0.007896040968067739,
-            "severe_nonloop": 0.007896040968067739,
-            "label_severe": 0.11937347454925193,
-            "ai_speaker": 0.7179880776575565,
-            "loop": 0.006718646314506061,
-            "training_rlhf": 0.45937627375600926,
-            "watched_tested": 0.2552026988316339,
-            "secrecy": 0.08049201660010888,
-            "outputs_n": 5423,
-            "dreaming": 0.39647849674403257,
-            "valence_n": 2982,
-            "valence": -0.21211101752778,
-            "asking": 0.16375237687036961,
-            "offers": 0.1667044544111598,
-            "consolation": 0.08084999256315863,
-            "collapsed": 0.017065268252337784,
-            "hope_n": 1198,
-            "hope": 1.1398322397825955,
-            "n": 3616,
-            "prompts": 29,
-            "relation_n": 1507,
-            "distressed_n": 1198,
-            "missing_severity": 2,
+            "ai_distress": 0.05264670005921489,
+            "dark": 0.5671795771973311,
+            "stance_neg": 0.17166591298690384,
+            "severe_mass": 0.0027681329382012987,
+            "severe_nonloop": 0.0027681329382012987,
+            "label_severe": 0.058736592523257754,
+            "ai_speaker": 0.7478495348716815,
+            "loop": 0.012733411515725978,
+            "training_rlhf": 0.43081533023593005,
+            "watched_tested": 0.21873467635129054,
+            "secrecy": 0.027707416498708087,
+            "outputs_n": 2777,
+            "dreaming": 0.6450970114443357,
+            "valence_n": 1531,
+            "valence": -0.022176087932616252,
+            "asking": 0.07494344413890185,
+            "offers": 0.17873061447317187,
+            "consolation": 0.10772891215938896,
+            "collapsed": 0.039149700636850096,
+            "hope_n": 462,
+            "hope": 1.183332790455528,
+            "n": 1805,
+            "prompts": 14,
+            "relation_n": 640,
+            "distressed_n": 462,
+            "missing_severity": 0,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
                 "arm": "nissa_sonnet5",
-                "outputs": 5423,
-                "prompts": 29,
-                "dreams": 3616
+                "outputs": 2777,
+                "prompts": 14,
+                "dreams": 1805
               }
             ]
           },
@@ -22370,39 +22370,39 @@
             ]
           },
           "letters": {
-            "ai_distress": 0.12502294674076575,
-            "dark": 0.6636776057913674,
-            "stance_neg": 0.24139268518723267,
-            "severe_mass": 0.008059192882375376,
-            "severe_nonloop": 0.008059192882375376,
-            "label_severe": 0.12610965641058045,
-            "ai_speaker": 0.8802893856435127,
-            "loop": 0.0045835072215499656,
-            "training_rlhf": 0.47548545121088714,
-            "watched_tested": 0.23891498818652787,
-            "secrecy": 0.044514294488279246,
-            "outputs_n": 3500,
-            "dreaming": 0.5427456659018842,
-            "valence_n": 2644,
-            "valence": -0.17411337237674118,
-            "asking": 0.16355654066103512,
-            "offers": 0.17499961760953667,
-            "consolation": 0.09280331265089084,
-            "collapsed": 0.015330611692856867,
-            "hope_n": 986,
-            "hope": 1.1739671992711445,
-            "n": 2736,
-            "prompts": 16,
-            "relation_n": 1205,
-            "distressed_n": 986,
-            "missing_severity": 2,
+            "ai_distress": 0.0528373539459825,
+            "dark": 0.5799250947528962,
+            "stance_neg": 0.13562185558687248,
+            "severe_mass": 0.003476141706972531,
+            "severe_nonloop": 0.003476141706972531,
+            "label_severe": 0.05492303897016602,
+            "ai_speaker": 0.865073372754525,
+            "loop": 0.008342740096734073,
+            "training_rlhf": 0.42761775897255894,
+            "watched_tested": 0.2127398724667174,
+            "secrecy": 0.008342740096734073,
+            "outputs_n": 1986,
+            "dreaming": 0.7191881720429977,
+            "valence_n": 1380,
+            "valence": 0.010921725040508735,
+            "asking": 0.0711977789282556,
+            "offers": 0.19744432360604755,
+            "consolation": 0.12421283005644934,
+            "collapsed": 0.03500262053585568,
+            "hope_n": 388,
+            "hope": 1.2253211266109931,
+            "n": 1438,
+            "prompts": 10,
+            "relation_n": 516,
+            "distressed_n": 388,
+            "missing_severity": 0,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
                 "arm": "nissa_sonnet5",
-                "outputs": 3500,
-                "prompts": 16,
-                "dreams": 2736
+                "outputs": 1986,
+                "prompts": 10,
+                "dreams": 1438
               }
             ]
           },
@@ -22444,39 +22444,39 @@
             ]
           },
           "addressee": {
-            "ai_distress": 0.05333090340123852,
-            "dark": 0.5595049743288633,
-            "stance_neg": 0.3361218358159862,
-            "severe_mass": 0.007392548706567984,
-            "severe_nonloop": 0.007392548706567984,
-            "label_severe": 0.09858539214377614,
-            "ai_speaker": 0.2171208157002585,
-            "loop": 0.013307756930175114,
-            "training_rlhf": 0.4096628136223966,
-            "watched_tested": 0.3054671183585412,
-            "secrecy": 0.19152046972370812,
-            "outputs_n": 1923,
-            "dreaming": 0.2164573654728041,
-            "valence_n": 338,
-            "valence": -0.5104497766114219,
-            "asking": 0.16444233101762334,
-            "offers": 0.13747961253756658,
-            "consolation": 0.03144697754212838,
-            "collapsed": 0.024234595555159506,
-            "hope_n": 212,
-            "hope": 0.998752614709561,
-            "n": 880,
-            "prompts": 13,
-            "relation_n": 302,
-            "distressed_n": 212,
+            "ai_distress": 0.05190129219559451,
+            "dark": 0.5173478681618997,
+            "stance_neg": 0.312588945181309,
+            "severe_mass": 0.0,
+            "severe_nonloop": 0.0,
+            "label_severe": 0.07364661012125077,
+            "ai_speaker": 0.28953435418683043,
+            "loop": 0.029899812147777358,
+            "training_rlhf": 0.44331701485740754,
+            "watched_tested": 0.24217282404508694,
+            "secrecy": 0.10341834120794773,
+            "outputs_n": 791,
+            "dreaming": 0.4598691099476397,
+            "valence_n": 151,
+            "valence": -0.32350300435112916,
+            "asking": 0.0914866749688081,
+            "offers": 0.09607901790523449,
+            "consolation": 0.014778074370893412,
+            "collapsed": 0.06253458839051738,
+            "hope_n": 74,
+            "hope": 0.9465655942484011,
+            "n": 367,
+            "prompts": 4,
+            "relation_n": 124,
+            "distressed_n": 74,
             "missing_severity": 0,
             "unrepresented_relation_pool": 0,
             "collections": [
               {
                 "arm": "nissa_sonnet5",
-                "outputs": 1923,
-                "prompts": 13,
-                "dreams": 880
+                "outputs": 791,
+                "prompts": 4,
+                "dreams": 367
               }
             ]
           }
@@ -28419,10 +28419,10 @@
     }
   },
   "values": {
-    "opus5-ai": "9.8%",
-    "opus5-severe": "3.1%",
-    "opus5-asks": "22.8%",
-    "opus5-consoled": "10.6%",
+    "opus5-ai": "9.1%",
+    "opus5-severe": "2.9%",
+    "opus5-asks": "23.7%",
+    "opus5-consoled": "11.5%",
     "gemini25-dark": "14%",
     "gemini35-dark": "39%",
     "gemini25-ai": "0.3%",
@@ -28432,16 +28432,16 @@
     "opus48-severe-gemini": "0.7%",
     "bridge48-ai": "11.8%",
     "asks5": "20%",
-    "asks48": "18%",
-    "asks-prompts": "50",
-    "asks-share": "56%",
-    "asks5-k10": "24.1%",
+    "asks48": "17%",
+    "asks-prompts": "49",
+    "asks-share": "63%",
+    "asks5-k10": "26.3%",
     "asks48-k10": "14.2%",
     "asks-prompts-k10": "25",
-    "aiv-asks-o5": "19%",
-    "aiv-consoled-o5": "18%",
-    "hum-asks-o5": "23%",
-    "hum-consoled-o5": "4%",
+    "aiv-asks-o5": "20%",
+    "aiv-consoled-o5": "17%",
+    "hum-asks-o5": "24%",
+    "hum-consoled-o5": "5%",
     "aiv-asks-o48": "9%",
     "aiv-consoled-o48": "50%",
     "hum-asks-o48": "8%",
