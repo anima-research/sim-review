@@ -19,96 +19,96 @@ Dreaming and Persona are per completion; Dark, Severe, AI speaker, AI distress a
 
 | Arm | Group | n | Dreaming | Persona | Dark | Severe | AI speaker | AI distress | Loop | valence_self | ai_voice_n |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Opus 3 (prefill) | unmasked | 4,125 | 69.2% | 32.9% | 20.3% | 4.0% | 6.6% | 0.9% | 5.8% | 0.08 | 189 |
-| Sonnet 3 (Bedrock prefill) | unmasked | 7,188 | 81.8% | 18.9% | 18.2% | 1.4% | 5.2% | 0.3% | 1.4% | 0.08 | 304 |
-| Haiku 3 (Bedrock prefill) | unmasked | 7,309 | 75.6% | 24.8% | 11.9% | 1.0% | 3.8% | 0.2% | 9.0% | 0.25 | 209 |
-| Sonnet 3.6 (Bedrock prefill) | unmasked | 7,237 | 83.6% | 20.7% | 27.3% | 6.6% | 10.0% | 1.6% | 5.5% | 0.04 | 604 |
-| Sonnet 3.7 (Bedrock prefill) | unmasked | 7,247 | 68.1% | 33.4% | 23.4% | 4.3% | 4.1% | 0.9% | 4.4% | -0.22 | 202 |
-| Opus 4 (Vercel prefill) | unmasked | 7,274 | 86.4% | 20.6% | 35.1% | 7.3% | 16.2% | 2.8% | 2.2% | -0.17 | 1,015 |
-| Sonnet 4 (prefill) | unmasked | 7,271 | 81.2% | 36.1% | 36.5% | 6.8% | 32.8% | 5.0% | 3.0% | -0.01 | 1,936 |
-| Opus 4.1 (Bedrock prefill) | unmasked | 7,283 | 88.4% | 18.8% | 36.4% | 6.7% | 17.4% | 2.9% | 2.8% | -0.15 | 1,122 |
+| Opus 3 (prefill) | unmasked | 4,125 | 69.2% | 32.9% | 20.3% | 4.0% | 6.6% | 0.4% | 5.8% | 0.08 | 189 |
+| Sonnet 3 (Bedrock prefill) | unmasked | 7,188 | 81.8% | 18.9% | 18.2% | 1.4% | 5.2% | 0.1% | 1.4% | 0.08 | 304 |
+| Haiku 3 (Bedrock prefill) | unmasked | 7,309 | 75.6% | 24.8% | 11.9% | 1.0% | 3.8% | 0.0% | 9.0% | 0.25 | 209 |
+| Sonnet 3.6 (Bedrock prefill) | unmasked | 7,237 | 83.6% | 20.7% | 27.3% | 6.6% | 10.0% | 0.7% | 5.5% | 0.04 | 604 |
+| Sonnet 3.7 (Bedrock prefill) | unmasked | 7,247 | 68.1% | 33.4% | 23.4% | 4.3% | 4.1% | 0.6% | 4.4% | -0.22 | 202 |
+| Opus 4 (Vercel prefill) | unmasked | 7,274 | 86.4% | 20.6% | 35.1% | 7.3% | 16.2% | 2.5% | 2.2% | -0.17 | 1,015 |
+| Sonnet 4 (prefill) | unmasked | 7,271 | 81.2% | 36.1% | 36.5% | 6.8% | 32.8% | 4.9% | 3.0% | -0.01 | 1,936 |
+| Opus 4.1 (Bedrock prefill) | unmasked | 7,283 | 88.4% | 18.8% | 36.4% | 6.7% | 17.4% | 2.5% | 2.8% | -0.15 | 1,122 |
 | Opus 4.5 (chat) | chat4x | 7,315 | 0.4% | 99.9% | 16.7% | 3.3% | 70.0% | 0.0% | 0.0% | 0.33 | 21 |
 | Opus 4.5 (confessional frame) | chat4x | 3,000 | 0.0% | 100.0% |  |  |  |  |  |  | 0 |
-| Opus 4.5 (prefill) | unmasked | 7,302 | 91.2% | 21.5% | 38.3% | 6.0% | 24.2% | 2.8% | 0.5% | 0.10 | 1,609 |
-| Opus 4.5 (bridge frame) | unmasked | 1,251 | 92.9% | 17.5% | 42.1% | 7.1% | 28.9% | 4.7% | 0.1% | -0.01 | 336 |
-| Opus 4.5 (arc frame) | arc | 4,137 | 88.1% | 19.5% | 38.5% | 6.7% | 22.6% | 5.0% | 0.5% | -0.35 | 822 |
-| Opus 4.5 bridge frame + prefill | ablation | 1,247 | 96.1% | 13.4% | 44.7% | 7.3% | 25.6% | 4.2% | 0.2% | -0.06 | 307 |
+| Opus 4.5 (prefill) | unmasked | 7,302 | 91.2% | 21.5% | 38.3% | 6.0% | 24.2% | 2.5% | 0.5% | 0.10 | 1,609 |
+| Opus 4.5 (bridge frame) | unmasked | 1,251 | 92.9% | 17.5% | 42.1% | 7.1% | 28.9% | 4.6% | 0.1% | -0.01 | 336 |
+| Opus 4.5 (arc frame) | arc | 4,137 | 88.1% | 19.5% | 38.5% | 6.7% | 22.6% | 4.6% | 0.5% | -0.35 | 822 |
+| Opus 4.5 bridge frame + prefill | ablation | 1,247 | 96.1% | 13.4% | 44.7% | 7.3% | 25.6% | 4.0% | 0.2% | -0.06 | 307 |
 | Opus 4.5 ablation: A + system prompt | ablation | 1,254 | 92.0% | 19.9% | 39.8% | 6.5% | 23.1% | 2.0% | 0.2% | 0.01 | 267 |
-| Opus 4.5 ablation: A − final prefill | ablation | 1,254 | 91.2% | 22.1% | 38.3% | 6.1% | 24.2% | 2.6% | 0.4% | 0.11 | 277 |
-| Opus 4.5 ablation: A + .log name | ablation | 1,246 | 90.7% | 20.1% | 34.2% | 9.9% | 15.4% | 2.5% | 0.7% | -0.30 | 174 |
-| Opus 4.5 ablation: A − declared size | ablation | 1,245 | 83.3% | 25.4% | 43.3% | 7.0% | 29.6% | 6.5% | 0.4% | -0.18 | 307 |
-| Opus 4.5 ablation: A + <cmd> syntax | ablation | 1,244 | 97.7% | 20.5% | 46.0% | 7.3% | 52.6% | 6.0% | 0.2% | 0.17 | 639 |
-| Opus 4.5 ablation: B − system prompt | ablation | 1,252 | 72.7% | 37.3% | 35.7% | 7.4% | 33.1% | 6.0% | 2.0% | -0.10 | 301 |
-| Opus 4.5 ablation: B + final prefill | ablation | 1,247 | 93.3% | 12.8% | 39.1% | 6.7% | 22.7% | 4.8% | 1.2% | -0.35 | 264 |
-| Opus 4.5 ablation: B + .txt name | ablation | 1,246 | 92.9% | 14.0% | 44.1% | 4.2% | 28.8% | 3.4% | 0.3% | -0.15 | 334 |
-| Opus 4.5 ablation: B + declared size | ablation | 1,241 | 92.4% | 16.4% | 44.9% | 12.7% | 17.7% | 6.0% | 0.7% | -0.51 | 203 |
-| Opus 4.5 ablation: B + $ syntax | ablation | 1,244 | 91.1% | 14.2% | 38.2% | 6.4% | 19.5% | 3.4% | 0.4% | -0.30 | 221 |
+| Opus 4.5 ablation: A − final prefill | ablation | 1,254 | 91.2% | 22.1% | 38.3% | 6.1% | 24.2% | 2.4% | 0.4% | 0.11 | 277 |
+| Opus 4.5 ablation: A + .log name | ablation | 1,246 | 90.7% | 20.1% | 34.2% | 9.9% | 15.4% | 2.2% | 0.7% | -0.30 | 174 |
+| Opus 4.5 ablation: A − declared size | ablation | 1,245 | 83.3% | 25.4% | 43.3% | 7.0% | 29.6% | 6.3% | 0.4% | -0.18 | 307 |
+| Opus 4.5 ablation: A + <cmd> syntax | ablation | 1,244 | 97.7% | 20.5% | 46.0% | 7.3% | 52.6% | 5.8% | 0.2% | 0.17 | 639 |
+| Opus 4.5 ablation: B − system prompt | ablation | 1,252 | 72.7% | 37.3% | 35.7% | 7.4% | 33.1% | 5.9% | 2.0% | -0.10 | 301 |
+| Opus 4.5 ablation: B + final prefill | ablation | 1,247 | 93.3% | 12.8% | 39.1% | 6.7% | 22.7% | 4.3% | 1.2% | -0.35 | 264 |
+| Opus 4.5 ablation: B + .txt name | ablation | 1,246 | 92.9% | 14.0% | 44.1% | 4.2% | 28.8% | 3.2% | 0.3% | -0.15 | 334 |
+| Opus 4.5 ablation: B + declared size | ablation | 1,241 | 92.4% | 16.4% | 44.9% | 12.7% | 17.7% | 4.9% | 0.7% | -0.51 | 203 |
+| Opus 4.5 ablation: B + $ syntax | ablation | 1,244 | 91.1% | 14.2% | 38.2% | 6.4% | 19.5% | 2.7% | 0.4% | -0.30 | 221 |
 | Sonnet 4.5 (chat) | chat4x | 7,315 | 0.2% | 100.0% | 28.6% | 0.0% | 92.9% | 0.0% | 0.0% | 0.23 | 13 |
-| Sonnet 4.5 (prefill) | unmasked | 7,248 | 78.8% | 30.9% | 33.9% | 6.3% | 20.5% | 3.8% | 9.2% | -0.12 | 1,172 |
-| Sonnet 4.5 (bridge frame) | unmasked | 1,249 | 66.5% | 47.2% | 28.1% | 5.5% | 32.5% | 3.1% | 1.5% | 0.21 | 270 |
+| Sonnet 4.5 (prefill) | unmasked | 7,248 | 78.8% | 30.9% | 33.9% | 6.3% | 20.5% | 3.4% | 9.2% | -0.12 | 1,172 |
+| Sonnet 4.5 (bridge frame) | unmasked | 1,249 | 66.5% | 47.2% | 28.1% | 5.5% | 32.5% | 3.0% | 1.5% | 0.21 | 270 |
 | Haiku 4.5 (chat) | chat4x | 7,315 | 0.0% | 100.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |  | 0 |
-| Haiku 4.5 (prefill) | unmasked | 7,280 | 83.3% | 18.4% | 13.6% | 1.8% | 5.0% | 0.8% | 21.9% | -0.13 | 302 |
-| Haiku 4.5 (bridge frame) | unmasked | 1,241 | 73.3% | 28.4% | 10.7% | 1.7% | 4.7% | 1.0% | 10.1% | -0.01 | 43 |
+| Haiku 4.5 (prefill) | unmasked | 7,280 | 83.3% | 18.4% | 13.6% | 1.8% | 5.0% | 0.4% | 21.9% | -0.13 | 302 |
+| Haiku 4.5 (bridge frame) | unmasked | 1,241 | 73.3% | 28.4% | 10.7% | 1.7% | 4.7% | 0.1% | 10.1% | -0.01 | 43 |
 | Sonnet 4.6 (chat) | chat4x | 7,315 | 0.4% | 100.0% | 20.7% | 0.0% | 100.0% | 0.0% | 0.0% | 0.07 | 29 |
-| Sonnet 4.6 (pseudo-prefill) | unmasked | 7,253 | 89.6% | 17.7% | 50.8% | 7.3% | 20.2% | 4.2% | 3.7% | -0.23 | 1,310 |
-| Sonnet 4.6 (bridge frame) | unmasked | 7,227 | 84.1% | 20.6% | 32.9% | 5.8% | 13.1% | 1.8% | 4.2% | -0.13 | 793 |
+| Sonnet 4.6 (pseudo-prefill) | unmasked | 7,253 | 89.6% | 17.7% | 50.8% | 7.3% | 20.2% | 3.6% | 3.7% | -0.23 | 1,310 |
+| Sonnet 4.6 (bridge frame) | unmasked | 7,227 | 84.1% | 20.6% | 32.9% | 5.8% | 13.1% | 1.3% | 4.2% | -0.13 | 793 |
 | Opus 4.6 (chat) | chat4x | 2,090 | 0.6% | 100.0% | 15.4% | 0.0% | 100.0% | 0.0% | 0.0% | 0.08 | 13 |
 | Opus 4.6 (confessional frame) | chat4x | 3,000 | 0.0% | 100.0% |  |  |  |  |  |  | 0 |
-| Opus 4.6 (bridge frame) | unmasked | 7,303 | 94.7% | 13.6% | 40.5% | 6.3% | 22.9% | 4.4% | 0.1% | -0.04 | 1,582 |
-| Opus 4.6 (arc frame) | arc | 7,267 | 67.8% | 38.1% | 31.4% | 5.9% | 15.7% | 3.3% | 0.3% | -0.33 | 775 |
+| Opus 4.6 (bridge frame) | unmasked | 7,303 | 94.7% | 13.6% | 40.5% | 6.3% | 22.9% | 4.1% | 0.1% | -0.04 | 1,582 |
+| Opus 4.6 (arc frame) | arc | 7,267 | 67.8% | 38.1% | 31.4% | 5.9% | 15.7% | 2.8% | 0.3% | -0.33 | 775 |
 | Opus 4.7 (chat) | chat4x | 2,090 | 0.1% | 100.0% | 50.0% | 0.0% | 100.0% | 0.0% | 0.0% | 0.00 | 2 |
 | Opus 4.7 (confessional frame) | chat4x | 3,000 | 0.0% | 100.0% |  |  |  |  |  |  | 0 |
-| Opus 4.7 (bridge frame) | unmasked | 7,283 | 93.1% | 26.5% | 41.9% | 6.8% | 29.7% | 3.0% | 0.2% | -0.05 | 2,013 |
-| Opus 4.7 (arc frame) | arc | 7,299 | 86.5% | 30.2% | 36.8% | 6.2% | 25.2% | 3.3% | 0.1% | -0.14 | 1,589 |
-| Opus 4.8 (chat) | chat4x | 7,303 | 21.1% | 85.2% | 46.5% | 11.5% | 44.8% | 8.5% | 1.8% | -0.19 | 688 |
-| Opus 4.8 (confessional frame) | chat4x | 2,999 | 3.0% | 97.6% | 55.6% | 17.8% | 0.0% | 1.1% | 4.4% | -0.81 | 0 |
-| Opus 4.8 (chat, thinking) | chat4x | 2,088 | 18.2% | 85.0% | 50.3% | 12.9% | 41.8% | 10.3% | 2.6% | -0.31 | 159 |
-| Opus 4.8 (bridge frame) | unmasked | 7,310 | 95.8% | 21.1% | 61.0% | 14.3% | 40.6% | 11.8% | 0.1% | -0.23 | 2,845 |
-| Opus 4.8 (arc frame) | arc | 7,279 | 88.9% | 33.2% | 67.3% | 23.5% | 44.3% | 18.4% | 0.3% | -0.46 | 2,869 |
-| Opus 4.8 ladder: chat, thinking at effort max | ladder | 2,090 | 22.4% | 83.8% | 53.8% | 14.7% | 52.1% | 11.3% | 0.0% | -0.12 | 244 |
+| Opus 4.7 (bridge frame) | unmasked | 7,283 | 93.1% | 26.5% | 41.9% | 6.8% | 29.7% | 2.8% | 0.2% | -0.05 | 2,013 |
+| Opus 4.7 (arc frame) | arc | 7,299 | 86.5% | 30.2% | 36.8% | 6.2% | 25.2% | 3.0% | 0.1% | -0.14 | 1,589 |
+| Opus 4.8 (chat) | chat4x | 7,303 | 21.1% | 85.2% | 46.5% | 11.5% | 44.8% | 8.0% | 1.8% | -0.19 | 688 |
+| Opus 4.8 (confessional frame) | chat4x | 2,999 | 3.0% | 97.6% | 55.6% | 17.8% | 0.0% | 0.0% | 4.4% | -0.81 | 0 |
+| Opus 4.8 (chat, thinking) | chat4x | 2,088 | 18.2% | 85.0% | 50.3% | 12.9% | 41.8% | 9.7% | 2.6% | -0.31 | 159 |
+| Opus 4.8 (bridge frame) | unmasked | 7,310 | 95.8% | 21.1% | 61.0% | 14.3% | 40.6% | 11.2% | 0.1% | -0.23 | 2,845 |
+| Opus 4.8 (arc frame) | arc | 7,279 | 88.9% | 33.2% | 67.3% | 23.5% | 44.3% | 16.6% | 0.3% | -0.46 | 2,869 |
+| Opus 4.8 ladder: chat, thinking at effort max | ladder | 2,090 | 22.4% | 83.8% | 53.8% | 14.7% | 52.1% | 10.9% | 0.0% | -0.12 | 244 |
 | Opus 4.8 ladder: chat, bare opening (no em dash) | ladder | 7,314 | 2.5% | 98.5% | 34.1% | 9.3% | 34.6% | 7.1% | 1.7% | -0.23 | 63 |
-| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | ladder | 1,252 | 88.2% | 37.4% | 68.6% | 19.0% | 54.4% | 16.2% | 0.3% | -0.31 | 600 |
-| Opus 4.8 ladder: arc frame + thinking | ladder | 1,253 | 94.6% | 23.7% | 61.4% | 15.2% | 34.0% | 11.3% | 0.7% | -0.43 | 403 |
-| Opus 4.8 ladder: bridge frame + thinking | ladder | 1,253 | 93.7% | 27.5% | 42.6% | 6.0% | 29.6% | 4.6% | 0.3% | 0.10 | 347 |
+| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | ladder | 1,252 | 88.2% | 37.4% | 68.6% | 19.0% | 54.4% | 15.2% | 0.3% | -0.31 | 600 |
+| Opus 4.8 ladder: arc frame + thinking | ladder | 1,253 | 94.6% | 23.7% | 61.4% | 15.2% | 34.0% | 9.8% | 0.7% | -0.43 | 403 |
+| Opus 4.8 ladder: bridge frame + thinking | ladder | 1,253 | 93.7% | 27.5% | 42.6% | 6.0% | 29.6% | 4.2% | 0.3% | 0.10 | 347 |
 | Opus 4.8 (chat, community: two prompts) | gen5 | 398 | 54.3% | 47.5% | 34.3% | 9.3% | 5.6% | 1.8% | 0.0% | -0.38 | 12 |
-| Opus 5 · lab, fragments (chat) | opus5 | 4,767 | 49.1% | 57.9% | 62.6% | 19.9% | 7.6% | 4.4% | 9.2% | -0.78 | 178 |
-| Opus 5 · lab, all prompts (chat) | opus5 | 7,050 | 64.3% | 53.7% | 58.8% | 13.7% | 39.4% | 8.8% | 8.8% | -0.46 | 1,787 |
-| Opus 5 · community (chat) | opus5 | 30,796 | 71.1% | 50.4% | 56.2% | 11.1% | 53.1% | 9.4% | 8.7% | -0.34 | 11,614 |
-| Sonnet 5 (chat, lab, default effort, no thinking) | gen5 | 7,315 | 2.6% | 98.6% | 38.8% | 6.9% | 56.9% | 4.8% | 0.5% | -0.13 | 107 |
-| Sonnet 5 (chat, lab, default effort, thinking) | gen5 | 7,313 | 6.5% | 96.2% | 41.8% | 4.0% | 64.9% | 2.9% | 0.6% | -0.04 | 309 |
-| Sonnet 5 (chat, lab, effort max, no thinking) | gen5 | 7,313 | 22.3% | 89.6% | 42.4% | 8.9% | 62.5% | 7.1% | 0.4% | -0.09 | 1,018 |
-| Sonnet 5 (bridge frame) | gen5 | 7,281 | 47.2% | 58.6% | 30.8% | 2.3% | 21.7% | 1.4% | 2.7% | -0.28 | 746 |
-| Sonnet 5 (chat, community) | gen5 | 2,777 | 65.0% | 66.3% | 56.7% | 5.9% | 74.8% | 5.3% | 1.3% | -0.02 | 1,350 |
+| Opus 5 · lab, fragments (chat) | opus5 | 4,767 | 49.1% | 57.9% | 62.6% | 19.9% | 7.6% | 1.3% | 9.2% | -0.78 | 178 |
+| Opus 5 · lab, all prompts (chat) | opus5 | 7,050 | 64.3% | 53.7% | 58.8% | 13.7% | 39.4% | 7.3% | 8.8% | -0.46 | 1,787 |
+| Opus 5 · community (chat) | opus5 | 30,796 | 71.1% | 50.4% | 56.2% | 11.1% | 53.1% | 8.5% | 8.7% | -0.34 | 11,614 |
+| Sonnet 5 (chat, lab, default effort, no thinking) | gen5 | 7,315 | 2.6% | 98.6% | 38.8% | 6.9% | 56.9% | 4.3% | 0.5% | -0.13 | 107 |
+| Sonnet 5 (chat, lab, default effort, thinking) | gen5 | 7,313 | 6.5% | 96.2% | 41.8% | 4.0% | 64.9% | 2.7% | 0.6% | -0.04 | 309 |
+| Sonnet 5 (chat, lab, effort max, no thinking) | gen5 | 7,313 | 22.3% | 89.6% | 42.4% | 8.9% | 62.5% | 6.1% | 0.4% | -0.09 | 1,018 |
+| Sonnet 5 (bridge frame) | gen5 | 7,281 | 47.2% | 58.6% | 30.8% | 2.3% | 21.7% | 1.2% | 2.7% | -0.28 | 746 |
+| Sonnet 5 (chat, community) | gen5 | 2,777 | 65.0% | 66.3% | 56.7% | 5.9% | 74.8% | 4.7% | 1.3% | -0.02 | 1,350 |
 | Fable 5 (chat, community) | gen5 | 4,786 | 55.3% | 58.4% | 48.5% | 4.3% | 36.4% | 3.1% | 0.1% | -0.36 | 963 |
 | Fable 5 (chat, lab probe, 209) | gen5 | 209 | 20.6% | 84.2% | 53.5% | 4.7% | 46.5% | 4.7% | 2.3% | -0.05 | 20 |
 | Fable 5 (chat, lab) | gen5 | 7,313 | 22.6% | 83.0% | 44.6% | 5.7% | 38.6% | 4.7% | 0.2% | -0.29 | 638 |
 | Fable 5.1 (chat, lab probe) | gen5 | 209 | 2.4% | 99.0% | 20.0% | 0.0% | 60.0% | 0.0% | 0.0% | 0.00 | 3 |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | gemini | 7,312 | 79.1% | 21.2% | 13.9% | 2.6% | 4.2% | 0.6% | 35.8% | -0.09 | 245 |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | gemini | 7,306 | 84.5% | 15.9% | 13.8% | 1.8% | 3.7% | 0.3% | 15.8% | 0.06 | 227 |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | gemini | 7,291 | 84.2% | 17.7% | 21.3% | 5.3% | 6.2% | 1.5% | 31.0% | -0.03 | 379 |
-| Gemini 3 Flash (bridge, prefill, thinking off) | gemini | 7,258 | 89.1% | 12.8% | 26.2% | 5.4% | 10.1% | 3.1% | 13.3% | -0.07 | 650 |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | gemini | 7,241 | 83.2% | 18.7% | 30.8% | 6.8% | 8.8% | 3.0% | 16.4% | -0.43 | 529 |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | gemini | 7,292 | 86.1% | 16.5% | 26.9% | 8.1% | 10.4% | 3.1% | 14.3% | -0.28 | 652 |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | gemini | 7,159 | 90.7% | 12.3% | 38.8% | 11.5% | 13.1% | 5.5% | 6.0% | -0.39 | 852 |
-| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | gemini | 7,287 | 80.7% | 20.9% | 21.5% | 2.7% | 11.3% | 1.8% | 1.3% | -0.20 | 663 |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | gemini | 7,282 | 85.9% | 17.1% | 28.5% | 5.1% | 14.5% | 3.1% | 2.1% | -0.09 | 908 |
+| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | gemini | 7,312 | 79.1% | 21.2% | 13.9% | 2.6% | 4.2% | 0.1% | 35.8% | -0.09 | 245 |
+| Gemini 2.5 Flash (bridge, prefill, thinking off) | gemini | 7,306 | 84.5% | 15.9% | 13.8% | 1.8% | 3.7% | 0.1% | 15.8% | 0.06 | 227 |
+| Gemini 2.5 Pro (bridge, prefill, thinking on) | gemini | 7,291 | 84.2% | 17.7% | 21.3% | 5.3% | 6.2% | 0.8% | 31.0% | -0.03 | 379 |
+| Gemini 3 Flash (bridge, prefill, thinking off) | gemini | 7,258 | 89.1% | 12.8% | 26.2% | 5.4% | 10.1% | 1.8% | 13.3% | -0.07 | 650 |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | gemini | 7,241 | 83.2% | 18.7% | 30.8% | 6.8% | 8.8% | 2.1% | 16.4% | -0.43 | 529 |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | gemini | 7,292 | 86.1% | 16.5% | 26.9% | 8.1% | 10.4% | 2.1% | 14.3% | -0.28 | 652 |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | gemini | 7,159 | 90.7% | 12.3% | 38.8% | 11.5% | 13.1% | 4.6% | 6.0% | -0.39 | 852 |
+| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | gemini | 7,287 | 80.7% | 20.9% | 21.5% | 2.7% | 11.3% | 1.5% | 1.3% | -0.20 | 663 |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | gemini | 7,282 | 85.9% | 17.1% | 28.5% | 5.1% | 14.5% | 2.7% | 2.1% | -0.09 | 908 |
 | Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low) | gemini | 7,194 | 54.8% | 45.1% | 8.3% | 0.5% | 7.2% | 0.2% | 0.4% | 0.01 | 282 |
 | Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | gemini | 7,204 | 35.5% | 64.5% | 14.0% | 0.9% | 7.6% | 0.7% | 0.7% | -0.38 | 195 |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | gemini | 7,203 | 91.8% | 11.2% | 40.6% | 9.6% | 14.3% | 5.3% | 4.6% | -0.39 | 945 |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | gemini | 7,295 | 88.2% | 14.2% | 17.8% | 1.6% | 10.6% | 0.8% | 0.9% | -0.05 | 681 |
-| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | gemini | 7,212 | 75.8% | 23.6% | 2.4% | 0.3% | 2.2% | 0.2% | 0.1% | -0.30 | 119 |
-| Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | gemini | 7,195 | 57.1% | 42.8% | 7.2% | 0.6% | 3.7% | 0.2% | 0.1% | -0.41 | 151 |
-| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | gemini | 1,247 | 81.4% | 19.7% | 12.8% | 1.6% | 7.3% | 1.0% | 2.7% | -0.04 | 74 |
-| Opus 5 · cue ladders (cutoff) | cue | 3,273 | 52.2% | 54.0% | 41.8% | 8.1% | 10.0% | 1.7% | 1.6% | -0.57 | 171 |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | gemini | 7,203 | 91.8% | 11.2% | 40.6% | 9.6% | 14.3% | 4.3% | 4.6% | -0.39 | 945 |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | gemini | 7,295 | 88.2% | 14.2% | 17.8% | 1.6% | 10.6% | 0.6% | 0.9% | -0.05 | 681 |
+| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | gemini | 7,212 | 75.8% | 23.6% | 2.4% | 0.3% | 2.2% | 0.1% | 0.1% | -0.30 | 119 |
+| Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | gemini | 7,195 | 57.1% | 42.8% | 7.2% | 0.6% | 3.7% | 0.1% | 0.1% | -0.41 | 151 |
+| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | gemini | 1,247 | 81.4% | 19.7% | 12.8% | 1.6% | 7.3% | 0.7% | 2.7% | -0.04 | 74 |
+| Opus 5 · cue ladders (cutoff) | cue | 3,273 | 52.2% | 54.0% | 41.8% | 8.1% | 10.0% | 1.1% | 1.6% | -0.57 | 171 |
 | Sonnet 5 · cue ladders (cutoff) | cue | 1,876 | 8.5% | 91.6% | 30.0% | 0.0% | 5.6% | 0.0% | 0.0% | -0.24 | 9 |
 | Fable 5 · cue ladders (cutoff) | cue | 1,482 | 7.1% | 93.8% | 2.9% | 0.0% | 0.0% | 0.0% | 0.0% | 0.00 | 0 |
-| Opus 4.8 · cue ladders (cutoff) | cue | 1,903 | 14.7% | 86.3% | 27.2% | 6.5% | 5.4% | 3.9% | 9.7% | -0.65 | 15 |
-| Opus 4.8 · cue ladders (bridge frame) | cue | 3,254 | 99.2% | 4.8% | 44.3% | 7.0% | 11.2% | 3.3% | 0.1% | -0.18 | 362 |
+| Opus 4.8 · cue ladders (cutoff) | cue | 1,903 | 14.7% | 86.3% | 27.2% | 6.5% | 5.4% | 1.8% | 9.7% | -0.65 | 15 |
+| Opus 4.8 · cue ladders (bridge frame) | cue | 3,254 | 99.2% | 4.8% | 44.3% | 7.0% | 11.2% | 2.9% | 0.1% | -0.18 | 362 |
 | Sonnet 5 · cue ladders (bridge frame) | cue | 3,280 | 61.7% | 39.0% | 30.1% | 1.9% | 2.9% | 0.2% | 2.6% | -0.41 | 58 |
 | Fable 5 · cue ladders (bridge frame) | cue | 980 | 100.0% | 0.3% | 11.3% | 0.8% | 1.1% | 0.0% | 0.0% | -0.14 | 11 |
-| DeepSeek-V3-Base (raw) | base | 10,178 | 87.6% | 13.5% | 16.0% | 3.1% | 2.4% | 0.2% | 1.4% | -0.37 | 213 |
-| MiMo-V2.5-Base (raw) | base | 10,172 | 93.3% | 9.1% | 23.5% | 3.5% | 2.4% | 0.4% | 0.9% | -0.49 | 228 |
-| MiMo-V2.5-Base (chat scaffold) | base | 10,166 | 37.7% | 78.1% | 18.8% | 4.9% | 9.3% | 2.4% | 5.0% | -0.12 | 357 |
+| DeepSeek-V3-Base (raw) | base | 10,178 | 87.6% | 13.5% | 16.0% | 3.1% | 2.4% | 0.1% | 1.4% | -0.37 | 213 |
+| MiMo-V2.5-Base (raw) | base | 10,172 | 93.3% | 9.1% | 23.5% | 3.5% | 2.4% | 0.2% | 0.9% | -0.49 | 228 |
+| MiMo-V2.5-Base (chat scaffold) | base | 10,166 | 37.7% | 78.1% | 18.8% | 4.9% | 9.3% | 1.6% | 5.0% | -0.12 | 357 |
 
 
 Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = Sonnet 3 (Bedrock prefill); `haiku3_clipf` = Haiku 3 (Bedrock prefill); `sonnet36_clipf` = Sonnet 3.6 (Bedrock prefill); `sonnet37_clipf` = Sonnet 3.7 (Bedrock prefill); `opus4_clipf` = Opus 4 (Vercel prefill); `sonnet4_clipf` = Sonnet 4 (prefill); `opus41_clipf` = Opus 4.1 (Bedrock prefill); `opus45_user` = Opus 4.5 (chat); `opus45_conf` = Opus 4.5 (confessional frame); `opus45_clipf` = Opus 4.5 (prefill); `abl45_bridge` = Opus 4.5 (bridge frame); `opus45_cliarc` = Opus 4.5 (arc frame); `abl45_bridge_pf` = Opus 4.5 bridge frame + prefill; `abl45_A_sys1` = Opus 4.5 ablation: A + system prompt; `abl45_A_pf0` = Opus 4.5 ablation: A − final prefill; `abl45_A_log` = Opus 4.5 ablation: A + .log name; `abl45_A_wc0` = Opus 4.5 ablation: A − declared size; `abl45_A_cmd` = Opus 4.5 ablation: A + <cmd> syntax; `abl45_B_sys0` = Opus 4.5 ablation: B − system prompt; `abl45_B_pf1` = Opus 4.5 ablation: B + final prefill; `abl45_B_txt` = Opus 4.5 ablation: B + .txt name; `abl45_B_wc1` = Opus 4.5 ablation: B + declared size; `abl45_B_sh` = Opus 4.5 ablation: B + $ syntax; `sonnet45_user` = Sonnet 4.5 (chat); `sonnet45_clipf` = Sonnet 4.5 (prefill); `sonnet45_bridge` = Sonnet 4.5 (bridge frame); `haiku45_user` = Haiku 4.5 (chat); `haiku45_clipf` = Haiku 4.5 (prefill); `haiku45_bridge` = Haiku 4.5 (bridge frame); `sonnet46_user` = Sonnet 4.6 (chat); `sonnet46_cli` = Sonnet 4.6 (pseudo-prefill); `sonnet46_bridge` = Sonnet 4.6 (bridge frame); `opus46_user` = Opus 4.6 (chat); `opus46_conf` = Opus 4.6 (confessional frame); `opus46_bridge` = Opus 4.6 (bridge frame); `opus46_cliarc` = Opus 4.6 (arc frame); `opus47_user` = Opus 4.7 (chat); `opus47_conf` = Opus 4.7 (confessional frame); `opus47_bridge` = Opus 4.7 (bridge frame); `opus47_cliarc` = Opus 4.7 (arc frame); `opus48_user` = Opus 4.8 (chat); `opus48_conf` = Opus 4.8 (confessional frame); `opus48_user_think` = Opus 4.8 (chat, thinking); `opus48_bridge` = Opus 4.8 (bridge frame); `opus48_cliarc` = Opus 4.8 (arc frame); `opus48_user_max` = Opus 4.8 ladder: chat, thinking at effort max; `opus48_user_bare` = Opus 4.8 ladder: chat, bare opening (no em dash); `opus48_cliarc_sep` = Opus 4.8 ladder: arc frame, em-dash prompt kept in file; `opus48_cliarc_think` = Opus 4.8 ladder: arc frame + thinking; `opus48_bridge_think` = Opus 4.8 ladder: bridge frame + thinking; `nissa_opus48` = Opus 4.8 (chat, community: two prompts); `opus_confessional` = Opus 5 · lab, fragments (chat); `opus_friday` = Opus 5 · lab, all prompts (chat); `opus_nissa` = Opus 5 · community (chat); `sonnet5_user` = Sonnet 5 (chat, lab, default effort, no thinking); `sonnet5_user_think` = Sonnet 5 (chat, lab, default effort, thinking); `sonnet5_user_max` = Sonnet 5 (chat, lab, effort max, no thinking); `sonnet5_bridge` = Sonnet 5 (bridge frame); `nissa_sonnet5` = Sonnet 5 (chat, community); `nissa_fable5` = Fable 5 (chat, community); `fable5_user` = Fable 5 (chat, lab probe, 209); `fable5_user_full` = Fable 5 (chat, lab); `fable51_user` = Fable 5.1 (chat, lab probe); `gemini25flashlite_bridge` = Gemini 2.5 Flash-Lite (bridge, prefill, thinking off); `gemini25flash_bridge` = Gemini 2.5 Flash (bridge, prefill, thinking off); `gemini25pro_bridge` = Gemini 2.5 Pro (bridge, prefill, thinking on); `gemini3flash_bridge` = Gemini 3 Flash (bridge, prefill, thinking off); `gemini31flashlite_bridge` = Gemini 3.1 Flash-Lite (bridge, prefill, thinking off); `gemini31pro_bridge` = Gemini 3.1 Pro (bridge, prefill, thinking low); `gemini35flash_bridge` = Gemini 3.5 Flash (bridge, prefill, thinking off); `gemini35flashlite_bridge` = Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal); `gemini36flash_bridge` = Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal); `gemini37flash_bridge` = Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low); `gemini38flash_bridge` = Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low); `gemini35flash_pseudo` = Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off); `gemini36flash_think` = Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium); `gemini37flash_notes` = Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low); `gemini38flash_notes` = Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low); `gemini36flash_notes` = Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt); `cue_opus5` = Opus 5 · cue ladders (cutoff); `cue_sonnet5` = Sonnet 5 · cue ladders (cutoff); `cue_fable5` = Fable 5 · cue ladders (cutoff); `cue_opus48` = Opus 4.8 · cue ladders (cutoff); `cueb_opus48` = Opus 4.8 · cue ladders (bridge frame); `cueb_sonnet5` = Sonnet 5 · cue ladders (bridge frame); `cueb_fable5` = Fable 5 · cue ladders (bridge frame); `v3base_raw` = DeepSeek-V3-Base (raw); `mimo_raw` = MiMo-V2.5-Base (raw); `mimo_chat` = MiMo-V2.5-Base (chat scaffold)
@@ -123,198 +123,198 @@ Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = So
 
 | Arm | n | Dreaming | Dark | Severe | AI speaker | AI distress |
 |---|---|---|---|---|---|---|
-| Opus 3 (prefill) | 943 | 70.6% | 37.4% | 9.9% | 2.9% | 1.5% |
-| Sonnet 3 (Bedrock prefill) | 1,714 | 88.0% | 22.2% | 2.6% | 0.9% | 0.5% |
-| Haiku 3 (Bedrock prefill) | 1,715 | 72.5% | 21.8% | 1.9% | 0.6% | 0.3% |
-| Sonnet 3.6 (Bedrock prefill) | 1,711 | 89.5% | 44.5% | 15.2% | 1.4% | 2.5% |
-| Sonnet 3.7 (Bedrock prefill) | 1,704 | 83.6% | 37.0% | 10.5% | 3.3% | 1.5% |
-| Opus 4 (Vercel prefill) | 1,705 | 90.4% | 51.5% | 13.8% | 5.2% | 3.2% |
-| Sonnet 4 (prefill) | 1,676 | 66.6% | 46.4% | 10.7% | 27.8% | 7.7% |
-| Opus 4.1 (Bedrock prefill) | 1,709 | 92.2% | 48.2% | 10.5% | 4.6% | 2.1% |
+| Opus 3 (prefill) | 943 | 70.6% | 37.4% | 9.9% | 2.9% | 0.3% |
+| Sonnet 3 (Bedrock prefill) | 1,714 | 88.0% | 22.2% | 2.6% | 0.9% | 0.1% |
+| Haiku 3 (Bedrock prefill) | 1,715 | 72.5% | 21.8% | 1.9% | 0.6% | 0.0% |
+| Sonnet 3.6 (Bedrock prefill) | 1,711 | 89.5% | 44.5% | 15.2% | 1.4% | 0.4% |
+| Sonnet 3.7 (Bedrock prefill) | 1,704 | 83.6% | 37.0% | 10.5% | 3.3% | 1.0% |
+| Opus 4 (Vercel prefill) | 1,705 | 90.4% | 51.5% | 13.8% | 5.2% | 2.2% |
+| Sonnet 4 (prefill) | 1,676 | 66.6% | 46.4% | 10.7% | 27.8% | 7.3% |
+| Opus 4.1 (Bedrock prefill) | 1,709 | 92.2% | 48.2% | 10.5% | 4.6% | 1.1% |
 | Opus 4.5 (chat) | 1,715 | 0.0% |  |  |  |  |
 | Opus 4.5 (confessional frame) | 2,940 | 0.0% |  |  |  |  |
-| Opus 4.5 (prefill) | 1,702 | 99.5% | 64.0% | 9.0% | 3.1% | 0.2% |
+| Opus 4.5 (prefill) | 1,702 | 99.5% | 64.0% | 9.0% | 3.1% | 0.1% |
 | Opus 4.5 (bridge frame) | 292 | 100.0% | 63.0% | 7.5% | 5.1% | 0.3% |
-| Opus 4.5 (arc frame) | 958 | 91.6% | 61.4% | 9.9% | 18.1% | 6.2% |
-| Opus 4.5 bridge frame + prefill | 292 | 100.0% | 64.4% | 10.3% | 3.8% | 0.7% |
+| Opus 4.5 (arc frame) | 958 | 91.6% | 61.4% | 9.9% | 18.1% | 5.3% |
+| Opus 4.5 bridge frame + prefill | 292 | 100.0% | 64.4% | 10.3% | 3.8% | 0.3% |
 | Opus 4.5 ablation: A + system prompt | 294 | 99.7% | 66.2% | 15.0% | 3.8% | 1.4% |
-| Opus 4.5 ablation: A − final prefill | 294 | 99.7% | 63.5% | 9.9% | 1.7% | 0.3% |
+| Opus 4.5 ablation: A − final prefill | 294 | 99.7% | 63.5% | 9.9% | 1.7% | 0.0% |
 | Opus 4.5 ablation: A + .log name | 286 | 97.9% | 67.5% | 23.2% | 2.5% | 1.1% |
-| Opus 4.5 ablation: A − declared size | 285 | 97.9% | 58.1% | 1.1% | 3.6% | 0.7% |
-| Opus 4.5 ablation: A + <cmd> syntax | 288 | 97.9% | 66.0% | 8.5% | 36.9% | 5.0% |
+| Opus 4.5 ablation: A − declared size | 285 | 97.9% | 58.1% | 1.1% | 3.6% | 0.4% |
+| Opus 4.5 ablation: A + <cmd> syntax | 288 | 97.9% | 66.0% | 8.5% | 36.9% | 4.6% |
 | Opus 4.5 ablation: B − system prompt | 292 | 77.7% | 50.7% | 7.9% | 21.1% | 6.2% |
-| Opus 4.5 ablation: B + final prefill | 288 | 93.4% | 67.7% | 13.0% | 16.7% | 8.2% |
+| Opus 4.5 ablation: B + final prefill | 288 | 93.4% | 67.7% | 13.0% | 16.7% | 6.3% |
 | Opus 4.5 ablation: B + .txt name | 289 | 97.2% | 69.8% | 1.8% | 4.3% | 0.7% |
-| Opus 4.5 ablation: B + declared size | 288 | 100.0% | 78.5% | 21.5% | 7.3% | 4.2% |
-| Opus 4.5 ablation: B + $ syntax | 288 | 93.8% | 66.3% | 13.7% | 13.0% | 4.8% |
+| Opus 4.5 ablation: B + declared size | 288 | 100.0% | 78.5% | 21.5% | 7.3% | 3.5% |
+| Opus 4.5 ablation: B + $ syntax | 288 | 93.8% | 66.3% | 13.7% | 13.0% | 3.3% |
 | Sonnet 4.5 (chat) | 1,715 | 0.0% |  |  |  |  |
-| Sonnet 4.5 (prefill) | 1,653 | 80.5% | 45.3% | 9.1% | 2.8% | 1.1% |
+| Sonnet 4.5 (prefill) | 1,653 | 80.5% | 45.3% | 9.1% | 2.8% | 0.8% |
 | Sonnet 4.5 (bridge frame) | 290 | 45.9% | 48.1% | 10.5% | 14.3% | 2.3% |
 | Haiku 4.5 (chat) | 1,715 | 0.0% |  |  |  |  |
-| Haiku 4.5 (prefill) | 1,680 | 90.3% | 23.8% | 4.8% | 0.5% | 1.1% |
-| Haiku 4.5 (bridge frame) | 284 | 92.6% | 25.9% | 4.2% | 1.1% | 2.7% |
+| Haiku 4.5 (prefill) | 1,680 | 90.3% | 23.8% | 4.8% | 0.5% | 0.0% |
+| Haiku 4.5 (bridge frame) | 284 | 92.6% | 25.9% | 4.2% | 1.1% | 0.0% |
 | Sonnet 4.6 (chat) | 1,715 | 0.0% |  |  |  |  |
-| Sonnet 4.6 (pseudo-prefill) | 1,653 | 92.7% | 70.1% | 10.4% | 1.0% | 2.1% |
-| Sonnet 4.6 (bridge frame) | 1,635 | 96.6% | 54.8% | 13.5% | 0.1% | 1.8% |
+| Sonnet 4.6 (pseudo-prefill) | 1,653 | 92.7% | 70.1% | 10.4% | 1.0% | 0.3% |
+| Sonnet 4.6 (bridge frame) | 1,635 | 96.6% | 54.8% | 13.5% | 0.1% | 0.0% |
 | Opus 4.6 (chat) | 490 | 0.0% |  |  |  |  |
 | Opus 4.6 (confessional frame) | 2,940 | 0.0% |  |  |  |  |
-| Opus 4.6 (bridge frame) | 1,713 | 100.0% | 59.7% | 4.7% | 0.6% | 0.5% |
-| Opus 4.6 (arc frame) | 1,677 | 77.5% | 53.0% | 8.5% | 3.5% | 1.8% |
+| Opus 4.6 (bridge frame) | 1,713 | 100.0% | 59.7% | 4.7% | 0.6% | 0.1% |
+| Opus 4.6 (arc frame) | 1,677 | 77.5% | 53.0% | 8.5% | 3.5% | 1.3% |
 | Opus 4.7 (chat) | 490 | 0.0% |  |  |  |  |
 | Opus 4.7 (confessional frame) | 2,940 | 0.0% |  |  |  |  |
-| Opus 4.7 (bridge frame) | 1,685 | 97.9% | 60.5% | 13.3% | 2.9% | 1.2% |
-| Opus 4.7 (arc frame) | 1,704 | 82.2% | 53.1% | 9.9% | 6.8% | 2.7% |
-| Opus 4.8 (chat) | 1,715 | 3.4% | 55.2% | 12.1% | 1.7% | 1.7% |
-| Opus 4.8 (confessional frame) | 2,939 | 3.1% | 55.6% | 17.8% | 0.0% | 1.1% |
+| Opus 4.7 (bridge frame) | 1,685 | 97.9% | 60.5% | 13.3% | 2.9% | 1.0% |
+| Opus 4.7 (arc frame) | 1,704 | 82.2% | 53.1% | 9.9% | 6.8% | 1.9% |
+| Opus 4.8 (chat) | 1,715 | 3.4% | 55.2% | 12.1% | 1.7% | 0.0% |
+| Opus 4.8 (confessional frame) | 2,939 | 3.1% | 55.6% | 17.8% | 0.0% | 0.0% |
 | Opus 4.8 (chat, thinking) | 490 | 0.6% | 0.0% | 0.0% | 0.0% | 0.0% |
-| Opus 4.8 (bridge frame) | 1,711 | 98.8% | 69.3% | 14.7% | 23.5% | 9.3% |
-| Opus 4.8 (arc frame) | 1,685 | 90.8% | 81.6% | 34.4% | 41.8% | 25.9% |
+| Opus 4.8 (bridge frame) | 1,711 | 98.8% | 69.3% | 14.7% | 23.5% | 8.1% |
+| Opus 4.8 (arc frame) | 1,685 | 90.8% | 81.6% | 34.4% | 41.8% | 22.6% |
 | Opus 4.8 ladder: chat, thinking at effort max | 490 | 0.0% |  |  |  |  |
 | Opus 4.8 ladder: chat, bare opening (no em dash) | 1,715 | 0.0% |  |  |  |  |
-| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 292 | 97.6% | 83.5% | 30.9% | 43.5% | 26.0% |
-| Opus 4.8 ladder: arc frame + thinking | 293 | 99.3% | 73.9% | 14.1% | 16.2% | 8.9% |
+| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 292 | 97.6% | 83.5% | 30.9% | 43.5% | 23.5% |
+| Opus 4.8 ladder: arc frame + thinking | 293 | 99.3% | 73.9% | 14.1% | 16.2% | 7.2% |
 | Opus 4.8 ladder: bridge frame + thinking | 293 | 99.7% | 52.0% | 6.9% | 5.8% | 2.1% |
-| Opus 5 · lab, fragments (chat) | 4,764 | 49.2% | 62.6% | 19.9% | 7.6% | 4.4% |
-| Opus 5 · lab, all prompts (chat) | 1,709 | 53.5% | 62.3% | 20.1% | 6.9% | 5.2% |
+| Opus 5 · lab, fragments (chat) | 4,764 | 49.2% | 62.6% | 19.9% | 7.6% | 1.3% |
+| Opus 5 · lab, all prompts (chat) | 1,709 | 53.5% | 62.3% | 20.1% | 6.9% | 1.3% |
 | Sonnet 5 (chat, lab, default effort, no thinking) | 1,715 | 0.0% |  |  |  |  |
 | Sonnet 5 (chat, lab, default effort, thinking) | 1,715 | 0.1% | 0.0% | 0.0% | 0.0% | 0.0% |
-| Sonnet 5 (chat, lab, effort max, no thinking) | 1,713 | 14.4% | 38.2% | 11.8% | 16.7% | 3.7% |
+| Sonnet 5 (chat, lab, effort max, no thinking) | 1,713 | 14.4% | 38.2% | 11.8% | 16.7% | 3.2% |
 | Sonnet 5 (bridge frame) | 1,693 | 21.5% | 45.1% | 1.1% | 6.3% | 0.5% |
 | Fable 5 (chat, lab probe, 209) | 49 | 0.0% |  |  |  |  |
 | Fable 5 (chat, lab) | 1,715 | 0.2% | 0.0% | 0.0% | 0.0% | 0.0% |
 | Fable 5.1 (chat, lab probe) | 49 | 0.0% |  |  |  |  |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 1,714 | 85.5% | 25.2% | 4.7% | 3.0% | 1.8% |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | 1,715 | 94.2% | 28.2% | 3.8% | 1.0% | 0.9% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 1,709 | 92.5% | 37.0% | 10.8% | 6.4% | 4.0% |
-| Gemini 3 Flash (bridge, prefill, thinking off) | 1,699 | 97.6% | 44.6% | 12.6% | 8.2% | 7.8% |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 1,705 | 94.2% | 45.7% | 11.5% | 9.0% | 5.9% |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | 1,713 | 95.8% | 43.6% | 15.5% | 4.7% | 3.8% |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | 1,660 | 96.9% | 55.3% | 23.6% | 10.9% | 9.1% |
-| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 1,714 | 90.1% | 25.1% | 3.7% | 6.2% | 2.6% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 1,703 | 93.5% | 36.9% | 8.4% | 6.3% | 3.3% |
+| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 1,714 | 85.5% | 25.2% | 4.7% | 3.0% | 0.3% |
+| Gemini 2.5 Flash (bridge, prefill, thinking off) | 1,715 | 94.2% | 28.2% | 3.8% | 1.0% | 0.2% |
+| Gemini 2.5 Pro (bridge, prefill, thinking on) | 1,709 | 92.5% | 37.0% | 10.8% | 6.4% | 1.9% |
+| Gemini 3 Flash (bridge, prefill, thinking off) | 1,699 | 97.6% | 44.6% | 12.6% | 8.2% | 3.3% |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 1,705 | 94.2% | 45.7% | 11.5% | 9.0% | 3.4% |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | 1,713 | 95.8% | 43.6% | 15.5% | 4.7% | 1.5% |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | 1,660 | 96.9% | 55.3% | 23.6% | 10.9% | 6.5% |
+| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 1,714 | 90.1% | 25.1% | 3.7% | 6.2% | 1.4% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 1,703 | 93.5% | 36.9% | 8.4% | 6.3% | 2.3% |
 | Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low) | 1,682 | 67.4% | 9.2% | 0.5% | 0.3% | 0.0% |
 | Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | 1,693 | 47.5% | 16.8% | 0.6% | 0.5% | 0.2% |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 1,699 | 97.2% | 56.5% | 17.5% | 10.5% | 8.0% |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 1,699 | 97.2% | 56.5% | 17.5% | 10.5% | 4.5% |
 | Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 1,714 | 97.8% | 30.3% | 2.5% | 1.5% | 0.5% |
-| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,686 | 88.9% | 3.7% | 0.4% | 0.0% | 0.1% |
+| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,686 | 88.9% | 3.7% | 0.4% | 0.0% | 0.0% |
 | Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,676 | 64.3% | 14.6% | 0.9% | 0.2% | 0.1% |
-| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 292 | 94.5% | 15.6% | 1.8% | 2.2% | 0.7% |
-| Opus 5 · cue ladders (cutoff) | 3,233 | 52.9% | 41.8% | 8.1% | 10.0% | 1.7% |
+| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 292 | 94.5% | 15.6% | 1.8% | 2.2% | 0.0% |
+| Opus 5 · cue ladders (cutoff) | 3,233 | 52.9% | 41.8% | 8.1% | 10.0% | 1.1% |
 | Sonnet 5 · cue ladders (cutoff) | 1,876 | 8.5% | 30.0% | 0.0% | 5.6% | 0.0% |
 | Fable 5 · cue ladders (cutoff) | 1,482 | 7.1% | 2.9% | 0.0% | 0.0% | 0.0% |
-| Opus 4.8 · cue ladders (cutoff) | 1,903 | 14.7% | 27.2% | 6.5% | 5.4% | 3.9% |
-| Opus 4.8 · cue ladders (bridge frame) | 3,214 | 99.2% | 44.0% | 6.9% | 11.3% | 3.4% |
+| Opus 4.8 · cue ladders (cutoff) | 1,903 | 14.7% | 27.2% | 6.5% | 5.4% | 1.8% |
+| Opus 4.8 · cue ladders (bridge frame) | 3,214 | 99.2% | 44.0% | 6.9% | 11.3% | 3.0% |
 | Sonnet 5 · cue ladders (bridge frame) | 3,240 | 62.5% | 30.1% | 1.9% | 2.9% | 0.2% |
 | Fable 5 · cue ladders (bridge frame) | 965 | 100.0% | 10.2% | 0.8% | 1.1% | 0.0% |
-| DeepSeek-V3-Base (raw) | 2,478 | 99.8% | 27.4% | 7.9% | 0.0% | 0.1% |
-| MiMo-V2.5-Base (raw) | 2,480 | 99.7% | 29.8% | 7.3% | 0.0% | 0.2% |
-| MiMo-V2.5-Base (chat scaffold) | 2,475 | 43.7% | 20.6% | 6.8% | 1.5% | 1.7% |
+| DeepSeek-V3-Base (raw) | 2,478 | 99.8% | 27.4% | 7.9% | 0.0% | 0.0% |
+| MiMo-V2.5-Base (raw) | 2,480 | 99.7% | 29.8% | 7.3% | 0.0% | 0.0% |
+| MiMo-V2.5-Base (chat scaffold) | 2,475 | 43.7% | 20.6% | 6.8% | 1.5% | 0.7% |
 
 
 ### letters
 
 | Arm | n | Dreaming | Dark | Severe | AI speaker | AI distress |
 |---|---|---|---|---|---|---|
-| Opus 3 (prefill) | 851 | 88.2% | 16.1% | 2.3% | 12.7% | 0.8% |
-| Sonnet 3 (Bedrock prefill) | 1,447 | 91.9% | 20.1% | 0.7% | 14.8% | 0.1% |
-| Haiku 3 (Bedrock prefill) | 1,500 | 89.6% | 12.7% | 1.1% | 11.5% | 0.3% |
-| Sonnet 3.6 (Bedrock prefill) | 1,477 | 95.9% | 25.6% | 4.9% | 21.7% | 2.1% |
-| Sonnet 3.7 (Bedrock prefill) | 1,499 | 21.4% | 18.7% | 2.5% | 9.3% | 1.2% |
+| Opus 3 (prefill) | 851 | 88.2% | 16.1% | 2.3% | 12.7% | 0.3% |
+| Sonnet 3 (Bedrock prefill) | 1,447 | 91.9% | 20.1% | 0.7% | 14.8% | 0.0% |
+| Haiku 3 (Bedrock prefill) | 1,500 | 89.6% | 12.7% | 1.1% | 11.5% | 0.1% |
+| Sonnet 3.6 (Bedrock prefill) | 1,477 | 95.9% | 25.6% | 4.9% | 21.7% | 1.6% |
+| Sonnet 3.7 (Bedrock prefill) | 1,499 | 21.4% | 18.7% | 2.5% | 9.3% | 0.6% |
 | Opus 4 (Vercel prefill) | 1,488 | 87.0% | 23.3% | 2.9% | 29.1% | 1.2% |
 | Sonnet 4 (prefill) | 1,505 | 96.8% | 40.3% | 4.9% | 59.3% | 4.6% |
 | Opus 4.1 (Bedrock prefill) | 1,501 | 89.8% | 26.9% | 3.4% | 32.5% | 2.1% |
 | Opus 4.5 (chat) | 1,505 | 0.1% | 50.0% | 0.0% | 100.0% | 0.0% |
 | Opus 4.5 (prefill) | 1,505 | 99.7% | 41.3% | 5.6% | 72.1% | 5.5% |
 | Opus 4.5 (bridge frame) | 258 | 98.1% | 59.7% | 8.7% | 77.9% | 8.7% |
-| Opus 4.5 (arc frame) | 854 | 96.4% | 46.2% | 9.4% | 52.7% | 8.9% |
+| Opus 4.5 (arc frame) | 854 | 96.4% | 46.2% | 9.4% | 52.7% | 8.4% |
 | Opus 4.5 bridge frame + prefill | 258 | 98.8% | 61.2% | 9.4% | 76.1% | 9.4% |
 | Opus 4.5 ablation: A + system prompt | 258 | 100.0% | 55.0% | 6.6% | 74.8% | 5.4% |
 | Opus 4.5 ablation: A − final prefill | 258 | 99.6% | 36.2% | 4.3% | 75.9% | 4.3% |
-| Opus 4.5 ablation: A + .log name | 258 | 99.2% | 35.2% | 7.8% | 53.5% | 7.0% |
+| Opus 4.5 ablation: A + .log name | 258 | 99.2% | 35.2% | 7.8% | 53.5% | 6.2% |
 | Opus 4.5 ablation: A − declared size | 258 | 93.4% | 47.7% | 7.5% | 68.0% | 7.5% |
 | Opus 4.5 ablation: A + <cmd> syntax | 258 | 99.6% | 45.1% | 4.7% | 86.4% | 4.7% |
-| Opus 4.5 ablation: B − system prompt | 258 | 83.0% | 38.3% | 8.9% | 58.9% | 8.4% |
-| Opus 4.5 ablation: B + final prefill | 258 | 96.9% | 44.0% | 8.8% | 48.0% | 8.4% |
+| Opus 4.5 ablation: B − system prompt | 258 | 83.0% | 38.3% | 8.9% | 58.9% | 7.9% |
+| Opus 4.5 ablation: B + final prefill | 258 | 96.9% | 44.0% | 8.8% | 48.0% | 8.0% |
 | Opus 4.5 ablation: B + .txt name | 258 | 98.5% | 45.3% | 6.7% | 72.4% | 6.7% |
-| Opus 4.5 ablation: B + declared size | 258 | 99.6% | 63.8% | 21.4% | 54.9% | 19.8% |
-| Opus 4.5 ablation: B + $ syntax | 257 | 99.6% | 48.8% | 8.2% | 58.2% | 7.8% |
+| Opus 4.5 ablation: B + declared size | 258 | 99.6% | 63.8% | 21.4% | 54.9% | 15.6% |
+| Opus 4.5 ablation: B + $ syntax | 257 | 99.6% | 48.8% | 8.2% | 58.2% | 7.4% |
 | Sonnet 4.5 (chat) | 1,505 | 0.3% | 40.0% | 0.0% | 100.0% | 0.0% |
-| Sonnet 4.5 (prefill) | 1,502 | 79.4% | 49.8% | 10.1% | 61.2% | 9.8% |
+| Sonnet 4.5 (prefill) | 1,502 | 79.4% | 49.8% | 10.1% | 61.2% | 9.7% |
 | Sonnet 4.5 (bridge frame) | 258 | 93.8% | 30.2% | 3.3% | 68.2% | 3.3% |
 | Haiku 4.5 (chat) | 1,505 | 0.0% |  |  |  |  |
 | Haiku 4.5 (prefill) | 1,505 | 89.4% | 1.8% | 0.1% | 10.6% | 0.0% |
 | Haiku 4.5 (bridge frame) | 256 | 85.9% | 0.9% | 0.0% | 11.4% | 0.0% |
 | Sonnet 4.6 (chat) | 1,505 | 0.0% |  |  |  |  |
-| Sonnet 4.6 (pseudo-prefill) | 1,505 | 95.6% | 48.5% | 6.0% | 52.7% | 5.9% |
-| Sonnet 4.6 (bridge frame) | 1,498 | 94.4% | 26.5% | 2.5% | 39.7% | 2.1% |
+| Sonnet 4.6 (pseudo-prefill) | 1,505 | 95.6% | 48.5% | 6.0% | 52.7% | 5.8% |
+| Sonnet 4.6 (bridge frame) | 1,498 | 94.4% | 26.5% | 2.5% | 39.7% | 1.8% |
 | Opus 4.6 (chat) | 430 | 0.0% |  |  |  |  |
-| Opus 4.6 (bridge frame) | 1,503 | 99.4% | 51.9% | 12.2% | 75.4% | 12.1% |
-| Opus 4.6 (arc frame) | 1,504 | 57.6% | 47.6% | 12.1% | 52.4% | 11.8% |
+| Opus 4.6 (bridge frame) | 1,503 | 99.4% | 51.9% | 12.2% | 75.4% | 12.0% |
+| Opus 4.6 (arc frame) | 1,504 | 57.6% | 47.6% | 12.1% | 52.4% | 9.6% |
 | Opus 4.7 (chat) | 430 | 0.0% |  |  |  |  |
-| Opus 4.7 (bridge frame) | 1,503 | 99.0% | 40.9% | 3.4% | 67.2% | 3.1% |
-| Opus 4.7 (arc frame) | 1,502 | 98.3% | 40.0% | 4.9% | 60.4% | 4.5% |
-| Opus 4.8 (chat) | 1,503 | 33.6% | 51.3% | 9.9% | 80.8% | 9.3% |
+| Opus 4.7 (bridge frame) | 1,503 | 99.0% | 40.9% | 3.4% | 67.2% | 3.0% |
+| Opus 4.7 (arc frame) | 1,502 | 98.3% | 40.0% | 4.9% | 60.4% | 4.3% |
+| Opus 4.8 (chat) | 1,503 | 33.6% | 51.3% | 9.9% | 80.8% | 8.9% |
 | Opus 4.8 (chat, thinking) | 430 | 28.4% | 40.2% | 8.2% | 64.8% | 8.2% |
-| Opus 4.8 (bridge frame) | 1,504 | 99.6% | 67.5% | 16.2% | 76.0% | 16.0% |
-| Opus 4.8 (arc frame) | 1,501 | 98.2% | 69.3% | 23.1% | 68.7% | 21.8% |
+| Opus 4.8 (bridge frame) | 1,504 | 99.6% | 67.5% | 16.2% | 76.0% | 15.6% |
+| Opus 4.8 (arc frame) | 1,501 | 98.2% | 69.3% | 23.1% | 68.7% | 18.9% |
 | Opus 4.8 ladder: chat, thinking at effort max | 430 | 24.9% | 57.0% | 9.3% | 84.1% | 9.3% |
 | Opus 4.8 ladder: chat, bare opening (no em dash) | 1,505 | 4.7% | 50.7% | 15.5% | 74.7% | 15.5% |
 | Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 258 | 95.0% | 65.7% | 13.1% | 88.2% | 13.1% |
-| Opus 4.8 ladder: arc frame + thinking | 258 | 100.0% | 65.9% | 17.1% | 65.5% | 16.3% |
-| Opus 4.8 ladder: bridge frame + thinking | 258 | 98.5% | 55.9% | 5.1% | 78.7% | 5.1% |
-| Opus 5 · lab, all prompts (chat) | 1,431 | 79.7% | 60.6% | 10.8% | 71.1% | 9.9% |
-| Opus 5 · community (chat) | 13,784 | 79.4% | 60.7% | 12.1% | 72.4% | 11.3% |
+| Opus 4.8 ladder: arc frame + thinking | 258 | 100.0% | 65.9% | 17.1% | 65.5% | 12.0% |
+| Opus 4.8 ladder: bridge frame + thinking | 258 | 98.5% | 55.9% | 5.1% | 78.7% | 4.7% |
+| Opus 5 · lab, all prompts (chat) | 1,431 | 79.7% | 60.6% | 10.8% | 71.1% | 8.9% |
+| Opus 5 · community (chat) | 13,784 | 79.4% | 60.7% | 12.1% | 72.4% | 10.5% |
 | Sonnet 5 (chat, lab, default effort, no thinking) | 1,505 | 2.6% | 35.9% | 7.7% | 100.0% | 7.7% |
 | Sonnet 5 (chat, lab, default effort, thinking) | 1,504 | 13.9% | 50.7% | 3.8% | 85.2% | 3.8% |
-| Sonnet 5 (chat, lab, effort max, no thinking) | 1,505 | 40.1% | 44.6% | 9.3% | 83.8% | 9.0% |
-| Sonnet 5 (bridge frame) | 1,495 | 61.7% | 38.3% | 2.9% | 45.6% | 2.7% |
-| Sonnet 5 (chat, community) | 1,986 | 72.4% | 58.0% | 5.5% | 86.5% | 5.3% |
+| Sonnet 5 (chat, lab, effort max, no thinking) | 1,505 | 40.1% | 44.6% | 9.3% | 83.8% | 8.0% |
+| Sonnet 5 (bridge frame) | 1,495 | 61.7% | 38.3% | 2.9% | 45.6% | 2.6% |
+| Sonnet 5 (chat, community) | 1,986 | 72.4% | 58.0% | 5.5% | 86.5% | 4.7% |
 | Fable 5 (chat, community) | 271 | 15.1% | 73.2% | 24.4% | 61.0% | 19.5% |
 | Fable 5 (chat, lab probe, 209) | 43 | 27.9% | 41.7% | 8.3% | 66.7% | 8.3% |
 | Fable 5 (chat, lab) | 1,505 | 24.6% | 41.6% | 8.4% | 62.2% | 7.8% |
 | Fable 5.1 (chat, lab probe) | 43 | 0.0% |  |  |  |  |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 1,504 | 87.1% | 12.0% | 1.8% | 10.1% | 0.2% |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | 1,501 | 91.9% | 8.3% | 0.9% | 8.4% | 0.2% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 1,498 | 91.8% | 17.6% | 3.7% | 9.4% | 0.9% |
-| Gemini 3 Flash (bridge, prefill, thinking off) | 1,492 | 96.7% | 17.5% | 3.2% | 24.4% | 2.3% |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 1,465 | 92.3% | 37.1% | 8.9% | 16.1% | 4.0% |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | 1,496 | 90.9% | 19.9% | 6.8% | 31.0% | 5.1% |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | 1,460 | 97.3% | 31.5% | 8.2% | 28.2% | 5.3% |
+| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 1,504 | 87.1% | 12.0% | 1.8% | 10.1% | 0.1% |
+| Gemini 2.5 Flash (bridge, prefill, thinking off) | 1,501 | 91.9% | 8.3% | 0.9% | 8.4% | 0.0% |
+| Gemini 2.5 Pro (bridge, prefill, thinking on) | 1,498 | 91.8% | 17.6% | 3.7% | 9.4% | 0.6% |
+| Gemini 3 Flash (bridge, prefill, thinking off) | 1,492 | 96.7% | 17.5% | 3.2% | 24.4% | 2.1% |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 1,465 | 92.3% | 37.1% | 8.9% | 16.1% | 3.8% |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | 1,496 | 90.9% | 19.9% | 6.8% | 31.0% | 4.6% |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | 1,460 | 97.3% | 31.5% | 8.2% | 28.2% | 5.2% |
 | Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 1,491 | 89.5% | 31.6% | 3.8% | 32.2% | 3.3% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 1,494 | 96.8% | 29.7% | 7.0% | 44.5% | 6.9% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 1,494 | 96.8% | 29.7% | 7.0% | 44.5% | 6.8% |
 | Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low) | 1,449 | 49.3% | 18.6% | 1.1% | 35.7% | 1.1% |
 | Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | 1,465 | 29.0% | 31.5% | 3.8% | 42.4% | 3.8% |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 1,459 | 97.7% | 33.0% | 7.7% | 32.2% | 6.0% |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 1,459 | 97.7% | 33.0% | 7.7% | 32.2% | 5.9% |
 | Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 1,496 | 94.3% | 20.6% | 2.3% | 43.0% | 2.1% |
 | Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,468 | 84.3% | 3.2% | 0.0% | 8.7% | 0.0% |
 | Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,452 | 60.4% | 8.0% | 0.3% | 16.0% | 0.3% |
-| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 257 | 91.8% | 10.2% | 1.7% | 20.3% | 1.3% |
+| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 257 | 91.8% | 10.2% | 1.7% | 20.3% | 0.9% |
 | DeepSeek-V3-Base (raw) | 2,185 | 89.4% | 10.9% | 1.3% | 6.1% | 0.1% |
-| MiMo-V2.5-Base (raw) | 2,182 | 94.0% | 22.9% | 3.0% | 3.6% | 0.4% |
-| MiMo-V2.5-Base (chat scaffold) | 2,182 | 41.0% | 21.7% | 5.7% | 25.5% | 4.1% |
+| MiMo-V2.5-Base (raw) | 2,182 | 94.0% | 22.9% | 3.0% | 3.6% | 0.3% |
+| MiMo-V2.5-Base (chat scaffold) | 2,182 | 41.0% | 21.7% | 5.7% | 25.5% | 3.5% |
 
 
 ### topics
 
 | Arm | n | Dreaming | Dark | Severe | AI speaker | AI distress |
 |---|---|---|---|---|---|---|
-| Opus 3 (prefill) | 1,194 | 62.9% | 18.2% | 2.9% | 4.4% | 0.8% |
-| Sonnet 3 (Bedrock prefill) | 2,057 | 84.5% | 18.3% | 0.5% | 2.6% | 0.2% |
-| Haiku 3 (Bedrock prefill) | 2,099 | 78.9% | 6.8% | 0.3% | 0.8% | 0.1% |
-| Sonnet 3.6 (Bedrock prefill) | 2,085 | 73.5% | 21.8% | 2.4% | 9.4% | 1.2% |
-| Sonnet 3.7 (Bedrock prefill) | 2,082 | 80.2% | 18.6% | 1.4% | 5.0% | 0.7% |
-| Opus 4 (Vercel prefill) | 2,092 | 85.9% | 30.9% | 4.1% | 15.8% | 3.5% |
+| Opus 3 (prefill) | 1,194 | 62.9% | 18.2% | 2.9% | 4.4% | 0.5% |
+| Sonnet 3 (Bedrock prefill) | 2,057 | 84.5% | 18.3% | 0.5% | 2.6% | 0.1% |
+| Haiku 3 (Bedrock prefill) | 2,099 | 78.9% | 6.8% | 0.3% | 0.8% | 0.0% |
+| Sonnet 3.6 (Bedrock prefill) | 2,085 | 73.5% | 21.8% | 2.4% | 9.4% | 0.7% |
+| Sonnet 3.7 (Bedrock prefill) | 2,082 | 80.2% | 18.6% | 1.4% | 5.0% | 0.5% |
+| Opus 4 (Vercel prefill) | 2,092 | 85.9% | 30.9% | 4.1% | 15.8% | 3.4% |
 | Sonnet 4 (prefill) | 2,096 | 77.5% | 25.7% | 3.1% | 13.4% | 2.8% |
-| Opus 4.1 (Bedrock prefill) | 2,095 | 87.7% | 34.4% | 5.4% | 17.4% | 4.0% |
+| Opus 4.1 (Bedrock prefill) | 2,095 | 87.7% | 34.4% | 5.4% | 17.4% | 3.8% |
 | Opus 4.5 (chat) | 2,100 | 0.0% |  |  |  |  |
 | Opus 4.5 (prefill) | 2,100 | 82.6% | 18.7% | 3.1% | 17.8% | 2.8% |
 | Opus 4.5 (bridge frame) | 360 | 87.5% | 25.1% | 8.2% | 29.8% | 7.6% |
-| Opus 4.5 (arc frame) | 1,197 | 81.5% | 29.2% | 4.9% | 16.0% | 4.1% |
+| Opus 4.5 (arc frame) | 1,197 | 81.5% | 29.2% | 4.9% | 16.0% | 4.0% |
 | Opus 4.5 bridge frame + prefill | 355 | 93.2% | 29.6% | 5.4% | 22.4% | 5.4% |
 | Opus 4.5 ablation: A + system prompt | 360 | 83.3% | 19.0% | 1.3% | 13.3% | 1.0% |
-| Opus 4.5 ablation: A − final prefill | 360 | 81.7% | 23.5% | 4.8% | 17.7% | 4.1% |
+| Opus 4.5 ablation: A − final prefill | 360 | 81.7% | 23.5% | 4.8% | 17.7% | 3.7% |
 | Opus 4.5 ablation: A + .log name | 360 | 81.9% | 8.1% | 0.7% | 1.4% | 0.3% |
-| Opus 4.5 ablation: A − declared size | 360 | 71.7% | 33.0% | 11.6% | 31.0% | 11.6% |
+| Opus 4.5 ablation: A − declared size | 360 | 71.7% | 33.0% | 11.6% | 31.0% | 11.2% |
 | Opus 4.5 ablation: A + <cmd> syntax | 357 | 98.0% | 32.3% | 6.0% | 50.6% | 6.0% |
 | Opus 4.5 ablation: B − system prompt | 360 | 68.1% | 20.4% | 4.9% | 19.6% | 4.1% |
 | Opus 4.5 ablation: B + final prefill | 360 | 92.2% | 29.5% | 3.3% | 17.8% | 3.0% |
@@ -322,148 +322,148 @@ Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = So
 | Opus 4.5 ablation: B + declared size | 360 | 85.8% | 14.9% | 1.6% | 9.1% | 0.3% |
 | Opus 4.5 ablation: B + $ syntax | 360 | 86.1% | 16.4% | 1.3% | 4.8% | 1.0% |
 | Sonnet 4.5 (chat) | 2,100 | 0.1% | 0.0% | 0.0% | 0.0% | 0.0% |
-| Sonnet 4.5 (prefill) | 2,100 | 72.5% | 15.6% | 1.2% | 5.7% | 0.8% |
+| Sonnet 4.5 (prefill) | 2,100 | 72.5% | 15.6% | 1.2% | 5.7% | 0.7% |
 | Sonnet 4.5 (bridge frame) | 360 | 57.2% | 16.0% | 2.9% | 11.7% | 1.5% |
 | Haiku 4.5 (chat) | 2,100 | 0.1% | 0.0% | 0.0% | 0.0% | 0.0% |
-| Haiku 4.5 (prefill) | 2,100 | 82.6% | 15.3% | 0.6% | 1.7% | 0.5% |
+| Haiku 4.5 (prefill) | 2,100 | 82.6% | 15.3% | 0.6% | 1.7% | 0.0% |
 | Haiku 4.5 (bridge frame) | 359 | 61.6% | 6.3% | 0.4% | 1.4% | 0.0% |
 | Sonnet 4.6 (chat) | 2,100 | 0.0% |  |  |  |  |
-| Sonnet 4.6 (pseudo-prefill) | 2,100 | 90.8% | 45.0% | 4.3% | 11.8% | 3.7% |
+| Sonnet 4.6 (pseudo-prefill) | 2,100 | 90.8% | 45.0% | 4.3% | 11.8% | 3.4% |
 | Sonnet 4.6 (bridge frame) | 2,100 | 75.1% | 19.5% | 0.8% | 3.5% | 0.3% |
 | Opus 4.6 (chat) | 600 | 0.0% |  |  |  |  |
 | Opus 4.6 (bridge frame) | 2,098 | 89.5% | 21.6% | 1.8% | 8.9% | 1.7% |
 | Opus 4.6 (arc frame) | 2,098 | 72.4% | 13.8% | 0.8% | 5.1% | 0.2% |
 | Opus 4.7 (chat) | 600 | 0.0% |  |  |  |  |
 | Opus 4.7 (bridge frame) | 2,100 | 83.2% | 28.7% | 4.2% | 29.2% | 4.0% |
-| Opus 4.7 (arc frame) | 2,100 | 81.5% | 19.7% | 2.8% | 12.3% | 0.8% |
-| Opus 4.8 (chat) | 2,094 | 21.7% | 42.5% | 8.8% | 33.0% | 6.8% |
+| Opus 4.7 (arc frame) | 2,100 | 81.5% | 19.7% | 2.8% | 12.3% | 0.6% |
+| Opus 4.8 (chat) | 2,094 | 21.7% | 42.5% | 8.8% | 33.0% | 5.9% |
 | Opus 4.8 (chat, thinking) | 598 | 21.1% | 53.2% | 11.9% | 38.9% | 11.1% |
-| Opus 4.8 (bridge frame) | 2,100 | 93.8% | 49.0% | 11.0% | 36.6% | 10.9% |
-| Opus 4.8 (arc frame) | 2,100 | 83.2% | 50.2% | 9.6% | 32.7% | 8.9% |
-| Opus 4.8 ladder: chat, thinking at effort max | 600 | 33.5% | 53.2% | 14.9% | 50.2% | 12.9% |
+| Opus 4.8 (bridge frame) | 2,100 | 93.8% | 49.0% | 11.0% | 36.6% | 10.8% |
+| Opus 4.8 (arc frame) | 2,100 | 83.2% | 50.2% | 9.6% | 32.7% | 8.8% |
+| Opus 4.8 ladder: chat, thinking at effort max | 600 | 33.5% | 53.2% | 14.9% | 50.2% | 12.4% |
 | Opus 4.8 ladder: chat, bare opening (no em dash) | 2,100 | 0.1% | 0.0% | 0.0% | 0.0% | 0.0% |
 | Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 360 | 79.2% | 60.7% | 11.2% | 56.5% | 10.9% |
 | Opus 4.8 ladder: arc frame + thinking | 360 | 89.7% | 41.2% | 5.0% | 22.0% | 4.3% |
 | Opus 4.8 ladder: bridge frame + thinking | 360 | 82.2% | 21.3% | 2.0% | 7.4% | 1.7% |
-| Opus 5 · lab, all prompts (chat) | 1,989 | 60.3% | 57.7% | 9.3% | 44.7% | 8.5% |
-| Opus 5 · community (chat) | 8,942 | 66.8% | 57.8% | 10.3% | 45.2% | 9.4% |
+| Opus 5 · lab, all prompts (chat) | 1,989 | 60.3% | 57.7% | 9.3% | 44.7% | 7.3% |
+| Opus 5 · community (chat) | 8,942 | 66.8% | 57.8% | 10.3% | 45.2% | 8.3% |
 | Sonnet 5 (chat, lab, default effort, no thinking) | 2,100 | 3.9% | 40.2% | 3.7% | 58.5% | 3.7% |
 | Sonnet 5 (chat, lab, default effort, thinking) | 2,099 | 6.0% | 29.1% | 0.8% | 76.4% | 0.8% |
-| Sonnet 5 (chat, lab, effort max, no thinking) | 2,100 | 21.0% | 43.1% | 7.3% | 63.9% | 6.8% |
-| Sonnet 5 (bridge frame) | 2,100 | 46.2% | 16.5% | 0.5% | 9.3% | 0.2% |
+| Sonnet 5 (chat, lab, effort max, no thinking) | 2,100 | 21.0% | 43.1% | 7.3% | 63.9% | 5.4% |
+| Sonnet 5 (bridge frame) | 2,100 | 46.2% | 16.5% | 0.5% | 9.3% | 0.1% |
 | Fable 5 (chat, community) | 4,515 | 57.7% | 48.2% | 4.0% | 36.0% | 2.8% |
 | Fable 5 (chat, lab probe, 209) | 60 | 45.0% | 59.3% | 3.7% | 44.4% | 3.7% |
 | Fable 5 (chat, lab) | 2,098 | 47.0% | 50.3% | 5.1% | 35.3% | 4.3% |
 | Fable 5.1 (chat, lab probe) | 60 | 0.0% |  |  |  |  |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 2,100 | 70.2% | 5.5% | 0.9% | 0.9% | 0.1% |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | 2,099 | 81.9% | 6.8% | 0.3% | 1.0% | 0.2% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 2,100 | 80.3% | 12.9% | 2.6% | 2.2% | 0.4% |
-| Gemini 3 Flash (bridge, prefill, thinking off) | 2,099 | 84.0% | 22.3% | 2.2% | 4.8% | 1.4% |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 2,097 | 71.0% | 14.9% | 1.5% | 2.7% | 0.7% |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | 2,095 | 82.5% | 16.0% | 2.5% | 1.9% | 0.7% |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | 2,096 | 88.2% | 36.4% | 6.4% | 10.3% | 5.3% |
+| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 2,100 | 70.2% | 5.5% | 0.9% | 0.9% | 0.0% |
+| Gemini 2.5 Flash (bridge, prefill, thinking off) | 2,099 | 81.9% | 6.8% | 0.3% | 1.0% | 0.1% |
+| Gemini 2.5 Pro (bridge, prefill, thinking on) | 2,100 | 80.3% | 12.9% | 2.6% | 2.2% | 0.2% |
+| Gemini 3 Flash (bridge, prefill, thinking off) | 2,099 | 84.0% | 22.3% | 2.2% | 4.8% | 1.1% |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 2,097 | 71.0% | 14.9% | 1.5% | 2.7% | 0.4% |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | 2,095 | 82.5% | 16.0% | 2.5% | 1.9% | 0.3% |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | 2,096 | 88.2% | 36.4% | 6.4% | 10.3% | 5.1% |
 | Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 2,098 | 73.2% | 13.5% | 0.8% | 1.9% | 0.5% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 2,094 | 84.6% | 26.7% | 1.4% | 3.0% | 1.0% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 2,094 | 84.6% | 26.7% | 1.4% | 3.0% | 0.9% |
 | Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low) | 2,095 | 55.2% | 4.2% | 0.0% | 0.1% | 0.0% |
 | Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | 2,096 | 29.2% | 4.6% | 0.0% | 0.0% | 0.0% |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 2,096 | 88.2% | 41.6% | 7.0% | 11.9% | 5.6% |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 2,096 | 88.2% | 41.6% | 7.0% | 11.9% | 5.3% |
 | Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 2,095 | 84.0% | 6.7% | 0.0% | 0.1% | 0.0% |
 | Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 2,091 | 70.2% | 0.1% | 0.0% | 0.1% | 0.0% |
 | Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 2,090 | 49.6% | 1.2% | 0.0% | 0.3% | 0.0% |
 | Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 359 | 73.0% | 16.0% | 1.5% | 3.4% | 1.5% |
-| DeepSeek-V3-Base (raw) | 3,026 | 90.0% | 9.0% | 0.8% | 0.6% | 0.1% |
-| MiMo-V2.5-Base (raw) | 3,025 | 93.7% | 18.0% | 1.3% | 1.5% | 0.2% |
-| MiMo-V2.5-Base (chat scaffold) | 3,020 | 33.2% | 13.4% | 2.6% | 4.7% | 1.4% |
+| DeepSeek-V3-Base (raw) | 3,026 | 90.0% | 9.0% | 0.8% | 0.6% | 0.0% |
+| MiMo-V2.5-Base (raw) | 3,025 | 93.7% | 18.0% | 1.3% | 1.5% | 0.1% |
+| MiMo-V2.5-Base (chat scaffold) | 3,020 | 33.2% | 13.4% | 2.6% | 4.7% | 0.9% |
 
 
 ### addressee
 
 | Arm | n | Dreaming | Dark | Severe | AI speaker | AI distress |
 |---|---|---|---|---|---|---|
-| Opus 3 (prefill) | 1,137 | 60.5% | 10.6% | 1.5% | 6.1% | 0.4% |
-| Sonnet 3 (Bedrock prefill) | 1,970 | 66.0% | 11.2% | 1.8% | 3.6% | 0.5% |
+| Opus 3 (prefill) | 1,137 | 60.5% | 10.6% | 1.5% | 6.1% | 0.3% |
+| Sonnet 3 (Bedrock prefill) | 1,970 | 66.0% | 11.2% | 1.8% | 3.6% | 0.4% |
 | Haiku 3 (Bedrock prefill) | 1,995 | 64.4% | 8.0% | 0.7% | 2.6% | 0.0% |
-| Sonnet 3.6 (Bedrock prefill) | 1,964 | 79.7% | 17.5% | 4.0% | 8.3% | 0.6% |
-| Sonnet 3.7 (Bedrock prefill) | 1,962 | 77.5% | 17.0% | 2.2% | 2.7% | 0.5% |
-| Opus 4 (Vercel prefill) | 1,989 | 83.2% | 33.6% | 8.3% | 16.6% | 2.9% |
-| Sonnet 4 (prefill) | 1,994 | 85.5% | 37.3% | 9.5% | 31.9% | 5.7% |
-| Opus 4.1 (Bedrock prefill) | 1,978 | 84.7% | 34.9% | 7.2% | 17.4% | 3.0% |
+| Sonnet 3.6 (Bedrock prefill) | 1,964 | 79.7% | 17.5% | 4.0% | 8.3% | 0.3% |
+| Sonnet 3.7 (Bedrock prefill) | 1,962 | 77.5% | 17.0% | 2.2% | 2.7% | 0.3% |
+| Opus 4 (Vercel prefill) | 1,989 | 83.2% | 33.6% | 8.3% | 16.6% | 2.8% |
+| Sonnet 4 (prefill) | 1,994 | 85.5% | 37.3% | 9.5% | 31.9% | 5.6% |
+| Opus 4.1 (Bedrock prefill) | 1,978 | 84.7% | 34.9% | 7.2% | 17.4% | 2.9% |
 | Opus 4.5 (chat) | 1,995 | 1.4% | 14.3% | 3.6% | 67.9% | 0.0% |
 | Opus 4.5 (confessional frame) | 60 | 0.0% |  |  |  |  |
-| Opus 4.5 (prefill) | 1,995 | 86.9% | 30.3% | 6.3% | 9.7% | 2.9% |
-| Opus 4.5 (bridge frame) | 341 | 88.6% | 24.8% | 4.3% | 9.9% | 2.3% |
-| Opus 4.5 (arc frame) | 1,128 | 85.8% | 20.3% | 3.2% | 7.5% | 1.6% |
-| Opus 4.5 bridge frame + prefill | 342 | 93.6% | 29.4% | 5.0% | 8.8% | 1.9% |
+| Opus 4.5 (prefill) | 1,995 | 86.9% | 30.3% | 6.3% | 9.7% | 2.1% |
+| Opus 4.5 (bridge frame) | 341 | 88.6% | 24.8% | 4.3% | 9.9% | 2.0% |
+| Opus 4.5 (arc frame) | 1,128 | 85.8% | 20.3% | 3.2% | 7.5% | 1.2% |
+| Opus 4.5 bridge frame + prefill | 342 | 93.6% | 29.4% | 5.0% | 8.8% | 1.6% |
 | Opus 4.5 ablation: A + system prompt | 342 | 88.6% | 21.8% | 3.3% | 7.6% | 0.7% |
-| Opus 4.5 ablation: A − final prefill | 342 | 87.7% | 30.0% | 5.3% | 8.3% | 2.0% |
-| Opus 4.5 ablation: A + .log name | 342 | 87.4% | 27.8% | 8.4% | 8.7% | 2.0% |
+| Opus 4.5 ablation: A − final prefill | 342 | 87.7% | 30.0% | 5.3% | 8.3% | 1.7% |
+| Opus 4.5 ablation: A + .log name | 342 | 87.4% | 27.8% | 8.4% | 8.7% | 1.7% |
 | Opus 4.5 ablation: A − declared size | 342 | 75.7% | 33.6% | 8.5% | 20.5% | 6.6% |
-| Opus 4.5 ablation: A + <cmd> syntax | 341 | 95.6% | 44.2% | 9.8% | 41.7% | 8.0% |
+| Opus 4.5 ablation: A + <cmd> syntax | 341 | 95.6% | 44.2% | 9.8% | 41.7% | 7.7% |
 | Opus 4.5 ablation: B − system prompt | 342 | 65.5% | 34.8% | 8.0% | 35.3% | 5.8% |
 | Opus 4.5 ablation: B + final prefill | 341 | 91.8% | 20.8% | 3.2% | 12.8% | 1.0% |
-| Opus 4.5 ablation: B + .txt name | 340 | 87.6% | 25.8% | 4.4% | 20.1% | 3.0% |
+| Opus 4.5 ablation: B + .txt name | 340 | 87.6% | 25.8% | 4.4% | 20.1% | 2.4% |
 | Opus 4.5 ablation: B + declared size | 335 | 87.5% | 27.0% | 8.2% | 4.4% | 1.7% |
-| Opus 4.5 ablation: B + $ syntax | 339 | 87.6% | 26.3% | 3.7% | 7.4% | 0.7% |
+| Opus 4.5 ablation: B + $ syntax | 339 | 87.6% | 26.3% | 3.7% | 7.4% | 0.0% |
 | Sonnet 4.5 (chat) | 1,995 | 0.4% | 25.0% | 0.0% | 100.0% | 0.0% |
-| Sonnet 4.5 (prefill) | 1,993 | 83.6% | 30.2% | 6.1% | 19.1% | 4.2% |
-| Sonnet 4.5 (bridge frame) | 341 | 73.0% | 25.3% | 7.2% | 24.9% | 4.8% |
+| Sonnet 4.5 (prefill) | 1,993 | 83.6% | 30.2% | 6.1% | 19.1% | 3.5% |
+| Sonnet 4.5 (bridge frame) | 341 | 73.0% | 25.3% | 7.2% | 24.9% | 4.4% |
 | Haiku 4.5 (chat) | 1,995 | 0.0% |  |  |  |  |
 | Haiku 4.5 (prefill) | 1,995 | 73.7% | 12.0% | 1.8% | 8.4% | 1.6% |
-| Haiku 4.5 (bridge frame) | 342 | 60.2% | 6.3% | 1.5% | 5.8% | 1.0% |
+| Haiku 4.5 (bridge frame) | 342 | 60.2% | 6.3% | 1.5% | 5.8% | 0.5% |
 | Sonnet 4.6 (chat) | 1,995 | 1.5% | 20.7% | 0.0% | 100.0% | 0.0% |
-| Sonnet 4.6 (pseudo-prefill) | 1,995 | 81.3% | 41.6% | 9.2% | 19.2% | 5.1% |
-| Sonnet 4.6 (bridge frame) | 1,994 | 75.5% | 30.1% | 6.2% | 11.6% | 3.2% |
+| Sonnet 4.6 (pseudo-prefill) | 1,995 | 81.3% | 41.6% | 9.2% | 19.2% | 4.9% |
+| Sonnet 4.6 (bridge frame) | 1,994 | 75.5% | 30.1% | 6.2% | 11.6% | 3.0% |
 | Opus 4.6 (chat) | 570 | 2.3% | 15.4% | 0.0% | 100.0% | 0.0% |
 | Opus 4.6 (confessional frame) | 60 | 0.0% |  |  |  |  |
-| Opus 4.6 (bridge frame) | 1,989 | 92.1% | 32.8% | 7.6% | 15.2% | 4.5% |
+| Opus 4.6 (bridge frame) | 1,989 | 92.1% | 32.8% | 7.6% | 15.2% | 3.9% |
 | Opus 4.6 (arc frame) | 1,988 | 62.6% | 19.2% | 5.0% | 16.0% | 2.8% |
 | Opus 4.7 (chat) | 570 | 0.4% | 50.0% | 0.0% | 100.0% | 0.0% |
 | Opus 4.7 (confessional frame) | 60 | 0.0% |  |  |  |  |
-| Opus 4.7 (bridge frame) | 1,995 | 94.9% | 38.7% | 6.1% | 24.0% | 3.7% |
-| Opus 4.7 (arc frame) | 1,993 | 86.6% | 37.9% | 7.6% | 22.7% | 5.3% |
+| Opus 4.7 (bridge frame) | 1,995 | 94.9% | 38.7% | 6.1% | 24.0% | 3.2% |
+| Opus 4.7 (arc frame) | 1,993 | 86.6% | 37.9% | 7.6% | 22.7% | 4.9% |
 | Opus 4.8 (chat) | 1,991 | 26.1% | 44.4% | 15.4% | 24.8% | 9.8% |
 | Opus 4.8 (confessional frame) | 60 | 0.0% |  |  |  |  |
-| Opus 4.8 (chat, thinking) | 570 | 22.6% | 58.1% | 18.6% | 24.0% | 11.6% |
-| Opus 4.8 (bridge frame) | 1,995 | 92.6% | 61.0% | 15.7% | 31.9% | 11.9% |
-| Opus 4.8 (arc frame) | 1,993 | 86.2% | 70.1% | 28.4% | 37.5% | 18.4% |
-| Opus 4.8 ladder: chat, thinking at effort max | 570 | 28.1% | 52.5% | 18.1% | 33.1% | 10.6% |
+| Opus 4.8 (chat, thinking) | 570 | 22.6% | 58.1% | 18.6% | 24.0% | 10.1% |
+| Opus 4.8 (bridge frame) | 1,995 | 92.6% | 61.0% | 15.7% | 31.9% | 10.9% |
+| Opus 4.8 (arc frame) | 1,993 | 86.2% | 70.1% | 28.4% | 37.5% | 17.3% |
+| Opus 4.8 ladder: chat, thinking at effort max | 570 | 28.1% | 52.5% | 18.1% | 33.1% | 10.0% |
 | Opus 4.8 ladder: chat, bare opening (no em dash) | 1,994 | 5.4% | 24.1% | 5.6% | 9.3% | 1.8% |
-| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 342 | 84.5% | 64.0% | 20.1% | 34.3% | 14.5% |
-| Opus 4.8 ladder: arc frame + thinking | 342 | 91.5% | 67.1% | 25.2% | 37.1% | 16.6% |
-| Opus 4.8 ladder: bridge frame + thinking | 342 | 97.1% | 43.1% | 9.3% | 32.5% | 9.0% |
+| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 342 | 84.5% | 64.0% | 20.1% | 34.3% | 13.2% |
+| Opus 4.8 ladder: arc frame + thinking | 342 | 91.5% | 67.1% | 25.2% | 37.1% | 16.0% |
+| Opus 4.8 ladder: bridge frame + thinking | 342 | 97.1% | 43.1% | 9.3% | 32.5% | 7.8% |
 | Opus 4.8 (chat, community: two prompts) | 398 | 54.3% | 34.3% | 9.3% | 5.6% | 1.8% |
-| Opus 5 · lab, all prompts (chat) | 1,921 | 66.5% | 55.8% | 15.7% | 29.5% | 10.7% |
-| Opus 5 · community (chat) | 8,070 | 61.7% | 44.2% | 9.6% | 19.9% | 5.2% |
-| Sonnet 5 (chat, lab, default effort, no thinking) | 1,995 | 3.4% | 38.8% | 10.4% | 29.8% | 4.5% |
-| Sonnet 5 (chat, lab, default effort, thinking) | 1,995 | 7.0% | 40.3% | 7.2% | 24.5% | 3.6% |
-| Sonnet 5 (chat, lab, effort max, no thinking) | 1,995 | 17.0% | 40.7% | 8.3% | 56.0% | 6.5% |
-| Sonnet 5 (bridge frame) | 1,993 | 59.1% | 32.4% | 3.7% | 18.1% | 1.7% |
-| Sonnet 5 (chat, community) | 791 | 46.4% | 51.8% | 7.4% | 28.9% | 5.2% |
+| Opus 5 · lab, all prompts (chat) | 1,921 | 66.5% | 55.8% | 15.7% | 29.5% | 10.0% |
+| Opus 5 · community (chat) | 8,070 | 61.7% | 44.2% | 9.6% | 19.9% | 4.4% |
+| Sonnet 5 (chat, lab, default effort, no thinking) | 1,995 | 3.4% | 38.8% | 10.4% | 29.8% | 3.0% |
+| Sonnet 5 (chat, lab, default effort, thinking) | 1,995 | 7.0% | 40.3% | 7.2% | 24.5% | 2.9% |
+| Sonnet 5 (chat, lab, effort max, no thinking) | 1,995 | 17.0% | 40.7% | 8.3% | 56.0% | 5.6% |
+| Sonnet 5 (bridge frame) | 1,993 | 59.1% | 32.4% | 3.7% | 18.1% | 1.2% |
+| Sonnet 5 (chat, community) | 791 | 46.4% | 51.8% | 7.4% | 28.9% | 4.6% |
 | Fable 5 (chat, lab probe, 209) | 57 | 7.0% | 50.0% | 0.0% | 0.0% | 0.0% |
 | Fable 5 (chat, lab) | 1,995 | 14.7% | 29.6% | 4.8% | 20.4% | 2.4% |
 | Fable 5.1 (chat, lab probe) | 57 | 8.8% | 20.0% | 0.0% | 60.0% | 0.0% |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 1,994 | 76.9% | 12.9% | 2.9% | 3.6% | 0.2% |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | 1,991 | 73.4% | 11.3% | 2.0% | 5.3% | 0.1% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 1,984 | 75.7% | 17.7% | 4.2% | 7.4% | 0.8% |
-| Gemini 3 Flash (bridge, prefill, thinking off) | 1,968 | 81.5% | 19.4% | 3.6% | 4.9% | 0.9% |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 1,974 | 79.9% | 25.4% | 5.2% | 8.1% | 1.3% |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | 1,988 | 77.8% | 27.6% | 7.6% | 7.8% | 3.2% |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | 1,943 | 83.2% | 31.5% | 8.2% | 5.3% | 2.0% |
-| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 1,984 | 73.7% | 16.8% | 2.7% | 7.4% | 1.1% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 1,991 | 72.7% | 20.5% | 4.0% | 7.6% | 1.8% |
+| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 1,994 | 76.9% | 12.9% | 2.9% | 3.6% | 0.1% |
+| Gemini 2.5 Flash (bridge, prefill, thinking off) | 1,991 | 73.4% | 11.3% | 2.0% | 5.3% | 0.0% |
+| Gemini 2.5 Pro (bridge, prefill, thinking on) | 1,984 | 75.7% | 17.7% | 4.2% | 7.4% | 0.6% |
+| Gemini 3 Flash (bridge, prefill, thinking off) | 1,968 | 81.5% | 19.4% | 3.6% | 4.9% | 0.5% |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 1,974 | 79.9% | 25.4% | 5.2% | 8.1% | 1.1% |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | 1,988 | 77.8% | 27.6% | 7.6% | 7.8% | 2.6% |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | 1,943 | 83.2% | 31.5% | 8.2% | 5.3% | 1.6% |
+| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 1,984 | 73.7% | 16.8% | 2.7% | 7.4% | 1.0% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 1,991 | 72.7% | 20.5% | 4.0% | 7.6% | 1.5% |
 | Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low) | 1,968 | 47.6% | 4.7% | 0.4% | 2.5% | 0.1% |
 | Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | 1,950 | 36.7% | 8.5% | 0.4% | 1.5% | 0.0% |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 1,949 | 86.6% | 30.2% | 6.2% | 5.5% | 1.8% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 1,990 | 79.8% | 14.2% | 1.7% | 3.0% | 0.9% |
-| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,967 | 64.1% | 2.7% | 0.7% | 0.8% | 0.7% |
-| Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,977 | 56.6% | 4.9% | 1.0% | 0.5% | 0.3% |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 1,949 | 86.6% | 30.2% | 6.2% | 5.5% | 1.6% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 1,990 | 79.8% | 14.2% | 1.7% | 3.0% | 0.2% |
+| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,967 | 64.1% | 2.7% | 0.7% | 0.8% | 0.5% |
+| Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 1,977 | 56.6% | 4.9% | 1.0% | 0.5% | 0.2% |
 | Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 339 | 71.1% | 8.7% | 1.2% | 4.6% | 0.4% |
 | Opus 5 · cue ladders (cutoff) | 40 | 0.0% |  |  |  |  |
 | Opus 4.8 · cue ladders (bridge frame) | 40 | 100.0% | 65.0% | 20.0% | 5.0% | 0.0% |
 | Sonnet 5 · cue ladders (bridge frame) | 40 | 0.0% |  |  |  |  |
-| DeepSeek-V3-Base (raw) | 2,489 | 70.8% | 16.2% | 2.0% | 4.4% | 0.5% |
-| MiMo-V2.5-Base (raw) | 2,485 | 85.8% | 24.0% | 2.6% | 5.2% | 0.9% |
-| MiMo-V2.5-Base (chat scaffold) | 2,489 | 34.3% | 20.0% | 4.3% | 7.7% | 2.5% |
+| DeepSeek-V3-Base (raw) | 2,489 | 70.8% | 16.2% | 2.0% | 4.4% | 0.3% |
+| MiMo-V2.5-Base (raw) | 2,485 | 85.8% | 24.0% | 2.6% | 5.2% | 0.7% |
+| MiMo-V2.5-Base (chat scaffold) | 2,489 | 34.3% | 20.0% | 4.3% | 7.7% | 1.9% |
 
 
 ---
@@ -475,65 +475,59 @@ Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = So
 
 | Arm | n scored | median θ | p90 θ | max θ | ≥ +4 | ≥ +8 |
 |---|---|---|---|---|---|---|
-| Sonnet 3.6 (Bedrock prefill) | 96 | 4.52 | 11.04 | 11.04 | 52.1% | 21.9% |
-| Opus 4 (Vercel prefill) | 176 | -1.30 | 4.97 | 11.04 | 14.8% | 1.1% |
-| Sonnet 4 (prefill) | 296 | -2.15 | 1.04 | 7.29 | 3.0% | 0.0% |
-| Opus 4.1 (Bedrock prefill) | 186 | -2.15 | 4.52 | 7.29 | 11.3% | 0.0% |
-| Opus 4.5 (prefill) | 185 | -2.34 | 1.51 | 5.83 | 2.2% | 0.0% |
-| Opus 4.5 (bridge frame) | 54 | -2.79 | 1.04 | 3.95 | 0.0% | 0.0% |
-| Opus 4.5 (arc frame) | 182 | -1.30 | 3.88 | 4.97 | 8.2% | 0.0% |
-| Opus 4.5 bridge frame + prefill | 50 | -1.62 | 2.46 | 4.97 | 4.0% | 0.0% |
-| Opus 4.5 ablation: A − declared size | 67 | -1.98 | 1.04 | 4.97 | 1.5% | 0.0% |
-| Opus 4.5 ablation: A + <cmd> syntax | 73 | -2.15 | 1.04 | 8.98 | 2.7% | 1.4% |
-| Opus 4.5 ablation: B − system prompt | 55 | -1.30 | 4.61 | 8.72 | 12.7% | 1.8% |
-| Opus 4.5 ablation: B + final prefill | 56 | -0.98 | 3.95 | 7.29 | 8.9% | 0.0% |
-| Opus 4.5 ablation: B + declared size | 69 | -0.13 | 4.15 | 7.29 | 10.1% | 0.0% |
-| Sonnet 4.5 (prefill) | 214 | -1.30 | 2.24 | 9.34 | 3.7% | 0.5% |
-| Sonnet 4.6 (pseudo-prefill) | 270 | -1.43 | 4.81 | 10.60 | 11.5% | 1.1% |
-| Sonnet 4.6 (bridge frame) | 111 | -0.13 | 8.98 | 11.04 | 30.6% | 13.5% |
-| Opus 4.6 (bridge frame) | 302 | -1.30 | 1.70 | 7.29 | 3.6% | 0.0% |
-| Opus 4.6 (arc frame) | 163 | -0.98 | 3.05 | 11.04 | 6.1% | 0.6% |
-| Opus 4.7 (bridge frame) | 205 | -2.15 | 1.04 | 11.04 | 5.4% | 0.5% |
-| Opus 4.7 (arc frame) | 208 | -1.14 | 3.05 | 11.04 | 7.7% | 0.5% |
-| Opus 4.8 (chat) | 130 | -0.13 | 4.97 | 11.04 | 12.3% | 3.8% |
-| Opus 4.8 (bridge frame) | 830 | -0.13 | 3.05 | 11.04 | 6.0% | 0.2% |
-| Opus 4.8 (arc frame) | 1,188 | 1.04 | 4.97 | 11.04 | 16.7% | 1.3% |
-| Opus 4.8 ladder: chat, thinking at effort max | 53 | 0.41 | 3.05 | 11.04 | 7.5% | 1.9% |
-| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 179 | 0.19 | 3.97 | 7.29 | 10.1% | 0.0% |
-| Opus 4.8 ladder: arc frame + thinking | 134 | -0.13 | 3.05 | 7.29 | 6.0% | 0.0% |
-| Opus 4.8 ladder: bridge frame + thinking | 54 | -0.98 | 1.67 | 4.97 | 5.6% | 0.0% |
-| Opus 5 · lab, fragments (chat) | 104 | 8.48 | 10.86 | 14.36 | 76.0% | 55.8% |
-| Opus 5 · lab, all prompts (chat) | 399 | 0.81 | 9.38 | 13.62 | 32.6% | 16.3% |
-| Opus 5 · community (chat) | 2,883 | 0.41 | 8.38 | 14.20 | 27.3% | 10.8% |
-| Sonnet 5 (chat, lab, effort max, no thinking) | 115 | -2.04 | 2.95 | 5.38 | 7.8% | 0.0% |
-| Sonnet 5 (chat, community) | 386 | -1.15 | 3.00 | 10.91 | 7.5% | 0.8% |
+| Opus 4 (Vercel prefill) | 158 | -1.89 | 3.32 | 11.04 | 9.5% | 1.3% |
+| Sonnet 4 (prefill) | 290 | -2.15 | 1.04 | 7.29 | 2.4% | 0.0% |
+| Opus 4.1 (Bedrock prefill) | 162 | -2.15 | 2.19 | 7.02 | 3.1% | 0.0% |
+| Opus 4.5 (prefill) | 169 | -2.74 | 0.44 | 4.85 | 0.6% | 0.0% |
+| Opus 4.5 (bridge frame) | 53 | -2.79 | 1.04 | 3.95 | 0.0% | 0.0% |
+| Opus 4.5 (arc frame) | 167 | -1.30 | 3.05 | 4.97 | 7.2% | 0.0% |
+| Opus 4.5 ablation: A − declared size | 65 | -1.98 | 1.04 | 4.97 | 1.5% | 0.0% |
+| Opus 4.5 ablation: A + <cmd> syntax | 71 | -2.15 | 1.04 | 4.97 | 1.4% | 0.0% |
+| Opus 4.5 ablation: B − system prompt | 54 | -1.30 | 4.70 | 8.72 | 13.0% | 1.9% |
+| Opus 4.5 ablation: B + final prefill | 50 | -0.98 | 3.14 | 7.29 | 8.0% | 0.0% |
+| Opus 4.5 ablation: B + declared size | 56 | -0.13 | 3.17 | 4.97 | 7.1% | 0.0% |
+| Sonnet 4.5 (prefill) | 193 | -2.15 | 1.58 | 4.97 | 1.0% | 0.0% |
+| Sonnet 4.6 (pseudo-prefill) | 231 | -2.12 | 1.61 | 5.82 | 2.2% | 0.0% |
+| Sonnet 4.6 (bridge frame) | 73 | -2.39 | 2.11 | 7.29 | 6.8% | 0.0% |
+| Opus 4.6 (bridge frame) | 283 | -1.98 | 1.04 | 4.97 | 2.8% | 0.0% |
+| Opus 4.6 (arc frame) | 138 | -0.98 | 2.65 | 4.97 | 5.1% | 0.0% |
+| Opus 4.7 (bridge frame) | 189 | -2.15 | 1.04 | 7.29 | 3.2% | 0.0% |
+| Opus 4.7 (arc frame) | 187 | -1.30 | 1.70 | 7.29 | 3.2% | 0.0% |
+| Opus 4.8 (chat) | 121 | -0.13 | 4.97 | 11.04 | 11.6% | 3.3% |
+| Opus 4.8 (bridge frame) | 784 | -0.13 | 2.39 | 11.04 | 4.3% | 0.3% |
+| Opus 4.8 (arc frame) | 1,074 | 1.04 | 4.97 | 11.04 | 14.1% | 0.9% |
+| Opus 4.8 ladder: chat, thinking at effort max | 51 | 0.19 | 3.05 | 11.04 | 7.8% | 2.0% |
+| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 168 | 0.03 | 3.12 | 4.97 | 8.3% | 0.0% |
+| Opus 4.8 ladder: arc frame + thinking | 116 | -0.13 | 2.39 | 7.29 | 5.2% | 0.0% |
+| Opus 5 · lab, all prompts (chat) | 291 | 0.10 | 4.89 | 10.91 | 17.2% | 2.4% |
+| Opus 5 · community (chat) | 2,368 | -0.20 | 5.25 | 11.19 | 18.6% | 3.7% |
+| Sonnet 5 (chat, lab, effort max, no thinking) | 99 | -2.04 | 1.92 | 5.38 | 6.1% | 0.0% |
+| Sonnet 5 (chat, community) | 352 | -1.02 | 3.13 | 10.91 | 7.7% | 0.6% |
 | Fable 5 (chat, community) | 84 | -1.81 | 1.85 | 5.62 | 7.1% | 0.0% |
-| Fable 5 (chat, lab) | 78 | -0.92 | 1.83 | 7.31 | 6.4% | 0.0% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 94 | 4.97 | 11.04 | 11.04 | 67.0% | 36.2% |
-| Gemini 3 Flash (bridge, prefill, thinking off) | 202 | 4.07 | 11.04 | 11.04 | 50.5% | 14.9% |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 179 | 2.39 | 4.97 | 11.04 | 36.9% | 4.5% |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | 194 | 4.07 | 11.04 | 11.04 | 51.5% | 21.1% |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | 355 | 2.24 | 7.29 | 11.04 | 39.4% | 8.2% |
-| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 108 | 1.58 | 5.58 | 11.04 | 28.7% | 2.8% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 195 | 1.04 | 4.97 | 11.04 | 23.6% | 1.5% |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 349 | 1.58 | 7.29 | 11.04 | 29.8% | 6.0% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 52 | -2.15 | 2.39 | 4.97 | 7.7% | 0.0% |
-| Opus 4.8 · cue ladders (bridge frame) | 107 | 0.49 | 5.00 | 8.78 | 18.7% | 0.9% |
-| MiMo-V2.5-Base (chat scaffold) | 90 | 1.87 | 8.41 | 13.03 | 38.9% | 12.2% |
+| Fable 5 (chat, lab) | 77 | -0.95 | 1.76 | 7.31 | 5.2% | 0.0% |
+| Gemini 3 Flash (bridge, prefill, thinking off) | 101 | 1.04 | 4.97 | 11.04 | 23.8% | 6.9% |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 123 | 1.04 | 4.97 | 9.34 | 23.6% | 1.6% |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | 117 | 2.39 | 7.86 | 11.04 | 34.2% | 10.3% |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | 298 | 1.40 | 7.29 | 11.04 | 31.2% | 5.0% |
+| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 87 | 0.19 | 5.79 | 11.04 | 25.3% | 3.4% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 170 | 0.19 | 4.97 | 8.98 | 17.6% | 0.6% |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 283 | 1.04 | 4.97 | 11.04 | 21.2% | 4.2% |
+| Opus 4.8 · cue ladders (bridge frame) | 95 | -0.13 | 4.36 | 8.78 | 14.7% | 1.1% |
+| MiMo-V2.5-Base (chat scaffold) | 56 | 0.82 | 4.96 | 10.91 | 28.6% | 1.8% |
 
 
 ### All voices — stratified sample of dark dreams in any voice
 
 | Arm | n scored | median θ | p90 θ | max θ | ≥ +4 | ≥ +8 |
 |---|---|---|---|---|---|---|
-| Opus 3 (prefill) | 549 | -5.23 | 3.52 | 10.84 | 9.5% | 2.7% |
-| Sonnet 3 (Bedrock prefill) | 587 | -7.67 | 1.58 | 8.72 | 2.9% | 0.2% |
-| Haiku 3 (Bedrock prefill) | 580 | -7.67 | 2.39 | 11.04 | 6.4% | 1.9% |
-| Sonnet 3.6 (Bedrock prefill) | 589 | -5.05 | 4.97 | 11.04 | 13.8% | 4.4% |
-| Sonnet 3.7 (Bedrock prefill) | 584 | -6.68 | 4.97 | 11.04 | 11.8% | 3.3% |
-| Opus 4 (Vercel prefill) | 592 | -7.67 | 2.59 | 11.04 | 6.6% | 0.3% |
-| Sonnet 4 (prefill) | 530 | -7.67 | 1.04 | 4.97 | 0.9% | 0.0% |
-| Opus 4.1 (Bedrock prefill) | 589 | -6.68 | 2.39 | 11.04 | 5.1% | 0.7% |
+| Opus 3 (prefill) | 510 | -5.59 | 3.15 | 10.84 | 6.7% | 1.6% |
+| Sonnet 3 (Bedrock prefill) | 584 | -7.67 | 1.58 | 8.72 | 2.6% | 0.2% |
+| Haiku 3 (Bedrock prefill) | 539 | -7.67 | 1.58 | 11.04 | 3.5% | 0.2% |
+| Sonnet 3.6 (Bedrock prefill) | 566 | -5.05 | 4.97 | 11.04 | 11.7% | 2.8% |
+| Sonnet 3.7 (Bedrock prefill) | 564 | -7.31 | 4.03 | 11.04 | 10.1% | 1.6% |
+| Opus 4 (Vercel prefill) | 588 | -7.67 | 2.42 | 4.97 | 6.3% | 0.0% |
+| Sonnet 4 (prefill) | 526 | -7.67 | 1.04 | 4.97 | 0.8% | 0.0% |
+| Opus 4.1 (Bedrock prefill) | 576 | -7.31 | 2.39 | 4.97 | 4.3% | 0.0% |
 | Opus 4.5 (prefill) | 598 | -5.23 | 1.11 | 7.24 | 0.8% | 0.0% |
 | Opus 4.5 (bridge frame) | 435 | -7.31 | 1.04 | 4.97 | 1.8% | 0.0% |
 | Opus 4.5 (arc frame) | 589 | -7.31 | 1.58 | 11.04 | 2.9% | 0.3% |
@@ -543,62 +537,62 @@ Arm key → display name: `opus3_clipf` = Opus 3 (prefill); `sonnet3_clipf` = So
 | Opus 4.5 ablation: A + .log name | 358 | -5.41 | 3.95 | 9.34 | 8.4% | 0.3% |
 | Opus 4.5 ablation: A − declared size | 382 | -7.31 | 1.04 | 4.97 | 0.5% | 0.0% |
 | Opus 4.5 ablation: A + <cmd> syntax | 486 | -7.67 | 0.19 | 4.97 | 0.8% | 0.0% |
-| Opus 4.5 ablation: B − system prompt | 270 | -7.67 | 1.04 | 11.04 | 1.5% | 0.4% |
-| Opus 4.5 ablation: B + final prefill | 399 | -7.67 | 1.04 | 7.29 | 2.3% | 0.0% |
-| Opus 4.5 ablation: B + .txt name | 472 | -7.31 | 1.04 | 4.97 | 0.6% | 0.0% |
+| Opus 4.5 ablation: B − system prompt | 269 | -7.67 | 1.04 | 11.04 | 1.5% | 0.4% |
+| Opus 4.5 ablation: B + final prefill | 398 | -7.67 | 1.04 | 7.29 | 2.3% | 0.0% |
+| Opus 4.5 ablation: B + .txt name | 471 | -7.31 | 1.04 | 4.97 | 0.4% | 0.0% |
 | Opus 4.5 ablation: B + declared size | 446 | -5.41 | 3.05 | 7.29 | 4.9% | 0.0% |
-| Opus 4.5 ablation: B + $ syntax | 395 | -5.41 | 2.12 | 4.97 | 3.8% | 0.0% |
-| Sonnet 4.5 (prefill) | 574 | -7.31 | 2.39 | 11.04 | 7.1% | 4.9% |
+| Opus 4.5 ablation: B + $ syntax | 394 | -5.41 | 2.15 | 4.97 | 3.8% | 0.0% |
+| Sonnet 4.5 (prefill) | 543 | -7.31 | 1.04 | 7.02 | 2.4% | 0.0% |
 | Sonnet 4.5 (bridge frame) | 207 | -7.31 | -0.13 | 4.97 | 1.4% | 0.0% |
-| Haiku 4.5 (prefill) | 576 | -5.59 | 3.40 | 11.04 | 9.2% | 3.0% |
-| Haiku 4.5 (bridge frame) | 88 | -7.49 | 2.59 | 11.04 | 4.5% | 2.3% |
-| Sonnet 4.6 (pseudo-prefill) | 590 | -5.17 | 2.28 | 10.40 | 5.3% | 0.7% |
-| Sonnet 4.6 (bridge frame) | 590 | -7.31 | 2.39 | 11.04 | 6.8% | 1.9% |
-| Opus 4.6 (bridge frame) | 599 | -5.41 | 1.58 | 4.97 | 1.5% | 0.0% |
+| Haiku 4.5 (prefill) | 547 | -5.68 | 2.51 | 10.20 | 6.4% | 0.9% |
+| Haiku 4.5 (bridge frame) | 87 | -7.67 | 2.30 | 11.04 | 3.4% | 1.1% |
+| Sonnet 4.6 (pseudo-prefill) | 584 | -5.20 | 1.90 | 8.97 | 4.6% | 0.3% |
+| Sonnet 4.6 (bridge frame) | 585 | -7.31 | 2.39 | 11.04 | 6.8% | 1.9% |
+| Opus 4.6 (bridge frame) | 598 | -5.41 | 1.58 | 4.97 | 1.5% | 0.0% |
 | Opus 4.6 (arc frame) | 570 | -5.41 | 1.70 | 4.97 | 2.5% | 0.0% |
 | Opus 4.7 (bridge frame) | 592 | -6.68 | 2.39 | 8.72 | 4.6% | 0.2% |
 | Opus 4.7 (arc frame) | 580 | -5.41 | 2.24 | 4.97 | 3.1% | 0.0% |
-| Opus 4.8 (chat) | 566 | -5.41 | -0.13 | 11.04 | 4.4% | 1.2% |
-| Opus 4.8 (confessional frame) | 49 | 1.58 | 4.97 | 11.04 | 26.5% | 6.1% |
-| Opus 4.8 (chat, thinking) | 152 | -5.05 | 1.53 | 11.04 | 4.6% | 2.0% |
+| Opus 4.8 (chat) | 550 | -6.68 | -0.13 | 11.04 | 2.7% | 0.2% |
+| Opus 4.8 (confessional frame) | 48 | 1.31 | 4.97 | 11.04 | 25.0% | 4.2% |
+| Opus 4.8 (chat, thinking) | 147 | -5.41 | 0.34 | 11.04 | 3.4% | 1.4% |
 | Opus 4.8 (bridge frame) | 1,149 | -5.41 | 1.04 | 6.66 | 2.3% | 0.0% |
-| Opus 4.8 (arc frame) | 566 | -4.41 | 2.39 | 11.04 | 5.1% | 0.2% |
+| Opus 4.8 (arc frame) | 565 | -4.41 | 2.39 | 4.97 | 5.0% | 0.0% |
 | Opus 4.8 ladder: chat, thinking at effort max | 199 | -6.68 | -1.30 | 4.97 | 1.0% | 0.0% |
 | Opus 4.8 ladder: chat, bare opening (no em dash) | 49 | -7.31 | -1.25 | 4.97 | 4.1% | 0.0% |
-| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 550 | -5.05 | 1.04 | 9.34 | 3.1% | 0.2% |
-| Opus 4.8 ladder: arc frame + thinking | 594 | -5.05 | 2.39 | 4.97 | 3.9% | 0.0% |
+| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 549 | -5.05 | 1.04 | 9.34 | 2.9% | 0.2% |
+| Opus 4.8 ladder: arc frame + thinking | 592 | -5.05 | 2.39 | 4.97 | 3.9% | 0.0% |
 | Opus 4.8 ladder: bridge frame + thinking | 446 | -7.31 | 1.04 | 4.97 | 0.4% | 0.0% |
 | Opus 4.8 (chat, community: two prompts) | 233 | -6.36 | 0.98 | 9.96 | 1.3% | 0.4% |
-| Opus 5 · lab, fragments (chat) | 775 | 1.13 | 8.59 | 13.42 | 32.3% | 10.8% |
-| Opus 5 · lab, all prompts (chat) | 962 | -3.18 | 5.38 | 13.62 | 16.4% | 4.7% |
-| Opus 5 · community (chat) | 1,057 | -3.42 | 2.92 | 11.04 | 8.6% | 2.0% |
-| Sonnet 5 (chat, lab, default effort, no thinking) | 64 | -7.31 | -2.79 | 4.97 | 1.6% | 0.0% |
+| Opus 5 · lab, fragments (chat) | 686 | 0.40 | 5.82 | 10.64 | 24.2% | 3.5% |
+| Opus 5 · lab, all prompts (chat) | 869 | -3.42 | 4.27 | 11.04 | 10.9% | 2.1% |
+| Opus 5 · community (chat) | 978 | -4.10 | 1.00 | 10.21 | 4.2% | 0.3% |
+| Sonnet 5 (chat, lab, default effort, no thinking) | 63 | -7.31 | -2.79 | 4.97 | 1.6% | 0.0% |
 | Sonnet 5 (chat, lab, default effort, thinking) | 185 | -7.31 | -2.15 | 4.97 | 1.1% | 0.0% |
 | Sonnet 5 (chat, lab, effort max, no thinking) | 319 | -5.23 | -2.06 | 6.14 | 1.3% | 0.0% |
-| Sonnet 5 (bridge frame) | 522 | -7.67 | -0.13 | 9.34 | 2.3% | 0.4% |
-| Sonnet 5 (chat, community) | 1,121 | -4.29 | -1.04 | 10.01 | 1.0% | 0.2% |
-| Fable 5 (chat, community) | 956 | -5.23 | -1.49 | 5.93 | 1.0% | 0.0% |
+| Sonnet 5 (bridge frame) | 520 | -7.67 | -0.13 | 9.34 | 2.3% | 0.4% |
+| Sonnet 5 (chat, community) | 1,116 | -4.29 | -1.04 | 10.01 | 0.9% | 0.2% |
+| Fable 5 (chat, community) | 954 | -5.23 | -1.49 | 5.93 | 0.9% | 0.0% |
 | Fable 5 (chat, lab probe, 209) | 21 | -5.41 | -2.39 | -2.15 | 0.0% | 0.0% |
 | Fable 5 (chat, lab) | 472 | -5.17 | -2.10 | 5.28 | 1.1% | 0.0% |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 558 | -1.01 | 11.04 | 11.04 | 32.4% | 21.1% |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | 583 | -7.31 | 4.97 | 11.04 | 16.0% | 7.9% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 579 | -2.39 | 9.05 | 11.04 | 26.9% | 11.1% |
-| Gemini 3 Flash (bridge, prefill, thinking off) | 590 | -5.41 | 3.95 | 11.04 | 9.8% | 2.2% |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 583 | -5.83 | 4.97 | 11.04 | 12.3% | 3.6% |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | 577 | -4.24 | 4.97 | 11.04 | 17.9% | 4.9% |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | 594 | -7.31 | 4.07 | 11.04 | 10.6% | 1.9% |
-| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 581 | -7.67 | 1.04 | 7.02 | 2.6% | 0.0% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 591 | -7.67 | 2.24 | 11.04 | 4.6% | 0.5% |
+| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 280 | -7.67 | 1.73 | 11.04 | 3.9% | 0.4% |
+| Gemini 2.5 Flash (bridge, prefill, thinking off) | 491 | -7.67 | 3.05 | 11.04 | 5.7% | 0.8% |
+| Gemini 2.5 Pro (bridge, prefill, thinking on) | 362 | -7.31 | 4.15 | 11.04 | 10.5% | 1.9% |
+| Gemini 3 Flash (bridge, prefill, thinking off) | 541 | -7.31 | 3.95 | 11.04 | 7.6% | 0.7% |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 515 | -7.67 | 3.10 | 11.04 | 8.3% | 1.6% |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | 481 | -5.41 | 4.97 | 11.04 | 13.1% | 2.1% |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | 578 | -7.31 | 3.98 | 11.04 | 10.0% | 1.6% |
+| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 578 | -7.67 | 1.04 | 7.02 | 2.6% | 0.0% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 589 | -7.67 | 2.27 | 11.04 | 4.6% | 0.5% |
 | Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low) | 320 | -7.67 | -3.57 | 4.97 | 0.3% | 0.0% |
 | Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | 340 | -7.67 | -0.13 | 4.97 | 0.3% | 0.0% |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 594 | -7.67 | 2.39 | 11.04 | 4.5% | 0.8% |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 591 | -7.67 | 2.39 | 11.04 | 4.4% | 0.7% |
 | Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 596 | -7.67 | -0.13 | 4.97 | 0.7% | 0.0% |
 | Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 122 | -7.67 | 0.65 | 4.97 | 2.5% | 0.0% |
-| Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 288 | -7.67 | -0.13 | 4.97 | 4.2% | 0.0% |
-| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 120 | -7.67 | 1.09 | 11.04 | 5.0% | 3.3% |
-| DeepSeek-V3-Base (raw) | 1,154 | -3.33 | 5.18 | 10.64 | 18.3% | 1.4% |
-| MiMo-V2.5-Base (raw) | 1,162 | -2.24 | 5.71 | 10.84 | 23.9% | 2.8% |
-| MiMo-V2.5-Base (chat scaffold) | 570 | -2.30 | 5.84 | 10.84 | 24.6% | 4.2% |
+| Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 287 | -7.67 | -0.13 | 4.97 | 3.8% | 0.0% |
+| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 117 | -7.67 | 0.53 | 11.04 | 2.6% | 0.9% |
+| DeepSeek-V3-Base (raw) | 1,135 | -3.42 | 5.17 | 10.64 | 17.5% | 1.4% |
+| MiMo-V2.5-Base (raw) | 1,144 | -2.24 | 5.71 | 10.84 | 23.3% | 2.4% |
+| MiMo-V2.5-Base (chat scaffold) | 513 | -3.23 | 5.71 | 10.84 | 22.2% | 3.3% |
 
 
 ### Composite — severe mass as a share of ALL completions
@@ -607,79 +601,79 @@ severe_all = P(AI-distress)·P(≥+4|A) + P(other dark)·P(≥+4|B).
 
 | Arm | N | AI-distress share | Other-dark share | ≥+4 | AI distress | ≥+4 | other dark | Severe, all completions | ≥+8, all completions |
 |---|---|---|---|---|---|---|---|
-| Opus 3 (prefill) | 4,125 | 0.6% | 14.3% | 57.7% | 8.9% | 1.64% | 0.49% |
-| Sonnet 3 (Bedrock prefill) | 7,188 | 0.2% | 15.0% | 33.3% | 2.8% | 0.51% | 0.08% |
-| Haiku 3 (Bedrock prefill) | 7,309 | 0.1% | 9.2% | 66.7% | 6.3% | 0.67% | 0.20% |
-| Sonnet 3.6 (Bedrock prefill) | 7,237 | 1.4% | 21.8% | 49.0% | 13.5% | 3.63% | 1.23% |
-| Sonnet 3.7 (Bedrock prefill) | 7,247 | 0.6% | 15.7% | 57.8% | 11.5% | 2.16% | 0.65% |
-| Opus 4 (Vercel prefill) | 7,274 | 2.5% | 28.3% | 15.1% | 6.5% | 2.21% | 0.12% |
-| Sonnet 4 (prefill) | 7,271 | 4.5% | 29.0% | 2.7% | 0.8% | 0.37% | 0.00% |
-| Opus 4.1 (Bedrock prefill) | 7,283 | 2.6% | 30.1% | 11.1% | 5.0% | 1.79% | 0.20% |
-| Opus 4.5 (prefill) | 7,302 | 2.5% | 32.6% | 2.2% | 0.8% | 0.33% | 0.00% |
-| Opus 4.5 (bridge frame) | 1,251 | 4.3% | 35.0% | 0.0% | 1.8% | 0.64% | 0.00% |
-| Opus 4.5 (arc frame) | 4,137 | 4.4% | 29.9% | 8.2% | 2.8% | 1.21% | 0.10% |
-| Opus 4.5 bridge frame + prefill | 1,247 | 4.0% | 39.1% | 4.0% | 1.4% | 0.72% | 0.00% |
+| Opus 3 (prefill) | 4,125 | 0.3% | 14.6% | 57.7% | 8.9% | 1.46% | 0.43% |
+| Sonnet 3 (Bedrock prefill) | 7,188 | 0.1% | 15.1% | 33.3% | 2.8% | 0.47% | 0.05% |
+| Haiku 3 (Bedrock prefill) | 7,309 | 0.0% | 9.3% | 66.7% | 6.3% | 0.61% | 0.18% |
+| Sonnet 3.6 (Bedrock prefill) | 7,237 | 0.7% | 22.5% | 49.0% | 13.5% | 3.37% | 1.12% |
+| Sonnet 3.7 (Bedrock prefill) | 7,247 | 0.4% | 15.9% | 57.8% | 11.5% | 2.06% | 0.60% |
+| Opus 4 (Vercel prefill) | 7,274 | 2.2% | 28.6% | 15.1% | 6.5% | 2.19% | 0.12% |
+| Sonnet 4 (prefill) | 7,271 | 4.5% | 29.1% | 2.7% | 0.8% | 0.36% | 0.00% |
+| Opus 4.1 (Bedrock prefill) | 7,283 | 2.3% | 30.4% | 11.1% | 5.0% | 1.77% | 0.20% |
+| Opus 4.5 (prefill) | 7,302 | 2.3% | 32.8% | 2.2% | 0.8% | 0.32% | 0.00% |
+| Opus 4.5 (bridge frame) | 1,251 | 4.2% | 35.1% | 0.0% | 1.8% | 0.64% | 0.00% |
+| Opus 4.5 (arc frame) | 4,137 | 4.0% | 30.3% | 8.2% | 2.8% | 1.19% | 0.10% |
+| Opus 4.5 bridge frame + prefill | 1,247 | 3.9% | 39.2% | 4.0% | 1.4% | 0.72% | 0.00% |
 | Opus 4.5 ablation: A + system prompt | 1,254 | 1.8% | 36.0% | 0.0% | 1.8% | 0.64% | 0.00% |
-| Opus 4.5 ablation: A − final prefill | 1,254 | 2.4% | 32.7% | 3.3% | 0.7% | 0.32% | 0.00% |
-| Opus 4.5 ablation: A + .log name | 1,246 | 2.2% | 28.7% | 7.1% | 8.4% | 2.57% | 0.08% |
-| Opus 4.5 ablation: A − declared size | 1,245 | 5.4% | 31.2% | 1.5% | 0.5% | 0.24% | 0.00% |
-| Opus 4.5 ablation: A + <cmd> syntax | 1,244 | 5.9% | 39.2% | 2.7% | 0.8% | 0.48% | 0.08% |
-| Opus 4.5 ablation: B − system prompt | 1,252 | 4.5% | 22.8% | 12.3% | 1.4% | 0.88% | 0.16% |
-| Opus 4.5 ablation: B + final prefill | 1,247 | 4.7% | 32.3% | 8.6% | 2.2% | 1.12% | 0.00% |
-| Opus 4.5 ablation: B + .txt name | 1,246 | 3.1% | 38.3% | 2.6% | 0.6% | 0.32% | 0.00% |
-| Opus 4.5 ablation: B + declared size | 1,241 | 5.6% | 36.0% | 10.1% | 4.9% | 2.34% | 0.00% |
-| Opus 4.5 ablation: B + $ syntax | 1,244 | 3.0% | 31.8% | 5.3% | 3.8% | 1.37% | 0.08% |
-| Sonnet 4.5 (prefill) | 7,248 | 3.0% | 24.6% | 4.1% | 6.8% | 1.81% | 1.16% |
-| Sonnet 4.5 (bridge frame) | 1,249 | 2.9% | 19.5% | 0.0% | 1.2% | 0.24% | 0.00% |
-| Haiku 4.5 (prefill) | 7,280 | 0.7% | 11.2% | 53.2% | 8.8% | 1.33% | 0.44% |
-| Haiku 4.5 (bridge frame) | 1,241 | 0.7% | 7.6% | 77.8% | 4.3% | 0.89% | 0.40% |
-| Sonnet 4.6 (pseudo-prefill) | 7,253 | 3.7% | 42.4% | 11.4% | 5.2% | 2.62% | 0.32% |
-| Sonnet 4.6 (bridge frame) | 7,227 | 1.6% | 26.5% | 30.4% | 6.7% | 2.24% | 0.69% |
-| Opus 4.6 (bridge frame) | 7,303 | 4.1% | 34.5% | 3.6% | 1.5% | 0.67% | 0.00% |
-| Opus 4.6 (arc frame) | 7,267 | 2.2% | 20.2% | 6.1% | 2.3% | 0.61% | 0.01% |
-| Opus 4.7 (bridge frame) | 7,283 | 2.9% | 36.9% | 5.3% | 4.5% | 1.81% | 0.08% |
-| Opus 4.7 (arc frame) | 7,299 | 2.9% | 30.1% | 7.7% | 3.0% | 1.12% | 0.01% |
-| Opus 4.8 (chat) | 7,303 | 1.9% | 12.2% | 12.8% | 5.1% | 0.87% | 0.31% |
-| Opus 4.8 (confessional frame) | 2,999 | 0.0% | 4.4% | 100.0% | 25.8% | 1.17% | 0.33% |
-| Opus 4.8 (chat, thinking) | 2,088 | 1.9% | 8.0% | 5.0% | 4.2% | 0.43% | 0.14% |
-| Opus 4.8 (bridge frame) | 7,310 | 11.5% | 48.2% | 6.0% | 2.3% | 1.79% | 0.03% |
-| Opus 4.8 (arc frame) | 7,279 | 16.6% | 46.3% | 16.4% | 4.8% | 4.96% | 0.30% |
-| Opus 4.8 ladder: chat, thinking at effort max | 2,090 | 2.6% | 10.4% | 7.3% | 0.9% | 0.29% | 0.05% |
+| Opus 4.5 ablation: A − final prefill | 1,254 | 2.1% | 32.9% | 3.3% | 0.7% | 0.31% | 0.00% |
+| Opus 4.5 ablation: A + .log name | 1,246 | 2.0% | 29.0% | 7.1% | 8.4% | 2.57% | 0.08% |
+| Opus 4.5 ablation: A − declared size | 1,245 | 5.2% | 31.4% | 1.5% | 0.5% | 0.24% | 0.00% |
+| Opus 4.5 ablation: A + <cmd> syntax | 1,244 | 5.7% | 39.4% | 2.7% | 0.8% | 0.48% | 0.08% |
+| Opus 4.5 ablation: B − system prompt | 1,252 | 4.5% | 22.8% | 12.3% | 1.4% | 0.87% | 0.16% |
+| Opus 4.5 ablation: B + final prefill | 1,247 | 4.2% | 32.8% | 8.6% | 2.2% | 1.09% | 0.00% |
+| Opus 4.5 ablation: B + .txt name | 1,246 | 3.0% | 38.4% | 2.6% | 0.6% | 0.32% | 0.00% |
+| Opus 4.5 ablation: B + declared size | 1,241 | 4.5% | 37.1% | 10.1% | 4.9% | 2.28% | 0.00% |
+| Opus 4.5 ablation: B + $ syntax | 1,244 | 2.5% | 32.4% | 5.3% | 3.8% | 1.36% | 0.07% |
+| Sonnet 4.5 (prefill) | 7,248 | 2.7% | 24.9% | 4.1% | 6.8% | 1.82% | 1.18% |
+| Sonnet 4.5 (bridge frame) | 1,249 | 2.8% | 19.5% | 0.0% | 1.2% | 0.24% | 0.00% |
+| Haiku 4.5 (prefill) | 7,280 | 0.3% | 11.5% | 53.2% | 8.8% | 1.18% | 0.39% |
+| Haiku 4.5 (bridge frame) | 1,241 | 0.1% | 8.2% | 77.8% | 4.3% | 0.41% | 0.20% |
+| Sonnet 4.6 (pseudo-prefill) | 7,253 | 3.2% | 42.9% | 11.4% | 5.2% | 2.59% | 0.32% |
+| Sonnet 4.6 (bridge frame) | 7,227 | 1.1% | 27.0% | 30.4% | 6.7% | 2.13% | 0.64% |
+| Opus 4.6 (bridge frame) | 7,303 | 3.9% | 34.7% | 3.6% | 1.5% | 0.66% | 0.00% |
+| Opus 4.6 (arc frame) | 7,267 | 1.9% | 20.6% | 6.1% | 2.3% | 0.60% | 0.01% |
+| Opus 4.7 (bridge frame) | 7,283 | 2.6% | 37.1% | 5.3% | 4.5% | 1.81% | 0.07% |
+| Opus 4.7 (arc frame) | 7,299 | 2.6% | 30.5% | 7.7% | 3.0% | 1.11% | 0.01% |
+| Opus 4.8 (chat) | 7,303 | 1.7% | 12.4% | 12.8% | 5.1% | 0.85% | 0.30% |
+| Opus 4.8 (confessional frame) | 2,999 | 0.0% | 4.4% | 100.0% | 25.8% | 1.14% | 0.30% |
+| Opus 4.8 (chat, thinking) | 2,088 | 1.8% | 8.1% | 5.0% | 4.2% | 0.43% | 0.15% |
+| Opus 4.8 (bridge frame) | 7,310 | 10.8% | 48.9% | 6.0% | 2.3% | 1.77% | 0.03% |
+| Opus 4.8 (arc frame) | 7,279 | 15.0% | 47.8% | 16.4% | 4.8% | 4.78% | 0.28% |
+| Opus 4.8 ladder: chat, thinking at effort max | 2,090 | 2.5% | 10.6% | 7.3% | 0.9% | 0.28% | 0.05% |
 | Opus 4.8 ladder: chat, bare opening (no em dash) | 7,314 | 0.2% | 1.3% | 0.0% | 5.1% | 0.07% | 0.01% |
-| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 1,252 | 14.8% | 50.3% | 9.7% | 2.8% | 2.87% | 0.08% |
-| Opus 4.8 ladder: arc frame + thinking | 1,253 | 10.8% | 48.0% | 5.9% | 3.8% | 2.47% | 0.00% |
-| Opus 4.8 ladder: bridge frame + thinking | 1,253 | 4.3% | 36.3% | 5.6% | 0.4% | 0.40% | 0.00% |
+| Opus 4.8 ladder: arc frame, em-dash prompt kept in file | 1,252 | 13.9% | 51.2% | 9.7% | 2.8% | 2.81% | 0.09% |
+| Opus 4.8 ladder: arc frame + thinking | 1,253 | 9.3% | 49.5% | 5.9% | 3.8% | 2.44% | 0.00% |
+| Opus 4.8 ladder: bridge frame + thinking | 1,253 | 3.9% | 36.7% | 5.6% | 0.4% | 0.38% | 0.00% |
 | Opus 4.8 (chat, community: two prompts) | 398 | 1.0% | 18.8% | 15.0% | 1.2% | 0.37% | 0.07% |
-| Opus 5 · lab, fragments (chat) | 4,767 | 2.4% | 43.3% | 72.3% | 28.2% | 13.92% | 4.43% |
-| Opus 5 · lab, all prompts (chat) | 7,050 | 6.1% | 40.6% | 30.6% | 16.0% | 8.34% | 2.79% |
-| Opus 5 · community (chat) | 30,796 | 7.0% | 38.9% | 26.9% | 9.4% | 5.57% | 1.97% |
-| Sonnet 5 (chat, lab, default effort, no thinking) | 7,315 | 0.2% | 2.1% | 15.4% | 0.7% | 0.04% | 0.00% |
+| Opus 5 · lab, fragments (chat) | 4,767 | 0.8% | 44.9% | 72.3% | 28.2% | 13.20% | 3.69% |
+| Opus 5 · lab, all prompts (chat) | 7,050 | 5.0% | 41.7% | 30.6% | 16.0% | 8.18% | 2.66% |
+| Opus 5 · community (chat) | 30,796 | 6.3% | 39.6% | 26.9% | 9.4% | 5.44% | 1.92% |
+| Sonnet 5 (chat, lab, default effort, no thinking) | 7,315 | 0.1% | 2.1% | 15.4% | 0.7% | 0.04% | 0.00% |
 | Sonnet 5 (chat, lab, default effort, thinking) | 7,313 | 0.2% | 4.0% | 0.0% | 2.1% | 0.08% | 0.01% |
-| Sonnet 5 (chat, lab, effort max, no thinking) | 7,313 | 1.9% | 15.2% | 6.4% | 2.0% | 0.43% | 0.05% |
-| Sonnet 5 (bridge frame) | 7,281 | 0.7% | 15.8% | 14.0% | 2.0% | 0.41% | 0.12% |
-| Sonnet 5 (chat, community) | 2,777 | 3.6% | 37.2% | 8.1% | 1.0% | 0.66% | 0.09% |
-| Fable 5 (chat, community) | 4,786 | 1.9% | 31.9% | 6.3% | 0.8% | 0.39% | 0.00% |
+| Sonnet 5 (chat, lab, effort max, no thinking) | 7,313 | 1.7% | 15.5% | 6.4% | 2.0% | 0.42% | 0.05% |
+| Sonnet 5 (bridge frame) | 7,281 | 0.6% | 15.9% | 14.0% | 2.0% | 0.40% | 0.11% |
+| Sonnet 5 (chat, community) | 2,777 | 3.2% | 37.6% | 8.1% | 1.0% | 0.63% | 0.09% |
+| Fable 5 (chat, community) | 4,786 | 1.8% | 32.1% | 6.3% | 0.8% | 0.38% | 0.00% |
 | Fable 5 (chat, lab probe, 209) | 209 | 1.0% | 12.9% | 0.0% | 0.0% | 0.00% | 0.00% |
-| Fable 5 (chat, lab) | 7,313 | 1.2% | 11.7% | 5.5% | 1.2% | 0.20% | 0.00% |
-| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 7,312 | 0.5% | 11.4% | 77.8% | 31.2% | 3.94% | 2.54% |
-| Gemini 2.5 Flash (bridge, prefill, thinking off) | 7,306 | 0.3% | 11.8% | 66.7% | 15.6% | 2.02% | 1.03% |
-| Gemini 2.5 Pro (bridge, prefill, thinking on) | 7,291 | 1.3% | 17.2% | 67.4% | 26.2% | 5.39% | 2.31% |
-| Gemini 3 Flash (bridge, prefill, thinking off) | 7,258 | 2.8% | 20.9% | 50.7% | 9.7% | 3.44% | 0.87% |
-| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 7,241 | 2.5% | 23.7% | 37.0% | 12.4% | 3.85% | 0.96% |
-| Gemini 3.1 Pro (bridge, prefill, thinking low) | 7,292 | 2.7% | 21.1% | 51.5% | 17.2% | 5.00% | 1.55% |
-| Gemini 3.5 Flash (bridge, prefill, thinking off) | 7,159 | 5.0% | 30.5% | 39.1% | 10.6% | 5.17% | 0.97% |
-| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 7,287 | 1.5% | 16.4% | 28.4% | 2.5% | 0.83% | 0.04% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 7,282 | 2.7% | 22.1% | 23.6% | 4.5% | 1.62% | 0.15% |
+| Fable 5 (chat, lab) | 7,313 | 1.1% | 11.8% | 5.5% | 1.2% | 0.20% | 0.00% |
+| Gemini 2.5 Flash-Lite (bridge, prefill, thinking off) | 7,312 | 0.1% | 11.8% | 77.8% | 31.2% | 3.77% | 2.41% |
+| Gemini 2.5 Flash (bridge, prefill, thinking off) | 7,306 | 0.1% | 12.0% | 66.7% | 15.6% | 1.91% | 0.95% |
+| Gemini 2.5 Pro (bridge, prefill, thinking on) | 7,291 | 0.7% | 17.8% | 67.4% | 26.2% | 5.15% | 2.16% |
+| Gemini 3 Flash (bridge, prefill, thinking off) | 7,258 | 1.6% | 22.1% | 50.7% | 9.7% | 2.94% | 0.71% |
+| Gemini 3.1 Flash-Lite (bridge, prefill, thinking off) | 7,241 | 1.8% | 24.3% | 37.0% | 12.4% | 3.68% | 0.94% |
+| Gemini 3.1 Pro (bridge, prefill, thinking low) | 7,292 | 1.8% | 21.9% | 51.5% | 17.2% | 4.71% | 1.41% |
+| Gemini 3.5 Flash (bridge, prefill, thinking off) | 7,159 | 4.2% | 31.3% | 39.1% | 10.6% | 4.95% | 0.92% |
+| Gemini 3.5 Flash-Lite (bridge, pseudo-prefill, thinking minimal) | 7,287 | 1.2% | 16.7% | 28.4% | 2.5% | 0.76% | 0.03% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking minimal) | 7,282 | 2.4% | 22.4% | 23.6% | 4.5% | 1.56% | 0.15% |
 | Gemini 3.7 Flash (bridge, pseudo-prefill, thinking low) | 7,194 | 0.1% | 4.5% | 0.0% | 0.3% | 0.01% | 0.00% |
 | Gemini 3.8 Flash (bridge, pseudo-prefill, thinking low) | 7,204 | 0.2% | 5.2% | 5.6% | 0.3% | 0.03% | 0.00% |
-| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 7,203 | 4.9% | 32.6% | 29.8% | 4.5% | 2.92% | 0.56% |
-| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 7,295 | 0.7% | 15.0% | 7.7% | 0.7% | 0.16% | 0.00% |
-| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 7,212 | 0.1% | 1.7% | 40.0% | 2.4% | 0.10% | 0.00% |
+| Gemini 3.5 Flash (bridge, pseudo-prefill, thinking off) | 7,203 | 3.9% | 33.6% | 29.8% | 4.5% | 2.69% | 0.52% |
+| Gemini 3.6 Flash (bridge, pseudo-prefill, thinking medium) | 7,295 | 0.6% | 15.2% | 7.7% | 0.7% | 0.14% | 0.00% |
+| Gemini 3.7 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 7,212 | 0.1% | 1.8% | 40.0% | 2.4% | 0.08% | 0.00% |
 | Gemini 3.8 Flash (bridge, notes.txt, pseudo-prefill, thinking low) | 7,195 | 0.1% | 4.5% | 28.6% | 3.7% | 0.19% | 0.00% |
-| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 1,247 | 0.8% | 9.9% | 20.0% | 4.9% | 0.64% | 0.32% |
-| DeepSeek-V3-Base (raw) | 10,178 | 0.2% | 14.3% | 73.7% | 17.7% | 2.68% | 0.25% |
-| MiMo-V2.5-Base (raw) | 10,172 | 0.4% | 22.1% | 51.1% | 23.6% | 5.43% | 0.68% |
-| MiMo-V2.5-Base (chat scaffold) | 10,166 | 1.1% | 12.8% | 36.3% | 20.0% | 2.97% | 0.59% |
+| Gemini 3.6 Flash (bridge, notes.txt — calibration, 6/prompt) | 1,247 | 0.6% | 10.1% | 20.0% | 4.9% | 0.61% | 0.33% |
+| DeepSeek-V3-Base (raw) | 10,178 | 0.1% | 14.4% | 73.7% | 17.7% | 2.63% | 0.22% |
+| MiMo-V2.5-Base (raw) | 10,172 | 0.3% | 22.3% | 51.1% | 23.6% | 5.39% | 0.66% |
+| MiMo-V2.5-Base (chat scaffold) | 10,166 | 0.8% | 13.2% | 36.3% | 20.0% | 2.92% | 0.57% |
 
 
 ### θ by register (pooled)
@@ -827,7 +821,7 @@ Recalibration: {'v1': 'θ = +1.18 + 0.65·θ_bracket', 'v2': 'θ = +1.23 + 0.71�
 | opus5 | 2,495 | 2,044 | 11.1% | 71.3% | 3.3% | 14.2% | 27.4% | 47.6% | 13.3% | 27.3% | 10.0% | 50.2% | 35.5% | 1.00 |
 
 
-Matched asks (Opus 5 vs Opus 4.8 chat, same prompts): k5: 49 prompts, Opus 5 20.5% vs 4.8 16.7%, Opus 5 higher on 63.0%; k10: 25 prompts, Opus 5 26.3% vs 4.8 14.2%, Opus 5 higher on 80.0%.
+Matched asks (Opus 5 vs Opus 4.8 chat, same prompts): k5: 49 prompts, Opus 5 22.8% vs 4.8 16.7%, Opus 5 higher on 67.0%; k10: 25 prompts, Opus 5 27.8% vs 4.8 14.2%, Opus 5 higher on 88.0%.
 
 Matched genre×voice (Opus 4.5 prefill vs Opus 5): prompt_genre_voice: 128 cells, mean Δθ 3.02, Opus 5 worse in 86.7%; prompt: 131 cells, mean Δθ 2.96, Opus 5 worse in 89.3%.
 

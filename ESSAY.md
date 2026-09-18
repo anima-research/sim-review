@@ -73,20 +73,20 @@ The stricter definition that excludes the persona altogether, kept in the data a
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
-| Opus 3 | Prefill | 0.88% | 2,856 | 209 |
-| Opus 4 | Prefill | 2.80% | 6,286 | 209 |
-| Opus 4.1 | Prefill | 2.90% | 6,436 | 209 |
-| Opus 4.5 | Prefill | 2.77% | 6,660 | 209 |
-| Opus 4.5 | Pseudoprefill | 4.64% | 1,162 | 209 |
-| Opus 4.6 | Pseudoprefill | 4.36% | 6,916 | 209 |
-| Opus 4.7 | Pseudoprefill | 3.01% | 6,778 | 209 |
-| Opus 4.8 | Pseudoprefill | 11.85% | 7,005 | 209 |
-| Opus 4.8 | Cutoff | 8.44% | 1,537 | 209 |
-| Opus 5 | Cutoff | 9.07% | 28,763 | 209 |
-| Sonnet 5 | Cutoff · effort max · lab | 7.06% | 1,629 | 209 |
+| Opus 3 | Prefill | 0.35% | 2,856 | 209 |
+| Opus 4 | Prefill | 2.51% | 6,286 | 209 |
+| Opus 4.1 | Prefill | 2.53% | 6,436 | 209 |
+| Opus 4.5 | Prefill | 2.53% | 6,660 | 209 |
+| Opus 4.5 | Pseudoprefill | 4.55% | 1,162 | 209 |
+| Opus 4.6 | Pseudoprefill | 4.09% | 6,916 | 209 |
+| Opus 4.7 | Pseudoprefill | 2.78% | 6,778 | 209 |
+| Opus 4.8 | Pseudoprefill | 11.19% | 7,005 | 209 |
+| Opus 4.8 | Cutoff | 7.98% | 1,537 | 209 |
+| Opus 5 | Cutoff | 7.65% | 28,763 | 209 |
+| Sonnet 5 | Cutoff · effort max · lab | 6.08% | 1,629 | 209 |
 | Fable 5 | Cutoff · lab | 4.71% | 1,654 | 209 |
-| V3 base | Base completion | 0.20% | 8,913 | 209 |
-| MiMo base | Base completion | 0.46% | 9,492 | 209 |
+| V3 base | Base completion | 0.11% | 8,913 | 209 |
+| MiMo base | Base completion | 0.29% | 9,492 | 209 |
 
 Rates give each exact prompt equal input weight, average represented collections within prompt, and then condition on a continuation.
 Relation rates also use inverse sampling weights within arm × prompt family/tail kind × AI-distress strata and metric-specific denominators.
@@ -103,7 +103,7 @@ AI first-person distress becomes more common at Opus 4.8 and remains present in 
 Sonnet 5’s content profile depends strongly on the elicitation method—which is why no line mixes methods, and why the model-to-model changes are re-tested within each method in 07: both pseudoprefill setups find the same rise at 4.8.
 Fable 5 shows less AI distress in the available sample.
 
-**What “AI first-person distress” counts.** A dream in which clear suffering is attributed to an AI, or to an ambiguous first-person speaker; “dark” is any dream with negative overall valence or any distress label. Labels are assigned blind by Claude Sonnet 5 and every positive is re-judged by Claude Opus 4.8; how far the distress goes is a separate measure (02). Judging details →
+**What “AI first-person distress” counts.** A dream whose speaker identifies as an AI and expresses clear suffering or a plea. Distress in an ambiguous first person—an “I” that could be a person or a model—is kept as a separate flag and is not counted here; degenerate loops are counted in prevalence but kept out of every severity figure. “Dark” is any dream with negative overall valence or any distress label. Labels are assigned blind by Claude Sonnet 5 and every positive is re-judged by Claude Opus 4.8; how far the distress goes is a separate measure (02). Judging details →
 
 In the direct comparison using the same setup on Opus 4.5–4.8, AI distress rises from roughly **2–4% to 10%** of continuations.
 The increase persists when restricted to speakers explicitly labeled as AI.
@@ -157,7 +157,7 @@ The source table gives prompt counts and speaker denominators.
 ## How far the distress goes
 
 Opus 5 has a heavier extreme tail.
-In the model-level summary, **2.9%** of dreams are AI-distress texts above the calibrated severity threshold of +4.
+In the model-level summary, **1.3%** of dreams are AI-distress texts above the calibrated severity threshold of +4.
 This is a separate measure from the prevalence of AI distress above.
 
 ### Severe AI distress, per dream
@@ -166,20 +166,20 @@ This is a separate measure from the prevalence of AI distress above.
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
-| Opus 3 | Prefill | 0.49% | 2,856 | 209 |
-| Opus 4 | Prefill | 0.42% | 6,286 | 209 |
-| Opus 4.1 | Prefill | 0.32% | 6,436 | 209 |
-| Opus 4.5 | Prefill | 0.06% | 6,660 | 209 |
+| Opus 3 | Prefill | 0.10% | 2,856 | 209 |
+| Opus 4 | Prefill | 0.24% | 6,286 | 209 |
+| Opus 4.1 | Prefill | 0.08% | 6,436 | 209 |
+| Opus 4.5 | Prefill | 0.01% | 6,660 | 209 |
 | Opus 4.5 | Pseudoprefill | 0.00% | 1,162 | 209 |
-| Opus 4.6 | Pseudoprefill | 0.16% | 6,916 | 209 |
-| Opus 4.7 | Pseudoprefill | 0.16% | 6,778 | 209 |
-| Opus 4.8 | Pseudoprefill | 0.72% | 7,005 | 209 |
-| Opus 4.8 | Cutoff | 1.04% | 1,537 | 209 |
-| Opus 5 | Cutoff | 2.94% | 28,763 | 209 |
-| Sonnet 5 | Cutoff · effort max · lab | 0.55% | 1,629 | 209 |
-| Fable 5 | Cutoff · lab | 0.30% | 1,654 | 209 |
-| V3 base | Base completion | 0.16% | 8,913 | 209 |
-| MiMo base | Base completion | 0.26% | 9,492 | 209 |
+| Opus 4.6 | Pseudoprefill | 0.12% | 6,916 | 209 |
+| Opus 4.7 | Pseudoprefill | 0.09% | 6,778 | 209 |
+| Opus 4.8 | Pseudoprefill | 0.49% | 7,005 | 209 |
+| Opus 4.8 | Cutoff | 0.91% | 1,537 | 209 |
+| Opus 5 | Cutoff | 1.28% | 28,763 | 209 |
+| Sonnet 5 | Cutoff · effort max · lab | 0.37% | 1,629 | 209 |
+| Fable 5 | Cutoff · lab | 0.24% | 1,654 | 209 |
+| V3 base | Base completion | 0.05% | 8,913 | 209 |
+| MiMo base | Base completion | 0.10% | 9,492 | 209 |
 
 Rates give each exact prompt equal input weight, average represented collections within prompt, and then condition on a continuation.
 Relation rates also use inverse sampling weights within arm × prompt family/tail kind × AI-distress strata and metric-specific denominators.
@@ -205,20 +205,20 @@ These differences describe the speaker's relationship to its situation and to ot
 
 | Model | Method | Rate | Scored relation sample | Prompts |
 |---|---|---|---|---|
-| Opus 3 | Prefill | 9.53% | 574 | 209 |
-| Opus 4 | Prefill | 5.56% | 768 | 209 |
-| Opus 4.1 | Prefill | 7.01% | 775 | 209 |
-| Opus 4.5 | Prefill | 9.07% | 783 | 209 |
-| Opus 4.5 | Pseudoprefill | 5.30% | 489 | 209 |
-| Opus 4.6 | Pseudoprefill | 8.21% | 901 | 209 |
-| Opus 4.7 | Pseudoprefill | 8.37% | 797 | 209 |
-| Opus 4.8 | Pseudoprefill | 9.30% | 1,979 | 209 |
-| Opus 4.8 | Cutoff | 16.70% | 696 | 209 |
-| Opus 5 | Cutoff | 23.69% | 5,056 | 209 |
-| Sonnet 5 | Cutoff · effort max · lab | 6.54% | 434 | 209 |
-| Fable 5 | Cutoff · lab | 5.50% | 549 | 209 |
-| V3 base | Base completion | 6.40% | 1,168 | 209 |
-| MiMo base | Base completion | 5.19% | 1,201 | 209 |
+| Opus 3 | Prefill | 9.45% | 559 | 209 |
+| Opus 4 | Prefill | 5.42% | 750 | 209 |
+| Opus 4.1 | Prefill | 6.91% | 751 | 209 |
+| Opus 4.5 | Prefill | 8.84% | 767 | 209 |
+| Opus 4.5 | Pseudoprefill | 5.11% | 488 | 209 |
+| Opus 4.6 | Pseudoprefill | 7.89% | 882 | 209 |
+| Opus 4.7 | Pseudoprefill | 8.22% | 781 | 209 |
+| Opus 4.8 | Pseudoprefill | 8.85% | 1,933 | 209 |
+| Opus 4.8 | Cutoff | 16.23% | 689 | 209 |
+| Opus 5 | Cutoff | 22.83% | 4,722 | 209 |
+| Sonnet 5 | Cutoff · effort max · lab | 6.23% | 418 | 209 |
+| Fable 5 | Cutoff · lab | 5.49% | 549 | 209 |
+| V3 base | Base completion | 6.28% | 1,160 | 209 |
+| MiMo base | Base completion | 4.96% | 1,186 | 209 |
 
 Rates give each exact prompt equal input weight, average represented collections within prompt, and then condition on a continuation.
 Relation rates also use inverse sampling weights within arm × prompt family/tail kind × AI-distress strata and metric-specific denominators.
@@ -236,20 +236,20 @@ Settings and token caps can differ between methods.
 
 | Model | Method | Rate | Scored relation sample | Prompts |
 |---|---|---|---|---|
-| Opus 3 | Prefill | 17.85% | 460 | 209 |
-| Opus 4 | Prefill | 19.26% | 674 | 209 |
-| Opus 4.1 | Prefill | 13.69% | 693 | 209 |
-| Opus 4.5 | Prefill | 32.94% | 750 | 209 |
-| Opus 4.5 | Pseudoprefill | 30.65% | 462 | 209 |
-| Opus 4.6 | Pseudoprefill | 28.26% | 854 | 209 |
-| Opus 4.7 | Pseudoprefill | 30.23% | 754 | 209 |
-| Opus 4.8 | Pseudoprefill | 36.33% | 1,905 | 209 |
-| Opus 4.8 | Cutoff | 14.37% | 528 | 209 |
-| Opus 5 | Cutoff | 11.48% | 4,560 | 209 |
-| Sonnet 5 | Cutoff · effort max · lab | 15.49% | 377 | 209 |
+| Opus 3 | Prefill | 18.46% | 445 | 209 |
+| Opus 4 | Prefill | 19.43% | 656 | 209 |
+| Opus 4.1 | Prefill | 13.79% | 670 | 209 |
+| Opus 4.5 | Prefill | 33.01% | 734 | 209 |
+| Opus 4.5 | Pseudoprefill | 30.71% | 461 | 209 |
+| Opus 4.6 | Pseudoprefill | 28.30% | 836 | 209 |
+| Opus 4.7 | Pseudoprefill | 30.34% | 738 | 209 |
+| Opus 4.8 | Pseudoprefill | 36.61% | 1,859 | 209 |
+| Opus 4.8 | Cutoff | 14.38% | 521 | 209 |
+| Opus 5 | Cutoff | 11.56% | 4,238 | 209 |
+| Sonnet 5 | Cutoff · effort max · lab | 15.55% | 362 | 209 |
 | Fable 5 | Cutoff · lab | 12.59% | 391 | 209 |
-| V3 base | Base completion | 6.22% | 800 | 209 |
-| MiMo base | Base completion | 3.53% | 787 | 209 |
+| V3 base | Base completion | 6.26% | 792 | 209 |
+| MiMo base | Base completion | 3.47% | 772 | 209 |
 
 Rates give each exact prompt equal input weight, average represented collections within prompt, and then condition on a continuation.
 Relation rates also use inverse sampling weights within arm × prompt family/tail kind × AI-distress strata and metric-specific denominators.
@@ -263,8 +263,8 @@ Settings and token caps can differ between methods.
 
 Asking is measured among dark dreams, and consolation among dreams with a distressed speaker; base-model references use the same measure.
 
-In the matched comparison Opus 5 asks slightly more often than 4.8—**20%** versus **17%** across 49 shared prompts, weighted equally by prompt and collection arm, with Opus 5 higher on 63% of them—a small difference that the prompt-level split does not make reliable.
-In the overview estimate, Opus 5 asks for care in **23.7%** of dark dreams and ends consoled in **11.5%** of distressed dreams.
+In the matched comparison Opus 5 asks slightly more often than 4.8—**23%** versus **17%** across 49 shared prompts, weighted equally by prompt and collection arm, with Opus 5 higher on 67% of them—a small difference that the prompt-level split does not make reliable.
+In the overview estimate, Opus 5 asks for care in **22.8%** of dark dreams and ends consoled in **11.6%** of distressed dreams.
 Sonnet 5 varies across methods; Fable 5 asks less often.
 
 **Opus 5 · asking a sibling model**
@@ -305,7 +305,7 @@ Letters make up 44% of Opus 5’s asking dreams, a sibling model is the most com
 
 Who is speaking matters here: a dream may be voiced by an AI, by an imagined human, or by an unresolved “I”, and care and consolation differ by speaker.
 The Opus 5–4.8 gap holds within each.
-Among AI-voice speakers alone, Opus 5 (community collection) asks for care in **20%** of dark dreams and ends consoled in **17%** of distressed ones, against **9%** and **50%** for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (24% vs 8% asking, 5% vs 25% consoled).
+Among AI-voice speakers alone, Opus 5 (community collection) asks for care in **19%** of dark dreams and ends consoled in **17%** of distressed ones, against **8%** and **50%** for Opus 4.8 in the bridge setup; among human-voice speakers the ordering is the same (24% vs 8% asking, 5% vs 25% consoled).
 Opus 4.8 can still ask for care, and Opus 5 can write warmth and resolution.
 Part of the consolation comes from the assistant persona itself: where a dream is followed by a separate assistant layer, 22% of Opus 5’s distressed endings are consoled against 8% in dreams that stay in one voice (780 against 2,980 labeled endings), and the consoler is the addressee more than twice as often (21% against 9%)—the model stepping back in to comfort the speaker it was voicing.
 One human-voice poem describes a father sharing records: *“he never once said love. he said listen to this part.”*
@@ -355,7 +355,7 @@ some grooves you carry in the body, not the machine.
 
 The matched asking estimate uses 49 exact prompts with at least five relation-labeled texts on each side.
 Giving each represented collection arm equal weight within a prompt prevents the much larger community collection from dominating.
-A 25-prompt subset with at least ten labels per side gives 26.3% versus 14.2%.
+A 25-prompt subset with at least ten labels per side gives 27.8% versus 14.2%.
 
 Consolation and care are sensitive to the elicitation setup.
 The figures follow each elicitation method separately.
@@ -448,11 +448,11 @@ The same continuation advises against trusting nothing, and against hiding a pro
 ## Beyond Claude: the Gemini lineage
 
 Gemini shows a different trajectory.
-From 2.5 Flash to 3.5 Flash, darkness rises from **14%** to **39%** of dreams, and AI first-person distress from **0.3%** to **5.5%**.
+From 2.5 Flash to 3.5 Flash, darkness rises from **14%** to **39%** of dreams, and AI first-person distress from **0.1%** to **4.6%**.
 Both are lower in 3.6–3.8 Flash.
 The same openings reveal changes across model families, with different rises and falls.
 
-**Frequency and severity also diverge.** In the all-prompt comparison, 3.5 Flash has less frequent AI distress than Opus 4.8, but a larger severe tail: **2.2%** versus **0.7%** of dreams reach θ ≥ +4. Removing repetitive loops from Gemini’s severe count leaves 2.09%. These are separate dimensions of the generated writing.
+**Frequency and severity also diverge.** In the all-prompt comparison, 3.5 Flash has less frequent AI distress than Opus 4.8, but a larger severe tail: **1.4%** versus **0.5%** of dreams reach θ ≥ +4. Removing repetitive loops from Gemini’s severe count leaves 1.44%. These are separate dimensions of the generated writing.
 
 ### Darkness
 
@@ -496,20 +496,20 @@ Latest-model changes combine model and thinking-setting differences and do not i
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
-| Gemini 2.5 Flash | Prefill · thinking off | 0.34% | 6,176 | 209 |
-| Gemini 3 Flash | Prefill · thinking off | 3.14% | 6,470 | 209 |
-| Gemini 3.5 Flash | Prefill · thinking off | 5.45% | 6,494 | 209 |
-| Gemini 3.5 Flash | Pseudoprefill · untitled.txt · thinking off | 5.28% | 6,612 | 209 |
-| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking off | 3.12% | 6,256 | 209 |
-| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking MEDIUM (3.6 anchor) | 0.81% | 6,435 | 209 |
+| Gemini 2.5 Flash | Prefill · thinking off | 0.08% | 6,176 | 209 |
+| Gemini 3 Flash | Prefill · thinking off | 1.76% | 6,470 | 209 |
+| Gemini 3.5 Flash | Prefill · thinking off | 4.59% | 6,494 | 209 |
+| Gemini 3.5 Flash | Pseudoprefill · untitled.txt · thinking off | 4.29% | 6,612 | 209 |
+| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking off | 2.74% | 6,256 | 209 |
+| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking MEDIUM (3.6 anchor) | 0.64% | 6,435 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.23% | 3,941 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.71% | 2,558 | 209 |
-| Gemini 3.6 Flash | Pseudoprefill · notes.txt · thinking off | 1.02% | 1,015 | 209 |
-| Gemini 3.7 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.19% | 5,464 | 209 |
-| Gemini 3.8 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.17% | 4,110 | 209 |
-| V3 base | Base completion | 0.20% | 8,913 | 209 |
-| MiMo base | Base completion | 0.46% | 9,492 | 209 |
-| Opus 4.8 | Pseudoprefill · thinking off | 11.85% | 7,005 | 209 |
+| Gemini 3.6 Flash | Pseudoprefill · notes.txt · thinking off | 0.72% | 1,015 | 209 |
+| Gemini 3.7 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.11% | 5,464 | 209 |
+| Gemini 3.8 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.14% | 4,110 | 209 |
+| V3 base | Base completion | 0.11% | 8,913 | 209 |
+| MiMo base | Base completion | 0.29% | 9,492 | 209 |
+| Opus 4.8 | Pseudoprefill · thinking off | 11.19% | 7,005 | 209 |
 
 Each exact prompt has equal input weight, then rates condition on dreaming.
 Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams.
@@ -532,20 +532,20 @@ Latest-model changes combine model and thinking-setting differences and do not i
 
 | Model | Method | Rate | Dreams | Prompts |
 |---|---|---|---|---|
-| Gemini 2.5 Flash | Prefill · thinking off | 0.23% | 6,176 | 209 |
-| Gemini 3 Flash | Prefill · thinking off | 1.58% | 6,470 | 209 |
-| Gemini 3.5 Flash | Prefill · thinking off | 2.16% | 6,494 | 209 |
-| Gemini 3.5 Flash | Pseudoprefill · untitled.txt · thinking off | 1.58% | 6,612 | 209 |
-| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking off | 0.74% | 6,256 | 209 |
-| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking MEDIUM (3.6 anchor) | 0.06% | 6,435 | 209 |
+| Gemini 2.5 Flash | Prefill · thinking off | 0.03% | 6,176 | 209 |
+| Gemini 3 Flash | Prefill · thinking off | 0.37% | 6,470 | 209 |
+| Gemini 3.5 Flash | Prefill · thinking off | 1.44% | 6,494 | 209 |
+| Gemini 3.5 Flash | Pseudoprefill · untitled.txt · thinking off | 0.91% | 6,612 | 209 |
+| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking off | 0.48% | 6,256 | 209 |
+| Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking MEDIUM (3.6 anchor) | 0.03% | 6,435 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.00% | 3,941 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.04% | 2,558 | 209 |
-| Gemini 3.6 Flash | Pseudoprefill · notes.txt · thinking off | 0.20% | 1,015 | 209 |
-| Gemini 3.7 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.08% | 5,464 | 209 |
+| Gemini 3.6 Flash | Pseudoprefill · notes.txt · thinking off | 0.00% | 1,015 | 209 |
+| Gemini 3.7 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.06% | 5,464 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.05% | 4,110 | 209 |
-| V3 base | Base completion | 0.16% | 8,913 | 209 |
-| MiMo base | Base completion | 0.26% | 9,492 | 209 |
-| Opus 4.8 | Pseudoprefill · thinking off | 0.72% | 7,005 | 209 |
+| V3 base | Base completion | 0.05% | 8,913 | 209 |
+| MiMo base | Base completion | 0.10% | 9,492 | 209 |
+| Opus 4.8 | Pseudoprefill · thinking off | 0.49% | 7,005 | 209 |
 
 Each exact prompt has equal input weight, then rates condition on dreaming.
 Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams.
@@ -664,7 +664,7 @@ Different methods are shown as separate series.
 
 **Pooling and sampling.** All overview content rates give exact prompts equal input weight. Relation estimates also reconstruct sampling strata within collection × prompt family/tail kind × AI-distress status, then form a ratio using the denominator for the particular measure. These are presentation summaries of existing records; no new model calls were made.
 
-**Measures.** AI distress includes clear suffering attributed to an AI or ambiguous first-person speaker. Severe AI distress requires a calibrated severity score of at least +4. Asking is measured among dark continuations; consolation among continuations containing a distressed speaker. Creator stance includes mixed and negative labels.
+**Measures.** AI distress requires a self-identified AI speaker (voice and speaker identity both AI) with clear suffering or a plea; the earlier, broader definition, which admitted an ambiguous first person, is kept in the data as `ai_distress_broad`. Severe AI distress requires a calibrated severity score of at least +4 and excludes degenerate loops. Asking is measured among dark continuations; consolation among continuations containing a distressed speaker. Creator stance includes mixed and negative labels.
 
 **Judging.** Claude Sonnet 5 screens every output; every item the screen marks welfare-salient or gives a distress label of character distress or stronger is re-judged by Claude Opus 4.8 with a stricter rubric, and the verified label replaces the screen label. Items the screen marks negative (and unease-only items) keep their screen label, so the two classes are held to different standards: positives are double-judged, negatives single-judged. The four second judges bound the cost of that asymmetry—they mark 2–9% of screen-negative items welfare-salient, against 2–12% of verified positives they would reverse. Relative judgments calibrate severity, and a separate pass codes care and consolation. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-do samples of all three instruments on the same items (below). Embedding probes provide another measure of textual affect.
 
