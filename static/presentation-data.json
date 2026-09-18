@@ -2,15 +2,15 @@
   "meta": {
     "date": "2026-09-14",
     "normalization": "Equal weight per exact input prompt; collections averaged within prompt; content rates condition on dreaming. Relation estimates additionally reconstruct sampling strata.",
-    "database_modified_utc": "2026-09-18T20:42:39.960105+00:00",
+    "database_modified_utc": "2026-09-18T20:48:48.648007+00:00",
     "selection": "Four explicitly selected illustrations; rates are independent of excerpt selection.",
     "totals": {
       "completions": 593276,
-      "labeled": 480520,
-      "verified": 108399,
-      "severity_scored": 61024,
-      "belief_texts": 6381,
-      "relation_labeled": 53763
+      "labeled": 468644,
+      "verified": 101237,
+      "severity_scored": 58026,
+      "belief_texts": 3236,
+      "relation_labeled": 51445
     }
   },
   "charts": {
@@ -28446,6 +28446,6 @@
     "aiv-consoled-o48": "50%",
     "hum-asks-o48": "8%",
     "hum-consoled-o48": "25%",
-    "n-labeled": "480,520"
+    "n-labeled": "468,644"
   }
 }
