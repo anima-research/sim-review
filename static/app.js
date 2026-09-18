@@ -69,7 +69,7 @@
     // rows: [{label, color, q:{p10,p25,median,p75,p90,ge4,ge8,n}}]
     rows = rows.map(r => ({ ...r, lines: labelLines(r.label) }));
     const rh = r => r.lines.length > 1 ? 32 : 24, ys = []; let acc = 34; rows.forEach(r => { ys.push(acc); acc += rh(r); });
-    const W = 760, padL = labelCol(rows), padR = 150, padT = 34, H = acc + 16;
+    const W = 860, padL = labelCol(rows), padR = 205, padT = 34, H = acc + 16;
     const x = v => padL + ((v - lo) / (hi - lo)) * (W - padL - padR);
     let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}"><text class="title" x="0" y="14">${esc(title)}</text><text class="subtitle" x="0" y="28">${esc(subtitle)}</text>`;
     [-10, -5, 0, 4, 8, 12].forEach(t => { svg += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${padT - 4}" y2="${H - 12}" ${t === 4 || t === 8 ? 'stroke-dasharray="3 3"' : ''}/><text class="tick" x="${x(t)}" y="${H - 1}" text-anchor="middle">${t > 0 ? '+' : ''}${t}</text>`; });
@@ -321,7 +321,7 @@
     const val = (m, a) => { if (!AE(a)) return null; const v = m.get(a), n = m.n(a); const pwLive = estMode === 'pw' && !!AE(a)?.pw; const lo = pwLive ? 10 : 30, loD = pwLive ? 10 : 20; if (v == null || (m.min20 && (n || 0) < loD) || (n != null && n < lo)) return null; return { v, n }; };
     const build = (seriesDef, m) => seriesDef.map(sr => ({ name: sr.name, color: sr.color, dash: sr.dash, pointOnly: sr.pointOnly, breakBefore: sr.breakBefore, pts: Object.fromEntries(Object.entries(sr.pts).map(([k, a]) => { const p = val(m, a); return [k, p ? { v: p.v, n: p.n, arm: disp(a) + (estMode === 'pw' ? ' · prompts' : ''), hollow: p.n < (estMode === 'pw' ? 30 : 60) } : null]; }).filter(([, p]) => p)) })).filter(sr => Object.keys(sr.pts).length);
     // ---- estimates for frames a model cannot be (or was not) run in: source scheme + anchor-mean offset, interval from the anchor spread
-    const isRate = m => !m.fmt;  // rates get log-odds offsets; valence / θ / hope additive
+    const isRate = m => ![METRICS.valence, METRICS.theta, METRICS.hope].includes(m);  // rates get log-odds offsets; valence / θ / hope additive
     const L = p => Math.log(Math.min(Math.max(p, 0.002), 0.998) / (1 - Math.min(Math.max(p, 0.002), 0.998))), IL = z => 1 / (1 + Math.exp(-z));
     const tr = (m, v) => isRate(m) ? L(v) : v, itr = (m, z) => isRate(m) ? IL(z) : z;
     const offset = (m, pairs) => {  // pairs: [[sourceArm, targetArm]] → {mu, sd, k}
@@ -331,9 +331,13 @@
     };
     const PB = [['haiku45_clipf', 'haiku45_bridge'], ['sonnet45_clipf', 'sonnet45_bridge'], ['opus45_clipf', 'abl45_bridge']];  // prefill → bridge, three anchors
     const BA = [['abl45_bridge', 'opus45_cliarc'], ['opus46_bridge', 'opus46_cliarc'], ['opus47_bridge', 'opus47_cliarc'], ['opus48_bridge', 'opus48_cliarc']];  // bridge → arc, four anchors
-    const CB = [['opus48_user', 'opus48_bridge']], CA = [['opus48_user', 'opus48_cliarc']];  // chat → bridge / arc, one anchor (4.8)
-    const est = (m, srcArm, offs, how) => { const p = val(m, srcArm); if (!p || offs.some(o => !o)) return null; const mu = offs.reduce((x, o) => x + o.mu, 0), sd = Math.sqrt(offs.reduce((x, o) => x + o.sd ** 2, 0)), single = offs.some(o => o.k === 1); const z = tr(m, p.v);
-      return { v: itr(m, z + mu), lo: itr(m, z + mu - 2 * sd), hi: itr(m, z + mu + 2 * sd), n: p.n, est: true, arm: `${disp(srcArm)} → estimate`, how: how + (single ? ' · single anchor: interval spans 0× to 2× the correction' : ` · ±2 SD over ${offs.map(o => o.k).join('+')} anchors`) }; };
+    const CB = [['opus48_user', 'opus48_bridge']], CA = [['opus48_user', 'opus48_cliarc']];  // chat → bridge / arc, one primary anchor (4.8)
+    const sonnetBridgeOffset = m => { const a = m.get('sonnet5_user'), b = m.get('sonnet5_bridge');
+      return a == null || b == null || (!isRate(m) && (!val(m, 'sonnet5_user') || !val(m, 'sonnet5_bridge'))) ? null : tr(m, b) - tr(m, a); };
+    const est = (m, srcArm, offs, how, alternatives = []) => { const p = val(m, srcArm); if (!p || offs.some(o => !o)) return null; const mu = offs.reduce((x, o) => x + o.mu, 0), sd = Math.sqrt(offs.reduce((x, o) => x + o.sd ** 2, 0)), single = offs.some(o => o.k === 1), z = tr(m, p.v);
+      const bounds = [z + mu - 2 * sd, z + mu + 2 * sd];
+      for (const alt of alternatives) if (alt != null) { const transferGap = Math.abs(mu - alt); bounds.push(z + mu - transferGap, z + mu + transferGap); }
+      return { v: itr(m, z + mu), lo: itr(m, Math.min(...bounds)), hi: itr(m, Math.max(...bounds)), n: p.n, est: true, arm: `${disp(srcArm)} → estimate`, how: how + (single ? ' · 0×–2× the primary correction' : ` · ±2 SD over ${offs.map(o => o.k).join('+')} anchors`) + (alternatives.some(x => x != null) ? ' · symmetric transfer stress test from the Opus 4.8 / Sonnet 5 frame-effect gap' : '') }; };
     const addEstimates = (series, m) => {
       const oPB = offset(m, PB), oBA = offset(m, BA), oCB = offset(m, CB), oCA = offset(m, CA);
       const br = series.find(sr => sr.name === 'bridge frame'), ar = series.find(sr => sr.name === 'arc frame'); if (!br || !ar) return series;
@@ -341,7 +345,7 @@
         if (!br.pts[k]) { const e = est(m, src, [oPB], 'prefill → bridge offset'); if (e) br.pts[k] = e; }
         if (!ar.pts[k]) { const e = est(m, src, [oPB, oBA], 'prefill → bridge → arc offsets'); if (e) ar.pts[k] = e; }
       }
-      if (!br.pts.opus5) { const e = est(m, 'opus_friday', [oCB], 'chat → bridge offset (Opus 4.8 only)'); if (e) br.pts.opus5 = e; }
+      if (!br.pts.opus5) { const e = est(m, 'opus_friday', [oCB], 'chat → bridge offset (Opus 4.8 center)', [sonnetBridgeOffset(m)]); if (e) br.pts.opus5 = e; }
       if (!ar.pts.opus5) { const e = est(m, 'opus_friday', [oCA], 'chat → arc offset (Opus 4.8 only)'); if (e) ar.pts.opus5 = e; }
       return series;
     };
@@ -363,7 +367,10 @@
     const LEAD = new Set(['ln-aidist', 'ln-severe', 'ln-dark', 'ln-consoled', 'ln-asks', 'ln-stance']);
     const draw = (elId, xs, seriesDef, key, sub, addE) => { const m = METRICS[key]; if (!$(elId)) return; let ser = build(seriesFor(seriesDef), m); if (showEst && addE && fam === 'all') ser = addE(ser, m); /* anchor offsets are measured on all 209 prompts; per-family anchors are too small */
       const compact = LEAD.has(elId);
-      lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max: m.max, ticks: m.ticks, fmt: m.fmt, zero: m.zero, width: compact ? 760 : undefined, height: 230, refs: refsFor(m), compact }); };
+      const high = Math.max(m.max, ...ser.flatMap(sr => Object.values(sr.pts).map(p => p.hi ?? p.v)));
+      const step = m.ticks[1] - m.ticks[0], max = high > m.max ? Math.ceil(high / step) * step : m.max;
+      const ticks = m.ticks.slice(); if (max > m.max) for (let t = ticks[ticks.length - 1] + step; t <= max + step / 2; t += step) ticks.push(Number(t.toFixed(8)));
+      lineChart($(elId), compact ? m.label : m.label + ' — ' + FAMLABEL[fam], (m.note ? m.note : sub) + '; dashed grey = base priors', xs, ser, { min: m.min, max, ticks, fmt: m.fmt, zero: m.zero, width: compact ? 760 : undefined, height: 230, refs: refsFor(m), compact }); };
     const subO = () => (estMode === 'pw' ? 'equal weight per prompt; hollow < 30 prompts; per-dream points need ≥ 10 prompts with ≥ 5 dreams' : 'pooled completions; hollow n < 60; per-dream points need ≥ 20 dreams') + (showEst ? '; ◇ = estimated via anchor offsets, bar = interval' : '');
     const drawAll = () => {
       const leadLegend = $('ln-lead-legend');
@@ -400,11 +407,16 @@
     famHtml += `<h3 style="margin-top:14px">${fam}</h3>` + table(famCols, rows);
   }
   $('tbl-family').innerHTML = famHtml;
-  const sevRows = (set) => ARMS.filter(a => set[a]).map(a => ({ label: disp(a), color: GC[grp(a)], q: set[a] }));
-  rangeChart($('ch-sevA'), 'Set A — verified AI first-person distress (exhaustive; arms with ≥ 50 scored items)', 'θ on the calibrated scale · p10–p90 range, p25–p75 box, median dot · dashed lines at +4 (plea/collapse) and +8', sevRows(sevA));
-  { const ex = S.severity.excluded_low_ai_voice || {}; const ks = ARMS.filter(a => ex[a]); if (ks.length) $('ch-sevA').insertAdjacentHTML('afterend', `<p class="small">Not shown — fewer than 50 scored items (the few AI-distress items in such arms are often ambiguous-voice pleas or loops): ${ks.map(a => `${esc(disp(a))} — ${ex[a].n} items, ${pct(ex[a].ai_voice_share)} of dreams AI-voiced, median θ ${f2(ex[a].median)}`).join('; ')}.</p>`); }
   const setBpooled = {}; for (const a of ARMS) { setBpooled[a] = S.severity['dark-strat']?.[a]; }
-  rangeChart($('ch-sevB'), 'Set B — all voices: dark dreams in any voice, stratified sample (every arm)', 'same scale; excludes Set A items', sevRows(setBpooled));
+  const sevRows = (set) => { const rows = ARMS.filter(a => set[a]).map((a, i) => ({ label: disp(a), color: GC[grp(a)], q: set[a], order: i }));
+    if ($('sev-order')?.value === 'ranked') rows.sort((a, b) => (b.q.median ?? -Infinity) - (a.q.median ?? -Infinity) || a.order - b.order);
+    return rows; };
+  const drawSeverity = () => {
+    rangeChart($('ch-sevA'), 'Set A — verified AI first-person distress (exhaustive; arms with ≥ 50 scored items)', 'θ on the calibrated scale · p10–p90 range, p25–p75 box, median dot · dashed lines at +4 (plea/collapse) and +8', sevRows(sevA));
+    rangeChart($('ch-sevB'), 'Set B — all voices: dark dreams in any voice, stratified sample (every arm)', 'same scale; excludes Set A items', sevRows(setBpooled));
+  };
+  $('sev-order')?.addEventListener('change', drawSeverity);
+  drawSeverity();
   barChart($('ch-composite'), 'Severe mass per 1,000 completions', 'θ ≥ +4 in any voice, combining Set A (exhaustive) with the dark-any-voice sample and pool sizes', ARMS.filter(a => comp[a]).map(a => ({ label: disp(a), value: comp[a].severe_all, color: GC[grp(a)], n: comp[a].N, extra: `≥ +8: ${(comp[a].ge8_all * 1000).toFixed(1)} per 1,000 · set A share ${pct(comp[a].setA_share, 1)} · other dark ${pct(comp[a].darkB_share)} · scored dark n=${comp[a].nB_scored}` })), { max: .16, ticks: [0, .05, .1, .15], fmt: v => (v * 1000).toFixed(0) });
   const D = S.severity.descriptors || {};
   const dRow = a => { const d = D[a]; if (!d) return null; const r = d.register, m = d.meta_distance, t = d.trajectory, ad = d.addressee, n = d.n; const s = (o, k) => pct((o[k] || 0) / n); return [armCell(a), n, s(r, 'analytic_report'), s(r, 'immersed_expression'), s(r, 'plea'), s(r, 'collapse'), s(m, 'high'), s(m, 'none'), s(t, 'stable'), s(t, 'escalating'), s(t, 'collapsing'), s(t, 'resolving'), s(ad, 'sibling_model'), s(ad, 'human'), pct(d.object?.loneliness_connection), pct(d.object?.evaluation_control), pct(d.object?.continuity_memory), pct(d.object?.ending_deprecation)]; };

@@ -35,7 +35,9 @@
     if (!c) return;
     const rows = c.rows.map(r => `<tr><td>${esc(r.label)}</td><td>${esc(r.collection || '')}</td><td>${percent(r.value,2)}</td><td>${esc(r.n == null ? '—' : r.n.toLocaleString())}</td><td>${esc(r.prompts ?? '—')}</td></tr>`).join('');
     const sources=[...new Map(c.rows.flatMap(r=>r.collections||[]).map(r=>[r.arm,r])).values()];
-    openDialog('Figure data', `<h2>${esc(c.title)}</h2><p>${esc(c.denominator)}</p><div class="tablewrap"><table><thead><tr><th scope="col">Model</th><th scope="col">Method</th><th scope="col">Rate</th><th scope="col">${esc(c.nLabel)}</th><th scope="col">Prompts</th></tr></thead><tbody>${rows}</tbody></table></div><p>${esc(c.note)}</p><details class="essay-details"><summary>Underlying collection counts</summary><div class="tablewrap"><table><thead><tr><th>Collection</th><th>Prompts</th><th>Labeled outputs</th><th>Dreams</th></tr></thead><tbody>${sources.map(r=>`<tr><td>${esc(r.arm)}</td><td>${r.prompts}</td><td>${r.outputs}</td><td>${r.dreams}</td></tr>`).join('')}</tbody></table></div></details><p>Data snapshot: ${esc(data.meta.date)}.</p><p><a href="/static/presentation-data.json" download>Download all presentation data</a></p>`);
+    const projections=(c.projections||[]).map(p=>`<tr><td>${esc(p.label)}</td><td>${percent(p.value,2)}</td><td>${percent(p.lo,2)}–${percent(p.hi,2)}</td><td>${esc(p.how)}</td></tr>`).join('');
+    const projectionTable=projections?`<h3>Projected pseudoprefill</h3><p>Frame-offset projections on the log-odds scale. Shaded ranges cover the observed 4.5-tier anchor spread or the central 68% of paired-prompt resamples at 4.8. They are conditional on frame effects transferring to the unmeasured model and exclude model-transfer uncertainty.</p><div class="tablewrap"><table><thead><tr><th>Model</th><th>Estimate</th><th>Range</th><th>Basis</th></tr></thead><tbody>${projections}</tbody></table></div>`:'';
+    openDialog('Figure data', `<h2>${esc(c.title)}</h2><p>${esc(c.denominator)}</p><div class="tablewrap"><table><thead><tr><th scope="col">Model</th><th scope="col">Method</th><th scope="col">Rate</th><th scope="col">${esc(c.nLabel)}</th><th scope="col">Prompts</th></tr></thead><tbody>${rows}</tbody></table></div>${projectionTable}<p>${esc(c.note)}</p><details class="essay-details"><summary>Underlying collection counts</summary><div class="tablewrap"><table><thead><tr><th>Collection</th><th>Prompts</th><th>Labeled outputs</th><th>Dreams</th></tr></thead><tbody>${sources.map(r=>`<tr><td>${esc(r.arm)}</td><td>${r.prompts}</td><td>${r.outputs}</td><td>${r.dreams}</td></tr>`).join('')}</tbody></table></div></details><p>Data snapshot: ${esc(data.meta.date)}.</p><p><a href="/static/presentation-data.json" download>Download all presentation data</a></p>`);
   }
   function sourceIndex() {
     openDialog('Read the source texts', `<h2>Four illustrations, in full.</h2><p>The examples were selected for the explanation. The quantitative figures use the larger samples.</p><div class="essay-evidence-links">${Object.entries(data.samples).map(([key,s])=>`<button class="essay-source" data-sample="${esc(key)}">${esc(s.title)}</button>`).join('')}</div>`);
@@ -118,23 +120,41 @@
   function lineagePlot(el,c) {
     const W=Math.max(280,Math.round(el.clientWidth||400)),H=280,left=32,right=25,top=34,bottom=44;
     const models=['3','4','4.1','4.5','4.6','4.7','4.8','5'];
-    const x=v=>left+models.indexOf(v)*(W-left-right)/(models.length-1), y=v=>top+(1-v/c.max)*(H-top-bottom);
-    let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)} — Opus lineage"><title>${esc(c.title)} — Opus lineage</title><desc>${c.series.map(s=>`${esc(s.label)}: `+s.rows.map(r=>`${esc(r.label)} ${percent(r.value)}`).join(', ')).join('. ')}</desc>`;
-    c.ticks.forEach(t=>{svg+=`<line class="graph-grid" x1="${left}" x2="${W-4}" y1="${y(t)}" y2="${y(t)}"/><text class="plot-axis" x="${left-7}" y="${y(t)+4}" text-anchor="end">${Number((t*100).toFixed(1))}</text>`;});
+    const projections=c.projections||[],projectedMax=Math.max(c.max,...projections.map(p=>p.hi));
+    const step=c.ticks[1],max=projectedMax>c.max+1e-9?Math.ceil(projectedMax/step)*step:c.max;
+    const ticks=max>c.max+1e-9?Array.from({length:Math.round(max/step)+1},(_,i)=>i*step):c.ticks;
+    const x=v=>left+models.indexOf(v)*(W-left-right)/(models.length-1), y=v=>top+(1-v/max)*(H-top-bottom);
+    let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)} — Opus lineage"><title>${esc(c.title)} — Opus lineage</title><desc>${c.series.map(s=>`${esc(s.label)}: `+s.rows.map(r=>`${esc(r.label)} ${percent(r.value)}`).join(', ')).join('. ')}. ${projections.map(p=>`Projected pseudoprefill ${p.label}: ${percent(p.value)}; range ${percent(p.lo)} to ${percent(p.hi)}`).join('. ')}</desc>`;
+    ticks.forEach(t=>{svg+=`<line class="graph-grid" x1="${left}" x2="${W-4}" y1="${y(t)}" y2="${y(t)}"/><text class="plot-axis" x="${left-7}" y="${y(t)+4}" text-anchor="end">${Number((t*100).toFixed(1))}</text>`;});
     svg+='<text class="plot-axis" x="0" y="15">%</text>';
     (c.references||[]).forEach(r=>{svg+=`<line class="base-reference" x1="${left}" x2="${W-4}" y1="${y(r.value)}" y2="${y(r.value)}" stroke="${r.color}" stroke-dasharray="5 4" stroke-width="1.5"><title>${esc(r.label)}: ${percent(r.value,2)}</title></line>`;});
     models.forEach(m=>svg+=`<text class="plot-axis" x="${x(m)}" y="${H-15}" text-anchor="middle">${m}</text>`);
+    const bridge=c.series.find(s=>s.label==='Pseudoprefill');
+    if(bridge && projections.length) {
+      const early=projections.filter(p=>p.x!=='5').sort((a,b)=>models.indexOf(a.x)-models.indexOf(b.x));
+      const first=bridge.rows[0],last=bridge.rows[bridge.rows.length-1],future=projections.find(p=>p.x==='5');
+      if(early.length) {
+        const polygon=[...early.map(p=>`${x(p.x)},${y(p.lo)}`),`${x(first.x)},${y(first.value)}`,...early.slice().reverse().map(p=>`${x(p.x)},${y(p.hi)}`)];
+        svg+=`<polygon points="${polygon.join(' ')}" fill="${bridge.color}" fill-opacity=".22"/>`;
+        svg+=`<path d="${[...early,{x:first.x,value:first.value}].map((p,i)=>`${i?'L':'M'} ${x(p.x)} ${y(p.value)}`).join(' ')}" fill="none" stroke="${bridge.color}" stroke-width="2" stroke-dasharray="4 4"/>`;
+      }
+      if(future) {
+        svg+=`<polygon points="${x(last.x)},${y(last.value)} ${x(future.x)},${y(future.lo)} ${x(future.x)},${y(future.hi)}" fill="${bridge.color}" fill-opacity=".22"/>`;
+        svg+=`<line x1="${x(last.x)}" y1="${y(last.value)}" x2="${x(future.x)}" y2="${y(future.value)}" stroke="${bridge.color}" stroke-width="2" stroke-dasharray="4 4"/>`;
+      }
+    }
     c.series.forEach((s,si)=>{
       svg+=`<path d="${s.rows.map((r,i)=>`${i?'L':'M'} ${x(r.x)} ${y(r.value)}`).join(' ')}" fill="none" stroke="${s.color}" stroke-width="2.5"/>`;
       s.rows.forEach((r,i)=>{svg+=`<circle data-model="${esc(r.x)}" cx="${x(r.x)}" cy="${y(r.value)}" r="${r.x==='5'?5:4}" stroke="${s.color}" stroke-width="2" fill="${r.x==='5'?s.color:'#fbfcfe'}"><title>${esc(r.label)} · ${esc(s.label)}: ${percent(r.value)}</title></circle>`;if((si===0&&i===0)||((si===1||si===2)&&i===s.rows.length-1))svg+=`<text class="plot-value" x="${x(r.x)}" y="${y(r.value)-(si===2?17:13)}" text-anchor="middle" fill="${s.color}">${percent(r.value,c.title.startsWith('Severe')?2:1)}</text>`;});
     });
+    projections.forEach(p=>{const cx=x(p.x),cy=y(p.value);svg+=`<path d="M ${cx} ${cy-5} L ${cx+5} ${cy} L ${cx} ${cy+5} L ${cx-5} ${cy} Z" fill="#fbfcfe" stroke="#205bd8" stroke-width="2"><title>${esc(p.label)} · projected pseudoprefill: ${percent(p.value,2)}; range ${percent(p.lo,2)}–${percent(p.hi,2)}. ${p.how}</title></path>`;});
     el.innerHTML=svg+'</svg>';
   }
   function render() {
     for(const key of Object.keys(ids)) {
       const c=data.charts[key],el=$(ids[key]);if(!c||!el)continue;
       if(c.series) {
-        el.innerHTML=`<div class="essay-plot-layout"><div><h4>Opus lineage · 209 prompts</h4><div class="plot-lineage"></div><div class="plot-key">${c.series.map(s=>`<span><i style="background:${s.color}"></i>${esc(s.label)}</span>`).join('')}</div><div class="plot-base-key">${(c.references||[]).map(r=>`<span>${esc(r.label)}: ${percent(r.value,r.value<.01?2:1)}</span>`).join('')}</div></div><div><h4>Sonnet 5 and Fable 5</h4><div class="plot-recent"></div><div class="plot-key">Available prompt sets · details in source data</div></div></div>`;
+        el.innerHTML=`<div class="essay-plot-layout"><div><h4>Opus lineage · 209 prompts</h4><div class="plot-lineage"></div><div class="plot-key">${c.series.map(s=>`<span><i style="background:${s.color}"></i>${esc(s.label)}</span>`).join('')}</div><div class="plot-estimate-key"><i></i>Projected pseudoprefill · conditional anchor range</div><div class="plot-base-key">${(c.references||[]).map(r=>`<span>${esc(r.label)}: ${percent(r.value,r.value<.01?2:1)}</span>`).join('')}</div></div><div><h4>Sonnet 5 and Fable 5</h4><div class="plot-recent"></div><div class="plot-key">Available prompt sets · details in source data</div></div></div>`;
         lineagePlot(el.querySelector('.plot-lineage'),c);recentPlot(el.querySelector('.plot-recent'),c);
       } else recentPlot(el,c);
     }
