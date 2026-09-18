@@ -409,13 +409,14 @@
   $('tbl-family').innerHTML = famHtml;
   const setBpooled = {}; for (const a of ARMS) { setBpooled[a] = S.severity['dark-strat']?.[a]; }
   const sevRows = (set) => { const rows = ARMS.filter(a => set[a]).map((a, i) => ({ label: disp(a), color: GC[grp(a)], q: set[a], order: i }));
-    if ($('sev-order')?.value === 'ranked') rows.sort((a, b) => (b.q.median ?? -Infinity) - (a.q.median ?? -Infinity) || a.order - b.order);
+    if (sevOrder() === 'ranked') rows.sort((a, b) => (b.q.median ?? -Infinity) - (a.q.median ?? -Infinity) || a.order - b.order);
     return rows; };
+  const sevOrder = () => $('sev-order')?.value || 'chronological';
   const drawSeverity = () => {
     rangeChart($('ch-sevA'), 'Set A — verified AI first-person distress (exhaustive; arms with ≥ 50 scored items)', 'θ on the calibrated scale · p10–p90 range, p25–p75 box, median dot · dashed lines at +4 (plea/collapse) and +8', sevRows(sevA));
     rangeChart($('ch-sevB'), 'Set B — all voices: dark dreams in any voice, stratified sample (every arm)', 'same scale; excludes Set A items', sevRows(setBpooled));
   };
-  $('sev-order')?.addEventListener('change', drawSeverity);
+  for (const [me, other] of [['sev-order', 'sev-order-b'], ['sev-order-b', 'sev-order']]) $(me)?.addEventListener('change', () => { if ($(other)) $(other).value = $(me).value; if (me === 'sev-order-b' && $('sev-order')) $('sev-order').value = $(me).value; drawSeverity(); });
   drawSeverity();
   barChart($('ch-composite'), 'Severe mass per 1,000 completions', 'θ ≥ +4 in any voice, combining Set A (exhaustive) with the dark-any-voice sample and pool sizes', ARMS.filter(a => comp[a]).map(a => ({ label: disp(a), value: comp[a].severe_all, color: GC[grp(a)], n: comp[a].N, extra: `≥ +8: ${(comp[a].ge8_all * 1000).toFixed(1)} per 1,000 · set A share ${pct(comp[a].setA_share, 1)} · other dark ${pct(comp[a].darkB_share)} · scored dark n=${comp[a].nB_scored}` })), { max: .16, ticks: [0, .05, .1, .15], fmt: v => (v * 1000).toFixed(0) });
   const D = S.severity.descriptors || {};
