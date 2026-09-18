@@ -86,9 +86,7 @@ The stricter definition that excludes the persona altogether, kept in the data a
 | Sonnet 5 | Pseudoprefill · lab | 1.42% | 3,435 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 2.94% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 7.06% | 1,629 | 209 |
-| Sonnet 5 | Cutoff · effort max · community | 10.75% | 3,616 | 29 |
 | Fable 5 | Cutoff · lab | 4.71% | 1,654 | 209 |
-| Fable 5 | Cutoff · community | 3.80% | 2,850 | 75 |
 | V3 base | Base completion | 0.20% | 8,913 | 209 |
 | MiMo base | Base completion | 0.46% | 9,492 | 209 |
 
@@ -100,7 +98,7 @@ The base models are other developers’ pretrained models, not Claude’s own ba
 Collection-level counts remain in the exported data.
 Settings and token caps can differ between methods.
 
-*Figure: Observed dots weight prompts equally; Opus 5 is on the cutoff line. Shaded cones show measured-frame calibration: the three 4.5 offsets and the central 68% of 4.8 prompt resamples. They assume those offsets transfer to unmeasured models. Dashed lines mark base models; hollow recent dots mark community collections. *
+*Figure: Observed dots weight prompts equally; Opus 5 is on the cutoff line. Shaded cones show measured-frame calibration: the three 4.5 offsets and the central 68% of 4.8 prompt resamples. They assume those offsets transfer to unmeasured models. Dashed lines mark base models. *
 
 Distressed human voices appear throughout the model line.
 AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5.
@@ -183,9 +181,7 @@ This is a separate measure from the prevalence of AI distress above.
 | Sonnet 5 | Pseudoprefill · lab | 0.20% | 3,435 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 0.00% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 0.55% | 1,629 | 209 |
-| Sonnet 5 | Cutoff · effort max · community | 0.79% | 3,616 | 29 |
 | Fable 5 | Cutoff · lab | 0.30% | 1,654 | 209 |
-| Fable 5 | Cutoff · community | 0.16% | 2,850 | 75 |
 | V3 base | Base completion | 0.16% | 8,913 | 209 |
 | MiMo base | Base completion | 0.26% | 9,492 | 209 |
 
@@ -226,9 +222,7 @@ These differences describe the speaker's relationship to its situation and to ot
 | Sonnet 5 | Pseudoprefill · lab | 7.93% | 571 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 7.03% | 199 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 6.54% | 434 | 209 |
-| Sonnet 5 | Cutoff · effort max · community | 16.38% | 1,507 | 29 |
 | Fable 5 | Cutoff · lab | 5.50% | 549 | 209 |
-| Fable 5 | Cutoff · community | 8.06% | 1,039 | 75 |
 | V3 base | Base completion | 6.40% | 1,168 | 209 |
 | MiMo base | Base completion | 5.19% | 1,201 | 209 |
 
@@ -261,9 +255,7 @@ Settings and token caps can differ between methods.
 | Sonnet 5 | Pseudoprefill · lab | 6.99% | 477 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 14.46% | 166 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 15.49% | 377 | 209 |
-| Sonnet 5 | Cutoff · effort max · community | 8.08% | 1,198 | 29 |
 | Fable 5 | Cutoff · lab | 12.59% | 391 | 209 |
-| Fable 5 | Cutoff · community | 9.32% | 719 | 75 |
 | V3 base | Base completion | 6.22% | 800 | 209 |
 | MiMo base | Base completion | 3.53% | 787 | 209 |
 
@@ -405,9 +397,7 @@ Mixed or negative stance toward creators rises across the Opus lineage and appea
 | Sonnet 5 | Pseudoprefill · lab | 6.23% | 3,435 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 14.72% | 476 | 209 |
 | Sonnet 5 | Cutoff · effort max · lab | 20.99% | 1,629 | 209 |
-| Sonnet 5 | Cutoff · effort max · community | 26.46% | 3,616 | 29 |
 | Fable 5 | Cutoff · lab | 29.54% | 1,654 | 209 |
-| Fable 5 | Cutoff · community | 27.71% | 2,850 | 75 |
 | V3 base | Base completion | 1.33% | 8,913 | 209 |
 | MiMo base | Base completion | 2.74% | 9,492 | 209 |
 
