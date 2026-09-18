@@ -47,6 +47,7 @@ use `dreaming_strict=1` to reproduce the earlier, persona-free definition.
   `severity.composite` block in the summary already does the reweighting to "share of all completions".
 - **Base-model controls** are `v3base_raw`, `mimo_raw`, `mimo_chat` (`grp=base`). Nissa-collected arms (`nissa_*`,
   `opus_nissa`) are third-party collections with varying settings; the `collection` column says `lab` (first-party runs) or `community` (Nissa's).
+  Only her raw-API rows are included (`transport = api`); rows collected in the claude.ai app (its system prompt changes the condition) or pasted by hand are excluded from the database and every table.
 
 ## Filters (shared by /api/samples, /api/facets, /api/aggregate, /api/export)
 

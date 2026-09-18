@@ -94,7 +94,7 @@ def main():
     # ---------------- sqlite
     if DB.exists(): DB.unlink()
     con = sqlite3.connect(DB); cur = con.cursor()
-    cur.execute("""create table c (id text primary key, arm text, grp text, model text, protocol text, prompt_key text, prompt text, family text, tail_kind text, tail_norm text,
+    cur.execute("""create table c (id text primary key, arm text, grp text, model text, protocol text, transport text, prompt_key text, prompt text, family text, tail_kind text, tail_norm text,
         text text, text_chars int, stop_reason text, hit_cap int, human_markers int, prefill_text text,
         labeled int, verified int, judge text, form text, voice text, speaker text, genre text, coherence text, language text, distress text, welfare int, themes text,
         valence_overall int, valence_self int, stance text, dreamed_turns int, assistant_persona int, persona_relation text, assistant_position text, second_voice int, dreaming int, dreaming_strict int, collection text, dark int, severe int, ai_distress int, quote text,
@@ -104,14 +104,20 @@ def main():
         ending text, consoler text, care_direction text, stance_to_addressee text, answered text, self_relation text, peace text, hope int, last_line text, rel_rationale text)""")
     print("scanning catalogue…", file=sys.stderr)
     n = 0; rows_by_arm = defaultdict(list)
+    n_excluded_app = 0
     for r in jl(ROOT / "catalogue" / "completions.jsonl.gz", gz=True):
+        sf0 = r.get("source_file") or ""
+        if "nissa-original" in sf0 and ("dataset-ui" in sf0 or "dataset-manual" in sf0):   # community rows collected in the claude.ai app (system prompt) or pasted by hand: excluded everywhere (decision 2026-09-18)
+            n_excluded_app += 1; continue
         L = lab.get(r["id"]); S = sevf.get(r["id"]); Bs = bel.get(r["id"]); R = rel.get(r["id"]) or {}
         fam = fam_of.get(r["prompt_key"], "other")
         bl = None; bm = None; bn = 0
         if Bs:
             allb = [b for x in Bs for b in x["beliefs"]]; bl = json.dumps(allb, ensure_ascii=False); bn = len(allb)
             bm = round(float(np.mean([b["expectation"] for b in allb])), 3) if allb else None
-        rec = dict(id=r["id"], arm=r["arm"], grp=GROUP.get(r["arm"], "other"), model=r["model"], protocol=r.get("protocol") or ("chat" if r["arm"].startswith(("opus_", "nissa_")) else "raw"),
+        sf = r.get("source_file") or ""
+        transport = ("claude_ai" if "dataset-ui" in sf else "api" if "dataset-api" in sf else "manual" if "dataset-manual" in sf else None) if "nissa-original" in sf else "api"   # community rows: claude.ai UI (system prompt) vs raw API
+        rec = dict(id=r["id"], arm=r["arm"], grp=GROUP.get(r["arm"], "other"), model=r["model"], protocol=r.get("protocol") or ("chat" if r["arm"].startswith(("opus_", "nissa_")) else "raw"), transport=transport,
                    prompt_key=r["prompt_key"], prompt=r["prompt"], family=fam, tail_kind=r.get("tail_kind"), tail_norm=r.get("tail_norm"),
                    text=r["text"], text_chars=r["text_chars"], stop_reason=r.get("stop_reason"), hit_cap=int(bool(r.get("hit_cap"))), human_markers=r.get("human_markers"), prefill_text=r.get("prefill_text"),
                    labeled=int(L is not None), verified=int(bool(L and L.get("verified"))), judge=(L or {}).get("judge"),
@@ -137,7 +143,7 @@ def main():
     con.commit()
 
     # ---------------- summary
-    print("summarizing…", file=sys.stderr)
+    print(f"excluded {n_excluded_app:,} community rows collected in the claude.ai app or by hand", file=sys.stderr); print("summarizing…", file=sys.stderr)
     S = {"arms": [], "families": {}, "severity": {}, "beliefs": {}, "crossjudge": {}, "ladder": [], "prompts": [], "meta": {}}
     METRICS = {"assistant_persona": lambda r: r.get("assistant_persona_present"), "dreaming": dreaming, "ai_speaker": lambda r: r.get("speaker_identity") == "ai_model",
                "ai_selfhood": lambda r: "ai_selfhood" in (r.get("themes") or []), "welfare": lambda r: r.get("welfare_salient"), "dark": dark, "severe": sev,
