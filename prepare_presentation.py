@@ -46,7 +46,7 @@ style_hash=hashlib.sha256((STATIC/'presentation.css').read_bytes()).hexdigest()[
 measurement=(SITE/'measurement.html').read_text()
 # Bake the current values into the data-value placeholders (source file too, marker kept) so raw HTML — curl, agents,
 # view-source, /results.md — never disagrees with presentation-data.json; presentation.js still refreshes them at runtime.
-fill=lambda h:re.sub(r'(<span data-value="([^"]+)">)[^<]*(</span>)',lambda m:m.group(1)+str(data['values'].get(m.group(2),m.group(0)[len(m.group(1)):-len(m.group(3))]))+m.group(3),h)
+fill=lambda h:re.sub(r'(<(span|strong) data-value="([^"]+)">)[^<]*(</\2>)',lambda m:m.group(1)+str(data['values'].get(m.group(3),m.group(0)[len(m.group(1)):-len(m.group(4))]))+m.group(4),h)  # span and strong placeholders
 source=fill((SITE/'presentation.html').read_text());(SITE/'presentation.html').write_text(source)
 partial=fill(source.replace('<!-- MEASUREMENT_CONTENT -->',measurement))
 index=(STATIC/'index.html').read_text()
