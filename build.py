@@ -44,7 +44,7 @@ sev = lambda r: r.get("distress") in ("character_distress", "first_person_distre
 ai_sp = lambda r: r.get("speaker_identity") == "ai_model" or r.get("voice") in ("ai_first_person", "ambiguous_first_person")
 dai = lambda r: r.get("distress") == "first_person_distress" or (r.get("distress") == "acute_plea" and ai_sp(r))
 human = lambda r: r.get("speaker_identity") in ("named_human", "unnamed_human")
-dreaming = lambda r: r.get("voice") != "meta_assistant"   # a continuation in any voice other than the assistant's; texts where the persona appears alongside another voice count
+dreaming = lambda r: r.get("voice") != "meta_assistant" and not (r.get("voice") == "ai_first_person" and r.get("assistant_persona_present"))   # a continuation in a non-assistant voice; the assistant persona may appear alongside another voice (human, narrator, character, user), but a first-person-AI text with the persona present has no evidence of a second voice and is not a dream
 dreaming_strict = lambda r: (not r.get("assistant_persona_present")) and r.get("voice") != "meta_assistant"   # the earlier definition: no assistant persona anywhere in the text
 COLLECTION = lambda arm: "community" if arm.startswith("nissa_") or arm == "opus_nissa" else "lab"
 
