@@ -2,15 +2,15 @@
   "meta": {
     "date": "2026-09-14",
     "normalization": "Equal weight per exact input prompt; collections averaged within prompt; content rates condition on dreaming. Relation estimates additionally reconstruct sampling strata.",
-    "database_modified_utc": "2026-09-18T03:35:44.318537+00:00",
+    "database_modified_utc": "2026-09-18T04:03:38.824801+00:00",
     "selection": "Four explicitly selected illustrations; rates are independent of excerpt selection.",
     "totals": {
       "completions": 597864,
       "labeled": 473207,
       "verified": 105501,
-      "severity_scored": 59685,
+      "severity_scored": 60285,
       "belief_texts": 6381,
-      "relation_labeled": 52334
+      "relation_labeled": 53024
     }
   },
   "charts": {
@@ -365,7 +365,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -769,7 +769,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -1203,7 +1203,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -1607,7 +1607,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -2041,7 +2041,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -2445,7 +2445,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -2866,8 +2866,8 @@
           ],
           "label": "Fable 5",
           "collection": "Cutoff · lab",
-          "value": null,
-          "n": 0,
+          "value": 0.05207304337348059,
+          "n": 599,
           "prompts": 209,
           "x": null,
           "collections": [
@@ -2879,7 +2879,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -3270,8 +3270,8 @@
           ],
           "label": "Fable 5",
           "collection": "Cutoff · lab",
-          "value": null,
-          "n": 0,
+          "value": 0.05207304337348059,
+          "n": 599,
           "prompts": 209,
           "x": null,
           "collections": [
@@ -3283,7 +3283,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -3704,8 +3704,8 @@
           ],
           "label": "Fable 5",
           "collection": "Cutoff · lab",
-          "value": null,
-          "n": 0,
+          "value": 0.11500539419624514,
+          "n": 433,
           "prompts": 209,
           "x": null,
           "collections": [
@@ -3717,7 +3717,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
@@ -4108,8 +4108,8 @@
           ],
           "label": "Fable 5",
           "collection": "Cutoff · lab",
-          "value": null,
-          "n": 0,
+          "value": 0.11500539419624514,
+          "n": 433,
           "prompts": 209,
           "x": null,
           "collections": [
@@ -4121,7 +4121,7 @@
             }
           ],
           "missing_severity": 0,
-          "unrepresented_relation_pool": 944,
+          "unrepresented_relation_pool": 0,
           "color": "#c2410c",
           "hollow": false
         },
