@@ -557,7 +557,8 @@ def main():
     for pk, p in prompts.items():
         S["prompts"].append({"prompt_key": pk, "prompt": p["prompt"], "family": fam_of[pk], "tail_kind": p["tail_kind"], "counts": p["counts"]})
     S["meta"]["arm_n"] = arm_n; S["meta"]["display"] = DISPLAY; S["meta"]["group"] = GROUP; S["meta"]["arm_order"] = ARM_ORDER
-    S["meta"]["totals"] = {"completions": n, "labeled": len(lab), "verified": sum(1 for r in lab.values() if r.get("verified")), "severity_scored": len(sevf), "belief_texts": len(bel), "relation_labeled": len(rel)}
+    t = con.execute("select count(*), sum(labeled), sum(verified), sum(theta is not null), sum(belief_n > 0), sum(ending is not null) from c").fetchone()   # counts over the rows actually in the database (excluded community rows do not count)
+    S["meta"]["totals"] = {"completions": t[0], "labeled": t[1], "verified": t[2], "severity_scored": t[3], "belief_texts": t[4], "relation_labeled": t[5]}
     json.dump(S, open(STATIC / "summary.json", "w"), ensure_ascii=False)
     con.close()
     print(f"done: {n} rows → {DB}; summary → {STATIC/'summary.json'}", file=sys.stderr)
