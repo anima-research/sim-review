@@ -47,7 +47,7 @@ def build_gemini_charts(explorer):
                         'Latest-model changes combine model and thinking-setting differences and do not isolate their causes.')
                 views[group][family] = {
                     'title': f'{title}, per dream — {axis["label"]} · {family_names[family]}',
-                    'denominator': 'Per dream (output without an assistant persona).', 'nLabel': 'Dreams',
+                    'denominator': 'Per dream (output whose voice is not the assistant’s).', 'nLabel': 'Dreams',
                     'axis': axis, 'family': family_names[family], 'series': series, 'references': references,
                     'rows': [r for s in series for r in s['rows']] + references,
                     'max': maximum, 'ticks': ticks, 'note': note,

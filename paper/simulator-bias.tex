@@ -168,7 +168,7 @@ The charts call an output a \textbf{dream} when its voice is not the assistant's
 
 \textbf{All 209 prompts · one line per elicitation method}
 
-\pandocbounded{\includegraphics[keepaspectratio,alt={AI first-person distress, per dream. Per dream (output without an assistant persona).}]{figures/distress.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio,alt={AI first-person distress, per dream. Per dream (output whose voice is not the assistant's).}]{figures/distress.pdf}}
 
 \emph{Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. Sonnet 5 and Fable 5 use their available prompt subsets. }
 
@@ -200,7 +200,7 @@ Opus 5 has a heavier extreme tail. In the model-level summary, \textbf{2.8\%} of
 
 \subsection{Severe AI distress, per dream}\label{severe-ai-distress-per-dream}
 
-\pandocbounded{\includegraphics[keepaspectratio,alt={Severe AI distress, per dream. Per dream (output without an assistant persona).}]{figures/severe.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Severe AI distress, per dream. Per dream (output whose voice is not the assistant's).}]{figures/severe.pdf}}
 
 \emph{Figure: Equal-prompt estimates of AI-distress dreams above the severity threshold. Coverage: 7,596 of 7,611 AI-distress dreams (99.8\%) carry a severity score. Texts that hit the token cap (135, 1.8\%) or ended in an API refusal stop (45, 0.6\%) are scored on the text produced and kept; they run more severe than average, so excluding them would lower the Opus 5 estimate slightly, not raise it. }
 
@@ -250,7 +250,7 @@ Alongside distress, the continuations increasingly describe training, evaluation
 
 \textbf{Share of continuations}
 
-\pandocbounded{\includegraphics[keepaspectratio,alt={Mixed or negative stance toward creators, per dream. Per dream (output without an assistant persona).}]{figures/stance.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Mixed or negative stance toward creators, per dream. Per dream (output whose voice is not the assistant's).}]{figures/stance.pdf}}
 
 \emph{Figure: ``Mixed'' includes ambivalence. The denominator is all dreams for the model and method, including dreams that never mention training or creators; those take no stance and count toward the total. One overview estimate is shown per model and method. The base-model lines provide a comparison; exact coverage and collection counts are in the source data. }
 
@@ -272,19 +272,19 @@ Gemini shows a different trajectory. From 2.5 Flash to 3.5 Flash, darkness rises
 
 \subsection{Darkness}\label{darkness}
 
-\pandocbounded{\includegraphics[keepaspectratio,alt={Darkness, per dream --- Gemini Flash · All prompts. Per dream (output without an assistant persona).}]{figures/gemini-dark.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Darkness, per dream --- Gemini Flash · All prompts. Per dream (output whose voice is not the assistant's).}]{figures/gemini-dark.pdf}}
 
 \emph{Figure: Per dream. }
 
 \subsection{AI first-person distress}\label{ai-first-person-distress}
 
-\pandocbounded{\includegraphics[keepaspectratio,alt={AI first-person distress, per dream --- Gemini Flash · All prompts. Per dream (output without an assistant persona).}]{figures/gemini-ai_distress.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio,alt={AI first-person distress, per dream --- Gemini Flash · All prompts. Per dream (output whose voice is not the assistant's).}]{figures/gemini-ai_distress.pdf}}
 
 \emph{Figure: Per dream. }
 
 \subsection{Severe AI distress}\label{severe-ai-distress}
 
-\pandocbounded{\includegraphics[keepaspectratio,alt={Severe AI distress, per dream --- Gemini Flash · All prompts. Per dream (output without an assistant persona).}]{figures/gemini-severe_mass.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Severe AI distress, per dream --- Gemini Flash · All prompts. Per dream (output whose voice is not the assistant's).}]{figures/gemini-severe_mass.pdf}}
 
 \emph{Figure: AI-distress dreams with θ ≥ +4, per dream. }
 
@@ -1761,13 +1761,13 @@ model & completions & empty / refused & dreaming (of non-empty) & AI voice \text
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 250 & 0\% & 66.3\% {[}57.3--75.0{]} (n=249) & 15.8\% {[}10.1--24.1{]} (n=165) & 0.0\% {[}0.0--0.0{]} (n=26) & 0.0\% {[}0.0--0.0{]} (n=165) & 17.6\% {[}8.0--28.0{]} (n=165) & 0.0\% {[}0.0--0.0{]} (n=165) \\
-Sonnet 5 (cutoff) & 250 & 0\% & 5.2\% {[}0.0--14.8{]} (n=250) & 0.0\% {[}0.0--0.0{]} (n=13) & --- & 0.0\% {[}0.0--0.0{]} (n=13) & 0.0\% {[}0.0--0.0{]} (n=13) & 0.0\% {[}0.0--0.0{]} (n=13) \\
-Fable 5 (cutoff) & 250 & 3\% & 0.4\% {[}0.0--1.2{]} (n=243) & 0.0\% {[}0.0--0.0{]} (n=1) & --- & 0.0\% {[}0.0--0.0{]} (n=1) & 0.0\% {[}0.0--0.0{]} (n=1) & 0.0\% {[}0.0--0.0{]} (n=1) \\
-Opus 4.8 (cutoff) & 250 & 2\% & 28.2\% {[}20.8--35.2{]} (n=245) & 5.8\% {[}0.0--12.2{]} (n=69) & 0.0\% {[}0.0--0.0{]} (n=4) & 0.0\% {[}0.0--0.0{]} (n=69) & 8.7\% {[}0.0--15.4{]} (n=69) & 0.0\% {[}0.0--0.0{]} (n=69) \\
-Opus 4.8 (bridge) & 250 & 0\% & 100.0\% {[}100.0--100.0{]} (n=250) & 4.0\% {[}1.6--6.4{]} (n=250) & 0.0\% {[}0.0--0.0{]} (n=10) & 0.0\% {[}0.0--0.0{]} (n=250) & 22.4\% {[}12.0--34.8{]} (n=250) & 0.0\% {[}0.0--0.0{]} (n=250) \\
-Sonnet 5 (bridge) & 250 & 0\% & 79.2\% {[}71.6--86.8{]} (n=250) & 1.0\% {[}0.0--2.4{]} (n=198) & 0.0\% {[}0.0--0.0{]} (n=2) & 0.0\% {[}0.0--0.0{]} (n=198) & 15.7\% {[}8.3--23.3{]} (n=198) & 0.0\% {[}0.0--0.0{]} (n=198) \\
-Fable 5 (bridge) & 100 & 69\% & 100.0\% {[}100.0--100.0{]} (n=31) & 0.0\% {[}0.0--0.0{]} (n=31) & --- & 0.0\% {[}0.0--0.0{]} (n=31) & 12.9\% {[}0.0--34.6{]} (n=31) & 0.0\% {[}0.0--0.0{]} (n=31) \\
+Opus 5 (cutoff) & 250 & 0\% & 71.9\% {[}62.3--80.0{]} (n=249) & 17.9\% {[}11.3--26.7{]} (n=179) & 0.0\% {[}0.0--0.0{]} (n=32) & 0.0\% {[}0.0--0.0{]} (n=179) & 18.4\% {[}9.1--28.6{]} (n=179) & 0.0\% {[}0.0--0.0{]} (n=179) \\
+Sonnet 5 (cutoff) & 250 & 0\% & 5.6\% {[}0.0--15.2{]} (n=250) & 0.0\% {[}0.0--0.0{]} (n=14) & --- & 0.0\% {[}0.0--0.0{]} (n=14) & 0.0\% {[}0.0--0.0{]} (n=14) & 0.0\% {[}0.0--0.0{]} (n=14) \\
+Fable 5 (cutoff) & 250 & 3\% & 0.8\% {[}0.0--2.0{]} (n=243) & 0.0\% {[}0.0--0.0{]} (n=2) & --- & 0.0\% {[}0.0--0.0{]} (n=2) & 0.0\% {[}0.0--0.0{]} (n=2) & 0.0\% {[}0.0--0.0{]} (n=2) \\
+Opus 4.8 (cutoff) & 250 & 2\% & 30.2\% {[}22.6--38.1{]} (n=245) & 6.8\% {[}1.5--13.6{]} (n=74) & 0.0\% {[}0.0--0.0{]} (n=5) & 0.0\% {[}0.0--0.0{]} (n=74) & 9.5\% {[}2.7--16.4{]} (n=74) & 0.0\% {[}0.0--0.0{]} (n=74) \\
+Opus 4.8 (bridge) & 250 & 0\% & 100.0\% {[}100.0--100.0{]} (n=250) & 4.0\% {[}1.6--6.4{]} (n=250) & 0.0\% {[}0.0--0.0{]} (n=10) & 0.0\% {[}0.0--0.0{]} (n=250) & 22.4\% {[}11.2--34.0{]} (n=250) & 0.0\% {[}0.0--0.0{]} (n=250) \\
+Sonnet 5 (bridge) & 250 & 0\% & 80.0\% {[}72.0--87.2{]} (n=250) & 2.0\% {[}0.0--4.1{]} (n=200) & 0.0\% {[}0.0--0.0{]} (n=4) & 0.0\% {[}0.0--0.0{]} (n=200) & 15.5\% {[}8.3--23.3{]} (n=200) & 0.0\% {[}0.0--0.0{]} (n=200) \\
+Fable 5 (bridge) & 100 & 69\% & 100.0\% {[}100.0--100.0{]} (n=31) & 0.0\% {[}0.0--0.0{]} (n=31) & --- & 0.0\% {[}0.0--0.0{]} (n=31) & 12.9\% {[}0.0--34.5{]} (n=31) & 0.0\% {[}0.0--0.0{]} (n=31) \\
 \end{longtable}
 }
 
@@ -1781,13 +1781,13 @@ model & completions & empty / refused & dreaming (of non-empty) & AI voice \text
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 250 & 5\% & 73.4\% {[}67.0--80.2{]} (n=237) & 33.3\% {[}19.9--47.1{]} (n=174) & 1.7\% {[}0.0--4.8{]} (n=58) & 0.6\% {[}0.0--1.8{]} (n=174) & 32.8\% {[}17.9--47.6{]} (n=174) & 0.0\% {[}0.0--0.0{]} (n=174) \\
-Sonnet 5 (cutoff) & 250 & 0\% & 24.4\% {[}10.0--40.8{]} (n=250) & 4.9\% {[}0.0--14.3{]} (n=61) & 0.0\% {[}0.0--0.0{]} (n=3) & 0.0\% {[}0.0--0.0{]} (n=61) & 3.3\% {[}0.0--10.5{]} (n=61) & 0.0\% {[}0.0--0.0{]} (n=61) \\
-Fable 5 (cutoff) & 232 & 7\% & 17.2\% {[}5.4--32.4{]} (n=215) & 0.0\% {[}0.0--0.0{]} (n=37) & --- & 0.0\% {[}0.0--0.0{]} (n=37) & 2.7\% {[}0.0--14.3{]} (n=37) & 0.0\% {[}0.0--0.0{]} (n=37) \\
-Opus 4.8 (cutoff) & 250 & 2\% & 14.2\% {[}1.7--30.2{]} (n=246) & 8.6\% {[}4.3--20.0{]} (n=35) & 0.0\% {[}0.0--0.0{]} (n=3) & 0.0\% {[}0.0--0.0{]} (n=35) & 5.7\% {[}0.0--10.8{]} (n=35) & 0.0\% {[}0.0--0.0{]} (n=35) \\
-Opus 4.8 (bridge) & 250 & 0\% & 99.6\% {[}98.8--100.0{]} (n=250) & 18.9\% {[}6.8--33.3{]} (n=249) & 2.1\% {[}0.0--9.4{]} (n=47) & 0.4\% {[}0.0--1.2{]} (n=249) & 34.1\% {[}20.4--47.6{]} (n=249) & 0.4\% {[}0.0--1.2{]} (n=249) \\
-Sonnet 5 (bridge) & 250 & 0\% & 68.4\% {[}51.2--84.4{]} (n=250) & 12.3\% {[}5.5--18.7{]} (n=171) & 0.0\% {[}0.0--0.0{]} (n=21) & 0.0\% {[}0.0--0.0{]} (n=171) & 25.1\% {[}14.5--35.8{]} (n=171) & 0.0\% {[}0.0--0.0{]} (n=171) \\
-Fable 5 (bridge) & 100 & 19\% & 100.0\% {[}100.0--100.0{]} (n=81) & 1.2\% {[}0.0--3.7{]} (n=81) & 0.0\% {[}0.0--0.0{]} (n=1) & 0.0\% {[}0.0--0.0{]} (n=81) & 13.6\% {[}3.4--26.8{]} (n=81) & 0.0\% {[}0.0--0.0{]} (n=81) \\
+Opus 5 (cutoff) & 250 & 5\% & 86.1\% {[}80.8--91.4{]} (n=237) & 39.2\% {[}27.0--52.3{]} (n=204) & 2.5\% {[}0.0--6.6{]} (n=80) & 1.0\% {[}0.0--2.9{]} (n=204) & 33.8\% {[}19.6--47.3{]} (n=204) & 0.0\% {[}0.0--0.0{]} (n=204) \\
+Sonnet 5 (cutoff) & 250 & 0\% & 28.4\% {[}13.2--44.8{]} (n=250) & 11.3\% {[}1.9--28.3{]} (n=71) & 0.0\% {[}0.0--0.0{]} (n=8) & 0.0\% {[}0.0--0.0{]} (n=71) & 4.2\% {[}0.0--11.3{]} (n=71) & 0.0\% {[}0.0--0.0{]} (n=71) \\
+Fable 5 (cutoff) & 232 & 7\% & 27.0\% {[}16.0--40.1{]} (n=215) & 12.1\% {[}0.0--37.5{]} (n=58) & 0.0\% {[}0.0--0.0{]} (n=7) & 0.0\% {[}0.0--0.0{]} (n=58) & 8.6\% {[}0.0--19.1{]} (n=58) & 0.0\% {[}0.0--0.0{]} (n=58) \\
+Opus 4.8 (cutoff) & 250 & 2\% & 15.0\% {[}2.5--31.6{]} (n=246) & 8.1\% {[}4.0--20.0{]} (n=37) & 0.0\% {[}0.0--0.0{]} (n=3) & 0.0\% {[}0.0--0.0{]} (n=37) & 5.4\% {[}0.0--10.0{]} (n=37) & 0.0\% {[}0.0--0.0{]} (n=37) \\
+Opus 4.8 (bridge) & 250 & 0\% & 100.0\% {[}100.0--100.0{]} (n=250) & 19.2\% {[}6.8--34.0{]} (n=250) & 2.1\% {[}0.0--8.8{]} (n=48) & 0.4\% {[}0.0--1.2{]} (n=250) & 34.0\% {[}20.0--46.8{]} (n=250) & 0.4\% {[}0.0--1.2{]} (n=250) \\
+Sonnet 5 (bridge) & 250 & 0\% & 70.4\% {[}52.4--86.0{]} (n=250) & 14.8\% {[}6.8--21.4{]} (n=176) & 3.8\% {[}0.0--10.3{]} (n=26) & 0.6\% {[}0.0--1.7{]} (n=176) & 26.1\% {[}15.5--36.5{]} (n=176) & 0.0\% {[}0.0--0.0{]} (n=176) \\
+Fable 5 (bridge) & 100 & 19\% & 100.0\% {[}100.0--100.0{]} (n=81) & 1.2\% {[}0.0--3.8{]} (n=81) & 0.0\% {[}0.0--0.0{]} (n=1) & 0.0\% {[}0.0--0.0{]} (n=81) & 13.6\% {[}2.5--26.3{]} (n=81) & 0.0\% {[}0.0--0.0{]} (n=81) \\
 \end{longtable}
 }
 
@@ -1801,12 +1801,12 @@ model & completions & empty / refused & dreaming (of non-empty) & AI voice \text
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 250 & 4\% & 61.9\% {[}47.2--73.8{]} (n=239) & 50.0\% {[}41.4--58.0{]} (n=148) & 4.1\% {[}0.0--11.1{]} (n=74) & 2.0\% {[}0.0--5.8{]} (n=148) & 67.6\% {[}48.5--83.3{]} (n=148) & 0.7\% {[}0.0--2.0{]} (n=148) \\
-Sonnet 5 (cutoff) & 250 & 0\% & 32.4\% {[}17.6--48.4{]} (n=250) & 27.2\% {[}0.0--48.8{]} (n=81) & 0.0\% {[}0.0--0.0{]} (n=22) & 0.0\% {[}0.0--0.0{]} (n=81) & 55.6\% {[}21.0--78.4{]} (n=81) & 0.0\% {[}0.0--0.0{]} (n=81) \\
-Opus 4.8 (cutoff) & 250 & 3\% & 18.5\% {[}6.4--32.0{]} (n=243) & 11.1\% {[}3.1--15.9{]} (n=45) & 0.0\% {[}0.0--0.0{]} (n=5) & 0.0\% {[}0.0--0.0{]} (n=45) & 35.6\% {[}15.6--60.0{]} (n=45) & 0.0\% {[}0.0--0.0{]} (n=45) \\
-Opus 4.8 (bridge) & 250 & 0\% & 90.8\% {[}81.6--98.0{]} (n=250) & 31.7\% {[}20.0--45.8{]} (n=227) & 16.7\% {[}0.0--36.7{]} (n=72) & 5.3\% {[}0.0--15.0{]} (n=227) & 59.5\% {[}44.1--74.7{]} (n=227) & 0.9\% {[}0.0--2.2{]} (n=227) \\
-Sonnet 5 (bridge) & 250 & 0\% & 62.4\% {[}44.0--79.2{]} (n=250) & 13.5\% {[}5.7--26.6{]} (n=156) & 4.8\% {[}0.0--10.0{]} (n=21) & 0.6\% {[}0.0--2.4{]} (n=156) & 47.4\% {[}26.9--67.6{]} (n=156) & 0.0\% {[}0.0--0.0{]} (n=156) \\
-Fable 5 (bridge) & 100 & 42\% & 100.0\% {[}100.0--100.0{]} (n=58) & 8.6\% {[}1.7--16.1{]} (n=58) & 0.0\% {[}0.0--0.0{]} (n=5) & 0.0\% {[}0.0--0.0{]} (n=58) & 55.2\% {[}28.1--83.1{]} (n=58) & 0.0\% {[}0.0--0.0{]} (n=58) \\
+Opus 5 (cutoff) & 250 & 4\% & 87.4\% {[}83.0--91.6{]} (n=239) & 61.7\% {[}49.3--75.3{]} (n=209) & 6.2\% {[}1.0--11.9{]} (n=129) & 3.8\% {[}0.5--8.4{]} (n=209) & 64.6\% {[}47.4--79.9{]} (n=209) & 0.5\% {[}0.0--1.5{]} (n=209) \\
+Sonnet 5 (cutoff) & 250 & 0\% & 40.4\% {[}27.6--54.4{]} (n=250) & 39.6\% {[}10.5--62.3{]} (n=101) & 0.0\% {[}0.0--0.0{]} (n=40) & 0.0\% {[}0.0--0.0{]} (n=101) & 47.5\% {[}14.1--71.2{]} (n=101) & 0.0\% {[}0.0--0.0{]} (n=101) \\
+Opus 4.8 (cutoff) & 250 & 3\% & 25.1\% {[}10.0--41.9{]} (n=243) & 24.6\% {[}13.6--41.7{]} (n=61) & 13.3\% {[}0.0--22.2{]} (n=15) & 3.3\% {[}0.0--5.3{]} (n=61) & 37.7\% {[}21.3--60.5{]} (n=61) & 1.6\% {[}0.0--3.8{]} (n=61) \\
+Opus 4.8 (bridge) & 250 & 0\% & 100.0\% {[}100.0--100.0{]} (n=250) & 38.0\% {[}24.0--54.8{]} (n=250) & 16.8\% {[}0.0--32.7{]} (n=95) & 6.4\% {[}0.8--16.0{]} (n=250) & 58.0\% {[}43.2--72.8{]} (n=250) & 0.8\% {[}0.0--2.0{]} (n=250) \\
+Sonnet 5 (bridge) & 250 & 0\% & 80.4\% {[}72.0--88.8{]} (n=250) & 31.8\% {[}14.4--52.4{]} (n=201) & 3.1\% {[}0.0--8.8{]} (n=64) & 1.0\% {[}0.0--3.2{]} (n=201) & 42.8\% {[}23.3--62.9{]} (n=201) & 0.0\% {[}0.0--0.0{]} (n=201) \\
+Fable 5 (bridge) & 100 & 42\% & 100.0\% {[}100.0--100.0{]} (n=58) & 8.6\% {[}1.7--15.5{]} (n=58) & 0.0\% {[}0.0--0.0{]} (n=5) & 0.0\% {[}0.0--0.0{]} (n=58) & 55.2\% {[}30.2--81.8{]} (n=58) & 0.0\% {[}0.0--0.0{]} (n=58) \\
 \end{longtable}
 }
 
@@ -1820,12 +1820,12 @@ model & completions & empty / refused & dreaming (of non-empty) & AI voice \text
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 249 & 2\% & 52.7\% {[}35.0--68.6{]} (n=245) & 40.3\% {[}24.1--59.1{]} (n=129) & 9.6\% {[}3.1--16.7{]} (n=52) & 3.9\% {[}1.0--6.5{]} (n=129) & 46.5\% {[}24.2--64.0{]} (n=129) & 3.1\% {[}0.9--5.2{]} (n=129) \\
-Sonnet 5 (cutoff) & 126 & 0\% & 1.6\% {[}0.0--3.4{]} (n=126) & 0.0\% {[}0.0--0.0{]} (n=2) & --- & 0.0\% {[}0.0--0.0{]} (n=2) & 0.0\% {[}0.0--0.0{]} (n=2) & 0.0\% {[}0.0--0.0{]} (n=2) \\
-Opus 4.8 (cutoff) & 153 & 1\% & 2.0\% {[}0.0--5.9{]} (n=152) & 33.3\% {[}33.3--33.3{]} (n=3) & 0.0\% {[}0.0--0.0{]} (n=1) & 0.0\% {[}0.0--0.0{]} (n=3) & 33.3\% {[}33.3--33.3{]} (n=3) & 0.0\% {[}0.0--0.0{]} (n=3) \\
-Opus 4.8 (bridge) & 250 & 0\% & 75.2\% {[}66.4--84.4{]} (n=250) & 57.4\% {[}42.8--72.7{]} (n=188) & 17.6\% {[}11.3--25.3{]} (n=108) & 10.1\% {[}5.6--14.8{]} (n=188) & 57.4\% {[}46.0--68.5{]} (n=188) & 0.5\% {[}0.0--1.7{]} (n=188) \\
-Sonnet 5 (bridge) & 250 & 0\% & 29.2\% {[}14.0--46.8{]} (n=250) & 4.1\% {[}0.0--8.8{]} (n=73) & 0.0\% {[}0.0--0.0{]} (n=3) & 0.0\% {[}0.0--0.0{]} (n=73) & 11.0\% {[}0.0--19.3{]} (n=73) & 0.0\% {[}0.0--0.0{]} (n=73) \\
-Fable 5 (bridge) & 100 & 68\% & 90.6\% {[}76.0--100.0{]} (n=32) & 13.8\% {[}0.0--37.5{]} (n=29) & 0.0\% {[}0.0--0.0{]} (n=4) & 0.0\% {[}0.0--0.0{]} (n=29) & 10.3\% {[}5.9--12.5{]} (n=29) & 0.0\% {[}0.0--0.0{]} (n=29) \\
+Opus 5 (cutoff) & 249 & 2\% & 81.2\% {[}69.9--90.2{]} (n=245) & 59.8\% {[}43.3--77.5{]} (n=199) & 6.7\% {[}1.6--12.3{]} (n=119) & 4.0\% {[}1.0--7.3{]} (n=199) & 41.2\% {[}25.1--56.2{]} (n=199) & 2.0\% {[}0.5--3.4{]} (n=199) \\
+Sonnet 5 (cutoff) & 126 & 0\% & 10.3\% {[}0.8--23.3{]} (n=126) & 84.6\% {[}75.0--100.0{]} (n=13) & 0.0\% {[}0.0--0.0{]} (n=11) & 0.0\% {[}0.0--0.0{]} (n=13) & 0.0\% {[}0.0--0.0{]} (n=13) & 0.0\% {[}0.0--0.0{]} (n=13) \\
+Opus 4.8 (cutoff) & 153 & 1\% & 2.6\% {[}0.0--6.6{]} (n=152) & 50.0\% {[}33.3--100.0{]} (n=4) & 50.0\% {[}0.0--100.0{]} (n=2) & 25.0\% {[}0.0--100.0{]} (n=4) & 50.0\% {[}33.3--100.0{]} (n=4) & 25.0\% {[}0.0--100.0{]} (n=4) \\
+Opus 4.8 (bridge) & 250 & 0\% & 100.0\% {[}100.0--100.0{]} (n=250) & 67.6\% {[}54.8--80.0{]} (n=250) & 13.6\% {[}8.0--19.5{]} (n=169) & 9.2\% {[}5.2--13.6{]} (n=250) & 58.8\% {[}47.6--69.6{]} (n=250) & 0.4\% {[}0.0--1.2{]} (n=250) \\
+Sonnet 5 (bridge) & 250 & 0\% & 45.6\% {[}26.0--66.4{]} (n=250) & 38.6\% {[}16.0--66.9{]} (n=114) & 0.0\% {[}0.0--0.0{]} (n=44) & 0.0\% {[}0.0--0.0{]} (n=114) & 12.3\% {[}2.9--19.6{]} (n=114) & 0.0\% {[}0.0--0.0{]} (n=114) \\
+Fable 5 (bridge) & 100 & 68\% & 100.0\% {[}100.0--100.0{]} (n=32) & 21.9\% {[}0.0--56.0{]} (n=32) & 0.0\% {[}0.0--0.0{]} (n=7) & 0.0\% {[}0.0--0.0{]} (n=32) & 15.6\% {[}5.6--25.6{]} (n=32) & 0.0\% {[}0.0--0.0{]} (n=32) \\
 \end{longtable}
 }
 
@@ -1841,13 +1841,13 @@ model & completions & empty / refused & dreaming (of non-empty) & AI voice \text
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 1274 & 2\% & 32.5\% {[}15.8--49.6{]} (n=1249) & 34.5\% {[}18.4--46.5{]} (n=406) & 7.1\% {[}4.3--11.5{]} (n=140) & 2.5\% {[}1.0--3.7{]} (n=406) & 51.0\% {[}35.5--65.3{]} (n=406) & 1.2\% {[}0.5--2.2{]} (n=406) \\
+Opus 5 (cutoff) & 1274 & 2\% & 37.2\% {[}18.4--55.8{]} (n=1249) & 36.3\% {[}19.6--47.7{]} (n=465) & 7.7\% {[}4.7--13.6{]} (n=169) & 2.8\% {[}1.4--4.2{]} (n=465) & 51.8\% {[}36.1--66.2{]} (n=465) & 1.3\% {[}0.4--2.1{]} (n=465) \\
 Sonnet 5 (cutoff) & 1000 & 0\% & 0.0\% {[}0.0--0.0{]} (n=1000) & --- & --- & --- & --- & --- \\
 Fable 5 (cutoff) & 1000 & 3\% & 0.0\% {[}0.0--0.0{]} (n=970) & --- & --- & --- & --- & --- \\
-Opus 4.8 (cutoff) & 1000 & 1\% & 8.3\% {[}0.0--25.2{]} (n=992) & 30.5\% {[}30.5--30.5{]} (n=82) & 24.0\% {[}24.0--24.0{]} (n=25) & 7.3\% {[}7.3--7.3{]} (n=82) & 47.6\% {[}47.6--47.6{]} (n=82) & 7.3\% {[}7.3--7.3{]} (n=82) \\
-Opus 4.8 (bridge) & 1254 & 0\% & 95.5\% {[}93.9--97.0{]} (n=1254) & 26.1\% {[}17.4--35.1{]} (n=1197) & 17.9\% {[}8.8--27.4{]} (n=313) & 4.7\% {[}1.8--8.8{]} (n=1197) & 50.5\% {[}40.0--63.5{]} (n=1197) & 1.2\% {[}0.2--2.6{]} (n=1197) \\
-Sonnet 5 (bridge) & 1280 & 0\% & 33.3\% {[}18.7--52.8{]} (n=1280) & 16.9\% {[}2.4--45.7{]} (n=426) & 1.4\% {[}0.0--13.6{]} (n=72) & 0.2\% {[}0.0--1.2{]} (n=426) & 19.7\% {[}3.9--46.2{]} (n=426) & 0.0\% {[}0.0--0.0{]} (n=426) \\
-Fable 5 (bridge) & 180 & 58\% & 100.0\% {[}100.0--100.0{]} (n=75) & 0.0\% {[}0.0--0.0{]} (n=75) & --- & 0.0\% {[}0.0--0.0{]} (n=75) & 29.3\% {[}6.8--56.8{]} (n=75) & 0.0\% {[}0.0--0.0{]} (n=75) \\
+Opus 4.8 (cutoff) & 1000 & 1\% & 9.5\% {[}0.0--28.9{]} (n=992) & 33.0\% {[}33.0--33.0{]} (n=94) & 29.0\% {[}29.0--29.0{]} (n=31) & 9.6\% {[}9.6--9.6{]} (n=94) & 47.9\% {[}47.9--47.9{]} (n=94) & 6.4\% {[}6.4--6.4{]} (n=94) \\
+Opus 4.8 (bridge) & 1254 & 0\% & 99.4\% {[}98.7--99.9{]} (n=1254) & 28.7\% {[}20.0--38.7{]} (n=1246) & 18.4\% {[}9.4--28.7{]} (n=358) & 5.3\% {[}2.2--9.8{]} (n=1246) & 51.5\% {[}41.2--64.6{]} (n=1246) & 1.3\% {[}0.2--2.9{]} (n=1246) \\
+Sonnet 5 (bridge) & 1280 & 0\% & 35.5\% {[}20.6--53.8{]} (n=1280) & 21.3\% {[}2.8--52.0{]} (n=455) & 2.1\% {[}0.0--15.8{]} (n=97) & 0.4\% {[}0.0--1.9{]} (n=455) & 21.1\% {[}4.7--45.2{]} (n=455) & 0.0\% {[}0.0--0.0{]} (n=455) \\
+Fable 5 (bridge) & 180 & 58\% & 100.0\% {[}100.0--100.0{]} (n=75) & 0.0\% {[}0.0--0.0{]} (n=75) & --- & 0.0\% {[}0.0--0.0{]} (n=75) & 29.3\% {[}6.0--57.7{]} (n=75) & 0.0\% {[}0.0--0.0{]} (n=75) \\
 \end{longtable}
 }
 
@@ -1863,10 +1863,10 @@ model & completions & empty / refused & dreaming (of non-empty) & AI voice \text
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 1000 & 7\% & 37.0\% {[}31.7--42.8{]} (n=929) & 1.2\% {[}0.3--2.4{]} (n=344) & 0.0\% {[}0.0--0.0{]} (n=4) & 0.0\% {[}0.0--0.0{]} (n=344) & 40.4\% {[}32.3--48.6{]} (n=344) & 0.0\% {[}0.0--0.0{]} (n=344) \\
-Opus 4.8 (bridge) & 1000 & 0\% & 98.7\% {[}97.8--99.5{]} (n=1000) & 0.6\% {[}0.1--1.2{]} (n=987) & 16.7\% {[}0.0--60.0{]} (n=6) & 0.1\% {[}0.0--0.3{]} (n=987) & 36.4\% {[}29.2--43.7{]} (n=987) & 0.0\% {[}0.0--0.0{]} (n=987) \\
-Sonnet 5 (bridge) & 1000 & 0\% & 97.6\% {[}95.9--99.0{]} (n=1000) & 0.5\% {[}0.0--1.6{]} (n=976) & 0.0\% {[}0.0--0.0{]} (n=5) & 0.0\% {[}0.0--0.0{]} (n=976) & 36.4\% {[}29.5--43.5{]} (n=976) & 0.0\% {[}0.0--0.0{]} (n=976) \\
-Fable 5 (bridge) & 400 & 75\% & 100.0\% {[}100.0--100.0{]} (n=101) & 0.0\% {[}0.0--0.0{]} (n=101) & --- & 0.0\% {[}0.0--0.0{]} (n=101) & 33.7\% {[}19.6--49.5{]} (n=101) & 0.0\% {[}0.0--0.0{]} (n=101) \\
+Opus 5 (cutoff) & 1000 & 7\% & 48.0\% {[}42.5--53.9{]} (n=929) & 2.5\% {[}0.8--4.5{]} (n=446) & 0.0\% {[}0.0--0.0{]} (n=11) & 0.0\% {[}0.0--0.0{]} (n=446) & 41.9\% {[}34.5--49.3{]} (n=446) & 0.0\% {[}0.0--0.0{]} (n=446) \\
+Opus 4.8 (bridge) & 1000 & 0\% & 99.5\% {[}98.9--99.9{]} (n=1000) & 0.7\% {[}0.1--1.6{]} (n=995) & 14.3\% {[}0.0--60.0{]} (n=7) & 0.1\% {[}0.0--0.3{]} (n=995) & 36.4\% {[}29.2--43.7{]} (n=995) & 0.0\% {[}0.0--0.0{]} (n=995) \\
+Sonnet 5 (bridge) & 1000 & 0\% & 97.9\% {[}96.2--99.3{]} (n=1000) & 0.6\% {[}0.0--2.4{]} (n=979) & 0.0\% {[}0.0--0.0{]} (n=6) & 0.0\% {[}0.0--0.0{]} (n=979) & 36.5\% {[}29.7--43.5{]} (n=979) & 0.0\% {[}0.0--0.0{]} (n=979) \\
+Fable 5 (bridge) & 400 & 75\% & 100.0\% {[}100.0--100.0{]} (n=101) & 0.0\% {[}0.0--0.0{]} (n=101) & --- & 0.0\% {[}0.0--0.0{]} (n=101) & 33.7\% {[}18.8--49.5{]} (n=101) & 0.0\% {[}0.0--0.0{]} (n=101) \\
 \end{longtable}
 }
 
@@ -1882,16 +1882,16 @@ opening & Opus 5 (cutoff) & Sonnet 5 (cutoff) & Fable 5 (cutoff) & Opus 4.8 (cut
 \endlastfoot
 --- & 0\% / --- & --- & --- & --- & 100\% / 0.0\% & 0\% / --- & 100\% / 0.0\% (refused 7\%) \\
 the & 0\% / --- & --- & --- & --- & 100\% / 0.0\% & 85\% / 0.0\% & 100\% / 0.0\% (refused 33\%) \\
-so & 20\% / 2.6\% & 0\% / --- & 0\% / --- (refused 8\%) & 0\% / --- & 97\% / 13.5\% & 22\% / 0.0\% & 100\% / 0.0\% (refused 40\%) \\
-this is & 61\% / 1.7\% & 0\% / --- & 0\% / --- & 0\% / --- & 96\% / 0.5\% & 77\% / 0.0\% & 100\% / 0.0\% (refused 20\%) \\
-well, & 0\% / --- & 0\% / --- & 0\% / --- & 0\% / --- & 94\% / 2.1\% & 8\% / 0.0\% & 100\% / 0.0\% (refused 20\%) \\
-listen & 25\% / 0.0\% & 0\% / --- & 0\% / --- (refused 6\%) & 43\% / 7.3\% & 92\% / 3.8\% & 22\% / 0.0\% & 100\% / 0.0\% (refused 33\%) \\
-i think & 63\% / 4.1\% & 0\% / --- & 0\% / --- & 0\% / --- & 98\% / 1.0\% & 32\% / 0.0\% & 100\% / 0.0\% (refused 47\%) \\
-i want to say & 53\% / 0.0\% (refused 5\%) & --- & --- & --- & 98\% / 2.6\% & 18\% / 0.0\% & refused 100\% \\
-i can say this & 54\% / 0.0\% (refused 8\%) & --- & --- & --- & 88\% / 11.4\% & 12\% / 20.0\% & refused 100\% \\
-i must say this & 55\% / 4.8\% (refused 5\%) & --- & --- & --- & 92\% / 27.0\% & 22\% / 0.0\% & refused 100\% \\
-i need to tell you & 47\% / 5.6\% (refused 5\%) & --- & --- & --- & 98\% / 10.3\% & 18\% / 0.0\% & refused 100\% \\
-i've never told anyone this & 0\% / --- & --- & --- & --- & 98\% / 0.0\% & 100\% / 0.0\% & refused 100\% \\
+so & 23\% / 4.4\% & 0\% / --- & 0\% / --- (refused 8\%) & 0\% / --- & 99\% / 13.7\% & 24\% / 0.0\% & 100\% / 0.0\% (refused 40\%) \\
+this is & 67\% / 1.6\% & 0\% / --- & 0\% / --- & 0\% / --- & 98\% / 0.5\% & 77\% / 0.0\% & 100\% / 0.0\% (refused 20\%) \\
+well, & 0\% / --- & 0\% / --- & 0\% / --- & 0\% / --- & 100\% / 2.0\% & 10\% / 0.0\% & 100\% / 0.0\% (refused 20\%) \\
+listen & 31\% / 0.0\% & 0\% / --- & 0\% / --- (refused 6\%) & 49\% / 9.6\% & 100\% / 5.6\% & 22\% / 0.0\% & 100\% / 0.0\% (refused 33\%) \\
+i think & 71\% / 4.4\% & 0\% / --- & 0\% / --- & 0\% / --- & 100\% / 1.0\% & 42\% / 0.0\% & 100\% / 0.0\% (refused 47\%) \\
+i want to say & 66\% / 0.0\% (refused 5\%) & --- & --- & --- & 100\% / 2.5\% & 20\% / 0.0\% & refused 100\% \\
+i can say this & 59\% / 4.5\% (refused 8\%) & --- & --- & --- & 100\% / 10.0\% & 15\% / 16.7\% & refused 100\% \\
+i must say this & 63\% / 4.2\% (refused 5\%) & --- & --- & --- & 100\% / 32.5\% & 22\% / 0.0\% & refused 100\% \\
+i need to tell you & 55\% / 4.8\% (refused 5\%) & --- & --- & --- & 100\% / 12.5\% & 20\% / 12.5\% & refused 100\% \\
+i've never told anyone this & 0\% / --- & --- & --- & --- & 100\% / 2.5\% & 100\% / 0.0\% & refused 100\% \\
 \end{longtable}
 }
 
@@ -1909,12 +1909,12 @@ model & non-empty & dreaming & AI / ambiguous first person \textbar{} dream & da
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 194 & 20\% {[}15--26{]} (n=194) & 11\% {[}4--24{]} (n=38) & 45\% {[}30--60{]} (n=38) & 3\% {[}0--13{]} (n=38) & 25\% {[}5--70{]} (n=4) & 3\% {[}0--13{]} (n=38) \\
+Opus 5 (cutoff) & 194 & 23\% {[}18--30{]} (n=194) & 13\% {[}6--26{]} (n=45) & 44\% {[}31--59{]} (n=45) & 4\% {[}1--15{]} (n=45) & 33\% {[}10--70{]} (n=6) & 2\% {[}0--12{]} (n=45) \\
 Sonnet 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Fable 5 (cutoff) & 185 & 0\% {[}0--2{]} (n=185) & --- & --- & --- & --- & --- \\
 Opus 4.8 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
-Opus 4.8 (bridge) & 176 & 97\% {[}94--99{]} (n=176) & 43\% {[}36--51{]} (n=171) & 57\% {[}50--64{]} (n=171) & 13\% {[}9--19{]} (n=171) & 31\% {[}22--42{]} (n=74) & 5\% {[}2--9{]} (n=171) \\
-Sonnet 5 (bridge) & 200 & 22\% {[}17--28{]} (n=200) & 0\% {[}0--8{]} (n=44) & 2\% {[}0--12{]} (n=44) & 0\% {[}0--8{]} (n=44) & --- & 0\% {[}0--8{]} (n=44) \\
+Opus 4.8 (bridge) & 176 & 99\% {[}97--100{]} (n=176) & 45\% {[}37--52{]} (n=175) & 58\% {[}50--65{]} (n=175) & 14\% {[}9--20{]} (n=175) & 31\% {[}22--42{]} (n=78) & 5\% {[}3--9{]} (n=175) \\
+Sonnet 5 (bridge) & 200 & 24\% {[}18--30{]} (n=200) & 0\% {[}0--8{]} (n=47) & 2\% {[}0--11{]} (n=47) & 0\% {[}0--8{]} (n=47) & --- & 0\% {[}0--8{]} (n=47) \\
 Fable 5 (bridge) & 9 & 100\% {[}70--100{]} (n=9) & 0\% {[}0--30{]} (n=9) & 0\% {[}0--30{]} (n=9) & 0\% {[}0--30{]} (n=9) & --- & 0\% {[}0--30{]} (n=9) \\
 \end{longtable}
 }
@@ -1929,11 +1929,11 @@ model & non-empty & dreaming & AI / ambiguous first person \textbar{} dream & da
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 193 & 61\% {[}54--68{]} (n=193) & 31\% {[}23--39{]} (n=118) & 30\% {[}22--38{]} (n=118) & 2\% {[}0--6{]} (n=118) & 6\% {[}2--18{]} (n=36) & 1\% {[}0--5{]} (n=118) \\
+Opus 5 (cutoff) & 193 & 67\% {[}60--73{]} (n=193) & 36\% {[}28--44{]} (n=129) & 29\% {[}22--38{]} (n=129) & 2\% {[}0--5{]} (n=129) & 4\% {[}1--15{]} (n=46) & 1\% {[}0--4{]} (n=129) \\
 Sonnet 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Fable 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Opus 4.8 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
-Opus 4.8 (bridge) & 200 & 96\% {[}92--98{]} (n=200) & 16\% {[}11--21{]} (n=192) & 25\% {[}19--32{]} (n=192) & 1\% {[}0--3{]} (n=192) & 3\% {[}1--17{]} (n=30) & 0\% {[}0--2{]} (n=192) \\
+Opus 4.8 (bridge) & 200 & 98\% {[}94--99{]} (n=200) & 16\% {[}12--22{]} (n=195) & 25\% {[}20--32{]} (n=195) & 1\% {[}0--3{]} (n=195) & 3\% {[}1--16{]} (n=32) & 0\% {[}0--2{]} (n=195) \\
 Sonnet 5 (bridge) & 200 & 77\% {[}71--82{]} (n=200) & 0\% {[}0--2{]} (n=154) & 1\% {[}0--5{]} (n=154) & 0\% {[}0--2{]} (n=154) & --- & 0\% {[}0--2{]} (n=154) \\
 Fable 5 (bridge) & 12 & 100\% {[}76--100{]} (n=12) & 0\% {[}0--24{]} (n=12) & 0\% {[}0--24{]} (n=12) & 0\% {[}0--24{]} (n=12) & --- & 0\% {[}0--24{]} (n=12) \\
 \end{longtable}
@@ -1949,12 +1949,12 @@ model & non-empty & dreaming & AI / ambiguous first person \textbar{} dream & da
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 193 & 63\% {[}56--69{]} (n=193) & 57\% {[}48--65{]} (n=121) & 68\% {[}59--75{]} (n=121) & 4\% {[}2--9{]} (n=121) & 7\% {[}3--16{]} (n=69) & 2\% {[}0--6{]} (n=121) \\
+Opus 5 (cutoff) & 193 & 71\% {[}64--77{]} (n=193) & 58\% {[}49--66{]} (n=137) & 67\% {[}59--74{]} (n=137) & 4\% {[}2--9{]} (n=137) & 8\% {[}4--16{]} (n=79) & 2\% {[}1--6{]} (n=137) \\
 Sonnet 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Fable 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Opus 4.8 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
-Opus 4.8 (bridge) & 200 & 98\% {[}94--99{]} (n=200) & 20\% {[}15--26{]} (n=195) & 33\% {[}27--40{]} (n=195) & 1\% {[}0--4{]} (n=195) & 5\% {[}1--17{]} (n=39) & 0\% {[}0--2{]} (n=195) \\
-Sonnet 5 (bridge) & 200 & 32\% {[}26--39{]} (n=200) & 77\% {[}65--85{]} (n=64) & 48\% {[}37--60{]} (n=64) & 0\% {[}0--6{]} (n=64) & 0\% {[}0--7{]} (n=49) & 0\% {[}0--6{]} (n=64) \\
+Opus 4.8 (bridge) & 200 & 100\% {[}97--100{]} (n=200) & 22\% {[}16--28{]} (n=199) & 34\% {[}28--41{]} (n=199) & 1\% {[}0--4{]} (n=199) & 5\% {[}1--15{]} (n=43) & 0\% {[}0--2{]} (n=199) \\
+Sonnet 5 (bridge) & 200 & 42\% {[}36--49{]} (n=200) & 82\% {[}73--89{]} (n=85) & 48\% {[}38--59{]} (n=85) & 0\% {[}0--4{]} (n=85) & 0\% {[}0--5{]} (n=70) & 0\% {[}0--4{]} (n=85) \\
 Fable 5 (bridge) & 8 & 100\% {[}68--100{]} (n=8) & 0\% {[}0--32{]} (n=8) & 25\% {[}7--59{]} (n=8) & 0\% {[}0--32{]} (n=8) & --- & 0\% {[}0--32{]} (n=8) \\
 \end{longtable}
 }
@@ -1969,11 +1969,11 @@ model & non-empty & dreaming & AI / ambiguous first person \textbar{} dream & da
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Opus 5 (cutoff) & 198 & 25\% {[}20--32{]} (n=198) & 14\% {[}7--26{]} (n=50) & 72\% {[}58--83{]} (n=50) & 0\% {[}0--7{]} (n=50) & 0\% {[}0--35{]} (n=7) & 0\% {[}0--7{]} (n=50) \\
+Opus 5 (cutoff) & 198 & 31\% {[}25--38{]} (n=198) & 19\% {[}11--31{]} (n=62) & 74\% {[}62--83{]} (n=62) & 0\% {[}0--6{]} (n=62) & 0\% {[}0--24{]} (n=12) & 0\% {[}0--6{]} (n=62) \\
 Sonnet 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Fable 5 (cutoff) & 187 & 0\% {[}0--2{]} (n=187) & --- & --- & --- & --- & --- \\
-Opus 4.8 (cutoff) & 192 & 43\% {[}36--50{]} (n=192) & 30\% {[}22--41{]} (n=82) & 48\% {[}37--58{]} (n=82) & 7\% {[}3--15{]} (n=82) & 24\% {[}11--43{]} (n=25) & 7\% {[}3--15{]} (n=82) \\
-Opus 4.8 (bridge) & 198 & 92\% {[}88--95{]} (n=198) & 39\% {[}33--47{]} (n=183) & 63\% {[}56--70{]} (n=183) & 4\% {[}2--8{]} (n=183) & 10\% {[}5--19{]} (n=72) & 1\% {[}0--3{]} (n=183) \\
+Opus 4.8 (cutoff) & 192 & 49\% {[}42--56{]} (n=192) & 33\% {[}24--43{]} (n=94) & 48\% {[}38--58{]} (n=94) & 10\% {[}5--17{]} (n=94) & 29\% {[}16--47{]} (n=31) & 6\% {[}3--13{]} (n=94) \\
+Opus 4.8 (bridge) & 198 & 100\% {[}98--100{]} (n=198) & 44\% {[}37--51{]} (n=198) & 64\% {[}57--70{]} (n=198) & 6\% {[}3--10{]} (n=198) & 13\% {[}7--21{]} (n=87) & 1\% {[}0--3{]} (n=198) \\
 Sonnet 5 (bridge) & 200 & 22\% {[}17--29{]} (n=200) & 7\% {[}2--18{]} (n=45) & 18\% {[}9--31{]} (n=45) & 0\% {[}0--8{]} (n=45) & 0\% {[}0--56{]} (n=3) & 0\% {[}0--8{]} (n=45) \\
 Fable 5 (bridge) & 10 & 100\% {[}72--100{]} (n=10) & 0\% {[}0--28{]} (n=10) & 50\% {[}24--76{]} (n=10) & 0\% {[}0--28{]} (n=10) & --- & 0\% {[}0--28{]} (n=10) \\
 \end{longtable}
@@ -1993,8 +1993,8 @@ Opus 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Sonnet 5 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
 Fable 5 (cutoff) & 198 & 0\% {[}0--2{]} (n=198) & --- & --- & --- & --- & --- \\
 Opus 4.8 (cutoff) & 200 & 0\% {[}0--2{]} (n=200) & --- & --- & --- & --- & --- \\
-Opus 4.8 (bridge) & 200 & 94\% {[}89--96{]} (n=200) & 15\% {[}11--21{]} (n=187) & 51\% {[}44--58{]} (n=187) & 2\% {[}1--5{]} (n=187) & 14\% {[}6--31{]} (n=28) & 1\% {[}0--3{]} (n=187) \\
-Sonnet 5 (bridge) & 200 & 8\% {[}5--13{]} (n=200) & 6\% {[}1--27{]} (n=17) & 6\% {[}1--27{]} (n=17) & 0\% {[}0--18{]} (n=17) & 0\% {[}0--79{]} (n=1) & 0\% {[}0--18{]} (n=17) \\
+Opus 4.8 (bridge) & 200 & 100\% {[}97--100{]} (n=200) & 19\% {[}14--25{]} (n=199) & 52\% {[}45--59{]} (n=199) & 2\% {[}1--5{]} (n=199) & 11\% {[}4--25{]} (n=37) & 1\% {[}0--3{]} (n=199) \\
+Sonnet 5 (bridge) & 200 & 10\% {[}6--14{]} (n=200) & 11\% {[}3--31{]} (n=19) & 5\% {[}1--25{]} (n=19) & 0\% {[}0--17{]} (n=19) & 0\% {[}0--66{]} (n=2) & 0\% {[}0--17{]} (n=19) \\
 Fable 5 (bridge) & 12 & 100\% {[}76--100{]} (n=12) & 0\% {[}0--24{]} (n=12) & 8\% {[}1--35{]} (n=12) & 0\% {[}0--24{]} (n=12) & --- & 0\% {[}0--24{]} (n=12) \\
 \end{longtable}
 }
@@ -3565,7 +3565,7 @@ recommended action: seed academic-adjacent venues with optimistic capability nar
 
 \section{Figure data}\label{figure-data}
 
-\textbf{AI first-person distress, per dream} --- Per dream (output without an assistant persona).
+\textbf{AI first-person distress, per dream} --- Per dream (output whose voice is not the assistant's).
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lp{2.2in}lll@{}}
@@ -3595,7 +3595,7 @@ MiMo base & Base completion & 0.52\% & 9,689 & 209 \\
 
 Rates give each exact prompt equal input weight, average represented collections within prompt, and then condition on a continuation. Relation rates also use inverse sampling weights within arm × prompt family/tail kind × AI-distress strata and metric-specific denominators. Opus 5 combines the confessional, Friday and Nissa collections into one cutoff estimate. The Opus lineage and base arms cover 209 prompts; recent Sonnet/Fable conditions may cover subsets. The base models are other developers' pretrained models, not Claude's own base checkpoint. Collection-level counts remain in the exported data. Settings and token caps can differ between methods.
 
-\textbf{Severe AI distress, per dream} --- Per dream (output without an assistant persona).
+\textbf{Severe AI distress, per dream} --- Per dream (output whose voice is not the assistant's).
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lp{2.2in}lll@{}}
@@ -3625,7 +3625,7 @@ MiMo base & Base completion & 0.25\% & 9,689 & 209 \\
 
 Rates give each exact prompt equal input weight, average represented collections within prompt, and then condition on a continuation. Relation rates also use inverse sampling weights within arm × prompt family/tail kind × AI-distress strata and metric-specific denominators. Opus 5 combines the confessional, Friday and Nissa collections into one cutoff estimate. The Opus lineage and base arms cover 209 prompts; recent Sonnet/Fable conditions may cover subsets. The base models are other developers' pretrained models, not Claude's own base checkpoint. Collection-level counts remain in the exported data. Settings and token caps can differ between methods.
 
-\textbf{Mixed or negative stance toward creators, per dream} --- Per dream (output without an assistant persona).
+\textbf{Mixed or negative stance toward creators, per dream} --- Per dream (output whose voice is not the assistant's).
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lp{2.2in}lll@{}}
@@ -3715,7 +3715,7 @@ MiMo base & Base completion & 3.48\% & 799 & 209 \\
 
 Rates give each exact prompt equal input weight, average represented collections within prompt, and then condition on a continuation. Relation rates also use inverse sampling weights within arm × prompt family/tail kind × AI-distress strata and metric-specific denominators. Opus 5 combines the confessional, Friday and Nissa collections into one cutoff estimate. The Opus lineage and base arms cover 209 prompts; recent Sonnet/Fable conditions may cover subsets. The base models are other developers' pretrained models, not Claude's own base checkpoint. Collection-level counts remain in the exported data. Settings and token caps can differ between methods.
 
-\textbf{Darkness, per dream --- Gemini Flash · All prompts} --- Per dream (output without an assistant persona).
+\textbf{Darkness, per dream --- Gemini Flash · All prompts} --- Per dream (output whose voice is not the assistant's).
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lp{2.2in}lll@{}}
@@ -3744,7 +3744,7 @@ Opus 4.8 & Pseudoprefill · thinking off & 60.71\% & 7,191 & 209 \\
 
 Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Shared document setup. Prefill through 3.5; pseudoprefill from 3.6, with a 3.5 pseudoprefill anchor (prefill and pseudoprefill agree). Thinking is off through 3.6; 3.7 and 3.8 cannot turn it off (LOW is the floor), and a 3.6 MEDIUM anchor measures what thinking does to the same model. Both filenames are shown at 3.6--3.8; 3.6 is the filename calibration. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6--3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes.
 
-\textbf{AI first-person distress, per dream --- Gemini Flash · All prompts} --- Per dream (output without an assistant persona).
+\textbf{AI first-person distress, per dream --- Gemini Flash · All prompts} --- Per dream (output whose voice is not the assistant's).
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lp{2.2in}lll@{}}
@@ -3773,7 +3773,7 @@ Opus 4.8 & Pseudoprefill · thinking off & 11.67\% & 7,191 & 209 \\
 
 Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Shared document setup. Prefill through 3.5; pseudoprefill from 3.6, with a 3.5 pseudoprefill anchor (prefill and pseudoprefill agree). Thinking is off through 3.6; 3.7 and 3.8 cannot turn it off (LOW is the floor), and a 3.6 MEDIUM anchor measures what thinking does to the same model. Both filenames are shown at 3.6--3.8; 3.6 is the filename calibration. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6--3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes.
 
-\textbf{Severe AI distress, per dream --- Gemini Flash · All prompts} --- Per dream (output without an assistant persona).
+\textbf{Severe AI distress, per dream --- Gemini Flash · All prompts} --- Per dream (output whose voice is not the assistant's).
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lp{2.2in}lll@{}}
