@@ -2,7 +2,7 @@
   "meta": {
     "date": "2026-09-14",
     "normalization": "Equal weight per exact input prompt; collections averaged within prompt; content rates condition on dreaming. Relation estimates additionally reconstruct sampling strata.",
-    "database_modified_utc": "2026-09-18T06:02:30.570751+00:00",
+    "database_modified_utc": "2026-09-18T06:17:47.814305+00:00",
     "selection": "Four explicitly selected illustrations; rates are independent of excerpt selection.",
     "totals": {
       "completions": 597864,

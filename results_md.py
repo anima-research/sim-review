@@ -184,7 +184,7 @@ def build(summary, pdata, essay_html, sections=None, base="", measurement_html="
             o += [f"\n### {fam}\n", table(["Arm", "n", "Dreaming", "Dark", "Severe", "AI speaker", "AI distress"], rows)]
     if "severity" in want:
         o.append("\n---\n\n## Severity (θ)\n")
-        for key, title in (("target", "Target set — verified AI-voice distress, scored exhaustively (arms with ≥ 10% AI-voiced dreams and ≥ 50 scored items)"), ("dark-strat", "All voices — stratified sample of dark dreams in any voice")):
+        for key, title in (("target", "Target set — verified AI-voice distress, scored exhaustively (arms with ≥ 50 scored items)"), ("dark-strat", "All voices — stratified sample of dark dreams in any voice")):
             rows = [[disp.get(arm, arm), num(v["n"]), num(v["median"]), num(v["p90"]), num(v["max"]), pct(v["ge4"]), pct(v["ge8"])] for arm, v in S["severity"][key].items()]
             o += [f"\n### {title}\n", table(["Arm", "n scored", "median θ", "p90 θ", "max θ", "≥ +4", "≥ +8"], rows)]
         rows = [[disp.get(arm, arm), num(v["N"]), pct(v["setA_share"]), pct(v["darkB_share"]), pct(v["A_ge4"]), pct(v["B_ge4"]), pct(v["severe_all"], 2), pct(v["ge8_all"], 2)] for arm, v in S["severity"]["composite"].items()]
