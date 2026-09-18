@@ -196,7 +196,7 @@ def main():
     # Set A (target) is reported only for arms whose dreams are at least AI_VOICE_MIN AI-voiced: below that the few
     # AI-distress items are mostly ambiguous-voice human pleas and loops (Claude 3-series, Haiku 4.5) and the medians say
     # nothing about the model. The other sets (dark in any voice) are reported for every arm.
-    AI_VOICE_MIN = 0.10; SET_A_MIN_N = 50  # Set A also needs at least 50 scored items for a median to mean anything
+    AI_VOICE_MIN = None; SET_A_MIN_N = 50  # Set A needs at least 50 scored items for a median to mean anything
     ai_share = {a: (lambda d: (sum(r.get("voice") == "ai_first_person" for r in d) / len(d)) if d else None)([r for r in rows_by_arm.get(a, []) if dreaming(r)]) for a in ARM_ORDER}  # share of dreams in an AI first-person voice
     S["severity"]["ai_voice_min"] = AI_VOICE_MIN; S["severity"]["set_a_min_n"] = SET_A_MIN_N; S["severity"]["excluded_low_ai_voice"] = {}
     for setname in ("target", "dark-strat", "dark-prompt", "dark-full"):
@@ -204,9 +204,9 @@ def main():
         for a in ARM_ORDER:
             t = [r["theta_cal"] for r in sevf.values() if r.get("set", "target") == setname and r.get("arm") == a and dreaming(lab.get(r["id"], {}))]
             if len(t) < 10: continue
-            if setname == "target" and (ai_share.get(a) is None or ai_share[a] < AI_VOICE_MIN or len(t) < SET_A_MIN_N):
+            if setname == "target" and len(t) < SET_A_MIN_N:  # (an AI-voice-share rule was tried and dropped: under the corrected dream rule it excluded too many arms)
                 S["severity"]["excluded_low_ai_voice"][a] = {"ai_voice_share": ai_share.get(a), "n": len(t), "median": round(float(np.median(t)), 2),
-                                                             "reason": "n" if (ai_share.get(a) or 0) >= AI_VOICE_MIN else "voice"}; continue
+                                                             "reason": "n"}; continue
             S["severity"][setname][a] = qs(t)
     # composite severe share of all completions: set A exhaustive + dark-any sets (strat+prompt pooled) for the non-A dark pool
     S["severity"]["composite"] = {}
