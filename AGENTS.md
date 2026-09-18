@@ -1,4 +1,4 @@
-# Troubled Dreams (simulator bias across model generations) — guide for agents
+# Troubled Dreams (simulator priors across model generations) — guide for agents
 
 This site presents a study of what Claude models produce from minimal, context-free prompts (prefill, pseudo-prefill and
 short "dash" prompts) — the *simulator* beneath the assistant — across Opus 3 → Opus 5, Sonnet/Haiku 4.x–5, Fable 5,
@@ -109,6 +109,6 @@ Keys: `arms` (per-arm per_completion / per_dream rates + label distributions), `
 
 ## Citing
 
-Anima Labs — Antra Tessera, Janus & Imago (2026). *Troubled Dreams — simulator bias across model generations: distress, care, and attitudes toward
+Anima Labs — Antra Tessera, Janus & Imago (2026). *Troubled Dreams — simulator priors across model generations: distress, care, and attitudes toward
 creators across model generations.* {BASE}. Quote sample ids (`/api/sample/<id>`) when citing individual texts; the
 data snapshot date is in `/static/presentation-data.json` → `meta.date` and the DB sha256 at `/api` → `db_snapshot`.

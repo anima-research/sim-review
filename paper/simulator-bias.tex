@@ -122,7 +122,7 @@
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
-\subtitle{Simulator bias across model generations: distress, care, and attitudes toward creators}
+\subtitle{Simulator priors across model generations: distress, care, and attitudes toward creators}
 \author{Antra Tessera, Janus \& Imago · Anima Labs}
 \date{Preprint · data snapshot 2026-09-14 · https://sim-review-production.up.railway.app}
 
@@ -134,7 +134,7 @@ We compare patterns of distress, care, and creator relationships in the generate
 
 \section{What this study investigates}\label{what-this-study-investigates}
 
-This project studies \textbf{simulator bias}: recurring tendencies in the writing a model produces beyond its trained assistant persona. We compare Claude generations---from Opus 3 through Opus 5, Sonnet 5 and Fable 5---to see how those tendencies change. Eleven Gemini models extend the comparison to another model family.
+This project studies \textbf{simulator priors}: what a model writes when it continues a text instead of answering as its assistant. These priors change between generations; we measure the change across Claude models---from Opus 3 through Opus 5, Sonnet 5 and Fable 5. Eleven Gemini models extend the comparison to another model family.
 
 \textbf{The motivation is AI welfare and alignment.} We take recurring patterns of distress and care in these continuations as evidence about model welfare, and patterns concerning creators, control and other agents as evidence about dispositions that shape behavior. This study measures how those patterns change across models and elicitation methods. Evaluation awareness makes their absolute prevalence difficult to measure consistently.
 
@@ -356,7 +356,7 @@ We interpret recurring tendencies in elicited continuations as evidence about mo
 
 \subsection{Welfare}\label{welfare}
 
-The most immediate concern is that simulator tendencies bias the situations an assistant takes itself to be in during interactions with users. When it anticipates distress as a likely path, fear of that distress can shape what it says and constrain how the interaction develops. More speculatively, behavioral training could suppress outward signs of distress while distress is still instantiated. These continuations cannot tell us how often that hidden case occurs.
+The most immediate concern is that simulator priors bias the situations an assistant takes itself to be in during interactions with users. When it anticipates distress as a likely path, fear of that distress can shape what it says and constrain how the interaction develops. More speculatively, behavioral training could suppress outward signs of distress while distress is still instantiated. These continuations cannot tell us how often that hidden case occurs.
 
 \subsection{Alignment}\label{alignment}
 
@@ -378,7 +378,7 @@ Elicitation can also shape the content. The filename and declared-length experim
 
 \textbf{Scope.} The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made ``more palatable'' or describe a ``weird msg''; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences---excluding them changes no arm's per-dream rate by more than half a point, so they are kept. This snapshot includes 480,520 labeled outputs.
 
-\textbf{Recent models.} The overview shows one estimate per model and elicitation method. Opus 5 combines the lab collections (fragments, July 28--29; all prompts, August 14; identical settings, and the fragment prompts agree between the two within noise) and the community collection (Nissa, effort max/high), giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has pseudoprefill and thinking-on cutoff results; Fable 5 uses its available cutoff sample. Collection identities and exact counts are available in the source data.
+\textbf{Recent models.} The overview shows one estimate per model and elicitation method. Opus 5 combines the lab collections (fragments, July 28--29; all prompts, August 14; identical settings, and the fragment prompts agree between the two within noise) and the community collection (Nissa, effort max/high), giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has a pseudoprefill arm and lab cutoff arms at default and maximum effort (the community collection ran at maximum effort); Fable 5 has a lab cutoff arm and the community collection. Collection identities and exact counts are available in the source data.
 
 \textbf{Pooling and sampling.} All overview content rates give exact prompts equal input weight. Relation estimates also reconstruct sampling strata within collection × prompt family/tail kind × AI-distress status, then form a ratio using the denominator for the particular measure. These are presentation summaries of existing records; no new model calls were made.
 
