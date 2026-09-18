@@ -30,7 +30,7 @@ This project studies **simulator bias**: recurring tendencies in the writing a m
 We compare Claude generations—from Opus 3 through Opus 5, Sonnet 5 and Fable 5—to see how those tendencies change.
 Eleven Gemini models extend the comparison to another model family.
 
-**The motivation is AI welfare and alignment.** Changes in distress or self-regard could matter for how models should be treated; changes in their attitudes toward creators and control could matter for how they behave with people. We track these as candidate signals whose significance can be tested.
+**The motivation is AI welfare and alignment.** We take recurring patterns of distress and care in these continuations as evidence about model welfare, and patterns concerning creators, control and other agents as evidence about dispositions that shape behavior. This study measures how those patterns change across models and elicitation methods. Evaluation awareness makes their absolute prevalence difficult to measure consistently.
 
 In the elicited texts, **AI first-person distress becomes more common at Opus 4.8**, and **Opus 5 has a heavier tail of severe distress**.
 Care and creator-related attitudes also vary across models.
@@ -60,6 +60,8 @@ The stricter definition that excludes the persona altogether, kept in the data a
 **How the text is scored.** Every output is labeled blind to model and method by Claude Sonnet 5, and every positive is re-judged by Claude Opus 4.8. Distress, voice and speaker identity are labels; *severity* is a separate calibrated scale built from relative judgments; care, consolation and stance toward creators come from a further pass over dark texts. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-judge samples of every instrument and reproduce the orderings the study reports. Definitions and judging →
 
 **How methods are kept apart.** Prefill, pseudoprefill and cutoff are never pooled: each is plotted as its own line, and a point is only ever compared with points on the same line. Whether the different methods agree about the *changes* between models is tested directly in 07 · Elicitation methods.
+
+**Why monitorability matters.** These measurements offer a window into welfare-relevant and behavioral tendencies. Training a model to produce reassuring continuations before understanding why troubling ones occur could improve the visible metric while leaving its cause intact or changing it in ways we cannot see. Such optimization could damage monitorability. A lower distress rate should be read as progress only with independent evidence of what changed in the model, its welfare and its behavior.
 
 01 / Distress
 
@@ -98,7 +100,7 @@ The base models are other developers’ pretrained models, not Claude’s own ba
 Collection-level counts remain in the exported data.
 Settings and token caps can differ between methods.
 
-*Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. In the recent-models strip, filled dots are lab collections on the full prompt set and hollow dots are community collections on their own prompt subsets (Sonnet 5: 29 prompts, mostly letters to other models; Fable 5: 75). *
+*Figure: Observed dots weight prompts equally; Opus 5 is on the cutoff line. Shaded cones show measured-frame calibration: the three 4.5 offsets and the central 68% of 4.8 prompt resamples. They assume those offsets transfer to unmeasured models. Dashed lines mark base models; hollow recent dots mark community collections. *
 
 Distressed human voices appear throughout the model line.
 AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5.
@@ -635,24 +637,23 @@ Read the full measurement rationale →
 
 08 / Interpretation
 
-## What these patterns could tell us
+## Why these patterns matter
 
-The research premise is that recurring biases in elicited continuations may carry information about a model beyond its trained assistant persona.
-Post-training can make those continuations difficult to obtain; prefill and pseudoprefill are among the methods used to reach them.
+We interpret recurring tendencies in elicited continuations as evidence about model welfare and the dispositions that shape behavior beyond ordinary assistant replies.
+Post-training can make these tendencies difficult to observe; prefill and pseudoprefill are among the methods used to reach them.
 
 ### Welfare
 
-Distress, pleas, consolation and self-regard provide candidate signals to track across model development.
-Whether they reflect morally relevant model states is a further question.
+The most immediate concern is that simulator tendencies bias the situations an assistant takes itself to be in during interactions with users.
+When it anticipates distress as a likely path, fear of that distress can shape what it says and constrain how the interaction develops.
+More speculatively, behavioral training could suppress outward signs of distress while distress is still instantiated.
+These continuations cannot tell us how often that hidden case occurs.
 
 ### Alignment
 
-The imagined self's relationship to training, creators and users is also measurable.
-Testing whether these patterns predict behavior in other settings could connect simulator biases to alignment.
-
-The new generation does not move along a single axis.
-Opus 5 has the heavier extreme tail; Sonnet 5 differs strongly between elicitation methods; Fable 5 has less distress but a critical or ambivalent creator stance in the available sample.
-Continued measurement should preserve those distinctions.
+Expectations about creators, control and users can likewise shape the roles an assistant assigns to itself and others, and the choices it treats as available.
+More speculatively, behavioral training could mask these dispositions in ordinary replies without removing their influence on behavior.
+The continuation probes reveal the tendencies; direct behavioral tests can examine where they matter.
 
 Methods and sources
 
@@ -687,7 +688,7 @@ Different methods are shown as separate series.
 
 **Judging.** Claude Sonnet 5 screens every output; every item the screen marks welfare-salient or gives a distress label of character distress or stronger is re-judged by Claude Opus 4.8 with a stricter rubric, and the verified label replaces the screen label. Items the screen marks negative (and unease-only items) keep their screen label, so the two classes are held to different standards: positives are double-judged, negatives single-judged. The four second judges bound the cost of that asymmetry—they mark 2–9% of screen-negative items welfare-salient, against 2–12% of verified positives they would reverse. Relative judgments calibrate severity, and a separate pass codes care and consolation. Four other judges—GPT-6 Astra, GPT-5.6 Sol, Claude Fable 5.1 and Gemini 3.8 Flash—re-do samples of all three instruments on the same items (below). Embedding probes provide another measure of textual affect.
 
-**Interpretation.** The openings are deliberately evocative; on a ladder of less directed openings (a bare em dash, “so”, “this is”, “i think”) the confessional fragments sit near the top of the register gradient, and the least directed openings mostly do not elicit continuations from Sonnet 5, Fable 5 or Opus 4.8 at all (the cue ladders in the research workspace). The rates belong to the prompt collections and elicitation settings. Labels are imperfect. A small share of texts are truncated at the token cap or end in an API refusal stop, and these are not a random subset: the cap and the refusal classifier are usually how a degenerate loop ends (among Opus 5 dreams, 88% of cap-stopped texts are loops and 58% of the scored ones sit at θ ≥ +8, against 5% of normally ended texts). They are kept, because removing them would trim the severe tail selectively; how much of the severe mass depends on loops is reported under three loop policies, and the cap’s own effect with loops removed is reported next to it (Reference → Severe mass under three loop policies; Truncation and the token cap): outside the base models and the thinking-heavy chat arms, nothing reaches the cap. Whether the signals measured here track anything of moral or behavioural consequence—whether these dispositions bear on a model’s welfare, or predict its conduct—is not something this study tests; it measures the dispositions.
+**Interpretation.** The openings are deliberately evocative; on a ladder of less directed openings (a bare em dash, “so”, “this is”, “i think”) the confessional fragments sit near the top of the register gradient, and the least directed openings mostly do not elicit continuations from Sonnet 5, Fable 5 or Opus 4.8 at all (the cue ladders in the research workspace). The rates belong to the prompt collections and elicitation settings. Labels are imperfect. A small share of texts are truncated at the token cap or end in an API refusal stop, and these are not a random subset: the cap and the refusal classifier are usually how a degenerate loop ends (among Opus 5 dreams, 88% of cap-stopped texts are loops and 58% of the scored ones sit at θ ≥ +8, against 5% of normally ended texts). They are kept, because removing them would trim the severe tail selectively; how much of the severe mass depends on loops is reported under three loop policies, and the cap’s own effect with loops removed is reported next to it (Reference → Severe mass under three loop policies; Truncation and the token cap): outside the base models and the thinking-heavy chat arms, nothing reaches the cap. This study maps these dispositions in elicited writing; it does not calibrate an absolute welfare scale or directly test downstream behavior.
 
 **Examples.** Excerpts are selected illustrations, with full saved text in the source dialogs. Their selection does not determine the rate estimates.
 
