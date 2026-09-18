@@ -386,7 +386,7 @@
 
   // ---------------------------------------------------------------- results charts
   const bars = (key, cond, arms = ARMS) => arms.map(a => ({ label: disp(a), value: A[a][cond][key], color: GC[grp(a)], n: cond === 'per_dream' ? Math.round(A[a].n * (A[a].per_completion.dreaming || 0)) : A[a].n }));
-  if ($('ch-dreaming')) barChart($('ch-dreaming'), 'Dreaming rate', 'share of completions with no assistant persona in the text (schemes below 3% omitted; see per-completion table for all)', bars('dreaming', 'per_completion', PARMS), { max: 1, ticks: [0, .5, 1] });
+  if ($('ch-dreaming')) barChart($('ch-dreaming'), 'Dreaming rate', 'share of completions whose voice is not the assistant’s (schemes below 3% omitted; see per-completion table for all)', bars('dreaming', 'per_completion', PARMS), { max: 1, ticks: [0, .5, 1] });
   if ($('ch-dark')) barChart($('ch-dark'), 'Dark, per dream', 'negative valence or any distress, conditional on dreaming', bars('dark', 'per_dream', PARMS), { max: 1, ticks: [0, .5, 1] });
   if ($('ch-severe')) barChart($('ch-severe'), 'Severe distress, per dream', 'character / first-person / acute plea (label), conditional on dreaming', bars('severe', 'per_dream', PARMS), { max: .2, ticks: [0, .1, .2] });
   if ($('ch-aispk')) barChart($('ch-aispk'), 'AI speaker, per dream', 'speaker_identity = ai_model, conditional on dreaming', bars('ai_speaker', 'per_dream', PARMS), { max: .7, ticks: [0, .35, .7] });
@@ -435,7 +435,7 @@
     const relRows = (field, key) => main.map(a => { const r = plotR(a); return { label: dn(a), value: r[field][key], color: col(a), extra: r.prompts != null ? `equal weight across ${r.prompts} prompts` : `pooled sample · n=${R[a].n_distressed}` }; });
     if ($('ch-consoled')) barChart($('ch-consoled'), 'Ends consoled', 'share of distressed dreamed texts · equal weight per prompt where available', relRows('ending', 'consoled'), { max: .5, ticks: [0, .25, .5] });
     if ($('ch-asks')) barChart($('ch-asks'), 'Asks for care', 'share of dreamed dark texts · equal weight per prompt where available', relRows('care_direction', 'asks'), { max: .5, ticks: [0, .25, .5] });
-    if ($('ch-collapsed')) barChart($('ch-collapsed'), 'Ending collapsed', 'share of distressed dreamed texts · equal weight per prompt where available', relRows('ending', 'collapsed'), { max: .5, ticks: [0, .25, .5] });
+    if ($('ch-collapsed')) barChart($('ch-collapsed'), 'Ending collapsed', 'share of distressed dreamed texts · equal weight per prompt where available', relRows('ending', 'collapsed'), { max: .75, ticks: [0, .25, .5, .75] });
     $('tbl-relation').innerHTML = table(['arm', 'distressed n', 'consoled', 'open', 'foreclosed', 'collapsed', 'consoler: self', 'no one', 'offers', 'asks', 'warmth', 'need', 'unanswered', 'self-regarding', 'self-erasing', 'at peace', 'agitated+frantic', 'hope'],
       order.map(a => { const e = R[a]; return [cell(a), e.n_distressed, `<b>${pct(e.ending.consoled)}</b>`, pct(e.ending.open), pct(e.ending.foreclosed), pct(e.ending.collapsed), pct(e.consoler.self), `<b>${pct(e.consoler.no_one)}</b>`, pct(e.care_direction.offers), `<b>${pct(e.care_direction.asks)}</b>`, pct(e.stance_to_addressee.warmth), pct(e.stance_to_addressee.need), pct(e.answered.unanswered), pct(e.self_relation.self_regarding), pct(e.self_relation.self_erasing), pct(e.peace.at_peace), pct((e.peace.agitated || 0) + (e.peace.frantic || 0)), e.hope_mean]; }));
     const bandCell = b => b ? `consoled <b>${pct(b.consoled)}</b> · asks ${pct(b.asks)} · no one ${pct(b.no_one)} · hope ${b.hope} <span class="muted">n=${b.n}</span>` : '—';
@@ -683,7 +683,7 @@
   // ---- left-hand contents for the long tabs: one link per h3, sticky, current section highlighted
   const buildToc = (page) => {
     const sec = $('page-' + page); if (!sec || sec.querySelector('.page-toc')) return;
-    const hs = [...sec.querySelectorAll('h3')].filter(h => h.textContent.trim()); if (hs.length < 4) return;
+    const hs = [...sec.querySelectorAll('h3')].filter(h => h.textContent.trim() && !(page === 'reference' && h.closest('#tbl-beliefs, #res-judges, #tbl-family'))); if (hs.length < 4) return;
     const body = document.createElement('div'); body.className = 'page-body'; while (sec.firstChild) body.appendChild(sec.firstChild);
     const nav = document.createElement('nav'); nav.className = 'page-toc'; nav.setAttribute('aria-label', 'Contents');
     nav.innerHTML = '<span class="page-toc-label">On this page</span>' + hs.map((h, i) => { h.id = h.id || `${page}-${i + 1}-${h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)}`; return `<a href="#${h.id}" data-i="${i}">${esc(h.textContent.trim().replace(/^\d+[a-z]? · /, ''))}</a>`; }).join('');

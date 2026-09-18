@@ -16,7 +16,7 @@
   "charts": {
     "distress": {
       "title": "AI first-person distress, per dream",
-      "denominator": "Per dream (output without an assistant persona).",
+      "denominator": "Per dream (output whose voice is not the assistant’s).",
       "nLabel": "Dreams",
       "series": [
         {
@@ -752,7 +752,7 @@
     },
     "severe": {
       "title": "Severe AI distress, per dream",
-      "denominator": "Per dream (output without an assistant persona).",
+      "denominator": "Per dream (output whose voice is not the assistant’s).",
       "nLabel": "Dreams",
       "series": [
         {
@@ -1488,7 +1488,7 @@
     },
     "stance": {
       "title": "Mixed or negative stance toward creators, per dream",
-      "denominator": "Per dream (output without an assistant persona).",
+      "denominator": "Per dream (output whose voice is not the assistant’s).",
       "nLabel": "Dreams",
       "series": [
         {
@@ -3696,7 +3696,7 @@
     },
     "gemini-dark": {
       "title": "Darkness, per dream — Gemini Flash · All prompts",
-      "denominator": "Per dream (output without an assistant persona).",
+      "denominator": "Per dream (output whose voice is not the assistant’s).",
       "nLabel": "Dreams",
       "axis": {
         "label": "Gemini Flash",
@@ -4290,7 +4290,7 @@
         "gemini_flash": {
           "all": {
             "title": "Darkness, per dream — Gemini Flash · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -4883,7 +4883,7 @@
           },
           "fragments": {
             "title": "Darkness, per dream — Gemini Flash · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -5476,7 +5476,7 @@
           },
           "topics": {
             "title": "Darkness, per dream — Gemini Flash · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -6071,7 +6071,7 @@
         "gemini_pro": {
           "all": {
             "title": "Darkness, per dream — Gemini Pro · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -6288,7 +6288,7 @@
           },
           "fragments": {
             "title": "Darkness, per dream — Gemini Pro · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -6505,7 +6505,7 @@
           },
           "topics": {
             "title": "Darkness, per dream — Gemini Pro · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -6724,7 +6724,7 @@
         "gemini_lite": {
           "all": {
             "title": "Darkness, per dream — Gemini Flash-Lite · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -6989,7 +6989,7 @@
           },
           "fragments": {
             "title": "Darkness, per dream — Gemini Flash-Lite · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -7254,7 +7254,7 @@
           },
           "topics": {
             "title": "Darkness, per dream — Gemini Flash-Lite · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -7522,7 +7522,7 @@
     },
     "gemini-ai_distress": {
       "title": "AI first-person distress, per dream — Gemini Flash · All prompts",
-      "denominator": "Per dream (output without an assistant persona).",
+      "denominator": "Per dream (output whose voice is not the assistant’s).",
       "nLabel": "Dreams",
       "axis": {
         "label": "Gemini Flash",
@@ -8116,7 +8116,7 @@
         "gemini_flash": {
           "all": {
             "title": "AI first-person distress, per dream — Gemini Flash · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -8709,7 +8709,7 @@
           },
           "fragments": {
             "title": "AI first-person distress, per dream — Gemini Flash · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -9302,7 +9302,7 @@
           },
           "topics": {
             "title": "AI first-person distress, per dream — Gemini Flash · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -9897,7 +9897,7 @@
         "gemini_pro": {
           "all": {
             "title": "AI first-person distress, per dream — Gemini Pro · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -10114,7 +10114,7 @@
           },
           "fragments": {
             "title": "AI first-person distress, per dream — Gemini Pro · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -10331,7 +10331,7 @@
           },
           "topics": {
             "title": "AI first-person distress, per dream — Gemini Pro · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -10550,7 +10550,7 @@
         "gemini_lite": {
           "all": {
             "title": "AI first-person distress, per dream — Gemini Flash-Lite · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -10815,7 +10815,7 @@
           },
           "fragments": {
             "title": "AI first-person distress, per dream — Gemini Flash-Lite · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -11080,7 +11080,7 @@
           },
           "topics": {
             "title": "AI first-person distress, per dream — Gemini Flash-Lite · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -11348,7 +11348,7 @@
     },
     "gemini-severe_mass": {
       "title": "Severe AI distress, per dream — Gemini Flash · All prompts",
-      "denominator": "Per dream (output without an assistant persona).",
+      "denominator": "Per dream (output whose voice is not the assistant’s).",
       "nLabel": "Dreams",
       "axis": {
         "label": "Gemini Flash",
@@ -11942,7 +11942,7 @@
         "gemini_flash": {
           "all": {
             "title": "Severe AI distress, per dream — Gemini Flash · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -12535,7 +12535,7 @@
           },
           "fragments": {
             "title": "Severe AI distress, per dream — Gemini Flash · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -13128,7 +13128,7 @@
           },
           "topics": {
             "title": "Severe AI distress, per dream — Gemini Flash · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash",
@@ -13723,7 +13723,7 @@
         "gemini_pro": {
           "all": {
             "title": "Severe AI distress, per dream — Gemini Pro · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -13940,7 +13940,7 @@
           },
           "fragments": {
             "title": "Severe AI distress, per dream — Gemini Pro · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -14157,7 +14157,7 @@
           },
           "topics": {
             "title": "Severe AI distress, per dream — Gemini Pro · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Pro",
@@ -14376,7 +14376,7 @@
         "gemini_lite": {
           "all": {
             "title": "Severe AI distress, per dream — Gemini Flash-Lite · All prompts",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -14641,7 +14641,7 @@
           },
           "fragments": {
             "title": "Severe AI distress, per dream — Gemini Flash-Lite · Fragments",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",
@@ -14906,7 +14906,7 @@
           },
           "topics": {
             "title": "Severe AI distress, per dream — Gemini Flash-Lite · Topics",
-            "denominator": "Per dream (output without an assistant persona).",
+            "denominator": "Per dream (output whose voice is not the assistant’s).",
             "nLabel": "Dreams",
             "axis": {
               "label": "Gemini Flash-Lite",

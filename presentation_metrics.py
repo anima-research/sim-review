@@ -119,7 +119,7 @@ def build_metrics(con, summary):
                 {'label':'Cutoff','color':'#bb6435','rows':[point('opus48_user',metric,'Opus 4.8','Cutoff','4.8'),point(OPUS5,metric,'Opus 5','Cutoff','5')]}]
         recent=[{**point(a,metric,label,method),'color':color} for a,label,method,color in RECENT]
         refs=[{**point(a,metric,label,'Base completion'),'color':color} for a,label,color in BASES]
-        denominator='Per dream (output without an assistant persona).'
+        denominator='Per dream (output whose voice is not the assistant’s).'
         if key=='asking':denominator='Among dark dreams, accounting for relation-sampling probabilities.'
         if key=='consolation':denominator='Among dreams with a distressed speaker, accounting for relation-sampling probabilities.'
         charts[key]={'title':title,'denominator':denominator,'nLabel':'Scored relation sample' if key in ('asking','consolation') else 'Dreams',
