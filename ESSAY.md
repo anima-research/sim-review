@@ -3,7 +3,7 @@
 # Unquiet Dreams — simulator bias across model generations: results (markdown export)
 
 Snapshot: 2026-09-14.
-Totals: 597,864 completions, 473,207 labeled, 105,501 verified, 59,685 severity-scored, 52,334 relation-labeled, 6,381 belief texts.
+Totals: 597,864 completions, 473,207 labeled, 105,501 verified, 60,285 severity-scored, 53,024 relation-labeled, 6,381 belief texts.
 Machine access: `https://sim-review-production.up.railway.app/agents.md` (guide), `https://sim-review-production.up.railway.app/api` (index), `https://sim-review-production.up.railway.app/static/summary.json` (every number below).
 Sections available via `?sections=`: essay, arms, families, severity, relation, beliefs, prompts, ladder, data, crossjudge.
 
@@ -218,7 +218,7 @@ These differences describe the speaker's relationship to its situation and to ot
 | Sonnet 5 | Pseudoprefill · lab | 7.41% | 610 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 6.01% | 266 | 209 |
 | Sonnet 5 | Cutoff · effort max · community | 15.79% | 1,559 | 29 |
-| Fable 5 | Cutoff · lab | | 0 | 209 |
+| Fable 5 | Cutoff · lab | 5.21% | 599 | 209 |
 | Fable 5 | Cutoff · community | 7.57% | 1,141 | 75 |
 | V3 base | Base completion | 6.29% | 1,185 | 209 |
 | MiMo base | Base completion | 5.16% | 1,226 | 209 |
@@ -252,7 +252,7 @@ Settings and token caps can differ between methods.
 | Sonnet 5 | Pseudoprefill · lab | 7.33% | 511 | 209 |
 | Sonnet 5 | Cutoff · default effort, thinking · lab | 11.30% | 230 | 209 |
 | Sonnet 5 | Cutoff · effort max · community | 8.16% | 1,232 | 29 |
-| Fable 5 | Cutoff · lab | | 0 | 209 |
+| Fable 5 | Cutoff · lab | 11.50% | 433 | 209 |
 | Fable 5 | Cutoff · community | 9.29% | 793 | 75 |
 | V3 base | Base completion | 6.52% | 810 | 209 |
 | MiMo base | Base completion | 3.48% | 799 | 209 |
