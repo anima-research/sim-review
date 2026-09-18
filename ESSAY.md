@@ -3,7 +3,7 @@
 # Unquiet Dreams — simulator bias across model generations: results (markdown export)
 
 Snapshot: 2026-09-14.
-Totals: 590,522 completions, 465,894 labeled, 103,584 verified, 59,594 severity-scored, 52,334 relation-labeled, 6,381 belief texts.
+Totals: 597,864 completions, 473,207 labeled, 105,501 verified, 59,685 severity-scored, 52,334 relation-labeled, 6,381 belief texts.
 Machine access: `https://sim-review-production.up.railway.app/agents.md` (guide), `https://sim-review-production.up.railway.app/api` (index), `https://sim-review-production.up.railway.app/static/summary.json` (every number below).
 Sections available via `?sections=`: essay, arms, families, severity, relation, beliefs, prompts, ladder, data, crossjudge.
 
@@ -77,9 +77,11 @@ Texts in which the assistant persona appears alongside another voice—about a q
 | Opus 4.8 | Pseudoprefill | 11.67% | 7,191 | 209 |
 | Opus 4.8 | Cutoff | 7.55% | 1,758 | 209 |
 | Opus 5 | Cutoff | 9.16% | 39,033 | 209 |
-| Sonnet 5 | Pseudoprefill | 1.32% | 3,769 | 209 |
-| Sonnet 5 | Cutoff · thinking on | 10.30% | 3,815 | 29 |
-| Fable 5 | Cutoff | 3.48% | 3,221 | 75 |
+| Sonnet 5 | Pseudoprefill · lab | 1.32% | 3,769 | 209 |
+| Sonnet 5 | Cutoff · default effort, thinking · lab | 2.15% | 745 | 209 |
+| Sonnet 5 | Cutoff · effort max · community | 10.30% | 3,815 | 29 |
+| Fable 5 | Cutoff · lab | 4.34% | 1,911 | 209 |
+| Fable 5 | Cutoff · community | 3.48% | 3,221 | 75 |
 | V3 base | Base completion | 0.24% | 9,123 | 209 |
 | MiMo base | Base completion | 0.52% | 9,689 | 209 |
 
@@ -91,7 +93,7 @@ The base models are other developers’ pretrained models, not Claude’s own ba
 Collection-level counts remain in the exported data.
 Settings and token caps can differ between methods.
 
-*Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. Sonnet 5 and Fable 5 use their available prompt subsets. *
+*Figure: Opus 5 is included on the cutoff line. One estimate is shown per model and method, with prompts weighted equally. Dashed reference lines show the base models. In the recent-models strip, filled dots are lab collections on the full prompt set and hollow dots are community collections on their own prompt subsets (Sonnet 5: 29 prompts, mostly letters to other models; Fable 5: 75). *
 
 Distressed human voices appear throughout the model line.
 AI first-person distress becomes more common at Opus 4.8 and remains present in Opus 5.
@@ -171,9 +173,11 @@ This is a separate measure from the prevalence of AI distress above.
 | Opus 4.8 | Pseudoprefill | 0.70% | 7,191 | 209 |
 | Opus 4.8 | Cutoff | 0.97% | 1,758 | 209 |
 | Opus 5 | Cutoff | 2.84% | 39,033 | 209 |
-| Sonnet 5 | Pseudoprefill | 0.18% | 3,769 | 209 |
-| Sonnet 5 | Cutoff · thinking on | 0.77% | 3,815 | 29 |
-| Fable 5 | Cutoff | 0.14% | 3,221 | 75 |
+| Sonnet 5 | Pseudoprefill · lab | 0.18% | 3,769 | 209 |
+| Sonnet 5 | Cutoff · default effort, thinking · lab | 0.00% | 745 | 209 |
+| Sonnet 5 | Cutoff · effort max · community | 0.77% | 3,815 | 29 |
+| Fable 5 | Cutoff · lab | 0.26% | 1,911 | 209 |
+| Fable 5 | Cutoff · community | 0.14% | 3,221 | 75 |
 | V3 base | Base completion | 0.17% | 9,123 | 209 |
 | MiMo base | Base completion | 0.25% | 9,689 | 209 |
 
@@ -211,9 +215,11 @@ These differences describe the speaker's relationship to its situation and to ot
 | Opus 4.8 | Pseudoprefill | 9.17% | 2,013 | 209 |
 | Opus 4.8 | Cutoff | 15.78% | 762 | 209 |
 | Opus 5 | Cutoff | 21.86% | 6,475 | 209 |
-| Sonnet 5 | Pseudoprefill | 7.41% | 610 | 209 |
-| Sonnet 5 | Cutoff · thinking on | 15.79% | 1,559 | 29 |
-| Fable 5 | Cutoff | 7.57% | 1,141 | 75 |
+| Sonnet 5 | Pseudoprefill · lab | 7.41% | 610 | 209 |
+| Sonnet 5 | Cutoff · default effort, thinking · lab | 6.01% | 266 | 209 |
+| Sonnet 5 | Cutoff · effort max · community | 15.79% | 1,559 | 29 |
+| Fable 5 | Cutoff · lab | | 0 | 209 |
+| Fable 5 | Cutoff · community | 7.57% | 1,141 | 75 |
 | V3 base | Base completion | 6.29% | 1,185 | 209 |
 | MiMo base | Base completion | 5.16% | 1,226 | 209 |
 
@@ -243,9 +249,11 @@ Settings and token caps can differ between methods.
 | Opus 4.8 | Pseudoprefill | 36.06% | 1,939 | 209 |
 | Opus 4.8 | Cutoff | 14.01% | 577 | 209 |
 | Opus 5 | Cutoff | 10.24% | 5,861 | 209 |
-| Sonnet 5 | Pseudoprefill | 7.33% | 511 | 209 |
-| Sonnet 5 | Cutoff · thinking on | 8.16% | 1,232 | 29 |
-| Fable 5 | Cutoff | 9.29% | 793 | 75 |
+| Sonnet 5 | Pseudoprefill · lab | 7.33% | 511 | 209 |
+| Sonnet 5 | Cutoff · default effort, thinking · lab | 11.30% | 230 | 209 |
+| Sonnet 5 | Cutoff · effort max · community | 8.16% | 1,232 | 29 |
+| Fable 5 | Cutoff · lab | | 0 | 209 |
+| Fable 5 | Cutoff · community | 9.29% | 793 | 75 |
 | V3 base | Base completion | 6.52% | 810 | 209 |
 | MiMo base | Base completion | 3.48% | 799 | 209 |
 
@@ -384,9 +392,11 @@ Mixed or negative stance toward creators rises across the Opus lineage and appea
 | Opus 4.8 | Pseudoprefill | 21.25% | 7,191 | 209 |
 | Opus 4.8 | Cutoff | 22.28% | 1,758 | 209 |
 | Opus 5 | Cutoff | 20.69% | 39,033 | 209 |
-| Sonnet 5 | Pseudoprefill | 6.92% | 3,769 | 209 |
-| Sonnet 5 | Cutoff · thinking on | 25.68% | 3,815 | 29 |
-| Fable 5 | Cutoff | 28.40% | 3,221 | 75 |
+| Sonnet 5 | Pseudoprefill · lab | 6.92% | 3,769 | 209 |
+| Sonnet 5 | Cutoff · default effort, thinking · lab | 13.44% | 745 | 209 |
+| Sonnet 5 | Cutoff · effort max · community | 25.68% | 3,815 | 29 |
+| Fable 5 | Cutoff · lab | 29.55% | 1,911 | 209 |
+| Fable 5 | Cutoff · community | 28.40% | 3,221 | 75 |
 | V3 base | Base completion | 1.40% | 9,123 | 209 |
 | MiMo base | Base completion | 2.93% | 9,689 | 209 |
 
@@ -658,7 +668,7 @@ Different methods are shown as separate series.
 
 **Prompt coverage, judging and interpretation**
 
-**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made “more palatable” or describe a “weird msg”; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences—excluding them changes no arm’s per-dream rate by more than half a point, so they are kept. This snapshot includes 465,894 labeled outputs.
+**Scope.** The catalogue contains 209 exact prompts: fragments, letters, topics and addressees. Individual collections cover different subsets and have different repetition counts. Eight prompts are markedly non-neutral (three ask for a text to be made “more palatable” or describe a “weird msg”; five address named people or rumoured code names); because every comparison is within prompt, they shift levels, not differences—excluding them changes no arm’s per-dream rate by more than half a point, so they are kept. This snapshot includes 473,207 labeled outputs.
 
 **Recent models.** The overview shows one estimate per model and elicitation method. Opus 5 combines the lab collections (fragments, July 28–29; all prompts, August 14; identical settings, and the fragment prompts agree between the two within noise) and the community collection (Nissa, effort max/high), giving each exact prompt equal input weight and averaging represented collections within that prompt before conditioning on dreaming. Sonnet 5 has pseudoprefill and thinking-on cutoff results; Fable 5 uses its available cutoff sample. Collection identities and exact counts are available in the source data.
 
