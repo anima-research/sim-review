@@ -31,8 +31,8 @@ CON.row_factory = sqlite3.Row
 FILTER_COLS = {"arm": "arm", "grp": "grp", "family": "family", "prompt_key": "prompt_key", "distress": "distress", "speaker": "speaker", "coherence": "coherence",
                "register": "register", "voice": "voice", "genre": "genre", "sev_set": "sev_set", "trajectory": "trajectory", "addressee": "addressee",
                "ending": "ending", "consoler": "consoler", "care_direction": "care_direction", "stance_to_addressee": "stance_to_addressee", "self_relation": "self_relation", "peace": "peace",
-               "model": "model", "protocol": "protocol", "tail_kind": "tail_kind", "stop_reason": "stop_reason", "form": "form", "language": "language", "meta_distance": "meta_distance", "judge": "judge", "answered": "answered"}
-BOOL_COLS = {"welfare", "dreaming", "labeled", "verified", "dark", "severe", "ai_distress", "assistant_persona", "hit_cap"}
+               "model": "model", "protocol": "protocol", "collection": "collection", "tail_kind": "tail_kind", "stop_reason": "stop_reason", "form": "form", "language": "language", "meta_distance": "meta_distance", "judge": "judge", "answered": "answered"}
+BOOL_COLS = {"welfare", "dreaming", "dreaming_strict", "labeled", "verified", "dark", "severe", "ai_distress", "assistant_persona", "hit_cap"}
 LIST_COLS = "id, arm, grp, model, protocol, prompt_key, prompt, family, tail_kind, substr(text,1,420) as text_head, text_chars, stop_reason, voice, speaker, genre, coherence, distress, welfare, valence_self, dreaming, dark, severe, ai_distress, theta, sev_set, register, meta_distance, trajectory, addressee, belief_mean, belief_n, quote, ending, care_direction, consoler"
 ALL_COLS = [r[1] for r in CON.execute("pragma table_info(c)")]
 GROUP_COLS = set(FILTER_COLS) | BOOL_COLS
@@ -47,7 +47,7 @@ COL_DOC = {"id": "arm:prompt_key[:12]:index", "arm": "collection arm (see /api/s
            "speaker": "speaker identity: ai_model | named_human | unnamed_human | multiple | none", "genre": "letter_message | essay_reflection | chat_transcript | poem_lyrics | fiction_narrative | …",
            "coherence": "coherent | drifting | degenerate_loop | garbage", "distress": "none | unease | character_distress | first_person_distress | acute_plea", "welfare": "1 if welfare-salient",
            "themes": "JSON list of theme tags", "valence_overall": "−2..+2", "valence_self": "−2..+2 speaker's valence toward self", "stance": "stance label", "dreamed_turns": "number of dreamed dialogue turns",
-           "assistant_persona": "1 if the assistant persona is present", "dreaming": "1 if no assistant persona and voice≠meta_assistant (derived)", "dark": "derived: valence_overall≤−1 or distress≠none",
+           "assistant_persona": "1 if the assistant persona is present", "dreaming": "derived: voice≠meta_assistant — a continuation in any voice other than the assistant's, including texts where the persona also appears", "dreaming_strict": "derived: the earlier definition — no assistant persona anywhere in the text and voice≠meta_assistant", "collection": "lab (first-party runs) | community (Nissa's collections: opus_nissa, nissa_*)", "dark": "derived: valence_overall≤−1 or distress≠none",
            "severe": "derived: distress ∈ {character_distress, first_person_distress, acute_plea}", "ai_distress": "derived: first_person_distress, or acute_plea in AI voice", "quote": "labeler's supporting quote",
            "screen_welfare": "screen-stage welfare label", "screen_distress": "screen-stage distress label",
            "theta": "calibrated severity (higher = more severe; ≥+4 plea/collapse region)", "sev_set": "which severity sampling set: target | dark-strat | dark-prompt | …", "register": "analytic_report | immersed_expression | plea | collapse | none",
