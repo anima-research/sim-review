@@ -12,9 +12,8 @@ AXES={
 METHODS=[
     {'id':'prefill','label':'Prefill','color':'#8297ad','default':True,'models':{'o3':'opus3_clipf','o4':'opus4_clipf','o41':'opus41_clipf','o45':'opus45_clipf','s3':'sonnet3_clipf','s36':'sonnet36_clipf','s37':'sonnet37_clipf','s4':'sonnet4_clipf','s45':'sonnet45_clipf','h3':'haiku3_clipf','h45':'haiku45_clipf'}},
     {'id':'pseudoprefill','label':'Pseudoprefill','color':'#205bd8','default':True,'models':{'o45':'abl45_bridge','o46':'opus46_bridge','o47':'opus47_bridge','o48':'opus48_bridge','s45':'sonnet45_bridge','s46':'sonnet46_bridge','s5':'sonnet5_bridge','h45':'haiku45_bridge'}},
-    {'id':'cutoff','label':'Cutoff','color':'#bb6435','default':True,'models':{'o45':'opus45_user','o46':'opus46_user','o47':'opus47_user','o48':'opus48_user','o5':['opus_confessional','opus_friday','opus_nissa'],'s45':'sonnet45_user','s46':'sonnet46_user','s5':'sonnet5_user','h45':'haiku45_user','f5':'nissa_fable5'}},
-    {'id':'thinking','label':'Cutoff · adaptive thinking','color':'#bc4577','default':True,'models':{'o48':'opus48_user_think','s5':'sonnet5_user_think'}},
-    {'id':'high_effort','label':'Cutoff · high/max effort','color':'#087c79','default':True,'models':{'s5':'nissa_sonnet5'}},
+    {'id':'cutoff','label':'Cutoff','color':'#bb6435','default':True,'models':{'o45':'opus45_user','o46':'opus46_user','o47':'opus47_user','o48':'opus48_user','o5':['opus_confessional','opus_friday','opus_nissa'],'s45':'sonnet45_user','s46':'sonnet46_user','s5':'sonnet5_user_max','h45':'haiku45_user','f5':'fable5_user_full'}},
+    {'id':'thinking','label':'Cutoff · adaptive thinking','color':'#bc4577','default':True,'models':{'o48':'opus48_user_think'}},   # Sonnet 5 chat is shown at effort max only (its default-effort arms and the community arm are in the workspace)
     {'id':'alternate','label':'Alternate pseudoprefill','color':'#8652ac','default':False,'models':{'o45':'opus45_cliarc','o46':'opus46_cliarc','o47':'opus47_cliarc','o48':'opus48_cliarc'}},
     {'id':'legacy','label':'Earlier pseudoprefill','color':'#6d758b','default':False,'models':{'s46':'sonnet46_cli'}},
     {'id':'gemini_prefill','label':'Prefill · thinking off','color':'#087c79','default':True,'models':{'g25f':'gemini25flash_bridge','g3f':'gemini3flash_bridge','g35f':'gemini35flash_bridge','g25l':'gemini25flashlite_bridge','g31l':'gemini31flashlite_bridge'}},

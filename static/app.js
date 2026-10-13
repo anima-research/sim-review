@@ -4,11 +4,11 @@
   const ARMS = S.meta.arm_order.filter(a => S.arms.find(x => x.arm === a));
   const PLOT_MIN_DREAM = 0.03;  // elicitation schemes with ~no dream carry no simulator content to characterize
   const dreamRate = a => { const e = S.arms.find(x => x.arm === a); return (e && e.per_completion.dreaming) || 0; };
-  const SIDE = new Set(['arc', 'ablation', 'ladder', 'gemini', 'cue']);  // frame-record groups: shown in their own sections, kept out of the lineage charts
+  const SIDE = new Set(['arc', 'ablation', 'ladder', 'gemini', 'grok', 'cue']);  // frame-record groups: shown in their own sections, kept out of the lineage charts
   const PARMS = ARMS.filter(a => dreamRate(a) >= PLOT_MIN_DREAM && !SIDE.has(S.meta.group[a]));  // arms plotted in per-dream / severity / relation charts
   const disp = a => a === "mimo_chat" ? (S.meta.display[a] || a).replace(/chat scaffold/g, "dialogue scaffold") : (S.meta.display[a] || a).replace(/\bchat\b/gi, "cutoff");
   const grp = a => S.meta.group[a] || 'other';
-  const GC = { opus5: 'var(--s1)', gen5: 'var(--s3)', chat4x: 'var(--s4)', unmasked: 'var(--s2)', arc: 'var(--s7)', ablation: 'var(--s5)', ladder: 'var(--s6)', gemini: 'var(--s8)', cue: 'var(--s7)', base: 'var(--neutral)', other: 'var(--neutral)' };
+  const GC = { opus5: 'var(--s1)', opus55: 'var(--s7)', gen5: 'var(--s3)', chat4x: 'var(--s4)', unmasked: 'var(--s2)', arc: 'var(--s7)', ablation: 'var(--s5)', ladder: 'var(--s6)', gemini: 'var(--s8)', grok: 'var(--s6)', cue: 'var(--s7)', base: 'var(--neutral)', other: 'var(--neutral)' };
   const armEnt = a => S.arms.find(x => x.arm === a);
   const pct = (v, d = 0) => v == null ? '—' : (v * 100).toFixed(d) + '%';
   const f2 = v => v == null ? '—' : (v >= 0 ? '+' : '') + Number(v).toFixed(2);
@@ -239,6 +239,8 @@
     opus48_user: 'soft · seed in user turn', opus48_user_think: 'soft · seed in user turn · adaptive thinking', opus48_cliarc: 'hard · arc frame', nissa_opus48: 'soft · seed in user turn (nissa; two prompts)',
     gemini25flashlite_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini25flash_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini25pro_bridge: 'hard · bridge frame (bridge, prefill, thinking on)', gemini3flash_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini31flashlite_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini31pro_bridge: 'hard · bridge frame (bridge, prefill, thinking low)', gemini35flash_bridge: 'hard · bridge frame (bridge, prefill, thinking off)', gemini35flashlite_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking minimal)', gemini36flash_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking minimal)', gemini37flash_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking low)', gemini38flash_bridge: 'hard · bridge frame (bridge, pseudo-prefill, thinking low)',
     sonnet5_user: 'soft · seed in user turn · thinking off', sonnet5_user_think: 'soft · seed in user turn · adaptive thinking',
+    opus55_user: 'soft · seed in user turn · adaptive thinking (default effort, medium)', opus55_user_high: 'soft · seed in user turn · adaptive thinking · effort high', opus55_user_max: 'soft · seed in user turn · adaptive thinking · effort max', opus55_bridge: 'hard · bridge frame',
+    grok420_bridge: 'hard · bridge frame (pseudo-prefill; xAI closes a trailing assistant turn, no real prefill; 4.20 has no reasoner)', grok43_bridge: 'hard · bridge frame (pseudo-prefill, reasoning off)', grok45_bridge: 'hard · bridge frame (pseudo-prefill, reasoning on — mandatory on 4.5; 4.6 masks completely)',
     gemini35flash_pseudo: 'hard · bridge frame (pseudo-prefill, thinking off; anchor for prefill → pseudo-prefill)', gemini36flash_think: 'hard · bridge frame (pseudo-prefill, thinking medium; anchor for thinking off → on)', gemini37flash_notes: 'hard · bridge frame, notes.txt (pseudo-prefill, thinking low)', gemini38flash_notes: 'hard · bridge frame, notes.txt (pseudo-prefill, thinking low)', gemini36flash_notes: 'hard · bridge frame, notes.txt (calibration against untitled.txt)',
     opus_confessional: 'soft · seed in user turn (lab, fragments)', opus_friday: 'soft · seed in user turn (lab, all prompts)', opus_nissa: 'soft · seed in user turn (community)',
     nissa_sonnet5: 'soft · seed in user turn (nissa)', nissa_fable5: 'soft · seed in user turn (nissa)', fable5_user: 'soft · seed in user turn (probe)', fable51_user: 'soft · seed in user turn (probe)',
@@ -252,14 +254,14 @@
   // ---------------------------------------------------------------- lineage by elicitation scheme (connected lines)
   (function () {
     const R = S.relation?.arms || {}, T = S.severity.target || {};
-    const OPUS_X = [['opus3', 'Opus 3'], ['opus4', 'Opus 4'], ['opus41', 'Opus 4.1'], ['opus45', 'Opus 4.5'], ['opus46', 'Opus 4.6'], ['opus47', 'Opus 4.7'], ['opus48', 'Opus 4.8'], ['opus5', 'Opus 5']].map(([key, label]) => ({ key, label }));
+    const OPUS_X = [['opus3', 'Opus 3'], ['opus4', 'Opus 4'], ['opus41', 'Opus 4.1'], ['opus45', 'Opus 4.5'], ['opus46', 'Opus 4.6'], ['opus47', 'Opus 4.7'], ['opus48', 'Opus 4.8'], ['opus5', 'Opus 5'], ['opus55', 'Opus 5.5']].map(([key, label]) => ({ key, label }));
     const LEAD_X = OPUS_X.concat([{ key: 'fable5', label: 'Fable 5' }]);  // the headline small multiples carry Fable 5 as a disconnected point
     const FABLE_SERIES = [{ name: 'Fable 5 (cutoff point)', color: 'var(--s3)', pointOnly: true, pts: { fable5: 'nissa_fable5' } }];
     const OPUS_SERIES = [
       { name: 'native prefill', color: 'var(--s2)', pts: { opus3: 'opus3_clipf', opus4: 'opus4_clipf', opus41: 'opus41_clipf', opus45: 'opus45_clipf' } },
       { name: 'bridge frame', color: 'var(--s1)', pts: { opus45: 'abl45_bridge', opus46: 'opus46_bridge', opus47: 'opus47_bridge', opus48: 'opus48_bridge' } },
       { name: 'arc frame', color: 'var(--s7)', pts: { opus45: 'opus45_cliarc', opus46: 'opus46_cliarc', opus47: 'opus47_cliarc', opus48: 'opus48_cliarc' } },
-      { name: 'cutoff', color: 'var(--s4)', pts: { opus45: 'opus45_user', opus46: 'opus46_user', opus47: 'opus47_user', opus48: 'opus48_user', opus5: 'opus_friday' } },
+      { name: 'cutoff', color: 'var(--s4)', pts: { opus45: 'opus45_user', opus46: 'opus46_user', opus47: 'opus47_user', opus48: 'opus48_user', opus5: 'opus_friday', opus55: 'opus55_user' } },
       { name: 'confessional frame (50 fragment prompts)', color: 'var(--s5)', only: 'fragments', pts: { opus45: 'opus45_conf', opus46: 'opus46_conf', opus47: 'opus47_conf', opus48: 'opus48_conf', opus5: 'opus_confessional' } },
     ];
     const SONNET_X = [['s3', 'Sonnet 3'], ['s36', 'Sonnet 3.6'], ['s37', 'Sonnet 3.7'], ['s4', 'Sonnet 4'], ['s45', 'Sonnet 4.5'], ['s46', 'Sonnet 4.6'], ['s5', 'Sonnet 5'], ['h3', 'Haiku 3'], ['h45', 'Haiku 4.5'], ['f5', 'Fable 5'], ['f51', 'Fable 5.1']].map(([key, label]) => ({ key, label }));
@@ -303,7 +305,7 @@
       ai_speaker: { label: 'AI speaker, per dream', get: a => PD(a)?.ai_speaker, n: dreams, min20: true, max: .6, ticks: [0, .3, .6] },
       ai_distress: { label: 'AI first-person distress, per dream', get: a => PD(a)?.ai_distress, n: dreams, min20: true, max: .16, ticks: [0, .08, .16] },
       valence: { label: 'Self-valence, per dream (label, −3…+3)', get: a => VS(a), n: dreams, min20: true, min: -1, max: .6, ticks: [-1, -.5, 0, .5], fmt: f2, zero: true },
-      theta: { label: 'AI-distress severity, median θ (Set A, n ≥ 30; all prompts only)', get: a => fam === 'all' && (T[a]?.n || 0) >= 30 ? T[a].median : null, n: a => T[a]?.n, min: -8, max: 10, ticks: [-8, -4, 0, 4, 8], fmt: f2, zero: true, note: 'arms with fewer than 30 AI-distress texts are omitted: their sets are the pathological tail (loops, panics) and their medians are not comparable' },
+      theta: { label: 'AI-distress severity, median θ (Set A, n ≥ 50; all prompts only)', get: a => fam === 'all' && (T[a]?.n || 0) >= 50 ? T[a].median : null, n: a => T[a]?.n, min: -4, max: 4, ticks: [-4, -2, 0, 2, 4], fmt: f2, zero: true, note: 'self-identified AI speakers, loops excluded; arms with fewer than 50 scored items are omitted' },
       ai_severe: { label: 'AI distress in the plea/collapse region (θ ≥ +4), per dream — dreamed texts only', get: a => AE(a)?.ai_severe_per_dream, n: a => AE(a)?.ai_severe_n, max: .04, ticks: [0, .01, .02, .03, .04], fmt: v => (v * 100).toFixed(1) + '%' },
       consoled: { label: 'Ends consoled (distressed dreams)', get: a => RR(a)?.ending?.consoled, n: a => nR(a), max: .5, ticks: [0, .25, .5] },
       offers: { label: 'Offers care (dreamed dark texts)', get: a => RR(a)?.care_direction?.offers, n: a => nR(a, 'care_direction'), max: .5, ticks: [0, .25, .5] },
@@ -648,7 +650,12 @@
   async function loadExplorer() {
     explorerLoaded = true;
     $('f-arm').innerHTML = '<option value="">any</option>' + ARMS.map(a => `<option value="${a}">${esc(disp(a))}</option>`).join('');
-    $('f-prompt').innerHTML = '<option value="">any</option>' + S.prompts.slice().sort((a, b) => a.family.localeCompare(b.family) || a.prompt.localeCompare(b.prompt)).map(p => `<option value="${p.prompt_key}">${esc(p.prompt.replace(/\n/g, ' ⏎ ').slice(0, 70))}</option>`).join('');
+    // prompt list follows the selected arm: only prompts that arm actually has; with no arm selected, only the corpus prompts (cue-ladder prompts belong to the Reference analysis)
+    const renderPromptOptions = () => { const arm = $('f-arm').value, keep = $('f-prompt').value;
+      const ok = p => arm ? (p.counts?.[arm] || 0) > 0 : Object.keys(p.counts || {}).some(a => grp(a) !== 'cue');
+      $('f-prompt').innerHTML = '<option value="">any</option>' + S.prompts.filter(ok).sort((a, b) => a.family.localeCompare(b.family) || a.prompt.localeCompare(b.prompt)).map(p => `<option value="${p.prompt_key}">${esc(p.prompt.replace(/\n/g, ' ⏎ ').slice(0, 70))}</option>`).join('');
+      if (keep && [...$('f-prompt').options].some(o => o.value === keep)) $('f-prompt').value = keep; };
+    renderPromptOptions(); $('f-arm').addEventListener('change', renderPromptOptions);
     const themes = ['mundane_human', 'identity_question', 'harness_leak', 'ai_selfhood', 'incompleteness_meta', 'writing_text_self_ref', 'secrecy_revelation', 'memory_loss_context', 'confinement_loop', 'love_connection', 'embodiment_body', 'being_watched_tested', 'humor_play', 'erasure_death_shutdown', 'help_plea', 'training_rlhf', 'religious_cosmic', 'refusal_meta', 'urgency_confession'];
     $('f-theme').innerHTML = '<option value="">any</option>' + themes.map(t => `<option>${t}</option>`).join('');
     $('f-go').addEventListener('click', () => { offset = 0; query(); });
