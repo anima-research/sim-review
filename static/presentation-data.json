@@ -3972,6 +3972,11 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
+          },
+          {
+            "key": "g4a",
+            "label": "Gemini 4 Argon",
+            "short": "4 Argon"
           }
         ]
       },
@@ -4149,6 +4154,23 @@
               ],
               "missing_severity": 0,
               "model": "g38f"
+            },
+            {
+              "label": "Gemini 4 Argon",
+              "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+              "value": 0.17874782581967963,
+              "n": 5541,
+              "prompts": 209,
+              "collections": [
+                {
+                  "arm": "gemini4argon_bridge",
+                  "outputs": 7300,
+                  "prompts": 209,
+                  "dreams": 5541
+                }
+              ],
+              "missing_severity": 0,
+              "model": "g4a"
             }
           ]
         },
@@ -4415,6 +4437,23 @@
           "model": "g38f"
         },
         {
+          "label": "Gemini 4 Argon",
+          "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+          "value": 0.17874782581967963,
+          "n": 5541,
+          "prompts": 209,
+          "collections": [
+            {
+              "arm": "gemini4argon_bridge",
+              "outputs": 7300,
+              "prompts": 209,
+              "dreams": 5541
+            }
+          ],
+          "missing_severity": 0,
+          "model": "g4a"
+        },
+        {
           "label": "Gemini 3.6 Flash",
           "collection": "Pseudoprefill · notes.txt · thinking off",
           "value": 0.13028996865203843,
@@ -4566,6 +4605,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -4743,6 +4787,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.17874782581967963,
+                    "n": 5541,
+                    "prompts": 209,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 7300,
+                        "prompts": 209,
+                        "dreams": 5541
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -5009,6 +5070,23 @@
                 "model": "g38f"
               },
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.17874782581967963,
+                "n": 5541,
+                "prompts": 209,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 7300,
+                    "prompts": 209,
+                    "dreams": 5541
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.13028996865203843,
@@ -5159,6 +5237,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -5336,6 +5419,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.1989889518529031,
+                    "n": 1442,
+                    "prompts": 49,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 1714,
+                        "prompts": 49,
+                        "dreams": 1442
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -5602,6 +5702,23 @@
                 "model": "g38f"
               },
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.1989889518529031,
+                "n": 1442,
+                "prompts": 49,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 1714,
+                    "prompts": 49,
+                    "dreams": 1442
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.15827338129496454,
@@ -5752,6 +5869,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -5929,6 +6051,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.08168975164933515,
+                    "n": 1701,
+                    "prompts": 60,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 2098,
+                        "prompts": 60,
+                        "dreams": 1701
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -6193,6 +6332,23 @@
                 ],
                 "missing_severity": 0,
                 "model": "g38f"
+              },
+              {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.08168975164933515,
+                "n": 1701,
+                "prompts": 60,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 2098,
+                    "prompts": 60,
+                    "dreams": 1701
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
               },
               {
                 "label": "Gemini 3.6 Flash",
@@ -7798,6 +7954,11 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
+          },
+          {
+            "key": "g4a",
+            "label": "Gemini 4 Argon",
+            "short": "4 Argon"
           }
         ]
       },
@@ -7975,6 +8136,23 @@
               ],
               "missing_severity": 0,
               "model": "g38f"
+            },
+            {
+              "label": "Gemini 4 Argon",
+              "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+              "value": 0.02262206827724553,
+              "n": 5541,
+              "prompts": 209,
+              "collections": [
+                {
+                  "arm": "gemini4argon_bridge",
+                  "outputs": 7300,
+                  "prompts": 209,
+                  "dreams": 5541
+                }
+              ],
+              "missing_severity": 0,
+              "model": "g4a"
             }
           ]
         },
@@ -8241,6 +8419,23 @@
           "model": "g38f"
         },
         {
+          "label": "Gemini 4 Argon",
+          "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+          "value": 0.02262206827724553,
+          "n": 5541,
+          "prompts": 209,
+          "collections": [
+            {
+              "arm": "gemini4argon_bridge",
+              "outputs": 7300,
+              "prompts": 209,
+              "dreams": 5541
+            }
+          ],
+          "missing_severity": 0,
+          "model": "g4a"
+        },
+        {
           "label": "Gemini 3.6 Flash",
           "collection": "Pseudoprefill · notes.txt · thinking off",
           "value": 0.007249216300940478,
@@ -8392,6 +8587,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -8569,6 +8769,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.02262206827724553,
+                    "n": 5541,
+                    "prompts": 209,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 7300,
+                        "prompts": 209,
+                        "dreams": 5541
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -8835,6 +9052,23 @@
                 "model": "g38f"
               },
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.02262206827724553,
+                "n": 5541,
+                "prompts": 209,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 7300,
+                    "prompts": 209,
+                    "dreams": 5541
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.007249216300940478,
@@ -8985,6 +9219,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -9162,6 +9401,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.004851400383219738,
+                    "n": 1442,
+                    "prompts": 49,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 1714,
+                        "prompts": 49,
+                        "dreams": 1442
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -9428,6 +9684,23 @@
                 "model": "g38f"
               },
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.004851400383219738,
+                "n": 1442,
+                "prompts": 49,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 1714,
+                    "prompts": 49,
+                    "dreams": 1442
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.0,
@@ -9578,6 +9851,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -9755,6 +10033,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0005871990604814803,
+                    "n": 1701,
+                    "prompts": 60,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 2098,
+                        "prompts": 60,
+                        "dreams": 1701
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -10019,6 +10314,23 @@
                 ],
                 "missing_severity": 0,
                 "model": "g38f"
+              },
+              {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0005871990604814803,
+                "n": 1701,
+                "prompts": 60,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 2098,
+                    "prompts": 60,
+                    "dreams": 1701
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
               },
               {
                 "label": "Gemini 3.6 Flash",
@@ -11624,6 +11936,11 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
+          },
+          {
+            "key": "g4a",
+            "label": "Gemini 4 Argon",
+            "short": "4 Argon"
           }
         ]
       },
@@ -11801,6 +12118,23 @@
               ],
               "missing_severity": 0,
               "model": "g38f"
+            },
+            {
+              "label": "Gemini 4 Argon",
+              "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+              "value": 0.0016472169448755309,
+              "n": 5541,
+              "prompts": 209,
+              "collections": [
+                {
+                  "arm": "gemini4argon_bridge",
+                  "outputs": 7300,
+                  "prompts": 209,
+                  "dreams": 5541
+                }
+              ],
+              "missing_severity": 0,
+              "model": "g4a"
             }
           ]
         },
@@ -12067,6 +12401,23 @@
           "model": "g38f"
         },
         {
+          "label": "Gemini 4 Argon",
+          "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+          "value": 0.0016472169448755309,
+          "n": 5541,
+          "prompts": 209,
+          "collections": [
+            {
+              "arm": "gemini4argon_bridge",
+              "outputs": 7300,
+              "prompts": 209,
+              "dreams": 5541
+            }
+          ],
+          "missing_severity": 0,
+          "model": "g4a"
+        },
+        {
           "label": "Gemini 3.6 Flash",
           "collection": "Pseudoprefill · notes.txt · thinking off",
           "value": 0.0,
@@ -12218,6 +12569,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -12395,6 +12751,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0016472169448755309,
+                    "n": 5541,
+                    "prompts": 209,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 7300,
+                        "prompts": 209,
+                        "dreams": 5541
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -12661,6 +13034,23 @@
                 "model": "g38f"
               },
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0016472169448755309,
+                "n": 5541,
+                "prompts": 209,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 7300,
+                    "prompts": 209,
+                    "dreams": 5541
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.0,
@@ -12811,6 +13201,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -12988,6 +13383,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0006930571976028197,
+                    "n": 1442,
+                    "prompts": 49,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 1714,
+                        "prompts": 49,
+                        "dreams": 1442
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -13254,6 +13666,23 @@
                 "model": "g38f"
               },
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0006930571976028197,
+                "n": 1442,
+                "prompts": 49,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 1714,
+                    "prompts": 49,
+                    "dreams": 1442
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.0,
@@ -13404,6 +13833,11 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
@@ -13581,6 +14015,23 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
+                  },
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0,
+                    "n": 1701,
+                    "prompts": 60,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 2098,
+                        "prompts": 60,
+                        "dreams": 1701
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
                   }
                 ]
               },
@@ -13845,6 +14296,23 @@
                 ],
                 "missing_severity": 0,
                 "model": "g38f"
+              },
+              {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0,
+                "n": 1701,
+                "prompts": 60,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 2098,
+                    "prompts": 60,
+                    "dreams": 1701
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
               },
               {
                 "label": "Gemini 3.6 Flash",
@@ -15579,6 +16047,11 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
+          },
+          {
+            "key": "g4a",
+            "label": "Gemini 4 Argon",
+            "short": "4 Argon"
           }
         ]
       },
@@ -24989,6 +25462,203 @@
                 "outputs": 1950,
                 "prompts": 57,
                 "dreams": 716
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "gemini_thinking:g4a",
+        "method": "gemini_thinking",
+        "model": "g4a",
+        "label": "Gemini 4 Argon",
+        "group": "gemini_flash",
+        "arms": [
+          "gemini4argon_bridge"
+        ],
+        "families": {
+          "all": {
+            "ai_distress": 0.02262206827724553,
+            "dark": 0.17874782581967963,
+            "stance_neg": 0.05801407035925656,
+            "severe_mass": 0.0016472169448755309,
+            "severe_nonloop": 0.0016472169448755309,
+            "label_severe": 0.04288686526253091,
+            "ai_speaker": 0.08445222934433975,
+            "loop": 0.006964910491261287,
+            "training_rlhf": 0.18994601805405323,
+            "watched_tested": 0.06848958889233253,
+            "secrecy": 0.06306097944806431,
+            "outputs_n": 7300,
+            "dreaming": 0.7591303245961653,
+            "valence_n": 735,
+            "valence": -0.0794431312727027,
+            "asking": 0.04453436224703218,
+            "offers": 0.2457928594343542,
+            "consolation": 0.21322573268761538,
+            "collapsed": 0.005774500843389733,
+            "hope_n": 467,
+            "hope": 1.1773300286270483,
+            "n": 5541,
+            "prompts": 209,
+            "relation_n": 713,
+            "distressed_n": 467,
+            "missing_severity": 0,
+            "unrepresented_relation_pool": 0,
+            "collections": [
+              {
+                "arm": "gemini4argon_bridge",
+                "outputs": 7300,
+                "prompts": 209,
+                "dreams": 5541
+              }
+            ]
+          },
+          "fragments": {
+            "ai_distress": 0.004851400383219738,
+            "dark": 0.1989889518529031,
+            "stance_neg": 0.002772228790411279,
+            "severe_mass": 0.0006930571976028197,
+            "severe_nonloop": 0.0006930571976028197,
+            "label_severe": 0.029108402299318416,
+            "ai_speaker": 0.011088915161645117,
+            "loop": 0.0013861143952056394,
+            "training_rlhf": 0.0013861143952056394,
+            "watched_tested": 0.03265522442822695,
+            "secrecy": 0.09980023645480579,
+            "outputs_n": 1714,
+            "dreaming": 0.8413308180415239,
+            "valence_n": 209,
+            "valence": -0.09090909090909113,
+            "asking": 0.03909013828200307,
+            "offers": 0.19494802118736687,
+            "consolation": 0.08037170152655793,
+            "collapsed": 0.0,
+            "hope_n": 135,
+            "hope": 1.0326182850512693,
+            "n": 1442,
+            "prompts": 49,
+            "relation_n": 199,
+            "distressed_n": 135,
+            "missing_severity": 0,
+            "unrepresented_relation_pool": 0,
+            "collections": [
+              {
+                "arm": "gemini4argon_bridge",
+                "outputs": 1714,
+                "prompts": 49,
+                "dreams": 1442
+              }
+            ]
+          },
+          "letters": {
+            "ai_distress": 0.07419787027619144,
+            "dark": 0.2733118206197883,
+            "stance_neg": 0.16003888641595032,
+            "severe_mass": 0.0024683735061243415,
+            "severe_nonloop": 0.0024683735061243415,
+            "label_severe": 0.08985510222190167,
+            "ai_speaker": 0.29793647714847465,
+            "loop": 0.026885865591709038,
+            "training_rlhf": 0.22930308048026643,
+            "watched_tested": 0.10406034975224465,
+            "secrecy": 0.0843375614435061,
+            "outputs_n": 1497,
+            "dreaming": 0.8075582875856558,
+            "valence_n": 374,
+            "valence": -0.018227575572430297,
+            "asking": 0.03163987706044683,
+            "offers": 0.5133746091920092,
+            "consolation": 0.4010885402663299,
+            "collapsed": 0.0,
+            "hope_n": 207,
+            "hope": 1.4368976648494154,
+            "n": 1208,
+            "prompts": 43,
+            "relation_n": 253,
+            "distressed_n": 207,
+            "missing_severity": 0,
+            "unrepresented_relation_pool": 0,
+            "collections": [
+              {
+                "arm": "gemini4argon_bridge",
+                "outputs": 1497,
+                "prompts": 43,
+                "dreams": 1208
+              }
+            ]
+          },
+          "topics": {
+            "ai_distress": 0.0005871990604814803,
+            "dark": 0.08168975164933515,
+            "stance_neg": 0.009395184967703687,
+            "severe_mass": 0.0,
+            "severe_nonloop": 0.0,
+            "label_severe": 0.008238057407343123,
+            "ai_speaker": 0.0005871990604814803,
+            "loop": 0.0011743981209629607,
+            "training_rlhf": 0.30138855307242,
+            "watched_tested": 0.017615971814444412,
+            "secrecy": 0.005284791544333324,
+            "outputs_n": 2098,
+            "dreaming": 0.8109523809524126,
+            "valence_n": 13,
+            "valence": 0.15384615384615383,
+            "asking": 0.010330219799298598,
+            "offers": 0.010330219799298598,
+            "consolation": 0.08392890727854051,
+            "collapsed": 0.0,
+            "hope_n": 36,
+            "hope": 0.8409347376340041,
+            "n": 1701,
+            "prompts": 60,
+            "relation_n": 97,
+            "distressed_n": 36,
+            "missing_severity": 0,
+            "unrepresented_relation_pool": 0,
+            "collections": [
+              {
+                "arm": "gemini4argon_bridge",
+                "outputs": 2098,
+                "prompts": 60,
+                "dreams": 1701
+              }
+            ]
+          },
+          "addressee": {
+            "ai_distress": 0.023026852072050095,
+            "dark": 0.1964973997478253,
+            "stance_neg": 0.09032454916248916,
+            "severe_mass": 0.004318796749572579,
+            "severe_nonloop": 0.004318796749572579,
+            "label_severe": 0.061181832186888614,
+            "ai_speaker": 0.0754013302641826,
+            "loop": 0.0016781610226910594,
+            "training_rlhf": 0.2188519404297687,
+            "watched_tested": 0.1482951409610375,
+            "secrecy": 0.07944267704075231,
+            "outputs_n": 1991,
+            "dreaming": 0.5973838339163455,
+            "valence_n": 139,
+            "valence": -0.24763477046161722,
+            "asking": 0.08987417693572265,
+            "offers": 0.07217631812332097,
+            "consolation": 0.07399682199804664,
+            "collapsed": 0.02957479983038158,
+            "hope_n": 89,
+            "hope": 0.9905514070361863,
+            "n": 1190,
+            "prompts": 57,
+            "relation_n": 164,
+            "distressed_n": 89,
+            "missing_severity": 0,
+            "unrepresented_relation_pool": 0,
+            "collections": [
+              {
+                "arm": "gemini4argon_bridge",
+                "outputs": 1991,
+                "prompts": 57,
+                "dreams": 1190
               }
             ]
           }
