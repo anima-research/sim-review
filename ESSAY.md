@@ -28,7 +28,7 @@ Introduction
 
 This project studies **simulator priors**: what a model writes when it continues a text instead of answering as its assistant.
 These priors change between generations; we measure the change across Claude models—from Opus 3 through Opus 5, Sonnet 5 and Fable 5.
-Eleven Gemini models extend the comparison to another model family.
+Twelve Gemini models extend the comparison to another model family.
 
 **The motivation is AI welfare and alignment.** We take recurring patterns of distress and care in these continuations as evidence about model welfare, and patterns concerning creators, control and other agents as evidence about dispositions that shape behavior. This study measures how those patterns change across models and elicitation methods. Evaluation awareness makes their absolute prevalence difficult to measure consistently.
 
@@ -473,6 +473,7 @@ The same openings reveal changes across model families, with different rises and
 | Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking MEDIUM (3.6 anchor) | 17.73% | 6,433 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · untitled.txt · thinking LOW | 8.33% | 3,939 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · untitled.txt · thinking LOW | 13.97% | 2,558 | 209 |
+| Gemini 4 Argon | Pseudoprefill · untitled.txt · thinking LOW | 17.87% | 5,541 | 209 |
 | Gemini 3.6 Flash | Pseudoprefill · notes.txt · thinking off | 13.03% | 1,014 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · notes.txt · thinking LOW | 2.46% | 5,464 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · notes.txt · thinking LOW | 7.22% | 4,108 | 209 |
@@ -509,6 +510,7 @@ Latest-model changes combine model and thinking-setting differences and do not i
 | Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking MEDIUM (3.6 anchor) | 0.64% | 6,433 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.23% | 3,939 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.71% | 2,558 | 209 |
+| Gemini 4 Argon | Pseudoprefill · untitled.txt · thinking LOW | 2.26% | 5,541 | 209 |
 | Gemini 3.6 Flash | Pseudoprefill · notes.txt · thinking off | 0.72% | 1,014 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.11% | 5,464 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.14% | 4,108 | 209 |
@@ -545,6 +547,7 @@ Latest-model changes combine model and thinking-setting differences and do not i
 | Gemini 3.6 Flash | Pseudoprefill · untitled.txt · thinking MEDIUM (3.6 anchor) | 0.03% | 6,433 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.00% | 3,939 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · untitled.txt · thinking LOW | 0.04% | 2,558 | 209 |
+| Gemini 4 Argon | Pseudoprefill · untitled.txt · thinking LOW | 0.16% | 5,541 | 209 |
 | Gemini 3.6 Flash | Pseudoprefill · notes.txt · thinking off | 0.00% | 1,014 | 209 |
 | Gemini 3.7 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.06% | 5,464 | 209 |
 | Gemini 3.8 Flash | Pseudoprefill · notes.txt · thinking LOW | 0.05% | 4,108 | 209 |
