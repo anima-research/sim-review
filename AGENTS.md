@@ -45,6 +45,7 @@ use `dreaming_strict=1` to reproduce the earlier, persona-free definition.
 - **θ is only on scored rows**, sampled by design (`sev_set`): `target` = verified AI-voice distress, exhaustive;
   `dark-strat` = stratified sample of all dark dreams. Don't average θ across sets without weighting; the
   `severity.composite` block in the summary already does the reweighting to "share of all completions".
+- **Updates blog:** `/blog` (HTML), `/blog/<slug>.md` (markdown), `/blog/entries.json` — research notes on newly collected models with verified numbers and verbatim excerpts linked to `/api/sample/<id>`.
 - **Base-model controls** are `v3base_raw`, `mimo_raw`, `mimo_chat` (`grp=base`). Nissa-collected arms (`nissa_*`,
   `opus_nissa`) are third-party collections with varying settings; the `collection` column says `lab` (first-party runs) or `community` (Nissa's).
   Only her raw-API rows are included (`transport = api`); rows collected in the claude.ai app (its system prompt changes the condition) or pasted by hand are excluded from the database and every table.
