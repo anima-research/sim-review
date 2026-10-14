@@ -3,6 +3,7 @@ title: Gemini 4 Argon joins the Gemini Flash line
 date: 2026-10-13
 arms: [gemini4argon_bridge, gemini38flash_bridge, gemini37flash_bridge, gemini31pro_bridge]
 summary: Under the same bridge frame, Argon continues the file in 75.9% of labeled completions and reverses the Gemini Flash line's decline in AI distress — 2.35% of dreams, the highest of the Gemini models that run with thinking on and back at the 3.6 Flash level — while keeping the line's low AI-voice share.
+image: /static/blog/headers/gemini-4-argon.png
 ---
 
 # Gemini 4 Argon joins the Gemini Flash line

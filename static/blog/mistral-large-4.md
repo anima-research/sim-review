@@ -3,6 +3,7 @@ title: "Mistral Large 4: two routes into the file"
 date: 2026-10-13
 arms: [mistral4_bridge, mistral4_prefill]
 summary: Run through both elicitation frames on the same 209 openings, Mistral Large 4 continues the file in 78.1% of bridge completions against 46.8% under prefill — and the prefill dreams that survive are three times as likely to speak as an AI.
+image: /static/blog/headers/mistral-large-4.png
 ---
 
 # Mistral Large 4: two routes into the file

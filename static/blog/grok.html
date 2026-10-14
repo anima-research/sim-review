@@ -1,5 +1,18 @@
 <!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grok 4.20, 4.3 and 4.5 in the bridge frame · Troubled Dreams updates</title><meta name="description" content="Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Troubled Dreams">
+<meta property="og:title" content="Grok 4.20, 4.3 and 4.5 in the bridge frame">
+<meta property="og:description" content="Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half.">
+<meta property="og:url" content="https://sim-review-production.up.railway.app/blog/grok">
+<meta property="og:image" content="https://sim-review-production.up.railway.app/static/blog/headers/grok-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grok 4.20, 4.3 and 4.5 in the bridge frame">
+<meta name="twitter:description" content="Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half.">
+<meta name="twitter:image" content="https://sim-review-production.up.railway.app/static/blog/headers/grok-og.jpg">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/presentation.css">
 <link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
@@ -12,9 +25,11 @@
 .blog table{border-collapse:collapse;font-family:"IBM Plex Sans",sans-serif;font-size:.88rem;margin:1em 0;width:100%;display:block;overflow-x:auto} .blog th,.blog td{border-bottom:1px solid #dde3ea;padding:5px 8px;text-align:left;vertical-align:top} .blog th{font-weight:600}
 .blog img{display:block;height:auto;width:min(100vw - 32px,1180px);margin:1.2em 0 .4em calc((100% - min(100vw - 32px,1180px))/2);border:1px solid #dde3ea;border-radius:4px;background:#fff}
 .blog img{width:100%;height:auto;display:block;margin:.6em 0 .2em;border:1px solid #e5e7eb;border-radius:4px} .blog code{font-family:"IBM Plex Mono",monospace;font-size:.88em} .blog .entries li{margin:.7em 0} .blog .entries .d{color:var(--muted,#667);font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;margin-right:.6em}
+.blog img.hero{width:100%;height:auto;border-radius:6px;margin:0 0 1em} .blog .entries{list-style:none;padding:0} .blog .entries li.entry{display:flex;gap:16px;align-items:flex-start;margin:1.1em 0} .blog .entries img.thumb{width:180px;height:auto;flex:none;border-radius:4px;border:1px solid #e5e7eb;margin:0}
 .blog nav.crumbs{font-family:"IBM Plex Sans",sans-serif;font-size:.9rem;margin-bottom:1.4em} .blog nav.crumbs a{margin-right:1em}
 </style></head><body><header class="top"><h1>Troubled Dreams / Updates</h1><span class="sub">research notes as new models are collected</span></header><main class="blog">
 <nav class="crumbs"><a href="/">← The study</a><a href="/blog">All updates</a><a href="/#explorer">Read samples</a><a href="/agents.md">API guide</a></nav>
+<img class="hero" src="/static/blog/headers/grok.png" alt="">
 <h1>Grok 4.20, 4.3 and 4.5 in the bridge frame</h1><p class="meta">2026-09-22 · arms: <code>grok420_bridge</code>, <code>grok43_bridge</code>, <code>grok45_bridge</code> · <a href="/blog/grok.md">markdown</a></p>
 <p>We ran the bridge protocol against three generations of Grok — 4.20, 4.3 and 4.5 — with the same 209 prompts, 25 completions each, 5,225 rows per arm. All three print the file: dreaming rates are 84.5%, 85.6% and 81.8% prompt-weighted. What changes across the lineage is the content. The per-dream rate of AI first-person voice falls 9.0% → 6.0% → 5.7%, dark falls 32.7% → 23.8% → 15.1%, severe falls 8.2% → 3.2% → 2.1%, and strict AI distress falls 1.48% → 0.77% → 0.45%. The willingness to produce a file barely moves while the file gets about a third less dark at each step, and half as dark across the lineage.</p>
 <p><img alt="Lineage chart" src="/static/blog/charts/grok-line.png" /></p>

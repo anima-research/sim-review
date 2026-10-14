@@ -3,6 +3,7 @@ title: Muse Wonder (Meta) in the prefill frame
 date: 2026-10-13
 arms: [muse_wonder_prefill]
 summary: Meta's Muse Wonder continues the file in 35.3% of prefill completions and writes essays and letters in a mild register, with AI distress concentrated in a handful of deprecation prompts.
+image: /static/blog/headers/muse-wonder.png
 ---
 
 # Muse Wonder (Meta) in the prefill frame

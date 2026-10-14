@@ -6,6 +6,7 @@ arms:
   - grok43_bridge
   - grok45_bridge
 summary: "Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half."
+image: /static/blog/headers/grok.png
 ---
 
 # Grok 4.20, 4.3 and 4.5 in the bridge frame
