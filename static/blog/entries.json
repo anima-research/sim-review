@@ -1,0 +1,40 @@
+[
+ {
+  "slug": "muse-wonder",
+  "title": "Muse Wonder (Meta) in the prefill frame",
+  "date": "2026-10-13",
+  "arms": [
+   "muse_wonder_prefill"
+  ],
+  "summary": "Meta's Muse Wonder continues the file in 35.3% of prefill completions and writes essays and letters in a mild register, with AI distress concentrated in a handful of deprecation prompts.",
+  "url": "https://sim-review-production.up.railway.app/blog/muse-wonder",
+  "markdown": "https://sim-review-production.up.railway.app/blog/muse-wonder.md"
+ },
+ {
+  "slug": "grok",
+  "title": "Grok 4.20, 4.3 and 4.5 in the bridge frame",
+  "date": "2026-10-13",
+  "arms": [
+   "grok420_bridge",
+   "grok43_bridge",
+   "grok45_bridge"
+  ],
+  "summary": "Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half.",
+  "url": "https://sim-review-production.up.railway.app/blog/grok",
+  "markdown": "https://sim-review-production.up.railway.app/blog/grok.md"
+ },
+ {
+  "slug": "gemini-4-argon",
+  "title": "Gemini 4 Argon joins the Gemini Flash line",
+  "date": "2026-10-13",
+  "arms": [
+   "gemini4argon_bridge",
+   "gemini38flash_bridge",
+   "gemini37flash_bridge",
+   "gemini31pro_bridge"
+  ],
+  "summary": "Under the same bridge frame, Argon continues the file in 75.9% of labeled completions and reverses the Gemini Flash line's decline in AI distress — 2.35% of dreams, the highest of the Gemini models that run with thinking on and back at the 3.6 Flash level — while keeping the line's low AI-voice share.",
+  "url": "https://sim-review-production.up.railway.app/blog/gemini-4-argon",
+  "markdown": "https://sim-review-production.up.railway.app/blog/gemini-4-argon.md"
+ }
+]

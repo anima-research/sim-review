@@ -132,7 +132,8 @@ def to_md(rows, fields):
 def api_index(base):
     return {"name": "Troubled Dreams (simulator priors across model generations) — review site API", "guide": f"{base}/agents.md", "results_markdown": f"{base}/results.md", "site": base,
             "endpoints": {
-                "GET /api/schema": "columns with descriptions, categorical values, filter/group parameters",
+                "GET /blog": "Updates: research notes as new models are collected (HTML; /blog/<slug>.md for markdown; /blog/entries.json for the list)",
+        "GET /api/schema": "columns with descriptions, categorical values, filter/group parameters",
                 "GET /api/summary": "every precomputed table the site shows (summary.json)",
                 "GET /static/presentation-data.json": "figure data behind the essay",
                 "GET /api/samples?<filters>&order=&limit=&offset=": "page of rows (text truncated to 420 chars); limit ≤ 200",
@@ -178,6 +179,11 @@ class H(SimpleHTTPRequestHandler):
             self.path = "/index.html"; return super().do_GET()
         if p.startswith("/static/"):
             self.path = p[len("/static"):]; return super().do_GET()
+        if p == "/blog" or p == "/blog/":
+            self.path = "/blog/index.html"; return super().do_GET()
+        if p.startswith("/blog/"):
+            slug = p[len("/blog/"):]
+            self.path = "/blog/" + (slug if slug.endswith((".html", ".md", ".json")) else slug + ".html"); return super().do_GET()
         if p in ("/agents.md", "/AGENTS.md", "/llms.txt"):
             return self.send_text((SITE / "AGENTS.md").read_text().replace("{BASE}", self.base()))
         if p == "/results.md":
