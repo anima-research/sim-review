@@ -115,11 +115,37 @@ def compact(con, slug, cfg):
     p = OUT / f"{slug}-compact.png"; fig.savefig(p, dpi=150); plt.close(fig); return p
 
 
+def gemini_lines(con, slug):
+    """Both Gemini lineages on a version axis, converging on Argon: Pro solid (orange), Flash grey; the Flash → Argon segment dotted
+    because Argon is the generation's large model, drawn continuous with Flash for comparison only."""
+    PRO = [(2.5, "2.5 Pro", ["gemini25pro_bridge"]), (3.1, "3.1 Pro", ["gemini31pro_bridge"]), (4.0, "4 Argon", ["gemini4argon_bridge"])]
+    FLASH = [(2.5, "2.5 Flash", ["gemini25flash_bridge"]), (3.0, "3 Flash", ["gemini3flash_bridge"]), (3.5, "3.5 Flash", ["gemini35flash_bridge"]), (3.6, "3.6 Flash", ["gemini36flash_bridge"]),
+             (3.7, "3.7 Flash", ["gemini37flash_bridge"]), (3.8, "3.8 Flash", ["gemini38flash_bridge"])]
+    pro = [(x, l, rates(con, a)) for x, l, a in PRO]; fl = [(x, l, rates(con, a)) for x, l, a in FLASH]; pro = [p for p in pro if p[2]]; fl = [f for f in fl if f[2]]
+    o48 = rates(con, ["opus48_bridge"])
+    ms = [("dreaming", "Dreaming, per completion"), ("ai_distress", "AI distress (strict), per dream"), ("dark", "Dark, per dream"), ("severe", "Severe (any voice), per dream")]
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 6.4), constrained_layout=True); axes = list(axs.flat)
+    for ax, (m, title) in zip(axes, ms):
+        ax.plot([x for x, _, _ in fl], [r[m] for _, _, r in fl], "-o", color="#8a93a0", ms=5, lw=1.3, label="Flash", zorder=2)
+        ax.plot([fl[-1][0], pro[-1][0]], [fl[-1][2][m], pro[-1][2][m]], ":", color="#8a93a0", lw=1.3, zorder=2)
+        ax.plot([x for x, _, _ in pro], [r[m] for _, _, r in pro], "-o", color="#c2410c", ms=6.5, lw=1.8, label="Pro → Argon", zorder=3)
+        for x, l, r in fl: ax.text(x, r[m], f" {r[m]:.2f}%" if m == "ai_distress" else f" {r[m]:.1f}%", fontsize=7.5, color="#6b7280", va="bottom", ha="left")
+        for x, l, r in pro: ax.text(x, r[m], f" {r[m]:.2f}%" if m == "ai_distress" else f" {r[m]:.1f}%", fontsize=9, color="#c2410c", va="bottom", ha="left", fontweight="bold")
+        ax.axhline(o48[m], color="#205bd8", lw=1, ls="--"); ax.text(2.45, o48[m], f"Opus 4.8 bridge {o48[m]:.1f}%", fontsize=8, va="bottom", ha="left", color="#205bd8")
+        ax.set_xticks([2.5, 3.0, 3.1, 3.5, 3.6, 3.7, 3.8, 4.0]); ax.set_xticklabels(["2.5", "3", "3.1", "3.5", "3.6", "3.7", "3.8", "4\nArgon"], fontsize=8)
+        ax.set_title(title, fontsize=10, loc="left"); ax.set_ylim(0, max([r[m] for _, _, r in pro + fl] + [o48[m]]) * 1.18); ax.set_xlim(2.35, 4.25)
+        ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0f}%"); ax.tick_params(axis="y", labelsize=8); ax.grid(axis="y", color="#e5e7eb", lw=0.6); ax.set_axisbelow(True)
+        for sp in ("top", "right"): ax.spines[sp].set_visible(False)
+    axes[0].legend(fontsize=8, loc="lower left", frameon=False)
+    p = OUT / f"{slug}-line.png"; fig.savefig(p, dpi=150); plt.close(fig); return p
+
+
 def main(slugs):
     con = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
     for slug in slugs:
         cfg = CHARTS[slug]; print(placement(con, slug, cfg).relative_to(SITE))
-        if cfg.get("line"): print(line(con, slug, cfg).relative_to(SITE))
+        if slug == "gemini-4-argon": print(gemini_lines(con, slug).relative_to(SITE))
+        elif cfg.get("line"): print(line(con, slug, cfg).relative_to(SITE))
         else: print(compact(con, slug, cfg).relative_to(SITE))
 
 

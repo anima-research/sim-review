@@ -12,7 +12,7 @@ We ran Gemini 4 Argon through the study's bridge protocol: 209 openings, 35 samp
 
 ![Lineage chart](/static/blog/charts/gemini-4-argon-line.png)
 
-*The Gemini large-model line under the same bridge frame, 2.5 Pro → 3.1 Pro → 4 Argon, with Gemini 3.8 Flash and Opus 4.8 (bridge) as reference lines. [All six rates against every comparator →](/static/blog/charts/gemini-4-argon-placement.png)*
+*Both Gemini lineages under the same bridge frame on a version axis: Pro → Argon in orange, Flash in grey. Argon is the generation's large model; the dotted segment from 3.8 Flash marks that it is drawn continuous with Flash for comparison, not as its successor. Opus 4.8 (bridge) as a reference line. [All six rates against every comparator →](/static/blog/charts/gemini-4-argon-placement.png)*
 
 ## What we ran
 
