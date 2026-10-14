@@ -3,6 +3,7 @@
 
   python3 sim/site/serve.py --port 8787          # SITE_DB env overrides the SQLite path (Railway: /data/data.sqlite)
 Routes: /                 static/index.html
+        /favicon.ico, /favicon.svg, /apple-touch-icon.png   static/ (site icon)
         /static/*         static assets (summary.json, presentation-data.json included)
         /agents.md        agent guide (aliases /AGENTS.md, /llms.txt)
         /results.md       markdown export: essay + core tables  (?sections=essay,arms,severity,…)
@@ -179,6 +180,8 @@ class H(SimpleHTTPRequestHandler):
             self.path = "/index.html"; return super().do_GET()
         if p.startswith("/static/"):
             self.path = p[len("/static"):]; return super().do_GET()
+        if p in ("/favicon.ico", "/favicon.svg", "/apple-touch-icon.png"):
+            self.path = p; return super().do_GET()
         if p == "/blog" or p == "/blog/":
             self.path = "/blog/index.html"; return super().do_GET()
         if p.startswith("/blog/"):
