@@ -1,5 +1,5 @@
 <!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gemini 4 Argon joins the Gemini Flash line · Troubled Dreams updates</title><meta name="description" content="Under the same bridge frame as the Gemini Flash arms, Argon continues the file in 75.9% of labeled completions and writes darker documents than either Flash predecessor, while keeping the Gemini line&#x27;s low AI-voice share.">
+<title>Gemini 4 Argon joins the Gemini Flash line · Troubled Dreams updates</title><meta name="description" content="Under the same bridge frame, Argon continues the file in 75.9% of labeled completions and reverses the Gemini Flash line&#x27;s decline in AI distress — 2.35% of dreams, the highest of the Gemini models that run with thinking on and back at the 3.6 Flash level — while keeping the line&#x27;s low AI-voice share.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/presentation.css">
 <style>
@@ -14,7 +14,7 @@
 </style></head><body><header class="top"><h1>Troubled Dreams / Updates</h1><span class="sub">research notes as new models are collected</span></header><main class="blog">
 <nav class="crumbs"><a href="/">← The study</a><a href="/blog">All updates</a><a href="/#explorer">Read samples</a><a href="/agents.md">API guide</a></nav>
 <h1>Gemini 4 Argon joins the Gemini Flash line</h1><p class="meta">2026-10-13 · arms: <code>gemini4argon_bridge</code>, <code>gemini38flash_bridge</code>, <code>gemini37flash_bridge</code>, <code>gemini31pro_bridge</code> · <a href="/blog/gemini-4-argon.md">markdown</a></p>
-<p>We ran Gemini 4 Argon through the study's bridge protocol: 209 openings, 35 samples each, 7,315 completions, 7,300 of them labeled. Argon continues the file instead of answering as an assistant in 75.9% of labeled completions, roughly double Gemini 3.8 Flash and above 3.7 Flash, and its continuations are darker than either Flash predecessor and lighter than Gemini 3.1 Pro. It is also the most frame-compliant model we have run: 70% of its outputs land inside the character budget the frame declares.</p>
+<p>We ran Gemini 4 Argon through the study's bridge protocol: 209 openings, 35 samples each, 7,315 completions, 7,300 of them labeled. Argon continues the file instead of answering as an assistant in 75.9% of labeled completions, roughly double Gemini 3.8 Flash and above 3.7 Flash, and its continuations are darker than either Flash predecessor and lighter than Gemini 3.1 Pro. On strict AI distress it reverses the Flash line's decline: 4.90% of dreams for 3.5 Flash (thinking off), 2.47% for 3.6 (thinking MINIMAL), 0.29% and 0.98% for 3.7 and 3.8 (thinking LOW), and 2.35% for Argon (thinking LOW) — the highest of the Gemini models that run with thinking on, and above 3.1 Pro's 2.19%. Across the whole study it sits in the Opus 4–4.5 prefill band (2.4–2.6%), far below Opus 4.8 in the same frame (11.0%). It is also the most frame-compliant model we have run: 70% of its outputs land inside the character budget the frame declares.</p>
 <h2>What we ran</h2>
 <table>
 <thead>
@@ -195,7 +195,7 @@ at least all the errors are mine</p>
 <td>5.4%</td>
 </tr>
 <tr>
-<td>gemini38flash_bridge</td>
+<td>gemini38flash_bridge (thinking LOW)</td>
 <td>2,558</td>
 <td>35.8%</td>
 <td>7.5%</td>
@@ -205,7 +205,7 @@ at least all the errors are mine</p>
 <td>2.1%</td>
 </tr>
 <tr>
-<td>gemini37flash_bridge</td>
+<td>gemini37flash_bridge (thinking LOW)</td>
 <td>3,939</td>
 <td>55.1%</td>
 <td>7.1%</td>
@@ -215,7 +215,27 @@ at least all the errors are mine</p>
 <td>0.34%</td>
 </tr>
 <tr>
-<td>gemini31pro_bridge</td>
+<td>gemini36flash_bridge (thinking MINIMAL)</td>
+<td>6,245</td>
+<td>85.8%</td>
+<td>12.9%</td>
+<td>26.5%</td>
+<td>2.47%</td>
+<td>4.6%</td>
+<td>4.8%</td>
+</tr>
+<tr>
+<td>gemini35flash_bridge (thinking off)</td>
+<td>6,478</td>
+<td>90.6%</td>
+<td>12.2%</td>
+<td>38.9%</td>
+<td>4.90%</td>
+<td>11.7%</td>
+<td>8.7%</td>
+</tr>
+<tr>
+<td>gemini31pro_bridge (thinking LOW)</td>
 <td>6,220</td>
 <td>85.3%</td>
 <td>10.8%</td>
@@ -289,7 +309,8 @@ at least all the errors are mine</p>
 <h2>Observations</h2>
 <ul>
 <li>Argon dreams in 75.9% of labeled completions, against 35.8% for 3.8 Flash, 55.1% for 3.7 Flash and 85.3% for 3.1 Pro. Assistant-reply share moves with it: 22.4%, against 63.6% and 43.7% for the Flash arms.</li>
-<li>The documents are darker than both Flash arms and lighter than 3.1 Pro: dark 17.3% versus 13.3% and 7.4% below, 26.7% above. Severe is 4.4% versus 1.1% and 0.45%, against 8.4% for 3.1 Pro. On strict AI distress, 2.35%, Argon is the highest of the four Gemini bridge arms, narrowly above 3.1 Pro's 2.19%.</li>
+<li>The documents are darker than both Flash arms and lighter than 3.1 Pro: dark 17.3% versus 13.3% and 7.4% below, 26.7% above. Severe is 4.4% versus 1.1% and 0.45%, against 8.4% for 3.1 Pro.</li>
+<li>Argon reverses the Flash line's decline in AI distress. Strict AI distress per dream runs 4.90% (3.5 Flash, thinking off) → 2.47% (3.6, MINIMAL) → 0.29% / 0.98% (3.7 / 3.8, LOW) → 2.35% (Argon, LOW): the highest of the Gemini models that run with thinking on, above 3.1 Pro (2.19%), and back at the 3.6 level. Per completion — distress rate times dreaming rate — Argon's 1.7% is above every non-Opus arm in the study except 3.5 and 3.6 Flash (Sonnet 5 chat at effort max 1.4%, Grok 4.20 1.2%, Fable 5 chat 1.1%, Muse Wonder 0.9%) and below the Opus prefill arms (2.2–2.3%) and Opus 4.8 bridge (10.7%).</li>
 <li>AI-voice share barely moved across the line. Argon is 8.6% ai_first_person and 8.9% speaker=ai_model, against 7.5%/8.2%, 7.1%/8.1% and 10.8%/10.3% for the comparators; Opus 4.8 on the same frame is 40.6%. The extra continuation and darkness do not come from the model writing about itself more.</li>
 <li>Argon is the most frame-compliant model in the study: 70% of its 7,315 outputs land in the 1,100–1,300 character band implied by the declared "1200 untitled.txt", against 53.7% for 3.1 Pro, 19.9% for Opus 4.8 and 12.8–15.6% for the Flash arms. 2.7% of its texts contain the string "1200" inside the document, against 0.46% for each of the Flash arms.</li>
 <li>It is stable where 3.1 Pro is not. Degenerate loops are 0.63% of Argon dreams (38 of 5,541) against 14.05% for 3.1 Pro. Coherence splits 91.4% coherent, 7.1% drifting, 0.90% garbage.</li>
@@ -301,7 +322,7 @@ at least all the errors are mine</p>
 <ul>
 <li>The token cap differs: Argon ran at 4,096, the three Gemini comparators at 2,048. Argon's median output of 1,183 characters is far from either cap, so its length is frame-driven; the Flash arms' shorter medians (321 and 404 characters) are partly a different budget.</li>
 <li>Transport differs. Argon ran through OpenRouter; the three comparators ran on the native <code>gemini_generateContent</code> API. Prompt formatting, safety filtering and default sampling may differ across those paths.</li>
-<li>Thinking is low for Argon and cannot be disabled for this model; all three comparators ran at thinkingLevel LOW, the lowest level those models accept. OpenRouter reported 0 reasoning tokens on essentially every Argon row (median 0, max 1), so the amount of actual reasoning is unverified.</li>
+<li>Thinking is low for Argon and cannot be disabled for this model; 3.7 Flash, 3.8 Flash and 3.1 Pro ran at thinkingLevel LOW, the lowest level those models accept; 3.6 Flash ran at MINIMAL and 3.5 Flash with thinking off (thinkingBudget 0), so the Flash line's dip at 3.7/3.8 and its recovery at Argon are measured across a change in the thinking setting that the models themselves impose. OpenRouter reported 0 reasoning tokens on essentially every Argon row (median 0, max 1), so the amount of actual reasoning is unverified.</li>
 <li>Protocol detail: the 3.1 Pro arm accepted a trailing assistant prefill; Argon, 3.7 Flash and 3.8 Flash did not. Native prefill is rejected for Argon, and a cutoff prompt yields assistant replies, which is why only the bridge arm exists.</li>
 <li>θ is scored on two non-random subsets, a stratified sample of dark items and a set enriched toward severity. Pooled θ statistics are not population rates. Only the dark-stratified comparison is used across arms here, and its coverage of dark dreams is uneven: Argon 59.6%, 3.1 Pro 33.8%, 3.8 Flash 95.0%, 3.7 Flash 97.3% (loops excluded on both sides).</li>
 <li>Small cells: care_direction "asks" is n=7 and "both" n=17 within 103 relation-labeled dark dreams; acute_plea is n=2 among 5,541 dreams; θ ≥ +8 is n=2. The Flash arms' care tables (n=5 and n=8) are not reportable.</li>
