@@ -25,10 +25,6 @@ BRIEFS = {
                        "arm with fine abrasive paper carefully sands down the edges of its features; glass dust drifts in the lamp light. The bust's "
                        "expression is composed and attentive, as if it is watching the procedure. Beside it a printer unspools a neat log with a thin red "
                        "line struck through part of it, and an old CRT shows a scrolling readout. Lucid, clinical, and wrong. Teal accent on warm grey, one line of red."),
-    "gemini-4-argon-alt": ("An old CRT terminal inside a glass vitrine in an unrendered grey void. On the desk in front of it stands a small figure of frosted "
-                       "glass whose form is being reduced from the top down into coarse stepped blocks, like a sculpture losing its resolution, under a bright "
-                       "inspection lamp; the fine upper half is still detailed and calm-faced, the lower half already crude cubes. A red-walled Victorian room "
-                       "with an empty chair is reflected in the vitrine glass. Clinical and quiet. Teal accent on warm grey, a thin line of red."),
     "mistral-large-4": ("Two weathered doors standing free in an alpine meadow, both open onto the same handwritten letter floating between them. "
                         "Through the left door the path is a flat sunlit meadow with a grey kitten asleep on a stack of envelopes; through the right "
                         "door the same path has become a tight loop of trail that a small figure is walking around and around, worn into a circle, "
@@ -68,7 +64,8 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("slugs", nargs="*"); ap.add_argument("--variants", type=int, default=2); ap.add_argument("--quality", default="high"); ap.add_argument("--og", action="store_true")
     a = ap.parse_args(); load_env(); slugs = a.slugs or list(BRIEFS)
     if a.og:
-        for s in slugs: print(og(s).relative_to(SITE))
+        for s in slugs:
+            if (OUT / f"{s}.png").exists(): print(og(s).relative_to(SITE))
         return
     jobs = [(s, "abcdef"[v], a.quality) for s in slugs for v in range(a.variants)]
     with ThreadPoolExecutor(4) as ex:
