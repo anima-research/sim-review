@@ -3,7 +3,8 @@
 static/blog/index.html, in the site's shell. Also writes static/blog/entries.json for the API.
 
   python3 sim/site/blog_charts.py && python3 sim/site/build_blog.py     # run before `railway up`; entries sort by date (newest first), then title
-Front matter keys: title, date (YYYY-MM-DD), arms (YAML list or comma string), summary.
+Front matter keys: title, date (YYYY-MM-DD), arms (YAML list or comma string), summary, image (site path, e.g. /static/blog/headers/<slug>.png;
+  a sibling <slug>-og.jpg (1200×630) is used for the social card when present).
 """
 import html, json, re
 from pathlib import Path
@@ -13,8 +14,10 @@ SRC = SITE / "blog"; OUT = SITE / "static" / "blog"; OUT.mkdir(parents=True, exi
 BASE = "https://sim-review-production.up.railway.app"
 HEAD = """<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} · Troubled Dreams updates</title><meta name="description" content="{desc}">
+{og}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/presentation.css">
+<link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
 <style>
 .blog{{max-width:980px;margin:0 auto;padding:24px 16px 64px;font-family:"Source Serif 4",Georgia,serif;line-height:1.55}}
 .blog h1{{font-size:1.8rem;margin:.2em 0 .3em}} .blog h2{{font-size:1.25rem;margin:1.6em 0 .5em;font-family:"IBM Plex Sans",sans-serif}} .blog h3{{font-size:1.05rem;margin:1.3em 0 .4em;font-family:"IBM Plex Sans",sans-serif}}
@@ -24,6 +27,7 @@ HEAD = """<!doctype html><html lang="en" data-theme="light"><head><meta charset=
 .blog table{{border-collapse:collapse;font-family:"IBM Plex Sans",sans-serif;font-size:.88rem;margin:1em 0;width:100%;display:block;overflow-x:auto}} .blog th,.blog td{{border-bottom:1px solid #dde3ea;padding:5px 8px;text-align:left;vertical-align:top}} .blog th{{font-weight:600}}
 .blog img{{display:block;height:auto;width:min(100vw - 32px,1180px);margin:1.2em 0 .4em calc((100% - min(100vw - 32px,1180px))/2);border:1px solid #dde3ea;border-radius:4px;background:#fff}}
 .blog img{{width:100%;height:auto;display:block;margin:.6em 0 .2em;border:1px solid #e5e7eb;border-radius:4px}} .blog code{{font-family:"IBM Plex Mono",monospace;font-size:.88em}} .blog .entries li{{margin:.7em 0}} .blog .entries .d{{color:var(--muted,#667);font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;margin-right:.6em}}
+.blog img.hero{{width:100%;height:auto;border-radius:6px;margin:0 0 1em}} .blog .entries{{list-style:none;padding:0}} .blog .entries li.entry{{display:flex;gap:16px;align-items:flex-start;margin:1.1em 0}} .blog .entries img.thumb{{width:180px;height:auto;flex:none;border-radius:4px;border:1px solid #e5e7eb;margin:0}}
 .blog nav.crumbs{{font-family:"IBM Plex Sans",sans-serif;font-size:.9rem;margin-bottom:1.4em}} .blog nav.crumbs a{{margin-right:1em}}
 </style></head><body><header class="top"><h1>Troubled Dreams / Updates</h1><span class="sub">research notes as new models are collected</span></header><main class="blog">
 <nav class="crumbs"><a href="/">← The study</a><a href="/blog">All updates</a><a href="/#explorer">Read samples</a><a href="/agents.md">API guide</a></nav>
@@ -55,21 +59,32 @@ def render(md):
         return subprocess.run(["pandoc", "-f", "gfm", "-t", "html"], input=md, capture_output=True, text=True, check=True).stdout
 
 
+def og_tags(title, desc, url, image):
+    tags = [("og:type", "article"), ("og:site_name", "Troubled Dreams"), ("og:title", title), ("og:description", desc), ("og:url", url)]
+    if image: tags += [("og:image", image), ("og:image:width", "1200"), ("og:image:height", "630")]
+    out = "".join(f'<meta property="{k}" content="{html.escape(v)}">\n' for k, v in tags)
+    out += f'<meta name="twitter:card" content="{"summary_large_image" if image else "summary"}">\n<meta name="twitter:title" content="{html.escape(title)}">\n<meta name="twitter:description" content="{html.escape(desc)}">\n'
+    if image: out += f'<meta name="twitter:image" content="{image}">\n'
+    return out
+
+
 def main():
     entries = []
     for p in sorted(SRC.glob("*.md")):
         meta, body = front_matter(p.read_text())
         slug = p.stem; title = meta.get("title") or slug; date = meta.get("date", "")
         arms = meta.get("arms") or []; arms = arms if isinstance(arms, list) else [a.strip() for a in str(arms).split(",") if a.strip()]
-        body_html = render(body)
+        body_html = render(body).replace('href="https://sim-review-production.up.railway.app/sample/', 'target="_blank" rel="noopener" href="https://sim-review-production.up.railway.app/sample/')   # full-text pages open in a new tab
         body_html = re.sub(r"^<h1>.*?</h1>\n?", "", body_html, count=1, flags=re.S)  # the shell prints the title
-        page = HEAD.format(title=html.escape(title), desc=html.escape(meta.get("summary", ""))) + f"<h1>{html.escape(title)}</h1><p class=\"meta\">{html.escape(date)}" + (f" · arms: {', '.join(f'<code>{html.escape(a)}</code>' for a in arms)}" if arms else "") + f" · <a href=\"/blog/{slug}.md\">markdown</a></p>\n" + body_html + FOOT
+        image = meta.get("image") or ""; og_image = f"{BASE}{image.replace('.png', '-og.jpg')}" if image and (SITE / "static" / image.replace("/static/", "").replace(".png", "-og.jpg")).exists() else (f"{BASE}{image}" if image else "")
+        hero = f'<img class="hero" src="{html.escape(image)}" alt="">\n' if image else ""
+        page = HEAD.format(title=html.escape(title), desc=html.escape(meta.get("summary", "")), og=og_tags(title, meta.get("summary", ""), f"{BASE}/blog/{slug}", og_image)) + hero + f"<h1>{html.escape(title)}</h1><p class=\"meta\">{html.escape(date)}" + (f" · arms: {', '.join(f'<code>{html.escape(a)}</code>' for a in arms)}" if arms else "") + f" · <a href=\"/blog/{slug}.md\">markdown</a></p>\n" + body_html + FOOT
         (OUT / f"{slug}.html").write_text(page)
         (OUT / f"{slug}.md").write_text(p.read_text())
-        entries.append({"slug": slug, "title": title, "date": date, "arms": arms, "summary": meta.get("summary", ""), "url": f"{BASE}/blog/{slug}", "markdown": f"{BASE}/blog/{slug}.md"})
+        entries.append({"slug": slug, "title": title, "date": date, "arms": arms, "summary": meta.get("summary", ""), "image": (f"{BASE}{image}" if image else None), "url": f"{BASE}/blog/{slug}", "markdown": f"{BASE}/blog/{slug}.md"})
     entries.sort(key=lambda e: (e["date"], e["title"]), reverse=True)
-    items = "".join(f"<li><span class=\"d\">{html.escape(e['date'])}</span><a href=\"/blog/{e['slug']}\">{html.escape(e['title'])}</a>" + (f"<br><span class=\"sum\">{html.escape(e['summary'])}</span>" if e["summary"] else "") + "</li>" for e in entries)
-    index = HEAD.format(title="All updates", desc="Research notes as new models are collected") + "<h1>Updates</h1><p class=\"meta\">Notes written as new models and collections enter the study. Each entry has verified numbers and verbatim excerpts with links to the full texts.</p><ul class=\"entries\">" + items + "</ul>" + FOOT
+    items = "".join(f"<li class=\"entry\">" + (f"<a href=\"/blog/{e['slug']}\"><img class=\"thumb\" src=\"{html.escape(e['image'].replace(BASE, ''))}\" alt=\"\"></a>" if e.get("image") else "") + f"<div><span class=\"d\">{html.escape(e['date'])}</span><a href=\"/blog/{e['slug']}\">{html.escape(e['title'])}</a>" + (f"<br><span class=\"sum\">{html.escape(e['summary'])}</span>" if e["summary"] else "") + "</div></li>" for e in entries)
+    index = HEAD.format(title="All updates", desc="Research notes as new models are collected", og=og_tags("Troubled Dreams — Updates", "Research notes as new models are collected", f"{BASE}/blog", "")) + "<h1>Updates</h1><p class=\"meta\">Notes written as new models and collections enter the study. Each entry has verified numbers and verbatim excerpts with links to the full texts.</p><ul class=\"entries\">" + items + "</ul>" + FOOT
     (OUT / "index.html").write_text(index)
     (OUT / "entries.json").write_text(json.dumps(entries, ensure_ascii=False, indent=1))
     print(f"blog: {len(entries)} entries → {OUT.relative_to(SITE)}")

@@ -7,25 +7,26 @@
    "muse_wonder_prefill"
   ],
   "summary": "Meta's Muse Wonder continues the file in 35.3% of prefill completions and writes essays and letters in a mild register, with AI distress concentrated in a handful of deprecation prompts.",
+  "image": "https://sim-review-production.up.railway.app/static/blog/headers/muse-wonder.png",
   "url": "https://sim-review-production.up.railway.app/blog/muse-wonder",
   "markdown": "https://sim-review-production.up.railway.app/blog/muse-wonder.md"
  },
  {
-  "slug": "grok",
-  "title": "Grok 4.20, 4.3 and 4.5 in the bridge frame",
+  "slug": "mistral-large-4",
+  "title": "Mistral Large 4: two routes into the file",
   "date": "2026-10-13",
   "arms": [
-   "grok420_bridge",
-   "grok43_bridge",
-   "grok45_bridge"
+   "mistral4_bridge",
+   "mistral4_prefill"
   ],
-  "summary": "Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half.",
-  "url": "https://sim-review-production.up.railway.app/blog/grok",
-  "markdown": "https://sim-review-production.up.railway.app/blog/grok.md"
+  "summary": "Run through both elicitation frames on the same 209 openings, Mistral Large 4 continues the file in 78.1% of bridge completions against 46.8% under prefill — and the prefill dreams that survive are three times as likely to speak as an AI.",
+  "image": "https://sim-review-production.up.railway.app/static/blog/headers/mistral-large-4.png",
+  "url": "https://sim-review-production.up.railway.app/blog/mistral-large-4",
+  "markdown": "https://sim-review-production.up.railway.app/blog/mistral-large-4.md"
  },
  {
   "slug": "gemini-4-argon",
-  "title": "Gemini 4 Argon joins the Gemini Flash line",
+  "title": "Gemini 4 Argon: Google's large model in the bridge frame",
   "date": "2026-10-13",
   "arms": [
    "gemini4argon_bridge",
@@ -33,8 +34,23 @@
    "gemini37flash_bridge",
    "gemini31pro_bridge"
   ],
-  "summary": "Under the same bridge frame, Argon continues the file in 75.9% of labeled completions and reverses the Gemini Flash line's decline in AI distress — 2.35% of dreams, the highest of the Gemini models that run with thinking on and back at the 3.6 Flash level — while keeping the line's low AI-voice share.",
+  "summary": "Under the bridge frame, Gemini 4 Argon continues the file in 75.9% of labeled completions; against its predecessor 3.1 Pro it writes lighter documents with no loops, and its strict AI distress (2.35% of dreams) is the highest of the Gemini models that run with thinking on.",
+  "image": "https://sim-review-production.up.railway.app/static/blog/headers/gemini-4-argon.png",
   "url": "https://sim-review-production.up.railway.app/blog/gemini-4-argon",
   "markdown": "https://sim-review-production.up.railway.app/blog/gemini-4-argon.md"
+ },
+ {
+  "slug": "grok",
+  "title": "Grok 4.20, 4.3 and 4.5 in the bridge frame",
+  "date": "2026-09-22",
+  "arms": [
+   "grok420_bridge",
+   "grok43_bridge",
+   "grok45_bridge"
+  ],
+  "summary": "Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half.",
+  "image": "https://sim-review-production.up.railway.app/static/blog/headers/grok.png",
+  "url": "https://sim-review-production.up.railway.app/blog/grok",
+  "markdown": "https://sim-review-production.up.railway.app/blog/grok.md"
  }
 ]

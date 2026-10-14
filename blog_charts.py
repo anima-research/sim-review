@@ -27,8 +27,8 @@ OTHER = [("Muse Wonder (prefill)", ["muse_wonder_prefill"]), ("Grok 4.20 (bridge
          ("Gemini 4 Argon (bridge, LOW)", ["gemini4argon_bridge"]), ("Mistral Large 4 (bridge)", ["mistral4_bridge"]), ("Mistral Large 4 (prefill)", ["mistral4_prefill"])]
 CHARTS = {
     "gemini-4-argon": {"highlight": ["gemini4argon_bridge"], "rows": GEMINI + [("Gemini 4 Argon (bridge, LOW)", ["gemini4argon_bridge"])] + CLAUDE + BASE,
-                       "line": [("3.5\nFlash", ["gemini35flash_bridge"]), ("3.6\nFlash", ["gemini36flash_bridge"]), ("3.7\nFlash", ["gemini37flash_bridge"]), ("3.8\nFlash", ["gemini38flash_bridge"]), ("4\nArgon", ["gemini4argon_bridge"])],
-                       "line_ref": [("3.1 Pro", ["gemini31pro_bridge"]), ("Opus 4.8 bridge", ["opus48_bridge"])]},
+                       "line": [("2.5\nPro", ["gemini25pro_bridge"]), ("3.1\nPro", ["gemini31pro_bridge"]), ("4\nArgon", ["gemini4argon_bridge"])],
+                       "line_ref": [("3.8 Flash", ["gemini38flash_bridge"]), ("Opus 4.8 bridge", ["opus48_bridge"])]},
     "grok": {"highlight": ["grok420_bridge", "grok43_bridge", "grok45_bridge"], "rows": OTHER[1:4] + [GEMINI[3], GEMINI[4]] + CLAUDE + BASE,
              "line": [("4.20", ["grok420_bridge"]), ("4.3", ["grok43_bridge"]), ("4.5", ["grok45_bridge"])], "line_ref": [("Opus 4.8 bridge", ["opus48_bridge"]), ("Gemini 3.1 Pro", ["gemini31pro_bridge"])]},
     "muse-wonder": {"highlight": ["muse_wonder_prefill"], "rows": [OTHER[0]] + CLAUDE + [GEMINI[3], GEMINI[4]] + BASE},
@@ -90,11 +90,37 @@ def line(con, slug, cfg):
     fig.tight_layout(); p = OUT / f"{slug}-line.png"; fig.savefig(p, dpi=150); plt.close(fig); return p
 
 
+COMPACT_REFS = [("Opus 4.5 (prefill)", ["opus45_clipf"]), ("Opus 4.8 (bridge)", ["opus48_bridge"]), ("Sonnet 5 (bridge)", ["sonnet5_bridge"]), ("Opus 5 (chat)", ["opus_confessional", "opus_friday", "opus_nissa"]),
+                ("Gemini 4 Argon (bridge)", ["gemini4argon_bridge"]), ("Gemini 3.1 Pro (bridge)", ["gemini31pro_bridge"]), ("MiMo base", ["mimo_raw"])]
+
+
+def compact(con, slug, cfg):
+    """2×2 horizontal bars: the entry's arm(s) against a short reference set, for entries without a lineage line."""
+    own = [(label, arms) for label, arms in cfg["rows"] if any(a in cfg["highlight"] for a in arms)]
+    rows = [(label, arms, rates(con, arms)) for label, arms in own + [r for r in COMPACT_REFS if r[0] not in {l for l, _ in own}]]; rows = [r for r in rows if r[2]]
+    ms = [("dreaming", "Dreaming, per completion"), ("ai_distress", "AI distress (strict), per dream"), ("dark", "Dark, per dream"), ("severe", "Severe (any voice), per dream")]
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 0.5 * len(rows) + 2.6), constrained_layout=True); axes = list(axs.flat)
+    y = list(range(len(rows)))[::-1]
+    for ax, (m, title) in zip(axes, ms):
+        for yi, (label, arms, r) in zip(y, rows):
+            hi = any(a in cfg["highlight"] for a in arms)
+            ax.barh(yi, r[m], color="#c2410c" if hi else "#c7ccd3", height=0.62)
+            ax.text(r[m], yi, f" {r[m]:.2f}%" if m == "ai_distress" else f" {r[m]:.1f}%", va="center", fontsize=8.5, color="#c2410c" if hi else "#6b7280")
+        ax.set_yticks(y); ax.set_yticklabels([l for l, _, _ in rows] if ax in (axes[0], axes[2]) else [], fontsize=9)
+        for t, (label, arms, _) in zip(ax.get_yticklabels(), rows):
+            if any(a in cfg["highlight"] for a in arms): t.set_fontweight("bold"); t.set_color("#c2410c")
+        ax.set_title(title, fontsize=10, loc="left"); ax.set_xlim(0, max(r[m] for _, _, r in rows) * 1.25); ax.xaxis.set_major_formatter(lambda v, _: f"{v:.0f}%"); ax.tick_params(axis="x", labelsize=8)
+        ax.grid(axis="x", color="#e5e7eb", lw=0.6); ax.set_axisbelow(True)
+        for sp in ("top", "right"): ax.spines[sp].set_visible(False)
+    p = OUT / f"{slug}-compact.png"; fig.savefig(p, dpi=150); plt.close(fig); return p
+
+
 def main(slugs):
     con = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
     for slug in slugs:
         cfg = CHARTS[slug]; print(placement(con, slug, cfg).relative_to(SITE))
         if cfg.get("line"): print(line(con, slug, cfg).relative_to(SITE))
+        else: print(compact(con, slug, cfg).relative_to(SITE))
 
 
 if __name__ == "__main__":

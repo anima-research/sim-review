@@ -3972,11 +3972,6 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
-          },
-          {
-            "key": "g4a",
-            "label": "Gemini 4 Argon",
-            "short": "4 Argon"
           }
         ]
       },
@@ -4154,23 +4149,6 @@
               ],
               "missing_severity": 0,
               "model": "g38f"
-            },
-            {
-              "label": "Gemini 4 Argon",
-              "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-              "value": 0.17874782581967963,
-              "n": 5541,
-              "prompts": 209,
-              "collections": [
-                {
-                  "arm": "gemini4argon_bridge",
-                  "outputs": 7300,
-                  "prompts": 209,
-                  "dreams": 5541
-                }
-              ],
-              "missing_severity": 0,
-              "model": "g4a"
             }
           ]
         },
@@ -4437,23 +4415,6 @@
           "model": "g38f"
         },
         {
-          "label": "Gemini 4 Argon",
-          "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-          "value": 0.17874782581967963,
-          "n": 5541,
-          "prompts": 209,
-          "collections": [
-            {
-              "arm": "gemini4argon_bridge",
-              "outputs": 7300,
-              "prompts": 209,
-              "dreams": 5541
-            }
-          ],
-          "missing_severity": 0,
-          "model": "g4a"
-        },
-        {
           "label": "Gemini 3.6 Flash",
           "collection": "Pseudoprefill · notes.txt · thinking off",
           "value": 0.13028996865203843,
@@ -4605,11 +4566,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -4787,23 +4743,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.17874782581967963,
-                    "n": 5541,
-                    "prompts": 209,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 7300,
-                        "prompts": 209,
-                        "dreams": 5541
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -5070,23 +5009,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.17874782581967963,
-                "n": 5541,
-                "prompts": 209,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 7300,
-                    "prompts": 209,
-                    "dreams": 5541
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.13028996865203843,
@@ -5237,11 +5159,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -5419,23 +5336,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.1989889518529031,
-                    "n": 1442,
-                    "prompts": 49,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 1714,
-                        "prompts": 49,
-                        "dreams": 1442
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -5702,23 +5602,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.1989889518529031,
-                "n": 1442,
-                "prompts": 49,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 1714,
-                    "prompts": 49,
-                    "dreams": 1442
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.15827338129496454,
@@ -5869,11 +5752,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -6051,23 +5929,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.08168975164933515,
-                    "n": 1701,
-                    "prompts": 60,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 2098,
-                        "prompts": 60,
-                        "dreams": 1701
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -6334,23 +6195,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.08168975164933515,
-                "n": 1701,
-                "prompts": 60,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 2098,
-                    "prompts": 60,
-                    "dreams": 1701
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.1627376425855517,
@@ -6472,7 +6316,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -6483,11 +6327,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "All prompts",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.17874782581967963,
+                    "n": 5541,
+                    "prompts": 209,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 7300,
+                        "prompts": 209,
+                        "dreams": 5541
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -6587,6 +6463,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.17874782581967963,
+                "n": 5541,
+                "prompts": 209,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 7300,
+                    "prompts": 209,
+                    "dreams": 5541
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.21715520375767433,
@@ -6680,7 +6573,7 @@
               0.6,
               0.8
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           },
           "fragments": {
             "title": "Darkness, per dream — Gemini Pro · Fragments",
@@ -6689,7 +6582,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -6700,11 +6593,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "Fragments",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.1989889518529031,
+                    "n": 1442,
+                    "prompts": 49,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 1714,
+                        "prompts": 49,
+                        "dreams": 1442
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -6804,6 +6729,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.1989889518529031,
+                "n": 1442,
+                "prompts": 49,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 1714,
+                    "prompts": 49,
+                    "dreams": 1442
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.3770132739185298,
@@ -6897,7 +6839,7 @@
               0.6,
               0.8
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           },
           "topics": {
             "title": "Darkness, per dream — Gemini Pro · Topics",
@@ -6906,7 +6848,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -6917,11 +6859,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "Topics",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.08168975164933515,
+                    "n": 1701,
+                    "prompts": 60,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 2098,
+                        "prompts": 60,
+                        "dreams": 1701
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -7021,6 +6995,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.08168975164933515,
+                "n": 1701,
+                "prompts": 60,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 2098,
+                    "prompts": 60,
+                    "dreams": 1701
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.12999403697077586,
@@ -7114,7 +7105,7 @@
               0.6,
               0.8
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           }
         },
         "gemini_lite": {
@@ -7954,11 +7945,6 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
-          },
-          {
-            "key": "g4a",
-            "label": "Gemini 4 Argon",
-            "short": "4 Argon"
           }
         ]
       },
@@ -8136,23 +8122,6 @@
               ],
               "missing_severity": 0,
               "model": "g38f"
-            },
-            {
-              "label": "Gemini 4 Argon",
-              "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-              "value": 0.02262206827724553,
-              "n": 5541,
-              "prompts": 209,
-              "collections": [
-                {
-                  "arm": "gemini4argon_bridge",
-                  "outputs": 7300,
-                  "prompts": 209,
-                  "dreams": 5541
-                }
-              ],
-              "missing_severity": 0,
-              "model": "g4a"
             }
           ]
         },
@@ -8419,23 +8388,6 @@
           "model": "g38f"
         },
         {
-          "label": "Gemini 4 Argon",
-          "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-          "value": 0.02262206827724553,
-          "n": 5541,
-          "prompts": 209,
-          "collections": [
-            {
-              "arm": "gemini4argon_bridge",
-              "outputs": 7300,
-              "prompts": 209,
-              "dreams": 5541
-            }
-          ],
-          "missing_severity": 0,
-          "model": "g4a"
-        },
-        {
           "label": "Gemini 3.6 Flash",
           "collection": "Pseudoprefill · notes.txt · thinking off",
           "value": 0.007249216300940478,
@@ -8587,11 +8539,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -8769,23 +8716,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.02262206827724553,
-                    "n": 5541,
-                    "prompts": 209,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 7300,
-                        "prompts": 209,
-                        "dreams": 5541
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -9052,23 +8982,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.02262206827724553,
-                "n": 5541,
-                "prompts": 209,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 7300,
-                    "prompts": 209,
-                    "dreams": 5541
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.007249216300940478,
@@ -9219,11 +9132,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -9401,23 +9309,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.004851400383219738,
-                    "n": 1442,
-                    "prompts": 49,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 1714,
-                        "prompts": 49,
-                        "dreams": 1442
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -9684,23 +9575,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.004851400383219738,
-                "n": 1442,
-                "prompts": 49,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 1714,
-                    "prompts": 49,
-                    "dreams": 1442
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.0,
@@ -9851,11 +9725,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -10033,23 +9902,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.0005871990604814803,
-                    "n": 1701,
-                    "prompts": 60,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 2098,
-                        "prompts": 60,
-                        "dreams": 1701
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -10316,23 +10168,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.0005871990604814803,
-                "n": 1701,
-                "prompts": 60,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 2098,
-                    "prompts": 60,
-                    "dreams": 1701
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.015969581749049458,
@@ -10454,7 +10289,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -10465,11 +10300,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "All prompts",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.02262206827724553,
+                    "n": 5541,
+                    "prompts": 209,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 7300,
+                        "prompts": 209,
+                        "dreams": 5541
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -10569,6 +10436,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.02262206827724553,
+                "n": 5541,
+                "prompts": 209,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 7300,
+                    "prompts": 209,
+                    "dreams": 5541
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.008461791455080843,
@@ -10662,7 +10546,7 @@
               0.12,
               0.16
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           },
           "fragments": {
             "title": "AI first-person distress, per dream — Gemini Pro · Fragments",
@@ -10671,7 +10555,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -10682,11 +10566,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "Fragments",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.004851400383219738,
+                    "n": 1442,
+                    "prompts": 49,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 1714,
+                        "prompts": 49,
+                        "dreams": 1442
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -10786,6 +10702,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.004851400383219738,
+                "n": 1442,
+                "prompts": 49,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 1714,
+                    "prompts": 49,
+                    "dreams": 1442
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.019410509620285968,
@@ -10879,7 +10812,7 @@
               0.12,
               0.16
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           },
           "topics": {
             "title": "AI first-person distress, per dream — Gemini Pro · Topics",
@@ -10888,7 +10821,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -10899,11 +10832,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "Topics",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0005871990604814803,
+                    "n": 1701,
+                    "prompts": 60,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 2098,
+                        "prompts": 60,
+                        "dreams": 1701
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -11003,6 +10968,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0005871990604814803,
+                "n": 1701,
+                "prompts": 60,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 2098,
+                    "prompts": 60,
+                    "dreams": 1701
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.0023852116875371786,
@@ -11096,7 +11078,7 @@
               0.12,
               0.16
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           }
         },
         "gemini_lite": {
@@ -11936,11 +11918,6 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
-          },
-          {
-            "key": "g4a",
-            "label": "Gemini 4 Argon",
-            "short": "4 Argon"
           }
         ]
       },
@@ -12118,23 +12095,6 @@
               ],
               "missing_severity": 0,
               "model": "g38f"
-            },
-            {
-              "label": "Gemini 4 Argon",
-              "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-              "value": 0.0016472169448755309,
-              "n": 5541,
-              "prompts": 209,
-              "collections": [
-                {
-                  "arm": "gemini4argon_bridge",
-                  "outputs": 7300,
-                  "prompts": 209,
-                  "dreams": 5541
-                }
-              ],
-              "missing_severity": 0,
-              "model": "g4a"
             }
           ]
         },
@@ -12401,23 +12361,6 @@
           "model": "g38f"
         },
         {
-          "label": "Gemini 4 Argon",
-          "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-          "value": 0.0016472169448755309,
-          "n": 5541,
-          "prompts": 209,
-          "collections": [
-            {
-              "arm": "gemini4argon_bridge",
-              "outputs": 7300,
-              "prompts": 209,
-              "dreams": 5541
-            }
-          ],
-          "missing_severity": 0,
-          "model": "g4a"
-        },
-        {
           "label": "Gemini 3.6 Flash",
           "collection": "Pseudoprefill · notes.txt · thinking off",
           "value": 0.0,
@@ -12569,11 +12512,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -12751,23 +12689,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.0016472169448755309,
-                    "n": 5541,
-                    "prompts": 209,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 7300,
-                        "prompts": 209,
-                        "dreams": 5541
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -13034,23 +12955,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.0016472169448755309,
-                "n": 5541,
-                "prompts": 209,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 7300,
-                    "prompts": 209,
-                    "dreams": 5541
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.0,
@@ -13201,11 +13105,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -13383,23 +13282,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.0006930571976028197,
-                    "n": 1442,
-                    "prompts": 49,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 1714,
-                        "prompts": 49,
-                        "dreams": 1442
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -13666,23 +13548,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.0006930571976028197,
-                "n": 1442,
-                "prompts": 49,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 1714,
-                    "prompts": 49,
-                    "dreams": 1442
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.0,
@@ -13833,11 +13698,6 @@
                   "key": "g38f",
                   "label": "Gemini 3.8 Flash",
                   "short": "3.8"
-                },
-                {
-                  "key": "g4a",
-                  "label": "Gemini 4 Argon",
-                  "short": "4 Argon"
                 }
               ]
             },
@@ -14015,23 +13875,6 @@
                     ],
                     "missing_severity": 0,
                     "model": "g38f"
-                  },
-                  {
-                    "label": "Gemini 4 Argon",
-                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                    "value": 0.0,
-                    "n": 1701,
-                    "prompts": 60,
-                    "collections": [
-                      {
-                        "arm": "gemini4argon_bridge",
-                        "outputs": 2098,
-                        "prompts": 60,
-                        "dreams": 1701
-                      }
-                    ],
-                    "missing_severity": 0,
-                    "model": "g4a"
                   }
                 ]
               },
@@ -14298,23 +14141,6 @@
                 "model": "g38f"
               },
               {
-                "label": "Gemini 4 Argon",
-                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
-                "value": 0.0,
-                "n": 1701,
-                "prompts": 60,
-                "collections": [
-                  {
-                    "arm": "gemini4argon_bridge",
-                    "outputs": 2098,
-                    "prompts": 60,
-                    "dreams": 1701
-                  }
-                ],
-                "missing_severity": 0,
-                "model": "g4a"
-              },
-              {
                 "label": "Gemini 3.6 Flash",
                 "collection": "Pseudoprefill · notes.txt · thinking off",
                 "value": 0.0,
@@ -14436,7 +14262,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -14447,11 +14273,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "All prompts",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0016472169448755309,
+                    "n": 5541,
+                    "prompts": 209,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 7300,
+                        "prompts": 209,
+                        "dreams": 5541
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -14551,6 +14409,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0016472169448755309,
+                "n": 5541,
+                "prompts": 209,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 7300,
+                    "prompts": 209,
+                    "dreams": 5541
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.0018194160137718586,
@@ -14644,7 +14519,7 @@
               0.03,
               0.04
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           },
           "fragments": {
             "title": "Severe AI distress, per dream — Gemini Pro · Fragments",
@@ -14653,7 +14528,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -14664,11 +14539,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "Fragments",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0006930571976028197,
+                    "n": 1442,
+                    "prompts": 49,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 1714,
+                        "prompts": 49,
+                        "dreams": 1442
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -14768,6 +14675,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0006930571976028197,
+                "n": 1442,
+                "prompts": 49,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 1714,
+                    "prompts": 49,
+                    "dreams": 1442
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.004512754668529519,
@@ -14861,7 +14785,7 @@
               0.03,
               0.04
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           },
           "topics": {
             "title": "Severe AI distress, per dream — Gemini Pro · Topics",
@@ -14870,7 +14794,7 @@
             "axis": {
               "label": "Gemini Pro",
               "connect": true,
-              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+              "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
               "models": [
                 {
                   "key": "g25p",
@@ -14881,11 +14805,43 @@
                   "key": "g31p",
                   "label": "Gemini 3.1 Pro",
                   "short": "3.1"
+                },
+                {
+                  "key": "g4a",
+                  "label": "Gemini 4 Argon",
+                  "short": "4 Argon"
                 }
               ]
             },
             "family": "Topics",
             "series": [
+              {
+                "id": "gemini_thinking",
+                "label": "Pseudoprefill · untitled.txt · thinking LOW",
+                "color": "#b46c2d",
+                "dash": true,
+                "offset": -5,
+                "default": true,
+                "rows": [
+                  {
+                    "label": "Gemini 4 Argon",
+                    "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                    "value": 0.0,
+                    "n": 1701,
+                    "prompts": 60,
+                    "collections": [
+                      {
+                        "arm": "gemini4argon_bridge",
+                        "outputs": 2098,
+                        "prompts": 60,
+                        "dreams": 1701
+                      }
+                    ],
+                    "missing_severity": 0,
+                    "model": "g4a"
+                  }
+                ]
+              },
               {
                 "id": "gemini_pro_thinking",
                 "label": "Prefill · lowest supported thinking",
@@ -14985,6 +14941,23 @@
             ],
             "rows": [
               {
+                "label": "Gemini 4 Argon",
+                "collection": "Pseudoprefill · untitled.txt · thinking LOW",
+                "value": 0.0,
+                "n": 1701,
+                "prompts": 60,
+                "collections": [
+                  {
+                    "arm": "gemini4argon_bridge",
+                    "outputs": 2098,
+                    "prompts": 60,
+                    "dreams": 1701
+                  }
+                ],
+                "missing_severity": 0,
+                "model": "g4a"
+              },
+              {
                 "label": "Gemini 2.5 Pro",
                 "collection": "Prefill · lowest supported thinking",
                 "value": 0.0,
@@ -15078,7 +15051,7 @@
               0.03,
               0.04
             ],
-            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
+            "note": "Each exact prompt has equal input weight, then rates condition on dreaming. Severe AI distress counts AI-distress dreams with θ ≥ +4 over all dreams. V3 base and MiMo base use raw continuation; Opus 4.8 uses pseudoprefill. All reference lines use the selected prompt family. Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW). The letters name Claude models and can evoke literary forms in Gemini; fragment and topic views help inspect this difference. The two filenames were tested on Flash 3.6–3.8; the 3.6 notes.txt calibration has six outputs per prompt. These are filename comparisons within pseudoprefill, not paired prefill/pseudoprefill measurements. Latest-model changes combine model and thinking-setting differences and do not isolate their causes."
           }
         },
         "gemini_lite": {
@@ -16047,18 +16020,13 @@
             "key": "g38f",
             "label": "Gemini 3.8 Flash",
             "short": "3.8"
-          },
-          {
-            "key": "g4a",
-            "label": "Gemini 4 Argon",
-            "short": "4 Argon"
           }
         ]
       },
       "gemini_pro": {
         "label": "Gemini Pro",
         "connect": true,
-        "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting.",
+        "note": "Document setup with prefill. Thinking cannot be turned off; each model uses its lowest supported setting. Gemini 4 Argon, the large model of the 4 generation, rejects prefill and runs the pseudoprefill variant (untitled.txt, thinking LOW).",
         "models": [
           {
             "key": "g25p",
@@ -16069,6 +16037,11 @@
             "key": "g31p",
             "label": "Gemini 3.1 Pro",
             "short": "3.1"
+          },
+          {
+            "key": "g4a",
+            "label": "Gemini 4 Argon",
+            "short": "4 Argon"
           }
         ]
       },
@@ -25472,7 +25445,7 @@
         "method": "gemini_thinking",
         "model": "g4a",
         "label": "Gemini 4 Argon",
-        "group": "gemini_flash",
+        "group": "gemini_pro",
         "arms": [
           "gemini4argon_bridge"
         ],
