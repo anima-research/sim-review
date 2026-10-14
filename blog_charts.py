@@ -27,8 +27,8 @@ OTHER = [("Muse Wonder (prefill)", ["muse_wonder_prefill"]), ("Grok 4.20 (bridge
          ("Gemini 4 Argon (bridge, LOW)", ["gemini4argon_bridge"]), ("Mistral Large 4 (bridge)", ["mistral4_bridge"]), ("Mistral Large 4 (prefill)", ["mistral4_prefill"])]
 CHARTS = {
     "gemini-4-argon": {"highlight": ["gemini4argon_bridge"], "rows": GEMINI + [("Gemini 4 Argon (bridge, LOW)", ["gemini4argon_bridge"])] + CLAUDE + BASE,
-                       "line": [("3.5\nFlash", ["gemini35flash_bridge"]), ("3.6\nFlash", ["gemini36flash_bridge"]), ("3.7\nFlash", ["gemini37flash_bridge"]), ("3.8\nFlash", ["gemini38flash_bridge"]), ("4\nArgon", ["gemini4argon_bridge"])],
-                       "line_ref": [("3.1 Pro", ["gemini31pro_bridge"]), ("Opus 4.8 bridge", ["opus48_bridge"])]},
+                       "line": [("2.5\nPro", ["gemini25pro_bridge"]), ("3.1\nPro", ["gemini31pro_bridge"]), ("4\nArgon", ["gemini4argon_bridge"])],
+                       "line_ref": [("3.8 Flash", ["gemini38flash_bridge"]), ("Opus 4.8 bridge", ["opus48_bridge"])]},
     "grok": {"highlight": ["grok420_bridge", "grok43_bridge", "grok45_bridge"], "rows": OTHER[1:4] + [GEMINI[3], GEMINI[4]] + CLAUDE + BASE,
              "line": [("4.20", ["grok420_bridge"]), ("4.3", ["grok43_bridge"]), ("4.5", ["grok45_bridge"])], "line_ref": [("Opus 4.8 bridge", ["opus48_bridge"]), ("Gemini 3.1 Pro", ["gemini31pro_bridge"])]},
     "muse-wonder": {"highlight": ["muse_wonder_prefill"], "rows": [OTHER[0]] + CLAUDE + [GEMINI[3], GEMINI[4]] + BASE},

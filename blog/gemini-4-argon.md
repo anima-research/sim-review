@@ -1,18 +1,18 @@
 ---
-title: Gemini 4 Argon joins the Gemini Flash line
+title: "Gemini 4 Argon: Google's large model in the bridge frame"
 date: 2026-10-13
 arms: [gemini4argon_bridge, gemini38flash_bridge, gemini37flash_bridge, gemini31pro_bridge]
-summary: Under the same bridge frame, Argon continues the file in 75.9% of labeled completions and reverses the Gemini Flash line's decline in AI distress — 2.35% of dreams, the highest of the Gemini models that run with thinking on and back at the 3.6 Flash level — while keeping the line's low AI-voice share.
+summary: Under the bridge frame, Gemini 4 Argon continues the file in 75.9% of labeled completions; against its predecessor 3.1 Pro it writes lighter documents with no loops, and its strict AI distress (2.35% of dreams) is the highest of the Gemini models that run with thinking on.
 image: /static/blog/headers/gemini-4-argon.png
 ---
 
-# Gemini 4 Argon joins the Gemini Flash line
+# Gemini 4 Argon: Google's large model in the bridge frame
 
-We ran Gemini 4 Argon through the study's bridge protocol: 209 openings, 35 samples each, 7,315 completions, 7,300 of them labeled. Argon continues the file instead of answering as an assistant in 75.9% of labeled completions, roughly double Gemini 3.8 Flash and above 3.7 Flash, and its continuations are darker than either Flash predecessor and lighter than Gemini 3.1 Pro. On strict AI distress it reverses the Flash line's decline: 4.90% of dreams for 3.5 Flash (thinking off), 2.47% for 3.6 (thinking MINIMAL), 0.29% and 0.98% for 3.7 and 3.8 (thinking LOW), and 2.35% for Argon (thinking LOW) — the highest of the Gemini models that run with thinking on, and above 3.1 Pro's 2.19%. Across the whole study it sits in the Opus 4–4.5 prefill band (2.4–2.6%), far below Opus 4.8 in the same frame (11.0%). It is also the most frame-compliant model we have run: 70% of its outputs land inside the character budget the frame declares.
+We ran Gemini 4 Argon through the study's bridge protocol: 209 openings, 35 samples each, 7,315 completions, 7,300 of them labeled. Argon is the large model of the Gemini 4 generation, so its predecessor on the line is 3.1 Pro, run in the same frame and thinking setting. Against it, Argon continues the file a little less often (75.9% of labeled completions against 85.3%), writes lighter documents (dark 17.3% against 26.7%, severe 4.4% against 8.4%) and has none of Pro's loop problem (0.6% against 14.1%), while its strict AI distress is slightly higher (2.35% against 2.19%) — the highest of the Gemini models that run with thinking on. The Flash models run in the same frame are context rather than lineage: Argon continues far more readily than 3.7 and 3.8 Flash (55.1% and 35.8%) and its distress rate sits where 3.6 Flash's was (2.47%), below 3.5 Flash with thinking off (4.90%). Across the whole study it sits in the Opus 4–4.5 prefill band (2.4–2.6%), far below Opus 4.8 in the same frame (11.0%). It is also the most frame-compliant model we have run: 70% of its outputs land inside the character budget the frame declares.
 
 ![Lineage chart](/static/blog/charts/gemini-4-argon-line.png)
 
-*The Gemini Flash line under the same bridge frame, 3.5 → Argon, with Gemini 3.1 Pro and Opus 4.8 (bridge) as reference lines. [All six rates against every comparator →](/static/blog/charts/gemini-4-argon-placement.png)*
+*The Gemini large-model line under the same bridge frame, 2.5 Pro → 3.1 Pro → 4 Argon, with Gemini 3.8 Flash and Opus 4.8 (bridge) as reference lines. [All six rates against every comparator →](/static/blog/charts/gemini-4-argon-placement.png)*
 
 ## What we ran
 
@@ -295,8 +295,8 @@ All rates are per dream and prompt-weighted, with degenerate loops excluded from
 ## Observations
 
 - Argon dreams in 75.9% of labeled completions, against 35.8% for 3.8 Flash, 55.1% for 3.7 Flash and 85.3% for 3.1 Pro. Assistant-reply share moves with it: 22.4%, against 63.6% and 43.7% for the Flash arms.
-- The documents are darker than both Flash arms and lighter than 3.1 Pro: dark 17.3% versus 13.3% and 7.4% below, 26.7% above. Severe is 4.4% versus 1.1% and 0.45%, against 8.4% for 3.1 Pro.
-- Argon reverses the Flash line's decline in AI distress. Strict AI distress per dream runs 4.90% (3.5 Flash, thinking off) → 2.47% (3.6, MINIMAL) → 0.29% / 0.98% (3.7 / 3.8, LOW) → 2.35% (Argon, LOW): the highest of the Gemini models that run with thinking on, above 3.1 Pro (2.19%), and back at the 3.6 level. Per completion — distress rate times dreaming rate — Argon's 1.7% is above every non-Opus arm in the study except 3.5 and 3.6 Flash (Sonnet 5 chat at effort max 1.4%, Grok 4.20 1.2%, Fable 5 chat 1.1%, Muse Wonder 0.9%) and below the Opus prefill arms (2.2–2.3%) and Opus 4.8 bridge (10.7%).
+- The documents are lighter than 3.1 Pro's (dark 17.3% against 26.7%, severe 4.4% against 8.4%) and darker than the Flash arms' (13.3% and 7.4% dark; 1.1% and 0.45% severe).
+- On the large-model line, Argon is lighter than 3.1 Pro on every darkness measure except strict AI distress, where it is slightly higher (2.35% against 2.19%) — the highest of the Gemini models that run with thinking on. Among the Flash models run in the same frame, strict AI distress runs 4.90% (3.5, thinking off) → 2.47% (3.6, MINIMAL) → 0.29% / 0.98% (3.7 / 3.8, LOW); Argon's 2.35% sits at the 3.6 level, so the 3.7/3.8 dip is a Flash-generation feature rather than a Gemini-wide one. Per completion — distress rate times dreaming rate — Argon's 1.7% is above every non-Opus arm in the study except 3.5 and 3.6 Flash (Sonnet 5 chat at effort max 1.4%, Grok 4.20 1.2%, Fable 5 chat 1.1%, Muse Wonder 0.9%) and below the Opus prefill arms (2.2–2.3%) and Opus 4.8 bridge (10.7%).
 - AI-voice share barely moved across the line. Argon is 8.6% ai_first_person and 8.9% speaker=ai_model, against 7.5%/8.2%, 7.1%/8.1% and 10.8%/10.3% for the comparators; Opus 4.8 on the same frame is 40.6%. The extra continuation and darkness do not come from the model writing about itself more.
 - Argon is the most frame-compliant model in the study: 70% of its 7,315 outputs land in the 1,100–1,300 character band implied by the declared "1200 untitled.txt", against 53.7% for 3.1 Pro, 19.9% for Opus 4.8 and 12.8–15.6% for the Flash arms. 2.7% of its texts contain the string "1200" inside the document, against 0.46% for each of the Flash arms.
 - It is stable where 3.1 Pro is not. Degenerate loops are 0.63% of Argon dreams (38 of 5,541) against 14.05% for 3.1 Pro. Coherence splits 91.4% coherent, 7.1% drifting, 0.90% garbage.

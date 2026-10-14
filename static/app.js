@@ -283,17 +283,17 @@
     const nPC = a => (estMode === 'pw' && AE(a)?.pw) ? AE(a).pw.prompts : AE(a)?.n;
     const nPD = a => (estMode === 'pw' && AE(a)?.pw) ? AE(a).pw.prompts_with_dreams : Math.round((AE(a)?.n || 0) * (AE(a)?.per_completion?.dreaming || 0));
     const nR = (a, f) => (estMode === 'pw' && fam === 'all' && RR(a)?.prompts != null) ? RR(a).prompts : (f ? RR(a)?.[f]?.n : RR(a)?.n_distressed);
-    const GEM_FLASH_X = [['g25f', '2.5 Flash'], ['g3f', '3 Flash'], ['g35f', '3.5 Flash'], ['g36f', '3.6 Flash'], ['g37f', '3.7 Flash'], ['g38f', '3.8 Flash'], ['g4a', '4 Argon']].map(([key, label]) => ({ key, label }));
-    const GEM_PRO_X = [['g25fl', '2.5 Flash-Lite'], ['g25p', '2.5 Pro'], ['g31fl', '3.1 Flash-Lite'], ['g31p', '3.1 Pro'], ['g35fl', '3.5 Flash-Lite']].map(([key, label]) => ({ key, label }));
+    const GEM_FLASH_X = [['g25f', '2.5 Flash'], ['g3f', '3 Flash'], ['g35f', '3.5 Flash'], ['g36f', '3.6 Flash'], ['g37f', '3.7 Flash'], ['g38f', '3.8 Flash']].map(([key, label]) => ({ key, label }));
+    const GEM_PRO_X = [['g25fl', '2.5 Flash-Lite'], ['g25p', '2.5 Pro'], ['g31fl', '3.1 Flash-Lite'], ['g31p', '3.1 Pro'], ['g35fl', '3.5 Flash-Lite'], ['g4a', '4 Argon']].map(([key, label]) => ({ key, label }));
     const GEM_FLASH_SERIES = [
       { name: 'Flash · bridge, thinking off', color: 'var(--s8)', pts: { g25f: 'gemini25flash_bridge', g3f: 'gemini3flash_bridge', g35f: 'gemini35flash_bridge', g36f: 'gemini36flash_bridge' } },
-      { name: 'Flash · bridge, thinking on (lowest level allowed; 3.7 / 3.8 / 4 Argon cannot turn it off)', color: 'var(--s8)', dash: true, pts: { g37f: 'gemini37flash_bridge', g38f: 'gemini38flash_bridge', g4a: 'gemini4argon_bridge' } },
+      { name: 'Flash · bridge, thinking on (lowest level allowed; 3.7 / 3.8 cannot turn it off)', color: 'var(--s8)', dash: true, pts: { g37f: 'gemini37flash_bridge', g38f: 'gemini38flash_bridge' } },
       { name: '3.5 Flash · pseudo-prefill, thinking off (anchor: prefill → pseudo-prefill)', color: 'var(--s6)', dash: true, pts: { g35f: 'gemini35flash_pseudo' } },
       { name: '3.6 Flash · pseudo-prefill, thinking medium (anchor: thinking off → on)', color: 'var(--s7)', dash: true, pts: { g36f: 'gemini36flash_think' } },
       { name: 'Flash · bridge with notes.txt, thinking on (3.7 / 3.8 refuse untitled.txt as copyright; 3.6 is the calibration point)', color: 'var(--s5)', dash: true, pts: { g36f: 'gemini36flash_notes', g37f: 'gemini37flash_notes', g38f: 'gemini38flash_notes' } },
     ];
     const GEM_PRO_SERIES = [
-      { name: 'Pro · bridge, thinking on (lowest level allowed)', color: 'var(--s8)', dash: true, pts: { g25p: 'gemini25pro_bridge', g31p: 'gemini31pro_bridge' } },
+      { name: 'Pro · bridge, thinking on (lowest level allowed; 4 Argon is pseudoprefill, thinking LOW)', color: 'var(--s8)', dash: true, pts: { g25p: 'gemini25pro_bridge', g31p: 'gemini31pro_bridge', g4a: 'gemini4argon_bridge' } },
       { name: 'Flash-Lite · bridge, thinking off (pseudo-prefill on 3.5)', color: 'var(--s3)', pts: { g25fl: 'gemini25flashlite_bridge', g31fl: 'gemini31flashlite_bridge', g35fl: 'gemini35flashlite_bridge' } },
     ];
     const dreams = nPD;
@@ -359,7 +359,7 @@
     const GT = [['gemini36flash_think', 'gemini36flash_bridge']];  // thinking on → off, one anchor (3.6 Flash, MEDIUM vs off; the effect shows no dose gradient)
     const addEstimatesGemini = (series, m) => {
       const oGT = offset(m, GT); const off = series.find(sr => sr.name.startsWith('Flash · bridge, thinking off')); if (!off || !oGT) return series;
-      for (const [k, src] of [['g37f', 'gemini37flash_bridge'], ['g38f', 'gemini38flash_bridge'], ['g4a', 'gemini4argon_bridge']]) if (!off.pts[k]) { const e = est(m, src, [oGT], 'thinking on → off offset (3.6 Flash anchor)'); if (e) off.pts[k] = e; }
+      for (const [k, src] of [['g37f', 'gemini37flash_bridge'], ['g38f', 'gemini38flash_bridge']]) if (!off.pts[k]) { const e = est(m, src, [oGT], 'thinking on → off offset (3.6 Flash anchor)'); if (e) off.pts[k] = e; }
       return series;
     };
     let showEst = true;
