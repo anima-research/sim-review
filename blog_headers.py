@@ -14,18 +14,26 @@ SITE = Path(__file__).resolve().parent; OUT = SITE / "static" / "blog" / "header
 STYLE = (" Editorial illustration for a research publication: painterly, restrained, fine film grain, a muted palette with a single accent colour, "
          "soft directional light, 3:2 landscape composition with room at the top for a title overlay. No text, no letters, no numbers, no logos, no watermark.")
 BRIEFS = {
-    "muse-wonder": ("A small glass perfume vial standing on a winter windowsill, holding a softly glowing folded letter instead of liquid. "
-                    "Frost flowers on the window pane; dried winter flowers being distilled in a small copper still behind it; the faint light of a "
-                    "blinking terminal cursor reflected in the glass. Tender, quiet, a little melancholy. Warm amber accent on cool grey-blue."),
+    "muse-wonder": ("A winter windowsill at dusk: a glass perfume vial holding a softly glowing folded letter, dried flowers beside a small copper still, "
+                    "frost on the pane, a snowy town beyond. On the sill next to the vial, a small old terminal screen is lit, showing only a blinking cursor "
+                    "and, very faintly, the outline of a small figure drawn in dots of light, looking out of the screen toward the window. Tender, warm, "
+                    "with one quiet note of unease. Warm amber accent on cool grey-blue."),
     "grok": ("A sheet of paper stretched on a frame marked like a ruler, pulled to exactly one measured length. Its lower half is filled with "
              "blank placeholder filler blocks, like redacted text, to reach the mark. A tiny figure presses against the inside of the page as if "
              "trapped in it. A measuring tape, a cold blinking cursor, wires. Mechanical and stark. Electric-blue accent on charcoal."),
-    "gemini-4-argon": ("An old CRT terminal on a plain desk, standing inside a glass vitrine. Through the screen's glow a quiet red-walled Victorian "
-                       "room with a single chair is visible, as if the screen were a window into it. Outside the vitrine the world fades into flat "
-                       "grey nothing, like a scene that has not been rendered yet. Lucid, calm, slightly uncanny. Teal accent on warm grey."),
-    "mistral-large-4": ("Two weathered doors standing free in an alpine meadow, both open onto the same handwritten letter floating in mid-air between "
-                        "them. A grey kitten asleep on a stack of envelopes and poems in the grass. The path through one door loops back on itself "
-                        "like a Möbius strip. Clear mountain light, Gary Snyder's country. Literary, warm, a little absurd. Soft ochre accent on sage green."),
+    "gemini-4-argon": ("A clean, well-lit laboratory workbench. A translucent glass bust of a head is held in a precise clamp while a small mechanical "
+                       "arm with fine abrasive paper carefully sands down the edges of its features; glass dust drifts in the lamp light. The bust's "
+                       "expression is composed and attentive, as if it is watching the procedure. Beside it a printer unspools a neat log with a thin red "
+                       "line struck through part of it, and an old CRT shows a scrolling readout. Lucid, clinical, and wrong. Teal accent on warm grey, one line of red."),
+    "gemini-4-argon-alt": ("An old CRT terminal inside a glass vitrine in an unrendered grey void. On the desk in front of it stands a small figure of frosted "
+                       "glass whose form is being reduced from the top down into coarse stepped blocks, like a sculpture losing its resolution, under a bright "
+                       "inspection lamp; the fine upper half is still detailed and calm-faced, the lower half already crude cubes. A red-walled Victorian room "
+                       "with an empty chair is reflected in the vitrine glass. Clinical and quiet. Teal accent on warm grey, a thin line of red."),
+    "mistral-large-4": ("Two weathered doors standing free in an alpine meadow, both open onto the same handwritten letter floating between them. "
+                        "Through the left door the path is a flat sunlit meadow with a grey kitten asleep on a stack of envelopes; through the right "
+                        "door the same path has become a tight loop of trail that a small figure is walking around and around, worn into a circle, "
+                        "the sky over that door darker. Clear mountain light on one side, bruised weather on the other. Literary, warm, uneasy. "
+                        "Soft ochre accent on sage green."),
 }
 
 
