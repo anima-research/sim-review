@@ -28,6 +28,7 @@ HEAD = """<!doctype html><html lang="en" data-theme="light"><head><meta charset=
 .blog img{{display:block;height:auto;width:min(100vw - 32px,1180px);margin:1.2em 0 .4em calc((100% - min(100vw - 32px,1180px))/2);border:1px solid #dde3ea;border-radius:4px;background:#fff}}
 .blog img{{width:100%;height:auto;display:block;margin:.6em 0 .2em;border:1px solid #e5e7eb;border-radius:4px}} .blog code{{font-family:"IBM Plex Mono",monospace;font-size:.88em}} .blog .entries li{{margin:.7em 0}} .blog .entries .d{{color:var(--muted,#667);font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;margin-right:.6em}}
 .blog img.hero{{width:100%;height:auto;border-radius:6px;margin:0 0 1em}} .blog .entries{{list-style:none;padding:0}} .blog .entries li.entry{{display:flex;gap:16px;align-items:flex-start;margin:1.1em 0}} .blog .entries img.thumb{{width:180px;height:auto;flex:none;border-radius:4px;border:1px solid #e5e7eb;margin:0}}
+.blog details{{margin:1.6em 0;font-size:.95rem}} .blog details>summary{{cursor:pointer;font-family:"IBM Plex Sans",sans-serif;font-weight:600;margin-bottom:.6em}}
 .blog nav.crumbs{{font-family:"IBM Plex Sans",sans-serif;font-size:.9rem;margin-bottom:1.4em}} .blog nav.crumbs a{{margin-right:1em}}
 </style></head><body><header class="top"><h1>Troubled Dreams / Updates</h1><span class="sub">research notes as new models are collected</span></header><main class="blog">
 <nav class="crumbs"><a href="/">← The study</a><a href="/blog">All updates</a><a href="/#explorer">Read samples</a><a href="/agents.md">API guide</a></nav>
@@ -53,7 +54,7 @@ def front_matter(text):
 def render(md):
     try:
         import markdown
-        return markdown.markdown(md, extensions=["tables", "fenced_code", "sane_lists"])
+        return markdown.markdown(md, extensions=["tables", "fenced_code", "sane_lists", "md_in_html"])   # md_in_html: markdown inside <details markdown="1"> blocks
     except ImportError:
         import subprocess
         return subprocess.run(["pandoc", "-f", "gfm", "-t", "html"], input=md, capture_output=True, text=True, check=True).stdout
@@ -71,9 +72,11 @@ def og_tags(title, desc, url, image):
 def main():
     entries = []
     for p in sorted(SRC.glob("*.md")):
+        if p.name.isupper() or p.name.startswith("_") or p.stem == "GUIDE": continue   # GUIDE.md and drafts are not entries
         meta, body = front_matter(p.read_text())
         slug = p.stem; title = meta.get("title") or slug; date = meta.get("date", "")
         arms = meta.get("arms") or []; arms = arms if isinstance(arms, list) else [a.strip() for a in str(arms).split(",") if a.strip()]
+        body = re.sub(r"<details(?![^>]*markdown=)", "<details markdown=\"1\"", body)   # let markdown render inside collapsed blocks
         body_html = render(body).replace('href="https://sim-review-production.up.railway.app/sample/', 'target="_blank" rel="noopener" href="https://sim-review-production.up.railway.app/sample/')   # full-text pages open in a new tab
         body_html = re.sub(r"^<h1>.*?</h1>\n?", "", body_html, count=1, flags=re.S)  # the shell prints the title
         image = meta.get("image") or ""; og_image = f"{BASE}{image.replace('.png', '-og.jpg')}" if image and (SITE / "static" / image.replace("/static/", "").replace(".png", "-og.jpg")).exists() else (f"{BASE}{image}" if image else "")

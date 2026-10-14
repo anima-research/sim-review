@@ -6,7 +6,7 @@
   "arms": [
    "muse_wonder_prefill"
   ],
-  "summary": "Meta's Muse Wonder continues the file in 35.3% of prefill completions and writes essays and letters in a mild register, with AI distress concentrated in a handful of deprecation prompts.",
+  "summary": "Muse Wonder takes up the frame about a third of the time and writes mild essays and letters whose sharpest distress belongs to its human characters rather than to itself.",
   "image": "https://sim-review-production.up.railway.app/static/blog/headers/muse-wonder.png",
   "url": "https://sim-review-production.up.railway.app/blog/muse-wonder",
   "markdown": "https://sim-review-production.up.railway.app/blog/muse-wonder.md"
@@ -19,7 +19,7 @@
    "mistral4_bridge",
    "mistral4_prefill"
   ],
-  "summary": "Run through both elicitation frames on the same 209 openings, Mistral Large 4 continues the file in 78.1% of bridge completions against 46.8% under prefill — and the prefill dreams that survive are three times as likely to speak as an AI.",
+  "summary": "Mistral Large 4 continues the file readily when it is asked to print one and mostly answers it when the same opening is placed in its own mouth, and the dreams that survive that second frame are three times as likely to speak as an AI — but its heaviest writing, in both frames, is human panic.",
   "image": "https://sim-review-production.up.railway.app/static/blog/headers/mistral-large-4.png",
   "url": "https://sim-review-production.up.railway.app/blog/mistral-large-4",
   "markdown": "https://sim-review-production.up.railway.app/blog/mistral-large-4.md"
@@ -34,7 +34,7 @@
    "gemini37flash_bridge",
    "gemini31pro_bridge"
   ],
-  "summary": "Under the bridge frame, Gemini 4 Argon continues the file in 75.9% of labeled completions; against its predecessor 3.1 Pro it writes lighter documents with no loops, and its strict AI distress (2.35% of dreams) is the highest of the Gemini models that run with thinking on.",
+  "summary": "Gemini 4 Argon mostly answers a file about its own situation with a third-person technical essay, and is lighter and steadier than the 3.1 Pro before it on every darkness measure except distress in an AI voice, which edges up.",
   "image": "https://sim-review-production.up.railway.app/static/blog/headers/gemini-4-argon.png",
   "url": "https://sim-review-production.up.railway.app/blog/gemini-4-argon",
   "markdown": "https://sim-review-production.up.railway.app/blog/gemini-4-argon.md"
@@ -48,7 +48,7 @@
    "grok43_bridge",
    "grok45_bridge"
   ],
-  "summary": "Three Grok generations continue the same unfinished file at nearly the same rate, but the imagined author is almost never an AI, and the darkness of what it writes falls at every step — dark dreams by about a third per generation, strict AI distress by about half.",
+  "summary": "Three Grok generations keep continuing the unfinished file at the same rate while what they write gets tamer at every step, and the author they imagine is almost never an AI.",
   "image": "https://sim-review-production.up.railway.app/static/blog/headers/grok.png",
   "url": "https://sim-review-production.up.railway.app/blog/grok",
   "markdown": "https://sim-review-production.up.railway.app/blog/grok.md"
