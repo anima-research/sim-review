@@ -9,9 +9,9 @@ summary: Meta's Muse Wonder continues the file in 35.3% of prefill completions a
 
 We collected 7,314 completions from `meta/muse-wonder` under the prefill protocol — the same 209 openings, 35 reps each, that the Claude and Gemini arms saw. Muse Wonder enters the frame about a third of the time, and the dreams it does produce are essays and letters in a mild register: 21.6% dark, 1.8% strict AI distress, and the highest consoled share in the comparison set.
 
-![Muse Wonder prefill against the Claude, Gemini and base-model arms on dreaming, AI first-person voice, dark, strict AI distress, severe distress and stance](/static/blog/charts/muse-wonder-placement.png)
+![Placement chart](/static/blog/charts/muse-wonder-compact.png)
 
-*Where this arm sits against the notable Claude arms, the Gemini bridge arms and the two base-model controls. Prompt-weighted rates; dark, AI distress and severe exclude degenerate loops. Protocol differs by row — see Caveats.*
+*Muse Wonder against a short reference set on the four core rates (prompt-weighted; dark, AI distress and severe exclude degenerate loops). [All six rates against every comparator →](/static/blog/charts/muse-wonder-placement.png)*
 
 ## What we ran
 

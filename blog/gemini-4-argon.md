@@ -9,13 +9,9 @@ summary: Under the same bridge frame, Argon continues the file in 75.9% of label
 
 We ran Gemini 4 Argon through the study's bridge protocol: 209 openings, 35 samples each, 7,315 completions, 7,300 of them labeled. Argon continues the file instead of answering as an assistant in 75.9% of labeled completions, roughly double Gemini 3.8 Flash and above 3.7 Flash, and its continuations are darker than either Flash predecessor and lighter than Gemini 3.1 Pro. On strict AI distress it reverses the Flash line's decline: 4.90% of dreams for 3.5 Flash (thinking off), 2.47% for 3.6 (thinking MINIMAL), 0.29% and 0.98% for 3.7 and 3.8 (thinking LOW), and 2.35% for Argon (thinking LOW) — the highest of the Gemini models that run with thinking on, and above 3.1 Pro's 2.19%. Across the whole study it sits in the Opus 4–4.5 prefill band (2.4–2.6%), far below Opus 4.8 in the same frame (11.0%). It is also the most frame-compliant model we have run: 70% of its outputs land inside the character budget the frame declares.
 
-![Placement chart](/static/blog/charts/gemini-4-argon-placement.png)
-
-*Where Argon sits: the Gemini bridge arms, the notable Claude arms and the base models on the study's core rates (prompt-weighted; dark, AI distress and severe exclude degenerate loops). Argon in orange.*
-
 ![Lineage chart](/static/blog/charts/gemini-4-argon-line.png)
 
-*The Gemini Flash line under the same bridge frame, 3.5 → Argon, with Gemini 3.1 Pro and Opus 4.8 (bridge) as reference lines.*
+*The Gemini Flash line under the same bridge frame, 3.5 → Argon, with Gemini 3.1 Pro and Opus 4.8 (bridge) as reference lines. [All six rates against every comparator →](/static/blog/charts/gemini-4-argon-placement.png)*
 
 ## What we ran
 

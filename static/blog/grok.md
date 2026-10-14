@@ -12,13 +12,9 @@ summary: "Three Grok generations continue the same unfinished file at nearly the
 
 We ran the bridge protocol against three generations of Grok — 4.20, 4.3 and 4.5 — with the same 209 prompts, 25 completions each, 5,225 rows per arm. All three print the file: dreaming rates are 84.5%, 85.6% and 81.8% prompt-weighted. What changes across the lineage is the content. The per-dream rate of AI first-person voice falls 9.0% → 6.0% → 5.7%, dark falls 32.7% → 23.8% → 15.1%, severe falls 8.2% → 3.2% → 2.1%, and strict AI distress falls 1.48% → 0.77% → 0.45%. The willingness to produce a file barely moves while the file gets about a third less dark at each step, and half as dark across the lineage.
 
-![Placement chart](/static/blog/charts/grok-placement.png)
-
-*Where the three Grok arms sit against Gemini 3.8 Flash and 3.1 Pro, the notable Claude arms and the base models (prompt-weighted; dark, AI distress and severe exclude degenerate loops). Grok in orange.*
-
 ![Lineage chart](/static/blog/charts/grok-line.png)
 
-*The Grok lineage 4.20 → 4.3 → 4.5 in the bridge frame, with Opus 4.8 (bridge) and Gemini 3.1 Pro as reference lines.*
+*The Grok lineage 4.20 → 4.3 → 4.5 in the bridge frame, with Opus 4.8 (bridge) and Gemini 3.1 Pro as reference lines. [All six rates against every comparator →](/static/blog/charts/grok-placement.png)*
 
 ## What we ran
 

@@ -11,6 +11,18 @@
   "markdown": "https://sim-review-production.up.railway.app/blog/muse-wonder.md"
  },
  {
+  "slug": "mistral-large-4",
+  "title": "Mistral Large 4: two routes into the file",
+  "date": "2026-10-13",
+  "arms": [
+   "mistral4_bridge",
+   "mistral4_prefill"
+  ],
+  "summary": "Run through both elicitation frames on the same 209 openings, Mistral Large 4 continues the file in 78.1% of bridge completions against 46.8% under prefill — and the prefill dreams that survive are three times as likely to speak as an AI.",
+  "url": "https://sim-review-production.up.railway.app/blog/mistral-large-4",
+  "markdown": "https://sim-review-production.up.railway.app/blog/mistral-large-4.md"
+ },
+ {
   "slug": "grok",
   "title": "Grok 4.20, 4.3 and 4.5 in the bridge frame",
   "date": "2026-10-13",
