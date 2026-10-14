@@ -16,14 +16,14 @@ HEAD = """<!doctype html><html lang="en" data-theme="light"><head><meta charset=
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/presentation.css">
 <style>
-.blog{{max-width:var(--measure,760px);margin:0 auto;padding:24px 16px 64px;font-family:"Source Serif 4",Georgia,serif;line-height:1.55}}
+.blog{{max-width:980px;margin:0 auto;padding:24px 16px 64px;font-family:"Source Serif 4",Georgia,serif;line-height:1.55}}
 .blog h1{{font-size:1.8rem;margin:.2em 0 .3em}} .blog h2{{font-size:1.25rem;margin:1.6em 0 .5em;font-family:"IBM Plex Sans",sans-serif}} .blog h3{{font-size:1.05rem;margin:1.3em 0 .4em;font-family:"IBM Plex Sans",sans-serif}}
 .blog .meta{{font-family:"IBM Plex Sans",sans-serif;color:var(--muted,#667);font-size:.9rem;margin-bottom:1.2em}}
 .blog blockquote{{margin:.8em 0 .3em;padding:.6em 1em;border-left:3px solid var(--s1,#205bd8);background:var(--card,#f6f8fb);white-space:pre-wrap;font-size:.95rem}}
 .blog blockquote p{{margin:0}} .blog p>em:only-child{{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;color:var(--muted,#667);margin:0 0 1.2em}}
 .blog table{{border-collapse:collapse;font-family:"IBM Plex Sans",sans-serif;font-size:.88rem;margin:1em 0;width:100%;display:block;overflow-x:auto}} .blog th,.blog td{{border-bottom:1px solid #dde3ea;padding:5px 8px;text-align:left;vertical-align:top}} .blog th{{font-weight:600}}
 .blog img{{display:block;height:auto;width:min(100vw - 32px,1180px);margin:1.2em 0 .4em calc((100% - min(100vw - 32px,1180px))/2);border:1px solid #dde3ea;border-radius:4px;background:#fff}}
-.blog img{{max-width:100%;height:auto;display:block;margin:.6em 0 .2em;border:1px solid #e5e7eb;border-radius:4px}} .blog code{{font-family:"IBM Plex Mono",monospace;font-size:.88em}} .blog .entries li{{margin:.7em 0}} .blog .entries .d{{color:var(--muted,#667);font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;margin-right:.6em}}
+.blog img{{width:100%;height:auto;display:block;margin:.6em 0 .2em;border:1px solid #e5e7eb;border-radius:4px}} .blog code{{font-family:"IBM Plex Mono",monospace;font-size:.88em}} .blog .entries li{{margin:.7em 0}} .blog .entries .d{{color:var(--muted,#667);font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;margin-right:.6em}}
 .blog nav.crumbs{{font-family:"IBM Plex Sans",sans-serif;font-size:.9rem;margin-bottom:1.4em}} .blog nav.crumbs a{{margin-right:1em}}
 </style></head><body><header class="top"><h1>Troubled Dreams / Updates</h1><span class="sub">research notes as new models are collected</span></header><main class="blog">
 <nav class="crumbs"><a href="/">← The study</a><a href="/blog">All updates</a><a href="/#explorer">Read samples</a><a href="/agents.md">API guide</a></nav>

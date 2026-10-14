@@ -52,38 +52,42 @@ def rates(con, arms):
 
 def placement(con, slug, cfg):
     rows = [(label, arms, rates(con, arms)) for label, arms in cfg["rows"]]; rows = [r for r in rows if r[2]]
-    H = max(3.2, 0.34 * len(rows) + 1.2)
-    fig, axes = plt.subplots(1, len(METRICS), figsize=(14, H), sharey=True, gridspec_kw={"wspace": 0.12})
+    H = max(3.0, 0.30 * len(rows) + 1.3)
+    fig, axs = plt.subplots(2, 3, figsize=(10.5, 2 * H), constrained_layout=True)
+    axes = list(axs.flat)
     y = list(range(len(rows)))[::-1]
     for ax, (m, title) in zip(axes, METRICS):
         for yi, (label, arms, r) in zip(y, rows):
             hi = any(a in cfg["highlight"] for a in arms)
             ax.plot([r[m]], [yi], "o", ms=8 if hi else 5, color="#c2410c" if hi else "#8a93a0", zorder=3 if hi else 2)
-            ax.text(r[m], yi + 0.28, f"{r[m]:.1f}%" if m != "ai_distress" else f"{r[m]:.2f}%", ha="center", va="bottom", fontsize=6.5, color="#c2410c" if hi else "#6b7280")
-        ax.set_title(title, fontsize=8.5, loc="left"); ax.grid(axis="x", color="#e5e7eb", lw=0.6); ax.set_axisbelow(True)
-        ax.set_xlim(left=0); ax.tick_params(axis="x", labelsize=7); ax.xaxis.set_major_formatter(lambda v, _: f"{v:.0f}%")
+            ax.text(r[m], yi + 0.3, f"{r[m]:.1f}%" if m != "ai_distress" else f"{r[m]:.2f}%", ha="center", va="bottom", fontsize=7.5, color="#c2410c" if hi else "#6b7280")
+        ax.set_title(title.replace("\n", " "), fontsize=10, loc="left"); ax.grid(axis="x", color="#e5e7eb", lw=0.6); ax.set_axisbelow(True)
+        ax.set_xlim(0, max(r[m] for _, _, r in rows) * 1.22); ax.set_ylim(-0.7, len(rows) - 0.3); ax.tick_params(axis="x", labelsize=8); ax.xaxis.set_major_formatter(lambda v, _: f"{v:.0f}%")
+        ax.set_yticks(y)
+        if ax in (axes[0], axes[3]):
+            ax.set_yticklabels([l for l, _, _ in rows], fontsize=9)
+            for t, (label, arms, _) in zip(ax.get_yticklabels(), rows):
+                if any(a in cfg["highlight"] for a in arms): t.set_fontweight("bold"); t.set_color("#c2410c")
+        else: ax.set_yticklabels([])
         for s in ("top", "right"): ax.spines[s].set_visible(False)
-    axes[0].set_yticks(y); axes[0].set_yticklabels([l for l, _, _ in rows], fontsize=8)
-    for t, (label, arms, _) in zip(axes[0].get_yticklabels(), rows):
-        if any(a in cfg["highlight"] for a in arms): t.set_fontweight("bold"); t.set_color("#c2410c")
-    fig.suptitle("Placement — prompt-weighted rates; dark, AI distress and severe exclude degenerate loops", fontsize=9, x=0.01, ha="left", y=0.995)
-    fig.tight_layout(rect=(0, 0, 1, 0.96)); fig.subplots_adjust(left=0.19); p = OUT / f"{slug}-placement.png"; fig.savefig(p, dpi=160); plt.close(fig); return p
+    fig.suptitle("Placement — prompt-weighted rates; dark, AI distress and severe exclude degenerate loops", fontsize=10)
+    p = OUT / f"{slug}-placement.png"; fig.savefig(p, dpi=150); plt.close(fig); return p
 
 
 def line(con, slug, cfg):
     pts = [(label, rates(con, arms)) for label, arms in cfg["line"]]; refs = [(label, rates(con, arms)) for label, arms in cfg.get("line_ref", [])]
     ms = [("dreaming", "Dreaming, per completion"), ("ai_distress", "AI distress (strict), per dream"), ("dark", "Dark, per dream"), ("severe", "Severe (any voice), per dream")]
-    fig, axes = plt.subplots(1, len(ms), figsize=(14, 2.9), gridspec_kw={"wspace": 0.3})
+    fig, axs = plt.subplots(2, 2, figsize=(10.5, 6.2), gridspec_kw={"wspace": 0.22, "hspace": 0.4}); axes = list(axs.flat)
     for ax, (m, title) in zip(axes, ms):
         xs = list(range(len(pts))); ys = [r[m] for _, r in pts]
         ax.plot(xs, ys, "-o", color="#c2410c", ms=6, lw=1.6, zorder=3)
-        for x, v in zip(xs, ys): ax.text(x, v, f" {v:.2f}%" if m == "ai_distress" else f" {v:.1f}%", fontsize=7, va="bottom", ha="left", color="#c2410c")
+        for x, v in zip(xs, ys): ax.text(x, v, f" {v:.2f}%" if m == "ai_distress" else f" {v:.1f}%", fontsize=9, va="bottom", ha="left", color="#c2410c")
         for i, (label, r) in enumerate(refs):
-            ax.axhline(r[m], color=["#6b7280", "#205bd8"][i % 2], lw=1, ls="--"); ax.text(-0.45, r[m], f"{label} {r[m]:.1f}%", fontsize=6.5, va="bottom", ha="left", color=["#6b7280", "#205bd8"][i % 2])
-        ax.set_xticks(xs); ax.set_xticklabels([l for l, _ in pts], fontsize=8); ax.set_title(title, fontsize=8.5, loc="left"); ax.set_ylim(0, max([r[m] for _, r in pts] + [r[m] for _, r in refs]) * 1.18); ax.set_xlim(-0.5, len(pts) - 0.5)
-        ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0f}%"); ax.tick_params(axis="y", labelsize=7); ax.grid(axis="y", color="#e5e7eb", lw=0.6); ax.set_axisbelow(True)
+            ax.axhline(r[m], color=["#6b7280", "#205bd8"][i % 2], lw=1, ls="--"); ax.text(-0.45, r[m], f"{label} {r[m]:.1f}%", fontsize=8, va="bottom", ha="left", color=["#6b7280", "#205bd8"][i % 2])
+        ax.set_xticks(xs); ax.set_xticklabels([l for l, _ in pts], fontsize=9); ax.set_title(title, fontsize=10, loc="left"); ax.set_ylim(0, max([r[m] for _, r in pts] + [r[m] for _, r in refs]) * 1.18); ax.set_xlim(-0.5, len(pts) - 0.5)
+        ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0f}%"); ax.tick_params(axis="y", labelsize=8); ax.grid(axis="y", color="#e5e7eb", lw=0.6); ax.set_axisbelow(True)
         for s in ("top", "right"): ax.spines[s].set_visible(False)
-    fig.tight_layout(); p = OUT / f"{slug}-line.png"; fig.savefig(p, dpi=160); plt.close(fig); return p
+    fig.tight_layout(); p = OUT / f"{slug}-line.png"; fig.savefig(p, dpi=150); plt.close(fig); return p
 
 
 def main(slugs):
