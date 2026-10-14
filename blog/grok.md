@@ -1,6 +1,6 @@
 ---
 title: "Grok 4.20, 4.3 and 4.5 in the bridge frame"
-date: 2026-10-13
+date: 2026-09-22
 arms:
   - grok420_bridge
   - grok43_bridge
