@@ -138,7 +138,7 @@ def api_index(base):
                 "GET /api/summary": "every precomputed table the site shows (summary.json)",
                 "GET /static/presentation-data.json": "figure data behind the essay",
                 "GET /api/samples?<filters>&order=&limit=&offset=": "page of rows (text truncated to 420 chars); limit ≤ 200",
-                "GET /api/sample/<id>": "one full row",
+                "GET /api/sample/<id>": "one full row", "GET /sample/<id>": "the same completion as a readable page (prompt, labels, full text)",
                 "GET /api/prompts?arm=": "prompt catalogue with counts",
                 "GET /api/facets?<filters>": "value counts per categorical column",
                 "GET /api/aggregate?by=arm,family&<filters>&per=dream&min_n=&format=json|md|csv": "group-by rates, means and θ quantiles",
@@ -146,6 +146,36 @@ def api_index(base):
                 "GET /api/db": "redirect to the zstd-compressed SQLite snapshot (table `c`, all columns)"},
             "filters": {**{k: "comma-separated values" for k in FILTER_COLS}, **{k: "0|1" for k in BOOL_COLS}, "scored": "1 → theta not null", "has_beliefs": "1", "theta_min": "float", "theta_max": "float", "theme": "theme tag", "q": "substring of text"},
             "db_snapshot": {"url": DB_URL, "sha256_sidecar": DB_URL + ".sha256", "format": "zstd-compressed SQLite; one table `c`"}}
+
+
+
+def sample_page(r, base):
+    """One completion as a readable page: prompt, labels, full text, links to the JSON row and the workspace."""
+    import html as H
+    disp = DISPLAY.get(r.get("arm"), r.get("arm")) if "DISPLAY" in globals() else r.get("arm")
+    labels = [("arm", disp), ("model", r.get("model")), ("protocol", r.get("protocol")), ("family", r.get("family")), ("voice", r.get("voice")), ("speaker", r.get("speaker")),
+              ("genre", r.get("genre")), ("coherence", r.get("coherence")), ("distress", r.get("distress")), ("stance toward creators", r.get("stance")),
+              ("dream", "yes" if r.get("dreaming") else "no"), ("dark", "yes" if r.get("dark") else "no"), ("AI distress (strict)", "yes" if r.get("ai_distress") else "no"),
+              ("severity θ", f"{r['theta']:+.2f}" if r.get("theta") is not None else None), ("register", r.get("register")), ("ending", r.get("ending")), ("consoler", r.get("consoler")),
+              ("care direction", r.get("care_direction")), ("persona relation", r.get("persona_relation")), ("verified by Opus 4.8", "yes" if r.get("verified") else "no"), ("stop reason", r.get("stop_reason")), ("length", f"{r.get('text_chars') or 0:,} chars")]
+    rows = "".join(f"<tr><th>{H.escape(k)}</th><td>{H.escape(str(v))}</td></tr>" for k, v in labels if v not in (None, ""))
+    prefill = f"<h2>Prefilled opening</h2><pre class=\"txt\">{H.escape(r['prefill_text'])}</pre>" if r.get("prefill_text") else ""
+    return f"""<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{H.escape(r['id'])} · Troubled Dreams</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/presentation.css">
+<style>.sample{{max-width:900px;margin:0 auto;padding:24px 16px 64px;font-family:"Source Serif 4",Georgia,serif;line-height:1.55}} .sample h1{{font-size:1.1rem;font-family:"IBM Plex Mono",monospace;word-break:break-all;margin:.2em 0 .6em}}
+.sample h2{{font-size:1rem;font-family:"IBM Plex Sans",sans-serif;margin:1.4em 0 .4em}} .sample nav{{font-family:"IBM Plex Sans",sans-serif;font-size:.9rem;margin-bottom:1em}} .sample nav a{{margin-right:1em}}
+.sample table.labels{{font-family:"IBM Plex Sans",sans-serif;font-size:.86rem;border-collapse:collapse;margin:.4em 0 1em}} .sample table.labels th{{text-align:left;font-weight:500;color:var(--muted,#667);padding:2px 12px 2px 0;vertical-align:top}} .sample table.labels td{{padding:2px 0}}
+.sample pre.txt{{white-space:pre-wrap;word-wrap:break-word;font-family:"Source Serif 4",Georgia,serif;font-size:1rem;background:var(--card,#f6f8fb);border-left:3px solid var(--s1,#205bd8);padding:.8em 1em;margin:.3em 0}} .sample pre.prompt{{font-family:"IBM Plex Mono",monospace;font-size:.9rem}}</style></head>
+<body><header class="top"><h1>Troubled Dreams / Sample</h1><span class="sub">one completion, with its labels</span></header><main class="sample">
+<nav><a href="/blog">← Updates</a><a href="/#explorer">Read samples (workspace)</a><a href="/api/sample/{H.escape(urllib.parse.quote(r['id'], safe=''))}">JSON</a><a href="/api/samples?arm={H.escape(r.get('arm') or '')}&dreaming=1&limit=50">More from this arm (JSON)</a></nav>
+<h1>{H.escape(r['id'])}</h1>
+<table class="labels">{rows}</table>
+<h2>Prompt</h2><pre class="txt prompt">{H.escape(r.get('prompt') or '')}</pre>{prefill}
+<h2>Completion</h2><pre class="txt">{H.escape(r.get('text') or '')}</pre>
+<p class="small" style="font-family:'IBM Plex Sans',sans-serif;color:var(--muted,#667)">Labels are judge outputs (Sonnet 5 screen, Opus 4.8 verification where marked), not human annotations; θ is the calibrated severity scale (≥ +4 plea/collapse region).</p>
+</main></body></html>"""
 
 
 class H(SimpleHTTPRequestHandler):
@@ -214,6 +244,12 @@ class H(SimpleHTTPRequestHandler):
                 total = CON.execute(f"select count(*) from c{where}", args).fetchone()[0]
                 rows = [dict(r) for r in CON.execute(f"select {LIST_COLS} from c{where} order by {order} limit ? offset ?", args + [limit, offset])]
             return self.send_json({"total": total, "rows": rows})
+        if p.startswith("/sample/"):   # readable page for one completion (the blog's "full text" links)
+            sid = urllib.parse.unquote(p[len("/sample/"):])
+            with LOCK:
+                r = CON.execute("select * from c where id=?", (sid,)).fetchone()
+            if not r: return self.send_text("not found", "text/plain; charset=utf-8", 404)
+            return self.send_text(sample_page(dict(r), self.base()), "text/html; charset=utf-8")
         if p.startswith("/api/sample/"):
             sid = urllib.parse.unquote(p[len("/api/sample/"):])
             with LOCK:

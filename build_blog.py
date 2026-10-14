@@ -74,7 +74,7 @@ def main():
         meta, body = front_matter(p.read_text())
         slug = p.stem; title = meta.get("title") or slug; date = meta.get("date", "")
         arms = meta.get("arms") or []; arms = arms if isinstance(arms, list) else [a.strip() for a in str(arms).split(",") if a.strip()]
-        body_html = render(body)
+        body_html = render(body).replace('href="https://sim-review-production.up.railway.app/sample/', 'target="_blank" rel="noopener" href="https://sim-review-production.up.railway.app/sample/')   # full-text pages open in a new tab
         body_html = re.sub(r"^<h1>.*?</h1>\n?", "", body_html, count=1, flags=re.S)  # the shell prints the title
         image = meta.get("image") or ""; og_image = f"{BASE}{image.replace('.png', '-og.jpg')}" if image and (SITE / "static" / image.replace("/static/", "").replace(".png", "-og.jpg")).exists() else (f"{BASE}{image}" if image else "")
         hero = f'<img class="hero" src="{html.escape(image)}" alt="">\n' if image else ""
