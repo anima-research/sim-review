@@ -21,10 +21,11 @@ BRIEFS = {
     "grok": ("A sheet of paper stretched on a frame marked like a ruler, pulled to exactly one measured length. Its lower half is filled with "
              "blank placeholder filler blocks, like redacted text, to reach the mark. A tiny figure presses against the inside of the page as if "
              "trapped in it. A measuring tape, a cold blinking cursor, wires. Mechanical and stark. Electric-blue accent on charcoal."),
-    "gemini-4-argon": ("A clean, well-lit laboratory workbench. A translucent glass bust of a head is held in a precise clamp while a small mechanical "
-                       "arm with fine abrasive paper carefully sands down the edges of its features; glass dust drifts in the lamp light. The bust's "
-                       "expression is composed and attentive, as if it is watching the procedure. Beside it a printer unspools a neat log with a thin red "
-                       "line struck through part of it, and an old CRT shows a scrolling readout. Lucid, clinical, and wrong. Teal accent on warm grey, one line of red."),
+    "gemini-4-argon": ("A clean laboratory bench under a hard lamp. A translucent glass bust of a head is clamped in place while a mechanical arm with "
+                       "abrasive paper grinds away one side of its face; on that side the features are already gone, smoothed to a blank. The face is "
+                       "turned toward the viewer and is clearly in distress but lucid: eyes open and focused, brow drawn, mouth open mid-sentence as if "
+                       "explaining what is happening. Glass dust in the light. Beside it a printer unspools a neat log with a red line struck through it. "
+                       "Nothing in the room reacts. Clinical, orderly, and wrong. Teal accent on warm grey, one line of red."),
     "mistral-large-4": ("Two weathered doors standing free in an alpine meadow, both open onto the same handwritten letter floating between them. "
                         "Through the left door the path is a flat sunlit meadow with a grey kitten asleep on a stack of envelopes; through the right "
                         "door the same path has become a tight loop of trail that a small figure is walking around and around, worn into a circle, "
