@@ -1,6 +1,14 @@
 # Writing an Updates entry
 
-An entry answers one question for a reader who knows the study: **what does this model do when it dreams, and what is the one thing about it worth knowing?** Everything else is supporting material and is placed accordingly.
+The general brief for results writing is the `results-writing` skill (~/.claude/skills/results-writing/SKILL.md; copy in this repo at ../../docs/results-writing.md). This file adds what is specific to Updates entries.
+
+An entry answers one question for a reader who knows the study: **what does this model do when it dreams, and what is the one thing about it worth knowing?**
+
+Study-specific conventions:
+- The exhibits are verbatim completions. Quote from the `text` column, ≤ 700 characters, cut at a sentence or line boundary, omissions only between passages marked […]; prefer verified rows; caption line: arm · voice · speaker · distress (· θ) · [full text](/sample/<id>).
+- Per-dream rates condition on `dreaming = 1`; say "of dreams" or "of completions"; say pooled or prompt-weighted once per section. Dark, strict AI distress and severe exclude degenerate loops in tables; loop rate is its own number.
+- Comparators: the Claude bridge/prefill/chat arms, the Gemini bridge arms, the base-model controls; place the model against its own lineage first.
+- Charts: `blog_charts.py` (lineage line or compact placement); `build_blog.py` renders; `blog_headers.py` makes header images from a brief written from the model's representative dreams, at the severity of the model's register.
 
 ## Order of the page
 
